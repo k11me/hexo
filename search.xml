@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[gitlab 的问题]]></title>
     <url>%2F2019%2F08%2F05%2F</url>
-    <content type="text"><![CDATA[gitlab 的问题gitlab 不能正常启动果然是docker强制使用TLS引起的…… 目前的解决方案使用自定义的docker镜像来载入gitlab…… 并不是什么良策…… 等等看什么时候可以修正吧…… 博客更新博客更新到7.3.0,从jekyll 换到 hexo 设置什么的都没怎么变 关闭评论 1comments: false]]></content>
+    <content type="text"><![CDATA[gitlab 的问题gitlab 不能正常启动果然是docker强制使用TLS引起的…… 目前的解决方案使用自定义的docker镜像来载入gitlab…… 并不是什么良策…… 等等看什么时候可以修正吧…… 博客更新博客更新到7.3.0,从jekyll 换到 hexo 设置什么的都没怎么变 关闭评论 1comments: false gitlab 保护分支Projects → Settings → Repository → Protected Tags → unprotect 解除保护]]></content>
       <categories>
         <category>Living</category>
       </categories>
@@ -1219,9 +1219,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2016年7月14日]]></title>
+    <title><![CDATA[2016年7月15日]]></title>
     <url>%2F2017%2F12%2F24%2F</url>
-    <content type="text"><![CDATA[日期：2016年7月14日今日记录学习完成laravel入门，完成学习笔记。 定制玩家天赋 今日计划完成度 学习gulp与sass 定制玩家天赋 laravel 快速入门学习 学习数据结构 明日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
+    <content type="text"><![CDATA[日期：2016年7月15日今日记录学习完成laravel入门，完成用户部分笔记。 构建laravel基础学习目录。自定义章节：第5章 预计完成web部分学习需要一周时间。 变更计划以时长为3天。后期根据情况调整。 今日计划完成度 学习gulp与sass laravel 快速入门学习 学习数据结构 3日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
       <categories>
         <category>Living</category>
       </categories>
@@ -1230,9 +1230,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2016年7月15日]]></title>
+    <title><![CDATA[2016年7月19日]]></title>
     <url>%2F2017%2F12%2F24%2F</url>
-    <content type="text"><![CDATA[日期：2016年7月15日今日记录学习完成laravel入门，完成用户部分笔记。 构建laravel基础学习目录。自定义章节：第5章 预计完成web部分学习需要一周时间。 变更计划以时长为3天。后期根据情况调整。 今日计划完成度 学习gulp与sass laravel 快速入门学习 学习数据结构 3日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
+    <content type="text"><![CDATA[日期：2016年7月19日今日记录完成laravel HTTP组件学习。 寻找laravel的通信加密方法。 使用dingo设计API 使用JWT进行通信加密。 JWT与UE4的兼容性有待研究。 路由方法暂定为控制器路由。主要原因是使用缓存访问速度较快。 前端与后端分离是必然。PC端与App端使用的API也应该不同。 今日计划完成度 laravel HTTP组件学习 3日计划 学习gulp与sass 学习laravel 框架与数据部分。 学习数据结构 了解HTML5 与 CSS3]]></content>
       <categories>
         <category>Living</category>
       </categories>
@@ -1263,20 +1263,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2016年7月19日]]></title>
+    <title><![CDATA[2016年7月14日]]></title>
     <url>%2F2017%2F12%2F24%2F</url>
-    <content type="text"><![CDATA[日期：2016年7月19日今日记录完成laravel HTTP组件学习。 寻找laravel的通信加密方法。 使用dingo设计API 使用JWT进行通信加密。 JWT与UE4的兼容性有待研究。 路由方法暂定为控制器路由。主要原因是使用缓存访问速度较快。 前端与后端分离是必然。PC端与App端使用的API也应该不同。 今日计划完成度 laravel HTTP组件学习 3日计划 学习gulp与sass 学习laravel 框架与数据部分。 学习数据结构 了解HTML5 与 CSS3]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2016年7月27日]]></title>
-    <url>%2F2017%2F12%2F24%2F</url>
-    <content type="text"><![CDATA[日期：2016年7月27日今日记录新头像很好看想要大图 laravel 是一个框架，像一座空房子。之后要做的，自然就是装修了。 再根据情况对装修的风格进行设计，这叫用户需求设计。这个词在许多领域是通用的。 一个一个的组件可以看做房子里的家具，每个都有自己的使命。 CSS与HTML就是壁纸啊，灯具啊，一些用来欣赏的。也是网页看起来的样子。也是叫前端~ API可以看成墙壁上的电源，给手机充电的。实际上用来传递信息。 嗯 28日啦~ 祝我自己生日快乐啦~ 愿望是在今年11月的某一天，能做完网站与PC端游戏，贪心一点能做完APP就更好了~ 其他： 试用一个叫pandoc的软件，结论是对中文支持并不友好。 用途:转换各种文档的工具。 今日计划完成度 1. laravel服务学习，进行中。 3日计划 1. 学习gulp与sass 2. 学习laravel 服务。 3. 学习数据结构 4. 了解HTML5 与 CSS3 5. bootstrap学习（前端框架）]]></content>
+    <content type="text"><![CDATA[日期：2016年7月14日今日记录学习完成laravel入门，完成学习笔记。 定制玩家天赋 今日计划完成度 学习gulp与sass 定制玩家天赋 laravel 快速入门学习 学习数据结构 明日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
       <categories>
         <category>Living</category>
       </categories>
@@ -1288,6 +1277,17 @@
     <title><![CDATA[2016年7月23日]]></title>
     <url>%2F2017%2F12%2F24%2F</url>
     <content type="text"><![CDATA[日期：2016年7月23日今日记录学习完成了，laravel 框架与数据部分。 Eloquent ORM 处理数据的优势很大。 感觉上比较容易。对于网站与APP的API实现起来也比较容易。 但是PC端，要考虑双向通信的延时问题。需要玩家等待登录的可能性大。 PC端最大问题可能是地图与玩家匹配。 全球大服务器需要很详细的分析。 今日计划完成度 laravel 框架与数据部分 3日计划 学习gulp与sass 学习laravel 服务。 学习数据结构 了解HTML5 与 CSS3]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月27日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月27日今日记录新头像很好看想要大图 laravel 是一个框架，像一座空房子。之后要做的，自然就是装修了。 再根据情况对装修的风格进行设计，这叫用户需求设计。这个词在许多领域是通用的。 一个一个的组件可以看做房子里的家具，每个都有自己的使命。 CSS与HTML就是壁纸啊，灯具啊，一些用来欣赏的。也是网页看起来的样子。也是叫前端~ API可以看成墙壁上的电源，给手机充电的。实际上用来传递信息。 嗯 28日啦~ 祝我自己生日快乐啦~ 愿望是在今年11月的某一天，能做完网站与PC端游戏，贪心一点能做完APP就更好了~ 其他： 试用一个叫pandoc的软件，结论是对中文支持并不友好。 用途:转换各种文档的工具。 今日计划完成度 1. laravel服务学习，进行中。 3日计划 1. 学习gulp与sass 2. 学习laravel 服务。 3. 学习数据结构 4. 了解HTML5 与 CSS3 5. bootstrap学习（前端框架）]]></content>
       <categories>
         <category>Living</category>
       </categories>
@@ -1474,6 +1474,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[2016年7月12日]]></title>
+    <url>%2F2016%2F07%2F12%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月12日今日记录在ubuntu中安装gulp与sass。 安装nginx+php7.0+mysql。 明日计划 学习gulp与sass 定制玩家天赋 laravel 学习 学习数据结构]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[gulp 学习指南]]></title>
     <url>%2F2016%2F07%2F12%2F</url>
     <content type="text"><![CDATA[about gulp安装nodesudo apt install nodejs安装 nodejs-legacysudo apt install nodejs-legacy安装npmsudo apt install npm安装gulpsudo npm install -g gulp查看node 版本node -v查看npm 版本npm -v查看gulp 版本gulp -v测试gulp时，需要package.json与gulpfile.js文件 安装gulp-sassnpm install gulp-sass]]></content>
@@ -1493,17 +1504,6 @@
       </categories>
       <tags>
         <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2016年7月12日]]></title>
-    <url>%2F2016%2F07%2F12%2F</url>
-    <content type="text"><![CDATA[日期：2016年7月12日今日记录在ubuntu中安装gulp与sass。 安装nginx+php7.0+mysql。 明日计划 学习gulp与sass 定制玩家天赋 laravel 学习 学习数据结构]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
       </tags>
   </entry>
   <entry>
