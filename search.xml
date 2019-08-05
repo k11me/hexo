@@ -1,0 +1,1553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[gitlab 的问题]]></title>
+    <url>%2F2019%2F08%2F05%2F</url>
+    <content type="text"><![CDATA[gitlab 的问题gitlab 不能正常启动果然是docker强制使用TLS引起的…… 目前的解决方案使用自定义的docker镜像来载入gitlab…… 并不是什么良策…… 等等看什么时候可以修正吧…… 博客更新博客更新到7.3.0,从jekyll 换到 hexo 设置什么的都没怎么变 关闭评论 1comments: false]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>docker</tag>
+        <tag>gitlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[真是……]]></title>
+    <url>%2F2019%2F08%2F04%2F</url>
+    <content type="text"><![CDATA[大枪最后谁的枪大，谁赢…… 一点都不觉得羞愧吗…… 绑架人口有意思吗…… 沟通是无用的…… 重要的一课…… 其他最近晚上梦都好奇怪……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[无事儿~]]></title>
+    <url>%2F2019%2F07%2F31%2F</url>
+    <content type="text"><![CDATA[日常Vega 64 使用 maya 时有不能跨屏幕的bug 在display 中设置 DX11 可修复 AMD的东西稳定性是真的不好 之后要尽力避免使用…… 生日也无事生日无事，不知道送自己什么好…… 平淡的过了…… 其他algolia 发来邮件才知道全局搜索没关。 google cloud 的计费方式很奇怪，300 USD的额度应该可以使用8个月 实际上只有6个月不到。 当使用服务数量变大时，费用恐怕难以进行预估…… 这是个大问题！ 十万人在线一个月的费用都将出现巨大偏差…… 心塞…… 历史账单还查不到！神烦！ 平衡负载时，自动对服务器数量扩充，注销等等，操作没有详细的记录，也是难以接受的！ laravel Scout 拖慢速度元凶！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[手贱]]></title>
+    <url>%2F2019%2F07%2F24%2F</url>
+    <content type="text"><![CDATA[手贱升级了docker 到 19.03 版本， 因为强制使用TLS 导致 gitlab 镜像不能正常启动…… 各方的解决办法都不怎么样…… 姑且回滚到上个版本吧…… 哎…… 手贱是有代价的…… 备份太重要了！ 备份太重要了！ 备份太重要了！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[不错~]]></title>
+    <url>%2F2019%2F07%2F14%2F</url>
+    <content type="text"><![CDATA[ff14ff14 确实很有趣，不过剧情有点拖。 环境也比wow 好很多，画质一般。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[双向绑定的烦恼]]></title>
+    <url>%2F2019%2F06%2F23%2F</url>
+    <content type="text"><![CDATA[vue 中数据复制vue 中 使用 _.clone() 复制数据后，当原始数据发生变化时，克隆的数据也随之改变 使用_.cloneDeep() 可以解决。 减法的效果优于加法~~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[终于……]]></title>
+    <url>%2F2019%2F06%2F21%2F</url>
+    <content type="text"><![CDATA[终于……朝廷的手，伸向了…… 红宝书 V2.0 来袭]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[日常]]></title>
+    <url>%2F2019%2F06%2F17%2F</url>
+    <content type="text"><![CDATA[日常HK的结果貌似不错]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HK]]></title>
+    <url>%2F2019%2F06%2F13%2F</url>
+    <content type="text"><![CDATA[祭品100w+ 的祭品 看天朝如何吧]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[哎……]]></title>
+    <url>%2F2019%2F06%2F05%2F</url>
+    <content type="text"><![CDATA[哎……恬不知耻 赤裸裸的威胁 估计也没什么用……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[30日了~]]></title>
+    <url>%2F2019%2F05%2F30%2F</url>
+    <content type="text"><![CDATA[更新了在自动化的道路上越走越远了…… 毕竟一个人能观察的有限……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[更新了~]]></title>
+    <url>%2F2019%2F05%2F23%2F</url>
+    <content type="text"><![CDATA[果然发生💊💊💊💊💊💊 车门被划不知道什么用钥匙划了车门…… 要自己补漆了…… 等工具中…… 效果未知…… 人言不论是说出口的 还是写下来的 都会在不知道的情况产出影响…… 然而大多数人不知道这点…… 脖子疼脖子右边疼 也不知道是怎么了…… 好几天了……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[呵呵]]></title>
+    <url>%2F2019%2F05%2F17%2F</url>
+    <content type="text"><![CDATA[呵呵呵从今天开始只对自己负责]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[更新了~]]></title>
+    <url>%2F2019%2F05%2F07%2F</url>
+    <content type="text"><![CDATA[Google Cloud有点小问题，重启后正常……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[docker 与 netplan 的坑]]></title>
+    <url>%2F2019%2F04%2F30%2F</url>
+    <content type="text"><![CDATA[docker 与 netplan 的坑使用netplan 设置 IP 后 docker 服务就不能正常启动了 怀疑是netplan的问题 谷歌也没有结果…… 无奈，退一步改项目上传地址吧~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[gitlab 调整]]></title>
+    <url>%2F2019%2F04%2F20%2F</url>
+    <content type="text"><![CDATA[Ubuntu 分区小了gitlab 镜像越来越大了，终于空间不够用了…… gitlab 备份备份项目1docker exec -t &lt;container name&gt; gitlab-rake gitlab:backup:create 注意备份docker-compose.yml 文件 备份设置文件1docker exec -t &lt;your container name&gt; /bin/sh -c &apos;umask 0077; tar cfz /secret/gitlab/backups/$(date &quot;+etc-gitlab-\%s.tgz&quot;) -C / etc/gitlab&apos; 注意 /secret/gitlab/backups/ 在本地的文件挂载。 备份文件在/var/opt/gitlab/backups 中 注意导出。 还原是注意 镜像版本 的一致性。 不一致时有错误提示。 参考文档 1 准备工作完成 重新安装 ubuntu下载最新ubuntu镜像安装。 UI 比之前强点…… 注意开启openssh 设置 ssh1sudo nano /etc/ssh/sshd_config 修改端口Port 22 添加 公钥12mkdir .sshnano authorized_keys 复制公钥到authorized_keys 重启 ssh 服务1sudo service sshd restart 安装 zsh123sudo apt install zshchsh -s $(which zsh) 重新登录后检测 1echo $SHELL 安装 oh my zsh1sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot; 设置~/.zshrc1ZSH_THEME=&quot;agnoster&quot; 安装powerline fonts1sudo apt-get install fonts-powerline 安装 docker参考 更新包资源1sudo apt-get update 安装必要包123456sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ gnupg-agent \ software-properties-common 安装公钥1curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - 验证公钥1sudo apt-key fingerprint 0EBFCD88 指定版本1234sudo add-apt-repository \ &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) \ stable&quot; 安装1sudo apt-get install docker-ce docker-ce-cli containerd.io 免去sudo12sudo groupadd dockersudo usermod -aG docker $USER 安装docker-compose安装1sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose 提权1sudo chmod +x /usr/local/bin/docker-compose 创建链接1sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 还原 gitlab 备份1docker exec -it &lt;container name&gt; gitlab-rake gitlab:backup:restore 注意将文件挂载到/var/opt/gitlab/backups 修改ipip设置文件位置12345ls /etc/netplan/cd /etc/netplan/sudo nano 50-cloud-init.yamlsudo nano /etc/netplan/50-cloud-init.yaml 修改内容12345678910enp0s3: addresses: [192.168.13.131/24] gateway4: 192.168.13.1 dhcp4: no nameservers: addresses: [1.1.1.1] optional: truedocker0: addresses: [172.17.0.1/16] 原本内容 12enp0s3: dhcp4: true 确认更改1sudo netplan apply 其他确认正在使用的ip 1ip addr]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[记录读取]]></title>
+    <url>%2F2019%2F04%2F17%2F</url>
+    <content type="text"><![CDATA[11日的份laravel passport scopesscopes 为单组有效模式。 其他github的 2FA 重置了 过程 大概一周吧…… 17日的份无事]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[日常]]></title>
+    <url>%2F2019%2F04%2F07%2F</url>
+    <content type="text"><![CDATA[github 效率感人提交申请后3天后得到回复 验证token 是3天前提交的 然后就没有然后了…… mac 更新每次更新mac 就像是在赌博一样…… 讨厌……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[不知道]]></title>
+    <url>%2F2019%2F04%2F01%2F</url>
+    <content type="text"><![CDATA[不知道不知道…… 随手直播很火…… 录屏很无聊…… 这么想让人围观 去现场岂不是更好吗 比赛中有人在地图中钓鱼也是豁达 总之算一个彩蛋吧 制作道具的唯一性很重要 大家都拿着类似东西看起来就很无聊 反正不能刺激到我的欲望 重点是角色 道具 地图 道具的核心是平衡 角色的核心是自定义 地图的核心是变化 游戏模式确定了 社交部分反而比较麻烦]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[炸毛！]]></title>
+    <url>%2F2019%2F03%2F28%2F</url>
+    <content type="text"><![CDATA[炸毛！系统升级后usb 不能用了…… 还原后发现日记忘保存了…… 几天的份就这样消失了…… 蠢哭😭😭😭 github账号2FA 与 recovery code 双失效…… 联系客服中…… 好在公钥还在，希望能续一秒…… 需要使用ssh -T git@github.com verify 如果你有其他账号，需要修改为对应的Host地址用于对应账号。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[受风 好疼！]]></title>
+    <url>%2F2019%2F03%2F12%2F</url>
+    <content type="text"><![CDATA[疼肌肉受风…… 一动就疼…… 不想动…… 不想动…… 不过与胆结石的疼比起来也没什么。略微不适而已……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[日常]]></title>
+    <url>%2F2019%2F03%2F08%2F</url>
+    <content type="text"><![CDATA[终于入手了卡尺多少次要量尺寸找不到合适的工具 肉眼观察多少有一些不准确 有的时候差 1mm ，也是装不上的。 再加上一些奇怪的地方不是很好测量 终于还是入手了~ 分区格式mac 对 ntfs 分区向来都不友好 索性都转换为ExFAT一劳永逸 移动数据用了一天…… 果然换固态要提上日程 预估3块860 pro 4T 组RAID5 当然速度是960 pro的一半吧。 如果只装win10开机5s之内是没问题的。 macbook pro 果然还是要考虑的。 水冷测量机箱，感觉安装水冷机箱不一定能装下…… 税你妹收你妹的房产税！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vue 上传]]></title>
+    <url>%2F2019%2F03%2F04%2F</url>
+    <content type="text"><![CDATA[vue 上传文件在vue中确认上传的文件input标签中设置ref 12&lt;input type="file" ref="FileUp" class="custom-file-input" id="customFile" @change="FileUpload"&gt;&lt;label class="custom-file-label" for="customFile"&gt;&lt;/label&gt; 12345678FileUpload() &#123; if (!this.$refs.FileUp.files.length) &#123; this.upform.upfile = &apos;&apos; &#125;else&#123; this.upform.upfile = this.$refs.FileUp.files[0] this.upform.name = this.$refs.FileUp.files[0].name &#125;&#125;, 随后文件可以正常上传。 自动获取文件名bootstrap 4中自动载入文件名需要使用bs-custom-file-input包 1npm install bs-custom-file-input --save vue 中使用 123456789101112mounted() &#123; this.getFileName()&#125;,methods: &#123; getFileName() &#123; $(&apos;.custom-file-input&apos;).on(&apos;change&apos;, function() &#123; let fileName = $(this).val().split(&apos;\\&apos;).pop(); $(this).siblings(&apos;.custom-file-label&apos;).addClass(&apos;selected&apos;).html(fileName); &#125;); &#125;,&#125; 之后再选择文件后，input便签可以自动显示文件名。 axios 中上传文件方法上传文件时，需要headers为multipart/form-data。 注意请求时使用formData不能使用form formData 中数据使用append()传入 1formData.append(&apos;file&apos;, this.upform.upfile) 注意laravel中数据名称对应 12345678axios.post(&apos;/game/json&apos; , formData ,&#123; headers: &#123; &apos;Content-Type&apos;: &apos;multipart/form-data&apos; &#125;&#125;).then( response =&gt; &#123; console.log(response.data)&#125;);]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[日常]]></title>
+    <url>%2F2019%2F02%2F28%2F</url>
+    <content type="text"><![CDATA[19日顺利升级到了Mojave~~ 用起来还是不错的~ 23日调整风扇位置改善散热 改水冷的方案深入心中…… 现在的东西连螺丝的质量都严重下降…… 稍微拧一拧就花了…… 要是上扭力起子估计是秒蹦…… 还有某游戏带私货也是…… 天朝反应也是有趣…… 上行下效 28日Mojave睡眠有问题，暂时没找到解决办法。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[新机器装好了~]]></title>
+    <url>%2F2019%2F02%2F16%2F</url>
+    <content type="text"><![CDATA[新机器装好了~折腾了三天，终于装好了~ vega 64 满载的声音有点大。 先装High Sierra成功的几率比较大。 参考地址1 参考地址2 配置单 组件 型号 CPU intel i9-9900k 主板 华硕 ROG MAXIMUS XI HERO WIFi 显卡 华硕 AREZ-STRIX-RXVEGA64-O8G-GAMING 内存 芝奇 Trident Z RGB 16GB DDR4 3200 （ F4-3200C14D-16GTZR ） ssd 三星 Samsung 970 pro 512G 电源 海盗船 HX850i 散热器 猫头鹰 NH D15S clover efi 使用了最新版 clover configurator 同样使用了最新版 坑SIP 权限问题Rt Variables 的 CsrActiveConfig 设置为 0x67 关闭 SIP 完全有效是0x0, 部分有效是 0x3。 关闭后ntfs 可以正挂载了。 DisplayPort 问题具体原因未知，不过设置Graphics 的 Inject ATI 稳定了许多。 USB 端口不识别问题使用MultiBeast 安装 Remove XHCI USB Port Limit 后可以使用。 其他MultiBeast 查看 参考地址2。 关机与重启 问题关机或者重启时不能正常断电。 Boot 中设置slide=0 同时安装 EmuVariableUefi-64.efi ssd 速度修正安装NvmExpressDxe-64.efi 显示卡顿问题安装Lilu.kext与 WhateverGreen.kext 使用DP线的色彩问题使用DisplayPort 色彩更冷了。有重新校色的必要 修复启动项重命名Microsoft\Boot\bootmgfw.efi 为 bootmgfw-orig.efi bios中找到clover启动项后可以改回。 显卡温度感人想着以后要不要换水冷~ 暂时这些]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[一些记录]]></title>
+    <url>%2F2019%2F02%2F10%2F</url>
+    <content type="text"><![CDATA[2月9日一些记录控制部分暂时本地化，之后开一个服务器也是必然。 时间早晚的问题，最重要的是稳定。 2月10日yubikey otp 修正更新bitbeans/yubikey 到最新，yubikey官方关闭了http访问。 之后验证功能正常yubikey的验证速度上没有google 2FA快，也并不是墙的问题。 在php 7.3 版本下 HTTPS_VERIFY 无要求。 在php 7.2 版本下 HTTPS_VERIFY 需要设置为false 可以正常使用。 修正Https访问修正不能使用https的问题。 php 7.3 版本下 la5 opcache:status 出现 SSL certificate problem: unable to get local issuer certificate 使用php --ini 确认php.ini 位置后添加 {name}为当前用户 用户名 1curl.cainfo = "/Users/&#123;name&#125;/.config/valet/CA/LaravelValetCASelfSigned.pem" 在php 7.3版本下 会出现cURL error 77 切换到php 7.2 后功能正常。 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[己亥年快乐~]]></title>
+    <url>%2F2019%2F02%2F07%2F</url>
+    <content type="text"><![CDATA[己亥年快乐~虽然晚了一点 4号网络太慢，索性开了谷歌云，费用好贵！ 估计用过了赠送的额度就不会再使用了！ 没有梯子一些服务的速度会慢100倍，一点都不夸张。 6号 早上的梦点神奇呢~ 新机器在路上valet 的 https 问题还是没有解决…… 过年期间太懈怠了…… 以上 再次 新年快乐]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[cURL error 60]]></title>
+    <url>%2F2019%2F02%2F03%2F</url>
+    <content type="text"><![CDATA[cURL error 60 问题依旧升级完系统继续踩坑…… 我也是…… 就好的方法安装时使用dev-master 版本 1composer global require laravel/valet dev-master 服务器流量超了啊啊 慢死了 什么都连不上怎么干活啊！！ 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>mac os</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[有点烦！]]></title>
+    <url>%2F2019%2F01%2F31%2F</url>
+    <content type="text"><![CDATA[29号的份黑苹果从 os 切回 win 出现 显卡与usb硬件卡 问题 其中 GPU 工作占用率 异常高 推测是Intel ICH10 芯片的问题 只能放弃 10.13 继续使用 10.11 新年后希望能换新机。 本应该尝试重新安装，可是有点烦了，暂时搁置吧…… 10.11 变慢也是一个大问题…… 这该如何是好 生活新的净水滤芯 不能安装到 水壶上, 新款比旧款高5mm。 导致漏水，定了新壶，还不知道，能否正常使用。 30号的份重装了勉强可以正常使用了~~ 芯片问题也解决了 开心~~ 参考文档 可以直接在四叶草中添加,对应版本为AppleAHCIPort v329 不需要下载页面上的文件 123456789AppleAHCIPort4585F60F 95C289C8 83E0FE66 85C9780F 84D2750B89C883E0 FE6685C9 0F98C141 08CC9090 9090750B Fix IO Error AppleAHCIPortAppleAHCIPort89C82540 6002003D 40200000 750C81E1 BF7FFFFF 898B5101 000090909090 90909090 90909090 90909090 90909090 90909090 9090hot-plug AppleAHCIPort]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>mac os</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[系统升级了~ 走过的一些坑!]]></title>
+    <url>%2F2019%2F01%2F27%2F</url>
+    <content type="text"><![CDATA[黑苹果 部分正常安装就好 config.plist 是重点 tonymacx86 带的clover 安装完成后不能正常引导。 更新到最新的版可以解决。 clover configurator 一定要装很有用。 Acpi中选择 AddDTGP 、 FixDarwin 、 AddMCHC 、 FakeLPC 、FixSBUS 、 FixUSB Boot 中选择dart=0 显卡是gtx 760 驱动自带 Kernel 中 不要手贱关Apple RTC! 不要手贱关Apple RTC! 不要手贱关Apple RTC! 关闭结果就是 每次开机进入系统时 bios 设置被重置。 没有其他恢复手段非常可怕！ 声卡使用 audio_CloverALC 自动注入 完全正常 读取ntfs10.13可以使用 12brew cask install osxfusebrew install ntfs-3g 重启到recovery mode 关闭系统保护 1csrutil disable 重启到正常模式， 使NTFS分区可以自动挂载 12sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.originalsudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs 重启到recovery mode 开启系统保护 1csrutil enable 显示全部隐藏文件显示隐藏文件 1defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder 不显示隐藏文件 1defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder 创建快捷方式option + command laravel 部分valet 全部网站 it work新装valet后，访问自定域名网站全部it&#39;s work 原因apachectl占用80端口 解决方法 123sudo apachectl -k stopsudo apachectl stopvalet restart]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>mac os</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[laravel json 的坑]]></title>
+    <url>%2F2019%2F01%2F20%2F</url>
+    <content type="text"><![CDATA[15 号的份laravel 创建 json使用laravel 创建 json 时 可以使用 json_encode() 不过 当输入如下时， 12345$test = [ [ 'test' =&gt; 'test' ]] 返回的为数组包裹，可以使用$request[0][&#39;test&#39;]获取数据 当输入如下时， 12345$test = [ 'test' =&gt; [ 'test' =&gt; 'test' ]] 返回的为对象包裹，可以使用$request-&gt;input(&#39;test.test&#39;)获取数据 在进行大量数据传入时，注意使用对应的方法进行循环写入。 20号的份laravel 外部请求方法使用GuzzleHttp 进行请求时 当使用json时 需要添加Content-Type为 application/json,数据写在body下 如果使用传统方式去除Content-Type, 使用form_params请求。 12345'headers' =&gt; [ 'Authorization' =&gt; 'Bearer '.'toekn', 'Content-Type' =&gt; 'application/json',],'body' =&gt; json_encode($JsonData), laravel json 的坑当使用json请求时，Request 可以自动解析json为数组 也可以使用$request-&gt;input() 最坑的是刚使用return 时会自动使用json…… 使用json_decode() 也会返回json , 可是实际上转换了，使用dd()发现是数组…… 这时请求端在使用一次json_decode()就一定会出错。 所以在请求端json_decode()一次就好。 大致上可以推测 请求端发送的为独立数据，使用GuzzleHttp获取的返回为object 所以需要 json_decode()。 vue 不能跨域也是…… 现在还是先做出来，之后再完善的好。 原因暂时没有找到估计时laravel passport的锅]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[日常的坑]]></title>
+    <url>%2F2019%2F01%2F08%2F</url>
+    <content type="text"><![CDATA[6号的份laravel 队列的坑laravel job 的初始函数中不能使用 嵌套 型数组 否则 会 报错 Serialization of &#39;Closure&#39; is not allowed 优先程度很高，而且不容易发现。是在logs不能正常写入的时候发现的 官方说最好与 models 一起使用 将 原有数组 重构 勉强 解决了 之后是批量 写入 与 写入数据 自动验证了 当然api 进行。 操作最简化是目的~~ 以上 PS: 情况越来越严峻 8号的份api token 自动化进程过半管理员操作部分终于要完成了~~ 安静果然是最重要的！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[新年了~]]></title>
+    <url>%2F2019%2F01%2F01%2F</url>
+    <content type="text"><![CDATA[新年快乐！这一年学到的东西很多很多看到 Blender 还是那么反人类也是安心了 不过新功能确实引起了兴趣，能使建模速度快不少，姑且是一个好消息。 多少还是知道经络不通的，偶尔疼一条也是酸爽…… 2018年 有70次更新呢~ blog 使用率 还是不错的 :-D 刺客信条:奥德赛steam 圣诞活动入手了，bug有点多，游戏体验不错。 啊啊啊，机器真的要更新了。希望能顺利更新啊~ 试轴器也看好了~ 准备的超级充分啊~~ 数据请求logs 保存使用列队了，速度上升，在可以接受的范围之内了。 使用api对数据操作操作完成了。 之后麻烦的是数据的显示部分了。 啊啊啊~ 要做的UI 好多啊~ 要整理安排下…… 一个部分完成后，总是不知道下面要做什么 主要是自己操纵的东西有点大…… 批量导入要上线呢…… 使用codemessage 更新权限部分还没有完成先记录下来]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[连接部分完成了]]></title>
+    <url>%2F2018%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[连接部分完成了进度有点慢…… 主要是心情问题…… 耳机断梁，零件遥遥无期， 环境噪音很烦，新版的暂时还不想入 ￥ 2400 RMB 并不廉价…… 问题是旧的硬件并没有坏，只是外壳坏了…… 对于喜爱事物的执著也是…… 心塞…… 看好了一款新键盘键盘的优点是可以快速更改轴体，同时有RGB功能 写在这里留用 Massdrop CTRL Mechanical Keyboard 鼠标 就选定 罗技g903无线套装了 标准键位的的键盘也渐渐适应了 用久了 手指还是会疼…… 难道是我打开方式不对？ 雷蛇到好处之一是能与飞利浦hue灯光联动，环境效果极佳 新机的CPU预计使用新出的28。 如果使用双CUP之后搬运就大问题了，用电量也是一方便~ 更新时，墙内的电线也要一起更新，想想就头痛。 墙里原有的线质量并不好…… 其他最近想的东西也很多，心里也很乱，完全不能平静 除了手头上的事情外都是模糊的 说实话挺恐怖的……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[日常]]></title>
+    <url>%2F2018%2F12%2F18%2F</url>
+    <content type="text"><![CDATA[日常砖酱人脸识别速度不高呢 换了钢化膜 解锁速度起飞~~ 都是膜的错 vue 的坑使用组件时props 如果直接复制数组，刚数组变化时props 中的值也会变化。 这就非常不利于对数据进行调整了。 使用 123456789101112JSON.parse(JSON.stringify(this.name.array))``` 这样用解决了`array` 数据被改变的问题如果`props` 中没有嵌套 `array` 或 `object` 可以使用```jsObject.assign(&#123;&#125;, this.name) 一对多 的坑laravel一对多写入时 并不如想的容易 改用多对多轻松解决了]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[自动化的路上]]></title>
+    <url>%2F2018%2F12%2F12%2F</url>
+    <content type="text"><![CDATA[自动化的路上现在多写一点，之后使用时就容易一点。 真正运行起来工作量会是现在的几倍吧，也不知道能不能支撑下去…… 打劫4个小鬼 来打劫火花塞上的贵金属 也是醉了…… 求钟馗大神传授驱鬼之法！ 和 小区门口私设停车位收费类似 原始 无规则 我朝 需要 改变的东西真的太都了 砖酱iphone xr 入手 上了UGA的壳 之后硬度感人，估计超过板砖。 所以之后爱称砖酱]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[链接]]></title>
+    <url>%2F2018%2F12%2F06%2F</url>
+    <content type="text"><![CDATA[链接构建中远程管理构建中，主要目的是token请求的自动化。 当使用大量token细化权限时 手动请求、更新、选择token将是地狱模式了 composer 包管理当使用自定义包时dev-master版本不能正常载入的情况下 在composer.json中添加 12"minimum-stability": "dev","prefer-stable": true, 同时要指定路径,如果有多个包,需要分别指定, 123456 "repositories": &#123; "pack": &#123; "type": "path", "url": "../packages/packname/pack" &#125;&#125; 这样自定义包就可以载入了 其他包则使用稳定版本 cURL error 60: SSL certificate problem参考资料 推断为证书不能正确加载，在php.info中指定路径同样无效。 直接使用laravel valet的公钥访问有效 1curl https://game.test/ --cacert ~/.config/valet/CA/LaravelValetCASelfSigned.pem laravel/scout安装laravel/scout 使用时遇到Class &#39;AlgoliaSearch\Version&#39; not found 原因laravel/scout 不支持 algoliasearch-client-php: ^2.0 改为algoliasearch-client-php: ^1.27 参考资料 从速度看scout 没有从内存搜索快，这也是必然吧。 使用第三方搜索也有数据泄露的风险。不过重写驱动也是要命…… scout 还没想到需要使用的地方…… 比如 搜 文档 更新 什么的……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[分包了！！]]></title>
+    <url>%2F2018%2F12%2F03%2F</url>
+    <content type="text"><![CDATA[厄运驱散最近不顺利的程度超级高，驱散！驱散！驱散！ 还有文件莫名丢失，注意力不能集中，超级烦啊！啊！啊！ 还有倒霉会出现征兆…… 也是…… php 版本的坑更新后 不能识别 tls 推断 更新后对tls 产生变化，暂时关闭tls使用 http 果然后台没写好就写前端什么的，效率不高呢…… 看来要规划一下了…… 在laravel 模型中使用 123protected $casts = [ 'scopes' =&gt; 'array',]; 当然也可以定义其他类型 可以使查询项返回数组，前提是存入的也是数组 文档在5.0版 这就比较坑了]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[user 使用uuid]]></title>
+    <url>%2F2018%2F11%2F25%2F</url>
+    <content type="text"><![CDATA[25日的份将laravel 默认的id 改为 uuid 的方法，以及passport 使用uuid user 部分当不使用传统id时， 先在模型中写入 关闭默认排序 1public $incrementing = false; 再migrate中修改 1$table-&gt;increments('id'); 为 1$table-&gt;uuid('id')-&gt;primary(); 随后运行la5 migrate 新建App\Traits\Uuid 内容如下 123456789101112131415161718192021&lt;?phpnamespace App\Traits;use Illuminate\Support\Str;trait Uuid&#123; /** * Boot function from laravel. */ protected static function boot() &#123; parent::boot(); static::creating(function ($model) &#123; $model-&gt;&#123;$model-&gt;getKeyName()&#125; = (string) Str::orderedUuid(); &#125;); &#125;&#125; 随后在模型中添加 123use App\Traits\Uuid;use Uuid; 之后使用laravel自带的auth可以正常注册了。密码找回功能也可以使用。 参考文档 passport 部分当 passport安装完成后 执行php artisan vendor:publish --tag=passport-migrations 复制迁移到migrate目录 修改CreateOauthClientsTable 123456$table-&gt;increments('id');$table-&gt;integer('user_id')-&gt;index()-&gt;nullable();// 改为$table-&gt;uuid('id')-&gt;primary();$table-&gt;uuid('user_id')-&gt;index()-&gt;nullable(); 其他迁移将client_id与user_id 改为使用uuid App\Providers\AppServiceProvider中引入部分添加 12use Laravel\Passport\Client;use Illuminate\Support\Str; boot()部分添加 1234567Client::creating(function (Client $client) &#123; $client-&gt;incrementing = false; $client-&gt;id = (string) Str::orderedUuid();&#125;);Client::retrieved(function (Client $client) &#123; $client-&gt;incrementing = false;&#125;); register() 部分添加 1Passport::ignoreMigrations(); 其他部分按照文档即可正常使用。 参考文档 user 路径修改在App\Http\Controllers\Auth\RegisterController中修改 在config中的providers修改到对应路径 之后可以正常使用 laravel 包开发包的开发非常有利于后期的维护，同时也可以有效的分配工作任务，对未来的团队工作有极大的优势。 主要是功能混在一起，找起来超级烦。 有必要将独立的功能分散出去。 参考地址 1参考地址 2 需要说明的是 namespace与autoload超级重要]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[快递到了！]]></title>
+    <url>%2F2018%2F11%2F20%2F</url>
+    <content type="text"><![CDATA[14日的份双11的快递到了小型超声波清洗机，和手动洗眼镜说再见了~~ code定义中定义code将返回标准化，部件代码进行有效简化。 20日的份admin 管理 部分 完成了 之后就是玩家部分了 周末通过 奥德赛 与 暗影 不不得不说 奥德赛 是历代最优 暗影的手柄操作有点奇怪 机器果然到时候了 九年了…… 在坚持坚持吧 HDR 要有对应的显示器才可以 目前看 LG 34WK95U-W 不错 EIZO 就等到稳定下来再说了 wacom 在数绘方面是优秀的 可是不支持HDR 不过 贴图 还停留在一般RGB时代 如果上升一步，想想都可怕，一般用户与使用HDR的用户 体验的会是两个不同的世界，当然计算量也巨大的。 服务端渲染随着带宽的扩大，终究是要到来的。 头号玩家 描述世界 也只是时间问题 技术层面上 一定使用的是 服务端渲染 用户设备就不一定相同了 随手看了下5G标准，需要更多基站设备…… 稳定性恐怕不高 大法耳罩老化了 意外发现梁也断了…… 希望合金梁可以顺利到手！！耳罩的更换倒是有眉目了~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[logs完成了]]></title>
+    <url>%2F2018%2F11%2F11%2F</url>
+    <content type="text"><![CDATA[7号的部分logs部分快完成了要不要使用Laravel Scout 是个问题，优势是用 之后就是玩家部分了，后端眼看着要搞定了 超开心(≧▽≦)/啦啦啦 目标是12月14日前完成全部后台部分 19年3月先做出Dome之后的修补是不可避免的 希望众筹能顺利啊~ 再去香港估计也要提上日程了 想着要不要将游戏部分开源呢？一个人毕竟是有极限的…… 有些东西也是可遇不可求的…… 8号的部分Laravel Homestead 配置了一天 最大的问题还是墙 解决方案 安装vagrant-proxyconf插 在Vagrantfile 中添加 1234567Vagrant.configure("2") do |config| if Vagrant.has_plugin?("vagrant-proxyconf") config.proxy.http = "http://192.168.1.4:8004" config.proxy.https = "http://192.168.1.4:8004" config.proxy.no_proxy = "localhost,127.0.0.1,.example.com" endend 要在注意的是127.0.0.1指的是虚拟机本身 之后在本机或者路由中开启对应端口就完成了 9号的份windows 代理自动载入导致 大部分程序不能联网 最后重启SPE问题解决…… 10号的份密码重置完成了 预感有时就的很准 11月11的份出门绊倒了 有个小伤口 问题不大 心得 合脚的鞋子超级重要！和现在的鞋子相性太差 舒适度不高 走远了超辛苦 语言切换完成了~~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[好想……]]></title>
+    <url>%2F2018%2F11%2F03%2F</url>
+    <content type="text"><![CDATA[好想什么呢来猜猜吧 logs 部分结合laravel logs重构 在laravel logs基础上将logs存入数据库 先下config\logging中添加channels 如下 123456789101112'channels' =&gt; [ 'stack' =&gt; [ 'driver' =&gt; 'stack', 'channels' =&gt; ['mysql'], ], 'mysql' =&gt; [ 'driver' =&gt; 'custom', 'name' =&gt; 'mysql', 'via' =&gt; App\Logging\MySQLLogger::class, 'level' =&gt; 'debug', ],] 新建MySQLLogger 这部分可以查看laravel 文档 Logger 的 name 不能正常传入，问题暂时没找到根源 于是进行手动传入 123456789101112131415161718192021&lt;?phpnamespace App\Logging;use Monolog\Logger;use App\Logging\AdminLogsHandler;class MySQLLogger&#123; public function __invoke(array $config) &#123; return new Logger( env('APP_NAME'), [ new LogsHandler( $config['level'], $config['name'] ) ] ); &#125;&#125; 之后是AdminLogsHandler 用于将logs提交到数据库 这里也可以复写其他方法，可以自行查看Monolog\Logger 123456789101112131415161718192021222324252627&lt;?phpnamespace App\Logging;use Monolog\Logger;use Monolog\Handler\AbstractProcessingHandler;use App\Models\Logs;class AdminLogsHandler extends AbstractProcessingHandler&#123; private $name; public function __construct($level, $name) &#123; parent::__construct($level); $this-&gt;name = $name; &#125; protected function write(array $record) &#123; Logs::create([ 'channel' =&gt; $this-&gt;name, 'message' =&gt; $record['message'], 'level' =&gt; $record['level_name'], 'context' =&gt; $record['context'] ]); &#125;&#125; App\Models\Logs 注意要添加批量写入 123456789protected $fillable = [ 'channel', 'message', 'level', 'context'];protected $casts = [ 'context' =&gt; 'array',]; 数据迁移如下 123456789101112131415$table-&gt;increments('id');$table-&gt;string('channel')-&gt;index();$table-&gt;enum('level', [ 'DEBUG', 'INFO', 'NOTICE', 'WARNING', 'ERROR', 'CRITICAL', 'ALERT', 'EMERGENCY'])-&gt;default('INFO');$table-&gt;longText('message');$table-&gt;text('context');$table-&gt;timestamps(); 之后可以使用 Log::info(&#39;message&#39; , [&#39;id&#39; =&gt; $id]) 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[智力上线🙂]]></title>
+    <url>%2F2018%2F11%2F01%2F</url>
+    <content type="text"><![CDATA[智力上线27号的份机械劳动久了，智商就下线了 可以快速解决问题，要重复好多次也是蛮蠢的 可是一直进行无创造劳动吧 智商也就慢慢休眠了(:з」∠) 之后美名其曰代码可读性提高了， 不过函数用多了一样不容易读，啊啊啊 好矛盾啊 29日的份定时自动调整权限完成了~~ 加上之前的权限方便能安心了了~ 暂时 程序什么的 是要不断改进的 11月1号的份一小步与一大步，真的只是差了一点点，现在看看方便了不少。 几天前 明白了一些事儿 很意外的 也是很有意思 providers 定义成了 Facades 用起来更方便了 新建class 下面这样写 之后要注意到config\app.php中绑定 12345678910111213&lt;?php namespace App\Facades; use Illuminate\Support\Facades\Facade; class CustomService extends Facade &#123; protected static function getFacadeAccessor() &#123; return 'CustomService'; &#125;&#125;]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[几天份]]></title>
+    <url>%2F2018%2F10%2F25%2F</url>
+    <content type="text"><![CDATA[23号的份vue 当前页刷新1location.reload() 其他3合一验证 完成了 后端做成服务提供者了 用起来容易了不少 admin 部分要收尾了 😊 24号的份为一些请求添加二步验证 之后是定时服务 与 logs 还有 admin 基本信息页面 游戏模式有一次眉目了 25号的份laravel下错误返回分类在一些情况下想要对不同的请求做不同错误的返回 可以使用$request-&gt;ajax()来识别ajax请求 对于自定义错误返回非常有用 更新node 后包报错，直接删除node_modules 之后npm install 可以解决大多数问题]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[使用 postman 进行 post]]></title>
+    <url>%2F2018%2F10%2F21%2F</url>
+    <content type="text"><![CDATA[使用 postman 进行 post使用postman 直接 post 的方法 laravel 本身有CSRF 直接使用post 、 put 等等会被阻断 找到一个可以解决办法 postman chrome 插件版本新建一个environment 并切换到新建，右上⚙位置 找一个get请求 在Tests标签下输入 12var xsrfCookie = postman.getResponseCookie(&quot;XSRF-TOKEN&quot;);postman.setEnvironmentVariable(&quot;XSRF-TOKEN&quot;, xsrfCookie.value); NaN 对应该的是第二行要注意下。 用于获取XSRF-TOKEN的值。 查看environment中 XSRF-TOKEN 是否被正确传入。右上👁位置 确认后在post 的Headers 中添加 X-XSRF-TOKEN : NaN 之后就可以正常提交post了 注意：laravel XSRF-TOKEN 有时效性 注意更新 当XSRF-TOKEN 中有特殊字符，例如%时，laravel X-XSRF-TOKEN 验证会失败 主要是为postman 对XSRF-TOKEN识别有问题，桌面版本没有这个问题 postman 桌面版同上Tests标签可以写成 1pm.environment.set(&quot;xsrf-token&quot;, decodeURIComponent(pm.cookies.get(&quot;XSRF-TOKEN&quot;))) 使用laravel valet 时，postman不能正确访问域名…… 原因valet产生的SSL证书，所以被阻挡，手动关闭后正常使用 要关闭的位置 settings -&gt; SSL certificate verifcation -&gt; off 之后就可以正常使用了 使用valet时 link 与 park 混用会报错！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>postman</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[几天的份]]></title>
+    <url>%2F2018%2F10%2F18%2F</url>
+    <content type="text"><![CDATA[15号的份染黑了自己都感觉到内心在向着无底的黑暗靠近 新键盘并没有人体工程学的好用 估计以后都只会选择人体工程学的了 开始处理权限了admin的基本部分快做完了 之后是一般用户数据了 按照计划的一样进行扩展 说句自满的话 它不仅仅是一个游戏 16号的份v-for 不能放在顶级标签上，会报错！ 更新了一下docker镜像 role 部分也完成了…… 现在又累又饿…… 18号的份role 部分修正完成~~ 过程中确实补增了许多东西 到验证了~~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[11号的份]]></title>
+    <url>%2F2018%2F10%2F14%2F</url>
+    <content type="text"><![CDATA[11号的份队列将特定 信息通知 推送到指定队列 修改horizon 后 可以使用 1$user-&gt;notify((new SendEmail($Token))-&gt;onQueue('mail')); 或 12use Notification;Notification::send($user, (new SendEmail($Token))-&gt;onQueue('mail')); roles需要注意guard对应 view与models 要注意同步 在blade 中使用时 123@role('role' , 'guard')something@endrole 在路由中使用时 123Route::group(['middleware' =&gt; ['auth:admin' , 'role:admin']], function () &#123;&#125;); 也可以在控制器中使用 1234public function __construct()&#123; $this-&gt;middleware(['role:admin' , 'auth:admin']);&#125; 14号的份find 与 where 的坑find 不能准确 查找到对应条目 where 则可以，之后只有有意识的替换find register的后端调整完成了~ 大概这种感觉]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[10号的份]]></title>
+    <url>%2F2018%2F10%2F10%2F</url>
+    <content type="text"><![CDATA[lavavel valetvalet share 在TLS的情况下会返回301 可以确定为valet v2.1.1 的 BUG 可以先valet unsecure 再 valet share 关闭TLS 和裸奔没区别 可以用来进行暂时测试 汇率已经到7.5了……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2FA 基本完成了]]></title>
+    <url>%2F2018%2F10%2F04%2F</url>
+    <content type="text"><![CDATA[2FA 基本完成了后端还缺权限的判断，与code message预制编码 前端缺特殊code message的代码响应 指的是2FA的强制验证 之后要加入批量导入功能 否则会累死~~ laravel model 的坑使用get()去取到的数据是array 而不是object 可以手动转换 也可以直接使用 根据需求决定]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[十月的第一天]]></title>
+    <url>%2F2018%2F10%2F01%2F</url>
+    <content type="text"><![CDATA[渐渐的上手了laravel 的错误信息 截取成功 标准化信息返回问题不大 方法是使用 1234567891011121314try&#123; return 'something';&#125;catch(\Exception $e)&#123; return $e-&gt;getMessage();&#125;``` 也可以在`App\Exceptions\Handler` 的`render`中做截取```phpswitch($exception-&gt;getMessage())&#123; case 'someMessage'; return 'someMessage';&#125; 再次感受到先做后端的重要性！！ laravel model 的一些坑如果直接使用find()后使用delete()有返回null的可能性 可以使用where(&#39;id&#39; , $id)后使用delete() 就可以避免null的问题]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[记录]]></title>
+    <url>%2F2018%2F09%2F28%2F</url>
+    <content type="text"><![CDATA[记录工作指南 Code Message UI 部分处理 权限手动调整UI 权限系统的全局化，将权限处理加入列队 特定返回信息的响应 二步验证 UI 部分 语言全面本地化 【vuex-i18n】 code message工作详解 将全局信息显示功能独立 需要为信息增加分页显示 搜索结果是否使用通用部分显示 识别2fa验证信息并相应【全局模组】 新建信息页面 【需要验证2FA】 编辑信息页面 【需要验证2FA】 删除信息页面 【需要验证2FA】 好在2FA与 code message可以使用代码手动添加，如果没先做后端真是难以想象，估计是灾难或者加班地狱吧 反而是语言本地化容易的，可以在休息时完成。 其他 貌似2FA的优先度比较高，但是信息提示也是非常重要 对功能分组编写非常重要！一人并行写是比较容易混乱 笔记是一定要的 好处是发现问题可以及时修正，也要考虑之后的多人协作的效率问题 多是交给组长处理吧 坑bootstrap 4.*是没有图标的 需要自己找 使用fontawesome 解决了 23号的份Code Message资源获取、更新、删除部分的UI完成。 调用与测试正常 想着将laravel 自带的UI 使用 vue 重构 最严重的问题还是在本地化语言上。 只能将使用的分离，其他的再做打算 😭 基本上这种感觉 分页显示也是有做的~ 26号的份code message 部分基本完成，之后要调整code并修正一些细小的地方。 感到前端与后端的耦合度很高，这样之后是大麻烦，要不要全部使用vuex呢…… 之后 先处理2fa与验证吧，2fa 比如是全局的…… 不跨域使用oauth的意义不大 不过使用oauth容易啊~ 啊啊啊啊啊 28号的份添加2fa ui了，没什么创造性的劳动…… 使button:hover文字与样式 随鼠标产生变化 注意定义css 否则效果不会有变化 如果使用 vuex-i18n 可以使用语言行替代 对应位置文字 12345&lt;button type="button" class="btn btn-outline-success"v-on:mouseenter="button = 'in button'" v-on:mouseleave="button = 'out button'"&gt;&#123;&#123; button &#125;&#125;&lt;/button&gt; 12345data()&#123; return &#123; button: 'out button' &#125;&#125; 123456789.btn-outline-success:hover&#123; background-color: red;&#125;.btn-outline-success:not(:disabled):not(.disabled):active&#123; background-color: red;&#125;.btn-outline-success:not(:disabled):not(.disabled):focus&#123; box-shadow: none;&#125;]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vuex 提交后清空很重要！]]></title>
+    <url>%2F2018%2F09%2F19%2F</url>
+    <content type="text"><![CDATA[18号的份使用vuex 推送信息时 会让之前的消息一起发送变动 使用vue 工具发现 state 的数据被覆盖 使用手动输入框 更新 发现state并没有更新只是视图上的变化 最后发现为 提交active后没有清空数据导致…… 之后需要分离信息提示部分 并使后端返回数据规整化 并能使用固定数字代码 进行快速返回 admin 安全部分要完工了~ 撒花 20号的份使code编码换用于信息的快速返回 当然也可以使用对应信息语句直接返回 vue 的坑vue 的v-for一定要定义key不然会出现渲染不正常 数据正常 重要的是并不会提示错误！！ laravel 的坑使用laravel markdown email时，不能独立定义header与footer 使用@component(&#39;mail::button&#39;)时，前方要清除空白。 否则不能正常渲染 要支持header与footer ，将@component(&#39;mail::message&#39;) 改为 @component(&#39;mail::layout&#39;) 下方是修改后的例子，也可以直接复制message.blade.php进行修改 找不到message.blade.php时 运行php artisan vendor:publish --tag=laravel-mail 之后可以在vendor/mail/markdown下找到对应文件。 1234567891011121314151617181920212223@component('mail::layout')@slot('header')@component('mail::header', ['url' =&gt; config('app.url')])header@endcomponent@endslot# IntroductionThe body of your message.@component('mail::button', ['url' =&gt; $url])button@endcomponentThanks,&lt;br&gt;@slot('footer')@component('mail::footer')© footer@endcomponent@endslot@endcomponent]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[新键盘购入！]]></title>
+    <url>%2F2018%2F09%2F16%2F</url>
+    <content type="text"><![CDATA[11号的份新键盘到了果然用习惯了Microsoft Sculpt Ergonomic Desktop套装后 正常的布局的键盘难以适应…… 虽然新键盘的手感不错…… 还是有点局促…… 16号的份增加信息提示增加信息提示功能，将返回信息推入 vuex 并可以同步移除。 ##其他 git居然有中文版了！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vuex技能点获得 (づ｡◕‿‿◕｡)づ]]></title>
+    <url>%2F2018%2F09%2F08%2F</url>
+    <content type="text"><![CDATA[随手项目复杂没有规划就是容易混乱呢…… 看来vuex的例子的代码，完全掌握了~~ 还发现了其中的小bug 😁 vuex的主要用途 将多页的网页变为一页，同时方便多平台 附言问题被问了呢 想看礼服啊~ o(////▽////)q 所以主驾位上的人呢 比起指针的更喜欢电子的 虽然很好看 上面的指纹 嗯……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[失败了………………😭]]></title>
+    <url>%2F2018%2F09%2F04%2F</url>
+    <content type="text"><![CDATA[套餐有点烦办宽带一定要开卡就没人管一管吗…… 无奈更换旧手机的SIM卡槽 没错让我弄坏了…… 在此之前都不敢卸下SIM卡也神奇…… 元件直接淘宝还是很方便的 放在其他国家是难以想象…… 不过人家也没有这样恶心的套餐…… SIM卡槽更换失败SIM 卡槽更换失败 😭 😭 粘上后盖但是没上螺丝…… 心塞…… 果然没有风枪是不行呢…… 找个风枪加入清单好了…… HAKKO FR-702 其他作息时间混乱，啊啊啊 好想正常一点啊……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[彩虹~~]]></title>
+    <url>%2F2018%2F09%2F03%2F</url>
+    <content type="text"><![CDATA[出门看见彩虹了~~ 🌈🌈 @ _y.o_o.y_ 分享的帖子 · PDT 2018 年 9月 3 日 上午 10:58 集中精神干活了添加信息提示，将信息反馈的更加直观 最让人愁的是胜利的判断方式，要最简单不能复杂……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[寒冬？不存在的~~]]></title>
+    <url>%2F2018%2F09%2F01%2F</url>
+    <content type="text"><![CDATA[沸沸扬扬我朝文件震惊游戏行业，寒冬已至。 错估形势，将我朝当主要市场也是必然吧。 从架起GFW的那天开始，就注定没有未来。 最糟糕的时，境外公司不能对我朝个人付款。 看来HK是一定要再去一次了。 众筹的款项不能入手也是糟糕。 还有企业税加了到35% 贸易战还加企业税 也是666 其他mac的系统盘满了 希望可以在坚持几个月~~ 群辉的购入也在计划之中……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Update😍😍]]></title>
+    <url>%2F2018%2F08%2F24%2F</url>
+    <content type="text"><![CDATA[全球化语言将 laravel 返回语言指定 为库中的 对应语言 并 可以切换到其他语言 直接返回lang行就可以 比如auth.Login vue中使用Vue.i18n.translate(auth.Login) 就完成了 主要用来显示对用户的提示信息 以上鞋子 和 裙子 绝赞好评 ~~ 忘了说 xbox one 的手柄真好用啊~~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[我回来了😁]]></title>
+    <url>%2F2018%2F08%2F20%2F</url>
+    <content type="text"><![CDATA[添加 Instagram为blog添加的Instagram连接 有兴趣可以点进去看看哦 旅行还是很开心的自己逛逛澳门真的很有趣 与不合适的人在一起难免强颜欢笑~ 莫名的想挑战下 一个人去游乐园 不过东西要精简一下 😁 在香港吃到了心心念念的一籣 果然不错~ 只是叉烧有点薄…… 人文环境 确实 好过大陆 回来要加油了局势有点不稳…… 不加油不行呢……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[环保不是说说而已]]></title>
+    <url>%2F2018%2F08%2F08%2F</url>
+    <content type="text"><![CDATA[奥运10年场馆荒废了 看着心疼 表弟回来了表弟回来了 嗯 考上的多大~~ 略微的研究了一下公司注册的事儿~~ 明天9号 要久违的出去旅行了~~ 18号回来~~ 来过这里的人这是这周的 等的人并没有来 看到某处亮了一下 还是有些期待的 查了一下真的是我想多了………… laravel 中的 vuex将vuex-i18n部分从app.js移动到了store\index.js 目的是确保state中可以看到 i18n的设置 并可以 直接设置locale 变更语言 如果直接写在app.js 中i18n 就会被覆盖掉 其他部分就可以按照vuex推荐的结构进行设置 但愿可以在js路上越来越顺手 内心还是充满恐惧…… 其他vue 打错需要安装vue-template-compiler包 l5-swagger 使用自定义auth登录修改config\l5-swagger 中的middleware 将auth 修改为auth:admin 注意要对应config\auth中的guards 修改后一般用户不能查看api doc admin 用户 登录后可以正常查看 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[i18n 全球化语言]]></title>
+    <url>%2F2018%2F07%2F30%2F</url>
+    <content type="text"><![CDATA[i18n 全球化语言@lang 与 __(&#39;lange&#39;) 不能在vue中使用 于是找到martinlindhe/laravel-vue-i18n-generator包 不过要注意的 README 有错误 使用vue-i18n 后$t(&#39;lang&#39;) 不能正常渲染 疑似vue的bug vuex-i18n 则正常 修改resources/assets/js/app.js 1234567891011121314151617import Vuex from 'vuex';import vuexI18n from 'vuex-i18n';import Locales from './vue-i18n-locales.generated.js';Vue.use(Vuex);const store = new Vuex.Store();Vue.use(vuexI18n.plugin, store);Vue.i18n.add('en', Locales.en);Vue.i18n.add('zh', Locales.zh);Vue.i18n.set('en');const app = new Vue(&#123; store, el: '#app',&#125;); 之后就可以正常的使用$t()了 同时也支持复数形式 参考地址 优点：不用设置后端后再设置前端 使用php artisan vue-i18n:generate可以直接创建或更新vue的语言设置 天朝上邦估计汇率1比20是早晚的事儿了 某不可描述的两物必须灭亡 也算死了 账也是要算的 逃不掉的 准备被人唾弃到世界终结吧]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[今天我最大~~]]></title>
+    <url>%2F2018%2F07%2F28%2F</url>
+    <content type="text"><![CDATA[生日快乐还有18分钟就是 本世纪时间就久的月全食 还有火星大冲~~ 嗯 看到了红色的~~ 美景哦~ 其他不写厂家就 不怀疑了？ 这根本就是不是想解决问题吧 科技让一些东西越来越透明 却想用老办法掩盖…… 恐怕是气数将尽 湾湾不能动哦 会被介入哦]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[😇预感准确的有点可拍😇]]></title>
+    <url>%2F2018%2F07%2F27%2F</url>
+    <content type="text"><![CDATA[明天明天有人送祝福吗？ 不过开心的今天晚上的两个天象~~ 超难得的礼物的说~~ 订了明天的午餐~~ 特殊服务就算了 没有被围观的勇气 估计会哇的一下哭出来吧 😂😂😂 生日愿望：之后的日子能快心的度过每一天。 嗯 略微有点贪婪呢😜😜 最后的最后 生日快乐 laravelzircote/swagger-php包升级 laravel 5.5.* 版本下使用不能 更新到5.6.* 详细升级方法点击下方链接 laravel 5.5 升级到 5.6 另外 API 文档注释 @OAS 改为 @OA 否则报错！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[细小的修正]]></title>
+    <url>%2F2018%2F07%2F23%2F</url>
+    <content type="text"><![CDATA[21号的份调整文档,并进行一些细节调整 最近对日期 时间非常混乱…… 23 号的份新手机到了~ 等了两周 指纹万岁~~ 注册美国ID了~ 日本的也是有的 植物根烂了怎么办 铲除重栽 测试了一下 本地化语言 满好用的 注册 验证 找回密码 算是完成了 撒花~~ 之后是 2次验证了~~ 程序真无聊呢…… 看看最近的新闻 我朝人还真是坚韧呢……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[laravel 队列的坑]]></title>
+    <url>%2F2018%2F07%2F16%2F</url>
+    <content type="text"><![CDATA[laravel 队列的坑正确的入坑姿势使用laravel horizon的 php artisan horizon 运行 队列。 使用-&gt;onQueue(SendMail)方法指定队列时，Job可以正常的载入，Queue不正常…… 判断为Queue问题 使用php artisan queue:work --queue=SendMail,default 时正常显示 判断为laravel horizon问题 一起出坑吧在config\horizon中添加Queue 名称就好了~ 要注意在local 与 prodution的区别。 没有config\horizon文件？ 运行php artisan vendor:publish --provider=&quot;Laravel\Horizon\HorizonServiceProvider&quot; 其他更改redis中存储位置当多个web服务一同使用horizon时， 要在.env中设置 HORIZON_PREFIX=horizon:name 区分 不同应用 否则出错。 刚要使用不同的redis数据表时，要在设置config\horizon中的use项， 同时在config\database中redis设置 123456789101112131415161718192021222324'redis' =&gt; [ 'client' =&gt; 'predis', 'default' =&gt; [ 'host' =&gt; env('REDIS_HOST', '127.0.0.1'), 'password' =&gt; env('REDIS_PASSWORD', null), 'port' =&gt; env('REDIS_PORT', 6379), 'database' =&gt; 1, ], 'session' =&gt; [ 'host' =&gt; env('REDIS_HOST', '127.0.0.1'), 'password' =&gt; env('REDIS_PASSWORD', null), 'port' =&gt; env('REDIS_PORT', 6379), 'database' =&gt; 2, ], 'queue' =&gt; [ 'host' =&gt; env('REDIS_HOST', '127.0.0.1'), 'password' =&gt; env('REDIS_PASSWORD', null), 'port' =&gt; env('REDIS_PORT', 6379), 'database' =&gt; 3, ], 命令1234567891011运行php artisan horizon 彻底关闭php artisan horizon:terminate暂定php artisan horizon:pause恢复php artisan horizon:continue 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[laravel 日常的坑]]></title>
+    <url>%2F2018%2F07%2F13%2F</url>
+    <content type="text"><![CDATA[laravel horizon 的坑安装laravel horizon 后不能正常的访问 使用la5 opcache:clear 清空页面缓存 之后就正常了…… 通知 与 队列任务队列 与 发送通知 掌握 结合上事件 吼吼吼吼吼~ 好棒 列队用于优化 web 速度 可以 指定要运行的方法 事件 当发生 什么 时 则 运行 什么 结合 队列使用会更有效率 当然也可以独立使用 总的来说laravel灵活性很高很高 其他鼠标从 Microsoft Sculpt 换的了 logitech mx master 2s 手感还是 微软 的好点 罗技的触发有点重…… 不过罗技的功能必须多]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mail server 附件大小调整]]></title>
+    <url>%2F2018%2F07%2F11%2F</url>
+    <content type="text"><![CDATA[默认邮件大小调整方法注意要在镜像 挂载的volumes中对应位置config 新建config/postfix-main.cf 内容填写 1message_size_limit = 52428800 默认为 10240000 约10MB 52428800 约 52MB google 的邮件会检查内容 使用GPG加密 就能正常发送了 论加密的重要性 记录admin 的 登录 注册 找回密码 基本完成了 使用token 注册 admin 也 完成了 退出时 一般用户与 admin 一起退出 也是很怪的 不过 一般用户之后会关掉问题不大。 之后就是添加二步验证了~ admin 账号安全有保证了 以上我去睡了😴😴]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[一些日常😁😁😁]]></title>
+    <url>%2F2018%2F07%2F10%2F</url>
+    <content type="text"><![CDATA[一些日常😁😁😁代码稳定进行中，明显能感受到在进步，就是数量有点大 最近喜欢听楞严咒 ，梵文的很好听 怀疑与否定的意义完全不同 我选择相信我想相信的~~ 提起咒心与音轨 如下 咒心7遍 古梵音楞嚴咒 ios 可以听 种子字 发音 解释重要来源 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[我是修理工！]]></title>
+    <url>%2F2018%2F06%2F28%2F</url>
+    <content type="text"><![CDATA[日常家里电器各种坏心烦 一样一样修 也是心累…… 因祸得福的也算是愉快~~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[镜花雪月]]></title>
+    <url>%2F2018%2F06%2F23%2F</url>
+    <content type="text"><![CDATA[日常风暴将起，日常快没有了 用点意思的童话 🙃 🙃 🙃 🙃 有点火估计快没有了 作者让我匿名吧 安全考虑 看似无关的事儿 终有一天要降临在身上……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[时间走慢点！]]></title>
+    <url>%2F2018%2F06%2F22%2F</url>
+    <content type="text"><![CDATA[日常这是粽子节的份粽子节了~ 为什么想到的是僵尸小美😂 一些事儿突然懂了…… 6月22日的份单方面利用率高也是够了 知识也并不是免费的 好烦估计就没有下次了 张开口就朋友，兄弟的…… 超恶心…… 还有一点小事就半夜2点给人打电话的…… 你算老几啊…… 还有没有事先说明就向人家家里带人的 有点常识和礼貌会死吗…… 梦想的秋叶原前几天拆了空气净化器，发现是步进电机的齿轮磨损了 只能换新 型号MSBPC20A20 我朝是弄不到了…… 估计只有秋叶原了加入购物列表吧…… 某种程度上来说，秋叶原是天堂！！ 相机入手考虑就易用性来说大法a7r3 比 X1D 好很多…… 莱卡？ 什么时候到到四千万像素，什么时候在说…… 有消息说ZEISS Batis 40mm 要出了 完美挂机 手动再见了~~ 佳能的17mm移轴 与 转接环 也是必须入手的 谁让我爱照建筑与风景呢 用移轴拍出到长腿太容易了 三脚架什么的是必须有的吧 HDR 摄像也是非常有趣的 ZEISS Batis 2.8/18 也是必备呢 ZEISS Batis 1.8/85 与 ZEISS Batis 2.8/135 也遇到喜欢人在考虑吧 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[不想说话]]></title>
+    <url>%2F2018%2F05%2F30%2F</url>
+    <content type="text"><![CDATA[不想说话恭喜毕业~~ 反正又看不到…… 整理类与函数，多到快要绝望…… 大多数人醉生梦死的趋势越来越明显…… 发现最近的文章都挺绝望的…… 只是支撑下去理由不那么明显罢了…… 心情还十分不好,躁动与脾气快要炸了…… 之后好想开心的找一个地方发呆…… 傻有傻福，命运吗？有点意思…… 加油…… 除此之外没其他选择!]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[心情]]></title>
+    <url>%2F2018%2F05%2F25%2F</url>
+    <content type="text"><![CDATA[番剧是让我快乐的良药把人看的越清楚，就越讨厌。 忍耐差不多是极限了。 laravel 使用的路上还算顺利 啊啊 好想早点做完啊 看来我的触发点在某些东西上，而是不人。 说什么不重要，重点是做什么。 话什么的根本不想说，也不想听。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[小计]]></title>
+    <url>%2F2018%2F05%2F20%2F</url>
+    <content type="text"><![CDATA[小计interface使用掌握~~ 还是花了一些时间的。 随手某神酒刷新了社会底线…… 由上至下…… 不可说…… 不可说…… 小手段…… 幼稚…… 某某之后，忘了你国还有某某了吧…… 二次抗美援朝？估计没这个机会…… 某企业500亿要研发芯片，不要做梦了，研发不出来的，技术断代了 有它股票的可以抛售了…… 人无远虑必有近忧 最近考虑的太多 要逐一去落实才行]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[霉运驱散]]></title>
+    <url>%2F2018%2F05%2F16%2F</url>
+    <content type="text"><![CDATA[霉运驱散！霉运驱散！霉运驱散！霉运驱散！ 一周之内霉运连发。 先是电动牙刷挂掉，修理之中弄坏主板，彻底变尸体…… 之后，桌子闹钟电源老化…… 替换的在路上了…… 随后…… 空气净化器的扇叶会自己跳…… 估计是哪里卡住了…… 还没拆…… 昨天…… 升级路由…… 之后变砖了…… 花费2小时修复了…… R6300v2 变砖的修复之路需要nmrpflash window下还需求WinPcap 官方原始镜像与工具打包 关闭防火墙，网线连接任意 R6300v2 LAN口，一端连接电脑 nmrpflash 目录下运行下方命令会显示当前网卡 1nmrpflash -L 没事设置IPv4的情况下找不到IP的 设置IPv4 123192.168.1.2255.255.255.0192.168.1.1 再次nmrpflash -L 找到网卡IP了 随后关闭R6300v2 CMD下，保持下方命令可以输入的状态，没错拼手速的时候到了…… 通电的瞬间按回车…… 1nmrpflash.exe -i net2 -a 192.168.1.1 -f R6300v2-V1.0.4.2_10.0.74.chk 成功时出现下方提升 1234567891011121314151617Received upload request with empty filename.Uploading R6300v2-V1.0.4.2_10.0.74.chk ... OKWaiting for remote to respond.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Received keep-alive request.Remote finished. Closing connection.Reboot your device now. 没提升Reboot前，一定别手贱…… No response after 60 seconds. Bailing out. 这个是手速慢了…… 少侠请重新来过…… R6300v2 原版刷梅林重启之后，就回到了原厂固件的状态了~ Q: 为什么刷梅林？ A: 当然是有一些不可描述的服务了~~ 详情可以看这里写的很详细 下面是简单方法备用 进入192.168.1.1 找到高级-&gt;管理-&gt;路由器升级 刷入factory-to-dd-wrt.chk，等完成后重启别手贱…… 完成后进入DD-wrt, 设置用户名，密码，之后会用到 services中开启ssh 进入ssh 账号是root，密码是刚刚设置的，验证设备是否匹配固件，如下方，基本可以刷了 123456$ nvram get boardnum679$ nvram get boardtype0x0646$ nvram get boardrev0x1110 随后进入192.168.1.1-&gt;administration 刷入R6300V2_merlin_1.2.trx 别手贱…… 等完成后自动重启！ 重启后就进入梅林了进入系统管理-&gt;固件升级 刷入R6300V2_380.70_0-X7.9.trx 最新固件后 恢复下默认设置。 开启JFFS, 系统设置-&gt;Persistent JFFS2 Partition -&gt; 都选是 之后点最上边的重启。 另外设置内网IP后也要重启。 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>路由</tag>
+        <tag>R6300v2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[自言自语]]></title>
+    <url>%2F2018%2F05%2F12%2F</url>
+    <content type="text"><![CDATA[自言自语512地震 10年了 相关人员没有被追责…… 遗址的纪念碑没人清理…… 巨额的捐款去向不明…… 一个国家的10年, 不知道在对应的方面有没有进步…… 下次发生时, 估计还是一样的吧…… 内部渠道得知择优生存计划是存在的…… 也就是说地震的快速预警是不会对民众发布的…… 滴滴顺风车的事儿，成功的转移了仇恨，我朝人太容易被操控的…… 大数据杀熟的就怎么快忘了？ 我朝的盟友也在日益的减少…… 失去了未来…… 大人们在加速洗脑…… 10年前,因为无能而哭泣…… 10年后,却在与诸多俗事斗争…… 有一年阿里举办比赛，对刷票无动于衷，还理直气壮的说社会依如此…… 不对不能维持环境公平本身就是失职…… 那一年是2010年…… 1984 并不是幻想 而在来的路上…… 变化之时，这片土地上的人又能剩下多少…… 醉生梦死 在这时就显的特别有意思…… 当游戏能使玩家获得利润时，世界将发生第一次改变。 当游戏可以获得现实中的物品时，世界将发生第二次改变。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前进的路上]]></title>
+    <url>%2F2018%2F05%2F10%2F</url>
+    <content type="text"><![CDATA[有点意思herman miller 官方店铺消失 可以认为开始锁国了…… stroe 说没备案，还是要非经营性的…… 远离阿里云是对的…… 我朝供应商多是一丘之貉…… 生于当朝是莫大的悲哀…… swagger参考文档 la5-swagger 下无法使用fromData 解决方法,使用@OAS\RequestBody @OAS\Parameter 标签下 in 控制方法 path 为路径,作为URL的一部分 query 查询，附加为URL参数，如/pet?id=*** laravel-permissionDatabase Seeding 比预想的简单]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[编程的日常]]></title>
+    <url>%2F2018%2F05%2F06%2F</url>
+    <content type="text"><![CDATA[使用Str::orderedUuid()时报错laravel5.6 直接使用Str::orderedUuid()时报错 1Cannot call Ramsey\Uuid\Converter\Number\DegradedNumberConverter::toHex without support for large integers, since integer is an unsigned 128-bit integer; Moontoast\Math\BigNumber is required. 解决办法安装Moontoast\Math包 1composer require &quot;moontoast/math&quot; hosts 文件位置window 位置：C:\Windows\System32\drivers\etc Mac OS 位置：/Private/etc 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前后分离还是……]]></title>
+    <url>%2F2018%2F05%2F03%2F</url>
+    <content type="text"><![CDATA[分离 or 一起后台前后端分离好处是可以多平台管理。 前端的到代码量会大量增加。伴随着大量的重复逻辑。 不分离，需要以网站的形势运行，需要浏览器。 代码部件将减少。 心急…… 真是服了找个问题中文搜半天，一堆垃圾加复制。 换英文3分钟解决…… laravel 服务器容器的绑定 可以用来在不进入class 或 Interface的情况下 直接在全局使用…… 中文上一次又一次的引入为个啥 ？ 最后说什么反正结果对了…… WTF…… 都自动注入了能不对吗…… 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[宫墙又高了]]></title>
+    <url>%2F2018%2F04%2F27%2F</url>
+    <content type="text"><![CDATA[US线路丢包越发严重了…… 心塞……自家web访问缓慢…… 于是使用cloudflare转发 需要注意 更改域名解析，更改后速度提高了好多~~ 不过iTerm2使用SSH依然缓慢。 解决方案让SSH可以使用Socks5 SSH使用Socks51ssh -o ProxyCommand=&apos;nc -x 127.0.0.1:8083 %h %p&apos; -p 22 &lt;user&gt;@&lt;000.000.000.000&gt; 绕一圈的速度都比直连快……我也是……醉了…… 参考地址 iTerm2使用proxy 的方法在.zshrc中添加 12alias goproxy=&apos;export http_proxy=&quot;http://127.0.0.1:8003&quot;; export HTTP_PROXY=&quot;http://127.0.0.1:8003&quot;; export https_proxy=&quot;http://127.0.0.1:8003&quot;; export HTTPS_PROXY=&quot;http://127.0.0.1:8003&quot;&apos;alias disproxy=&apos;unset http_proxy HTTP_PROXY https_proxy HTTPS_PROXY&apos; 开启时使用goproxy 关闭时使用disproxy 从此brew、composer、npm,可以免去漫长的等待了。 验证是否有效curl ifconfig.me返回的就是当前IP。 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>SSH</tag>
+        <tag>GFW</tag>
+        <tag>socks5</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[win10 关闭 windows ink 后要做事儿]]></title>
+    <url>%2F2018%2F04%2F18%2F</url>
+    <content type="text"><![CDATA[关闭 windows ink 后要做事儿系统重装后，cintiq pro 13 的画笔有点奇怪。 主要是PS下笔上的右键异常，影响拾取颜色，调整硬度等等。 所以关闭 windows ink 之后…… 压力感应消失了！！！ WTF！！ 最后发现这个问题，已经有了好几年了…… 解决方式写在下面备用 1C:\Users\Yourname\AppData\Roaming\Adobe\Adobe Photoshop CC 2018\Adobe Photoshop CC 2018 Settings 下建立PSUserConfig.txt文件，写入下面两行。 12Use WinTabUseSystemStylus 0 之后完美了~~ 唠叨果然发生了，对应的事件，恐怕是知识产权方面吧…… 后果吗，按照供应与储备来说，6个月之内没什么，保守点的3个月。 3到5年内，网络行业崩溃。生活水平会到90年代初期吧 科学水平会止步吧…… 人才外流会加速。 之前觉得高丽惨，现在看会比高丽更惨。 内忧外患，加速自主研发比画个经济区重要的多的多。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Dcoker 部署 mailserver]]></title>
+    <url>%2F2018%2F04%2F15%2F</url>
+    <content type="text"><![CDATA[前言查找文章时没找到, 在本地发现了, 重新编辑一下, 供后来者参考。 使用Dcoker 部署邮件服务DNS records 设置与 PTR records注意把bar.foo换成需要的域名 |Type|Homename|Value|TTL||—|—|—|—|—-||A|bar.foo|000.000.000.000|3600||A|.bar.foo|000.000.000.000|3600||AAAA|bar.foo|000.000.000.000|3600||AAAA|.bar.foo|000.000.000.000|3600||NS|bar.foo|ns1.bar.foo|1800||NS|bar.foo|ns2.bar.foo|1800||NS|bar.foo|ns3.bar.foo|1800||MX|bar.foo|mail.bar.foo. 【10】|14400||TXT|bar.foo|v=spf1 mx ~all|3600||TXT|_dmarc.bar.foo|v=DMARC1; p=none|3600||TXT|mail._domainkey.bar.foo|v=DKIM1; k=rsa; p=****|3600| 说明: NS 为域名解析服务器 A 为IPv4 域名绑定 AAAA 为IPv6 域名绑定 MX 为 收信服务器 TXT 为 E-Mail验证与设置 将主机名改为mail.bar.foo后，可以设置PTR records。 IPv6使用letsencrypt自动延期证书是会出错要注意下。 p==***********为DKIM key这里隐去了 docker-mailserver 注意使用ENABLE_CLAMAV=1时需要RAM≥1G 当网站与邮件服务在同一服务器时，要使用nginx-proxy 新建用户mailserver目录下，可以使用docker命令添加多个用户 123456touch config/postfix-accounts.cfdocker run --rm \ -e MAIL_USER=bar@bar.foo \ -e MAIL_PASS=password \ -ti tvial/docker-mailserver:latest \ /bin/sh -c &apos;echo &quot;$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)&quot;&apos; &gt;&gt; config/postfix-accounts.cf 创建 DKIM key123docker run --rm \ -v &quot;/root/mailserver/config&quot;:/tmp/docker-mailserver \ -ti tvial/docker-mailserver:latest generate-dkim-config bar.foo 查看 1cat /root/mailserver/config/opendkim/keys/bar.foo/mail.txt 将DKIM1 调整后添加到域名解析mail._domainkey记录下。 1v=DKIM1; k=rsa; p=*********** p==***********为DKIM key这里隐去了 docker-mailserver 启动启动 docker-proxy 【反向代理】 12345678docker run -d -p 80:80 -p 443:443 \ --name nginx-proxy \ -v /path/to/certs:/etc/nginx/certs:ro \ -v /etc/nginx/vhost.d \ -v /usr/share/nginx/html \ -v /var/run/docker.sock:/tmp/docker.sock:ro \ --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \ jwilder/nginx-proxy 启动 letsencrypt-nginx-proxy-companion 【挂载TLS证书】 12345docker run -d \ -v /path/to/certs:/etc/nginx/certs:rw \ -v /var/run/docker.sock:/var/run/docker.sock:ro \ --volumes-from nginx-proxy \ jrcs/letsencrypt-nginx-proxy-companion 启动 library/nginx 【用于获取TLS证书， 验证时，需要port:80】也可以使用下方docker-compose.yml 注意:要将nginx桥接到nginx-proxy的网络，使其可以正常解析,LETSENCRYPT_TEST=true在测试时使用，防止证书频繁申请。Email 必须为有效地址。 1234567891011121314151617181920212223242526272829303132333435363738version: '2'services: webmail: image: nginx:latest restart: always environment: - VIRTUAL_HOST=mail.bar.foo - LETSENCRYPT_HOST=mail.bar.foo - LETSENCRYPT_EMAIL=k11@bar.foo # - LETSENCRYPT_TEST=true network_mode: "bridge" mailserver: image: tvial/docker-mailserver:latest hostname: mail domainname: bar.foo container_name: mail restart: always ports: - "25:25" - "143:143" - "587:587" - "993:993" volumes: - /root/mailserver/mail:/var/mail - /root/mailserver/mail-state:/var/mail-state - /root/mailserver/config/:/tmp/docker-mailserver/ # - /etc/letsencrypt:/etc/letsencrypt - /path/to/certs/mail.bar.foo:/etc/letsencrypt/live/mail.bar.foo environment: - SSL_TYPE=letsencrypt - ENABLE_SPAMASSASSIN=0 - ENABLE_CLAMAV=0 - ENABLE_FAIL2BAN=0 - ENABLE_POSTGREY=0 - ONE_DIR=1 - DMS_DEBUG=0 - TLS_LEVEL=intermediate 补充也可以将nginx-proxy与letsencrypt-nginx-proxy-companion写在一起，这样还可以运行其他服务 具体可以查看这篇 letsencrypt-nginx-proxy-companion可以手动更新 123456手动更新 或 申请证书docker exec letsencrypt-nginx-proxy-companion /app/force_renew证书状态docker exec letsencrypt-nginx-proxy-companion /app/cert_status 测试SSL12docker exec mailserver openssl s_client -connect 0.0.0.0:587 -starttls smtp -CApath /etc/letsencrypt/docker exec mailserver openssl s_client -connect 0.0.0.0:993 -starttls imap -CApath /etc/letsencrypt/ 其他使用nginx-proxy一般挂载 12345docker run -d \ --name webblog \ --expose 80 \ -e &quot;VIRTUAL_HOST=bar.foo&quot; \ library/nginx 获取证书 1234567docker run -d \ --name web \ --expose 80 \ -e &quot;VIRTUAL_HOST=mail.bar.foo&quot; \ -e &quot;LETSENCRYPT_HOST=mail.bar.foo&quot; \ -e &quot;LETSENCRYPT_EMAIL=foo@bar.com&quot; \ library/nginx 查看 域名映射 1curl -H &quot;Host:bar.foo&quot; localhost 查看 nginx 代理设置 1docker exec nginx-proxy cat /etc/nginx/conf.d/default.conf 包管理 1docker run --rm --expose 9000 -e VIRTUAL_HOST=test.bar.foo -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>mail</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[laravel 5.5 升级到 5.6]]></title>
+    <url>%2F2018%2F04%2F15%2F</url>
+    <content type="text"><![CDATA[脑子混乱停一下前后端分离与游戏部分 admin 与 user 需要不同的入口 数据部分有一些是通用的，分离 admin 域 与 user 域 是有必要的 admin verify 将 config 提取出来有一定优势 quasar还是要加强的 码力 图力 不足…… 但是没什么用…… laravel Upgrading To 5.6.0 From 5.512345"darkaonline/l5-swagger": "5.6.*","fideloper/proxy": "~4.0","laravel/framework": "5.6.*","laravel/passport": "^5.0","phpunit/phpunit": "~7.0" 之后会出现错误 1Type error: Argument 2 passed to Symfony\Component\HttpFoundation\Request::setTrustedProxies() must be of the type integer, array given, called in /Users/k11/laravel/web/vendor/fideloper/proxy/src/TrustProxies.php on line 5 对应upgrade Trusted Proxies App\Http\Middleware\TrustProxies 改 1234567protected $headers = [ Request::HEADER_FORWARDED =&gt; 'FORWARDED', Request::HEADER_X_FORWARDED_FOR =&gt; 'X_FORWARDED_FOR', Request::HEADER_X_FORWARDED_HOST =&gt; 'X_FORWARDED_HOST', Request::HEADER_X_FORWARDED_PORT =&gt; 'X_FORWARDED_PORT', Request::HEADER_X_FORWARDED_PROTO =&gt; 'X_FORWARDED_PROTO',]; 为 1protected $headers = Request::HEADER_X_FORWARDED_ALL; Bootstrap 412npm uninstall --save-dev bootstrap-sassnpm install bootstrap popper.js resources/assets/js/bootstrap.js中 12345try &#123; window.$ = window.jQuery = require(&apos;jquery&apos;); require(&apos;bootstrap-sass&apos;);&#125; catch (e) &#123;&#125; 改为 12345try &#123; window.$ = window.jQuery = require(&apos;jquery&apos;); require(&apos;bootstrap&apos;);&#125; catch (e) &#123;&#125; 添加 1window.Popper = require(&apos;popper.js&apos;).default; resources/assets/sass/app.scss中 1@import “~bootstrap-sass/assets/stylesheets/bootstrap” 改为 123456@import “~bootstrap/scss/bootstrap.scss”.navbar-laravel &#123; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);&#125; resources/assets/sass/_variables.scss删除全部内容后写入 12345678910111213// Fonts@import url(&quot;https://fonts.googleapis.com/css?family=Raleway:300,400,600&quot;);// Variables@import &quot;variables&quot;;// Bootstrap@import &apos;~bootstrap/scss/bootstrap&apos;;.navbar-laravel &#123; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);&#125; 方法二直接复制laravel 5.6 版本的 resources package.json 到 laravel 5.5下覆盖。 swagger在config/l5-swagger中设置好passport后使用下方代码引入每个请求 l5-swagger中使用的是password方式，所以不必限制请求地址 123* security=&#123;* &#123;&quot;passport&quot;: &#123;&#125;&#125;* &#125;, mailserver 修复起因 mac os 上不能登录邮箱了，手机却可以。查看logs发现是错误如下 1TLS handshaking: SSL_accept() failed 查找issues得知tomav/docker-mailserver更新 增加一个新变量 TLS_LEVEL 要想兼容老 Mac OS 要设置为intermediate 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+        <tag>swagger</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年04月12日]]></title>
+    <url>%2F2018%2F04%2F12%2F</url>
+    <content type="text"><![CDATA[……小弟走了只能自己上了，对手是说着相同语言的同胞，脑子不好吧。 虚妄的野心只会带来毁灭……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年04月11日]]></title>
+    <url>%2F2018%2F04%2F11%2F</url>
+    <content type="text"><![CDATA[游戏是让人可以忘记悲伤的良药无论是一个人还是一群人，都可以享受的游戏。 无法看清未来的人，只能拥有一时的幸运，极限很快就会来。 但愿60岁时，依然能享受创造所带来的快乐。 创意的重叠与现在最火Fortnite在许多方面有重叠，也就是说在类似的外部影响下，创意有一定的一致性。 再者是人员与财力的问题，至少今天的时间点上，迷茫消失了，看来之前改变设定是有必要。 一个能做的是有限的…… 好像快点有组建团队的能力啊！！ 而可以有效运作的团队一定是金字塔结构的…… 这与社会构成有关…… 50年内不会有什么变化吧…… 过多的平等带来的只有混乱…… 在我朝就是例子，考虑到近2000年文明构成，某主义是不可实现的。 政客这个职业，将在某系统下完全消失吧。 但愿联通的那一天早日来临。 稳定之后，应该能在诸多方面带来变化。 好想快点，基础部分完成后要提高趣味性才行。 加油！梦想中的日子不远了！ 之前满脑子都是一起的未来，某天却变成了一个…… 只是自作多情…… 也许会有下一个，也许不会，也许在一定的时间点上就不在需要了，多久？理论上7到10年。 10年IPv6 应该可以普及了吧~ 说不定新的通讯方式会诞生哦 可以预想是2023年，前后将带来巨大的变化吧！ 其他最好的自我评价也许是 我很快乐 无论过去、现在还是未来！ 当生命走到尽头，我希望能说去这句话。至少现在说不出口。 也是会变成从某一天起，我很快乐。 面对面时的话语，远比其他时候有意义。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年04月03日]]></title>
+    <url>%2F2018%2F04%2F03%2F</url>
+    <content type="text"><![CDATA[心情游戏用于寻求快乐，虽然都是不认识的人，还是能看出情商高低…… 也许最理想的方式是不需要交流，一个人也可以玩的游戏。 第二阶段PVE任务也是有必要的。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[swagger-php 快速上手指南]]></title>
+    <url>%2F2018%2F03%2F28%2F</url>
+    <content type="text"><![CDATA[小结swagger 学习用时2天，天宫一号预计在2018年03月31日到2018年04月01日坠落地球，碎片坠落地点未知。 天宫一号的坠落，可以说我朝近年的航天成果全灭。 报道断章取义…… 陨落只是时间问题。小额外汇貌似限制了，实际未测试。 使用DarkaOnLine/L5-Swagger可以在代码中以注释形势直接编写API文档非常方便。 注释中的语法要使用Swagger-php样式，SWAGGER VERSION 3.0 DarkaOnLine/L5-Swagger安装项目使用的是laravel 5.5 对应 darkaonline/l5-swagger:5.5.* 1composer require &quot;darkaonline/l5-swagger:5.5.*&quot; 复制设置与视图文件 1php artisan vendor:publish --provider &quot;L5Swagger\L5SwaggerServiceProvider&quot; SWAGGER VERSION 3.0支持 1composer require &quot;zircote/swagger-php:3.x-dev&quot; 设置.env文件 L5_SWAGGER_GENERATE_ALWAYS=true为每次打开页面是都进行重新渲染，设计阶段非常好用。 12SWAGGER_VERSION=3.0L5_SWAGGER_GENERATE_ALWAYS=true 基础文件设置基本用法 swagger-v3.php用于设置一些基本API信息，在页面最上方显示。 12345678910111213141516171819202122232425262728293031/*** @OAS\OpenApi(* @OAS\Info(* version="1.0.0",* title="Test Api",* description="描述",* termsOfService="https://Test.dev/terms/",* @OAS\contact(* email="test@test.dev",* name="test",* url="https://test.dev"* ),* @OAS\License(* name="Apache 2.0",* url="http://www.apache.org/licenses/LICENSE-2.0.html"* )* ),* @OAS\Server(* description="OpenApi host",* url="https://test.dev/api"* ),* @OAS\Server(* description="OpenApi host",* url="https://test.dev/api/v2"* ),* @OAS\ExternalDocumentation(* description="OpenApi host",* url="https://test.dev/api/Doc"* )* )*/ @OAS 为使用前缀，用于读取swagger的设置 名头 解释 是否必要 其他说明 OpenApi swagger 初始化 必要 唯一并位于全部设置最顶端 Info Api说明 必要 设置中的title与version为必要项 Server Api 前置路径 非必要 多连接时，可以并行设置 ExternalDocumentation 扩展文档 非必要 只能设置description与url paths 连接地址 必要 可以在控制器位置设置 tags 主标签 必要 与laravel一起使用时，独立设置方便管理。可以设置name、description、ExternalDocumentation tags.php用于设置用户标签 123456789101112131415161718/*** @OAS\Tag(* name="2fa",* description="Google 2FA",* @OAS\ExternalDocumentation(* description="more",* url="https://test.test/docs"* )* )* @OAS\Tag(* name="store",* description="Access to Petstore orders"* )* @OAS\Tag(* name="user",* description="Operations about user"* )*/ path 部分直接使用注释形势写入控制器 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687/*** @OAS\Get(* path="/test", // API 路由地址* tags=&#123;"test"&#125;, // 对应Tag* sumary="get test doc", // API概要* description="get test doc more ........", // API描述* operationId="test", // API请求时ID* deprecated=false, // API是否有效* @OAS\Server( // 独立API连接设置 可以覆盖全局* description="Server host", // 连接描述* url="https://test.dev/api" // 连接地址* ),* @OAS\Parameter( // API参数, 非必要* name=”id“, // 参数名* in="query", // 参数位置 可以设置`query`、`header`、`path`、`cookie`* description="adout this id ......", // 描述* required=true, // 是否必须填写，当in设置为path时，需要设置为true。* style="from", // 设置参数序列化类型，非必要，自动根据in值设置。* @OAS\Schema(* type="string", // 参数类型* example="test example", // 参数例子* )* ),* @OAS\RequestBody( // 请求主体 content-type 下使用 适合传递多个参数* description="adout this id ......", // 描述* required=false, // 是否必须填写,默认为false* @OAS\MediaType( // 请求数据结构* mediaType="application/json", // application/json 结构* @OAS\Schema(* type="string"* ref="#/components/schemas/User" // 可以载入设置完成的参数,区分大小写* ),* @OAS\Schema(* @OAS\Property( // 多参数设置* property="otp", // 参数名称* description="yubikey otp", // 参数描述* type="string", // 参数类型* example="cccccccccccccccccccccccccccccccccccccccccccc"* // 参数例子* )* )* ),* @OAS\MediaType( // 请求数据结构* mediaType="application/xml", // application/xml 结构* @OAS\Schema(* type="string"* ref="#/components/schemas/User" // 可以载入设置完成的参数,区分大小写* ),* @OAS\Schema(* @OAS\Property( // 多参数设置* property="otp", // 参数名称* description="yubikey otp", // 参数描述* type="string", // 参数类型* example="cccccccccccccccccccccccccccccccccccccccccccc"* // 参数例子* )* ) * )* ),* @OAS\Response( // 响应,必须设置* response=200, // 响应编号* description="successful operation", // 响应描述* @OAS\Header(* header="X-Rate-Limit", // 响应头* description="calls per hour allowed by the user",* // 响应头描述* @OAS\Schema(* type="integer",* format="int32",* default="64", // 默认* example="12" // 例子* )* ),* @OAS\MediaType( // 响应数据结构* mediaType="application/json",* @OAS\Schema(* @OAS\Property(* property="message", // 响应参数头* description="Response message",* type="string", // 响应参数数据类型* example="true" // 响应参数例子* )* ),* )* )* )*/ Model 数据参数可以直接设置在class之上，使用ref=&quot;#/components/schemas/ClassName&quot;可以直接引用。 swagger默认载入位置#/components/schemas/。 1234567891011121314151617181920212223242526/** * @OAS\Schema( * title="yubikey model", * description="yubikey model", * type="object", * @OAS\Property( * property="message", * description="Response message", * type="string", * default="true", * example="true" * ), * @OAS\Property( * property="status", * description="Updated status", * type="string", * example="true" * ), * @OAS\Property( * property="age", * description="Updated status of the pet", * type="integer", * minimum="0" * ), * ) */ bitbeans/yubikey 的坑控制器中不能正常获取Exception。所以不能使用下方代码 123456789use YubiKey;try &#123; $yubikey_auth = Yubikey::verify(Input::get('otp')); $yubikey_params = Yubikey::getParameters(); $yubikey_identity = Yubikey::getParameter('identity');&#125; catch (\Exception $exception) &#123; $error = $exception-&gt;getMessage();&#125; 改写到App\Exceptions\Handler的render方法判断，使用Exception判断的packages不多。 123456switch($exception-&gt;getMessage()) &#123; case 'REPLAYED_OTP': return response()-&gt;json(['message' =&gt; $exception-&gt;getMessage()]); case 'Could not parse Yubikey OTP': return response()-&gt;json(['message' =&gt; $exception-&gt;getMessage()]);&#125; 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>yubikey</tag>
+        <tag>laravel</tag>
+        <tag>php</tag>
+        <tag>swagger</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年03月26日]]></title>
+    <url>%2F2018%2F03%2F26%2F</url>
+    <content type="text"><![CDATA[心情一场一定会输的战争…… 百姓要苦了…… steam api 访问不能 唯一的希望就是上线后离开 今天关掉了一直关注的人 动力吗 曾经是吧 永远没有回复的留言 不如不看 制造人偶的心情+1 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年03月24日]]></title>
+    <url>%2F2018%2F03%2F24%2F</url>
+    <content type="text"><![CDATA[心情宫墙深厚，近日又动刀字幕组，一如既往的套路…… 最近迷上了摇曳露营，抚子好萌。 同款 迷你净财箱Ｂ-６君amazon 同款 帐篷ムーンライトテント3型 巡礼路线参考网址 心仪之物heimplanet帐篷Fistral 2.5KG 充气帐篷 总之打气就好~~ ムーンライトテント3型 是3.8KG THE CAVE 5.2KG 充气帐篷 防水性比Fistral好，空间也大。 YPJ-TC yamaha 新款电动自行车 想入呢 2018年6月11日上市 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>摇曳露营</tag>
+        <tag>camp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年03月01日]]></title>
+    <url>%2F2018%2F03%2F01%2F</url>
+    <content type="text"><![CDATA[小记ssr的tls被爆，大规模封禁来袭，转v2ray 直接部署非常容易，使用docker快速部署是正解， 实现websocket+tls+V2ray+Nginx+CDN 起因，2018年2月15日开始梯子出现故障，换之。 2018年2月25日 戊戌复辟，可笑至极，诸多词变为禁语。包括张勋、袁世凯等等。微博、微信，禁止修改头像，签名。反对等不能发表。 马前课 第十一课 开始了…… 2月26日开始研究部署v2ray相关，其中遇坑，记录如下，供后人参考。 原理v2ray 使用websocket连接到CDN，对抗DNS污染，保护真实IP CDN连接在到服务器，全程通讯使用tls加密。【不是仿造，是真正的TLS】，服务器内部转发到v2ray容器。 Q:为什么使用docker而不是直接部署？A:不方便转移到其他服务器。同时不容易弄乱服务器环境Q:docker好处是什么A：不需要手动更新证书，可以使用二级域名部署其他服务。比如web、mail等等。可以随时添加。 docker大多数供应商都支持docker快速构建，直接选择即可。服务器多为ubuntu。 更新各种包后，准备开始工作。 更新命令 12$ apt update$ apt upgrade 文件目录12345|-- docker-compose.yml|-- v2ray| `-- config.json`-- vhost.d `-- ******_location docker-compose.yml说明: v2ray下的VIRTUAL_HOST注意填写为二级域名，也可以去掉不填。 同样v2ray下的expose与VIRTUAL_PORT为端口号，应该与*****_location中端口一致。 web1为一般web服务器，开放端口80。You_Domain_Name 改为你的域名You_Email 为邮箱，必填 VIRTUAL_HOST=You_Domain_Name VIRTUAL_PORT=80 LETSENCRYPT_HOST=You_Domain_Name LETSENCRYPT_EMAIL=You_Email nginx-proxy如名字,详情自行googleletsencrypt-nginx-proxy-companion如名字,详情自行google 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950version: '2'services: v2ray: image: v2ray/official container_name: v2ray restart: always expose: - "****" volumes: - $PWD/v2ray:/etc/v2ray - $PWD/v2ray/config.json:/etc/v2ray/config.json:ro environment: - VIRTUAL_HOST=**** - VIRTUAL_PORT=**** web1: image: nginx:latest restart: always expose: - "80" environment: - VIRTUAL_HOST=***** - VIRTUAL_PORT=80 - LETSENCRYPT_HOST=*****.*** - LETSENCRYPT_EMAIL=*****@*****.*** nginx-proxy: image: jwilder/nginx-proxy:latest restart: always ports: - "80:80" - "443:443" volumes: - /path/to/certs:/etc/nginx/certs:ro - $PWD/vhost.d:/etc/nginx/vhost.d:ro - /usr/share/nginx/html - /var/run/docker.sock:/tmp/docker.sock:ro labels: - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy" letsencrypt-nginx-proxy-companion: image: jrcs/letsencrypt-nginx-proxy-companion:latest restart: always volumes: - /path/to/certs:/etc/nginx/certs:rw - $PWD/vhost.d:/etc/nginx/vhost.d:ro - /var/run/docker.sock:/var/run/docker.sock:ro volumes_from: - nginx-proxy TLS转发在dockec-compose.yml下创建vhost.d文件件， 新建文件You_Domain_Name_location 使用你的域名替换You_Domain_Name，要与web1设置的一致。 注意proxy_pass后的端口与v2ray设置的一致。 12345678proxy_redirect off;proxy_http_version 1.1;proxy_set_header Upgrade $http_upgrade;proxy_set_header Connection &quot;upgrade&quot;;proxy_set_header Host $http_host;if ($http_upgrade = &quot;websocket&quot; ) &#123; proxy_pass http://v2ray:****;&#125; v2ray 设置文件config.json在dockec-compose.yml下创建v2ray文件件， 新建文件config.json port注意与v2ray设置一致 id改为你的id，可以使用uuidgenerator生成一个。 json写完之后，注意校对格式哦 123456789101112131415161718192021222324&#123; "inbound": &#123; "port": "****", "protocol": "vmess", "settings": &#123; "clients": [ &#123; "id": "***********", "alterId": 64 &#125; ] &#125;, "streamSettings": &#123; "network": "ws", "wsSettings": &#123; "path": "/" &#125; &#125; &#125;, "outbound": &#123; "protocol": "freedom", "settings": &#123;&#125; &#125;&#125; 之后去用户端里面设置吧。地址You_Domain_Name端口443，记得使用websocket与TLS。 CDNCloudFlare DNS中开启websocket Crypto 中Require Modern TLS关闭 Crypto 中Authenticated Origin Pulls关闭 Crypto 中Opportunistic Encryption关闭 nginx-proxy 的坑nginx-proxy中，设置转发时www.www.com/path无法正常解析，这个问题3年没有修复过了…… 错误重现:vhost.d下，新建www.www.com设置 12345678910location /v2ray/ &#123; proxy_redirect off; proxy_http_version 1.1; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection &quot;upgrade&quot;; proxy_set_header Host $http_host; if ($http_upgrade = &quot;websocket&quot; ) &#123; proxy_pass http://v2ray:****; &#125;&#125; 于是只能使用www.www.com_location进行转发。 参考文档v2ray 参考1 参考2]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>v2ray</tag>
+        <tag>梯子</tag>
+        <tag>墙</tag>
+        <tag>GFW</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月26日]]></title>
+    <url>%2F2018%2F02%2F26%2F</url>
+    <content type="text"><![CDATA[吾皇万岁，万岁，万万岁]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月25日]]></title>
+    <url>%2F2018%2F02%2F25%2F</url>
+    <content type="text"><![CDATA[小记网络崩溃变成了日常，每天维护网络正常2小时，每次走ufw速度比直连慢一倍。 天上乌云密布，光又在何处。 完蛋，很恶心。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月22日]]></title>
+    <url>%2F2018%2F02%2F22%2F</url>
+    <content type="text"><![CDATA[小记quasar-cli升级到了0.15.1 与之前版本不兼容…… 不支持quasar-play 目录结构有所调整，比之前清晰多了，加上一次编程构建PWA、Cordova、Electron全平台大礼包。 和预想的一样，android就是坑多。 安装 JAVA 8Android Studio依然不好下载。墙！墙！墙！ 略烦。 需要java……，直接使用brew cask install java安装是9.0+版本，不兼容Cordova需要装java8,方法如下 12brew tap caskroom/versionsbrew cask install java8 使用/usr/libexec/java_home -V查看本机安装的JDK 安装jenv用于管理与切换java版本brew install jenv 12echo &apos;export PATH=&quot;$HOME/.jenv/bin:$PATH&quot;&apos; &gt;&gt; ~/.zshrcecho &apos;eval &quot;$(jenv init -)&quot;&apos; &gt;&gt; ~/.zshrc 123jenv add /Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Homejenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Homejenv global 1.8.0.162 需要重启使用java -version检查设置 其他设置方法。 12jenv local 1.8.0.162jenv shell 1.8.0.162 安装 Android Studio1brew cask install android-studio 之后还是要等…… zshrc编辑~/.zshrc，并添加下方代码 123export ANDROID_HOME=&quot;$HOME/Library/Android/sdk&quot;export PATH=$PATH:$ANDROID_HOME/toolsexport PATH=$PATH:$ANDROID_HOME/platform-tools Cordova 构建需要 gradle1brew install gradle]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>Android</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月18日]]></title>
+    <url>%2F2018%2F02%2F18%2F</url>
+    <content type="text"><![CDATA[心情真让人恶心，自己什么都不做，却幻想着得到巨额的回报。 不觉得中彩票的几率更大吗。 满心的小算盘，当别人看不出来吗。 想如愿，呵呵，等着去吧。管你是谁，都别做梦了。 现在心情与吃了苍蝇差不多。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月15日]]></title>
+    <url>%2F2018%2F02%2F15%2F</url>
+    <content type="text"><![CDATA[汪年快乐汪年快乐。 除夕夜服务器被墙也是神了。 总之，要加油了~~ 以上。 许愿望吧顺利完成，如愿逃离。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月13日]]></title>
+    <url>%2F2018%2F02%2F13%2F</url>
+    <content type="text"><![CDATA[小计无意中读到某文章，流感引发病毒入侵，病毒类型未知，20天内的花费接近 100w RMB 医保异地，医院ICU床位紧张。地点，帝都首屈一指的医院。 总体考虑，需要 200w USD 勉强够用，先定下这个目标吧。希望永远不会用到，但形势不容乐观。 保险有一定的必要性，我朝可靠的保险公司还不确定。 进ICU插管前留好遗言，遗嘱。 珍惜当下吧。 单身狗的情人劫laravel的logs有点怪，要重写logs并存入数据库了。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月11日]]></title>
+    <url>%2F2018%2F02%2F11%2F</url>
+    <content type="text"><![CDATA[小计使用php72-opcache提升响应速度。 DARLING in the FRANXX 超好看，期待第6话。 gitbook生成pdf时，问题有点多。在线倒是没什么问题。 Mac 安装 php72-opcachebrew搜索包 1brew search php72 1brew install homebrew/php/php72-opcache 重启php72服务 注意使用sudo 1sudo brew services restart php72 修改php72-opcache配置 1subl /usr/local/etc/php/7.2/conf.d/ext-opcache.ini appstract/laravel-opcacheappstract/laravel-opcache 安装appstract/laravel-opcache 1composer require appstract/laravel-opcache 参考文档1 其他phpinfo()命令行查看 1php -i "(command-line 'phpinfo()')"]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月10日]]></title>
+    <url>%2F2018%2F02%2F10%2F</url>
+    <content type="text"><![CDATA[小计将略大的项目，拆分为可以操作的部分。 精神上略累，我朝空气质量太糟糕了。 工作记录laravel-backup文档连接 12composer require spatie/laravel-backupphp artisan vendor:publish --provider=&quot;Spatie\Backup\BackupServiceProvider&quot; 注意：默认情况下，laravel-backup备份完成时会发送通知邮件，所以使用时，要配置MAIL_DRIVER。 itsgoingd/clockwork效果一般，安装后移除。 itsgoingd/clockwork chrome下laravel调试工具，需要安装clockwork插件。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月08日]]></title>
+    <url>%2F2018%2F02%2F08%2F</url>
+    <content type="text"><![CDATA[同系统下多SSH 使用参考文档 新建SSH-KEY1ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot; 输入SSH KEY 文件位置，例如/Users/you/.ssh/id_rsa_2 为什么是id_rsa_2 ？ 一般会有一个id_rsa为默认KEY。 1Enter a file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter] 添加到~/.ssh/config新建文件~/.ssh/config 编辑如下内容 12345678910Host github.com HostName github.com User *******@*******.com PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsaHost 2github.com HostName github.com User *******@*******.com PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa_2 注意：如果多个github账号，Host不能设置为相同。 最后添加新KEY到系统,并添加公钥到github对应账号。 12ssh-add -K ~/.ssh/id_rsassh-add -K ~/.ssh/id_rsa_2 测试KEY是否添加 1ssh-add -l 测试KEY是否有效 12ssh -T git@github.comssh -T git@2github.com Git项目中设置设置对应email与name 12git config --local user.email &quot;***@****.***&quot;git config --local user.name &quot;***&quot; 添加remote,注意与HostName对应 1git remote add origin git@2github.com:****/***.git 也可以直接修改.git/config。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年02月02日]]></title>
+    <url>%2F2018%2F02%2F02%2F</url>
+    <content type="text"><![CDATA[laravel session 使用 cache设置config\database。redis下添加。 123456&apos;session&apos; =&gt; [ &apos;host&apos; =&gt; env(&apos;REDIS_HOST&apos;, &apos;127.0.0.1&apos;), &apos;password&apos; =&gt; env(&apos;REDIS_PASSWORD&apos;, null), &apos;port&apos; =&gt; env(&apos;REDIS_PORT&apos;, 6379), &apos;database&apos; =&gt; 1,], 设置config\session。 1&apos;connection&apos; =&gt; &apos;session&apos;, 设置config\cache 1234&apos;test&apos; =&gt; [ &apos;driver&apos; =&gt; &apos;redis&apos;, &apos;connection&apos; =&gt; &apos;test&apos;,], 听闻听闻我朝2018年4月1日开始VPN白名单，既锁国。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年01月26日]]></title>
+    <url>%2F2018%2F01%2F26%2F</url>
+    <content type="text"><![CDATA[小记天气格外的冷，心也是一样。月比往常大一些。 略期待31日月全食。 19点30分开始。21点30分左右可以看月全食，持续38分钟。 上次看月全食已经忘记是什么时候了。 2018年07月28日 4点21分 月全食 21世纪最长的一次。西部地区可以看到全貌。 是一件难得的礼物，开心的收下就好。 80个以上的数据表在脑中翻腾。对应的方法可能更多。代码过万行应该不难吧。 分成有效的小部分，逐一化解便好。 人无愧于天地，便能笑着死去。 心是什么，某一天丢了……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年01月22日]]></title>
+    <url>%2F2018%2F01%2F22%2F</url>
+    <content type="text"><![CDATA[blog 更新blog 更新到 NexT 样式。 使用docker挂载，上传到github快速部署。 nginx-proxy 与 letsencrypt-nginx-proxy-companion用处自动反向代理与https证书申请，自动续期，二级域名，多站同机变为可能。 12345678910111213141516171819202122232425version: &apos;2&apos;services: nginx-proxy: image: jwilder/nginx-proxy:latest restart: always ports: - &quot;80:80&quot; - &quot;443:443&quot; volumes: - /path/to/certs:/etc/nginx/certs:ro - /etc/nginx/vhost.d - /usr/share/nginx/html - /var/run/docker.sock:/tmp/docker.sock:ro labels: - &quot;com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy&quot; network_mode: &quot;bridge&quot; letsencrypt-nginx-proxy-companion: image: jrcs/letsencrypt-nginx-proxy-companion:latest restart: always volumes: - /path/to/certs:/etc/nginx/certs:rw - /var/run/docker.sock:/var/run/docker.sock:ro volumes_from: - nginx-proxy network_mode: &quot;bridge&quot; blog 挂载123456789101112version: &apos;2&apos;services: web: image: nginx:latest restart: always environment: - VIRTUAL_HOST=keleven.me - LETSENCRYPT_HOST=keleven.me - LETSENCRYPT_EMAIL=k11@keleven.me volumes: - $PWD/blog2:/usr/share/nginx/html:ro network_mode: &quot;bridge&quot; https 中的坑问题： 在https页面中使用http链接会导致浏览器默认为不安全。 解决：全部使用https链接可破解。 NexT 的坑问题： 部分文章在首页显示部分不能。 解决：注意切换换行符LF不显示，CRLF显示。 PS：LF为Linux与Mac os默认。CRLF为windows默认。 以上]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年01月21日]]></title>
+    <url>%2F2018%2F01%2F21%2F</url>
+    <content type="text"><![CDATA[小记系统双挂 全部重装，1月多波折。虽然还有10天结束。 新番 DAELING in the FRANXX 很好看。 UE4 code 编译需要 win8.1 SDK 有点意外。 steam 注册完了开发账号，我朝外汇管制需求想办法规避。 U.S. 的营业税是30%，境外无任何减免。 mac 下brew 很好用。 使用vbox要关闭SPE的网络防护，否则无法apt update。 UE4 需要编译服务端，对部署机器的性能有要求。 想打包为docker放在linux需要实际测试。 邮件服务器，基本稳定。laravel可以直接使用laradock部署的可能性很高。 之后就redis与mysql主从与集群了。全世界的人可以一起玩一个游戏，想想就有趣。 后端想做成多个扩展包的形式，方法部署。 还有同时部署一部分的数据。 权限，文件标记什么的。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2017年12月27日]]></title>
+    <url>%2F2017%2F12%2F27%2F</url>
+    <content type="text"><![CDATA[小记为什么写日记，写日记可以让心情变好。 精神上的伤害远比肉体上的猛烈！！ 失眠、疲惫、测试bitbeans/Yubikey包。 版本年代久远，手动修改一行，成功攻略。 bitbeans/Yubikey的坑src\YubiKey.php第376行。 12-- while (list($key, $val) = each($rows)) &#123;++ foreach($rows as $key =&gt; $val)&#123; app/config/yubikey.php中设置CLIENT_ID 与 SECRET_KEY控制器中使用。注意：要先验证otp验证identity。OTP = One Time Password 12345678use YubiKey;// 验证OTP 返回 true or false$yubikey_auth = Yubikey::verify(Input::get(&apos;otp&apos;));// 排部 返回信息$yubikey_params = Yubikey::getParameters();// 获取返回信息中的`identity`字段，yubikey的硬件ID，通常捆绑用户名$yubikey_identity = Yubikey::getParameter(&apos;identity&apos;); yubikey 是什么简单的说，不能保存文件的u盘，只用来验证身份。长下面的样子。 可以用来登陆电脑、提供一次性密码等等。 使用时按一下金属部分，就产生一串随机密码，30秒有效，验证窗口为1分30秒。 结合SSH登陆服务器安全性非常高。 什么？你说windows？完全没安全性呢。 还可以用来保存加密的密钥，解密时，要求提供密钥并插入yubikey。加密过文件10年内是不太可能被破解的。 什么？yubikey丢了？嗯，放弃文件吧🤓这时候用2个yubikey就好了~~😂 最后可以就来加解密电子邮件，Edward Joseph Snowden告诉我们监控无处不在，在不暴露私钥的情况下，加密过的邮件是安全的。 yubikey的私钥解密时要插入USB接口，不丢失的情况下无解。 最后最后放个公钥，可以用来加密给我的邮件哦~ 欢迎勾搭~ k11@keleven.me 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950-----BEGIN PGP PUBLIC KEY BLOCK-----mQINBFo/qwcBEAC3Pkl084A+27oVOBbgx7wzos05EjNWXYVUeEI4D1TY3JgJQ7kDn9q4KIFeqt9/mrpdxfTMLlNy/GOYdfDiB3W7aJQtI4Zn+nFy2ZHa9KSLrfi7FHFa++sPH2D5H0OFLq3DVoe56qn37m8rlhuv4ZUvqWyYrlV/L5S83TXFZEzQhwjvirx9BYdsxmzITEwvzfgDIE+lYTk8ULvf8yvOWQ5dlIfwkcSdDLJp1VCmoyKKfEtCY2OoTHy4XCpzEG6Tas3tOGWUcPxpBVm+b1ZSLGwPvzcwQr5TW4NmgKkH3cvWQGFLGajV0iZbobTKMEnRM7b+N+mEq4D/JRnPz9eYa2p1wtHS9L7EGuWzclb9Pg0ofZ3b3/mrllcbONj2DbGX4+20a2Ykr8H5kI+57D+LyIeGpsnL/XY5ehDQe+IMlDjOuwXDW4Vfba5uIfqziQIaTzo1Ar+45OU8JmU8zLQx6vWu1a7lziBN0Q1Ztds1bMcgIwrn0S0vg4P34MI1bZphOQUAVsLpQnSusYPUasZVpEJ2knS7XL9v5XZLS40e5Uyder12AXjr47XHJ5peDBU76J2Cpp4qxAsxTOXS9RCi/XrPSC+7o2DUgtDzEUfGEdBd6o6cg4xZe6dKLpLq8XJphuRIOWQawsOGxOc/wFkywsFyVVde/HFHv1zZtVJJwo53MQARAQABtBhrZWxldmVuIDxrMTFAa2VsZXZlbi5tZT6JAlMEEwEIAD4WIQRXOvWRKhYRvxI94a+dtsqqnxJQ1QUCWj+rBwIbAwUJB4YfgAULCQgHAgYVCAkKCwIEFgIDAQIeAQIXgAAKCRCdtsqqnxJQ1Rl3D/iXNoVFfl74kTC2SZtczMx0pBcvcwUxIOd/ggJfRSK4iAv29JLtTLJzLKnSf07DuGyWf0MCRqbJe7dxNpHmpWH3gkdgYA8W7B4Fx2eNn4wJ6mXOAWezlQrsFDlKQHfJRREe1GqtfHdLDYLT02dCby/IGnv4Yos+3grcOhsStcMnnw0WOE0Oj+gOGdmxmvB2nEE2c625zEtGGSNc9KOWzmaGw4S5pTm/QUwO41KXrmB/qH/fmNpWe8oIyxVd+JTNQJMrk4Jd9HiKFnAlu630gjtnEWqZiv34HzTM+++isOziZFsbf5wulXY9Sh69R9jcXFI+4Q5v6vCgJEUyZs/OosjEjpYfPF5q2xnNTK1Cy/C9qJnoTDGs6J1l8Yk3NukdcRndUsYUn8+5BnhfiEPQ29AkLLj5TqDa+YtCVTvfI0OGt98vINrw+Qw0M262vRtbHzscVcoNqraPe55kCgZe0S/hvhs1uApt71Z4IDlOe5O5lAMqne7zxco1gpriJHtXJgQPkBpPbM+BZ49ruZ1X1FvVmdgsMl8kQeHzkSuBR/Pzg8FD9g8LJOCM+4tFevdPxUbHZwfbnTDshVhsrtVgzfBxclGfxZuzHBK0CiLOgKvy8ik/hLas0wCJrFCur2qlIoz/UwQi8bAbAJANoCUG7QRwQk8vZBCZKkZrw6iaRTqOuQINBFo/qwcBEACkBGy4TArlk6uWh80IN09lDlxeNPkZGIw2/fubP+ndy8dM9qpEutuXipK1fzEUX0Q4c92FQWRxYQpxsyj2LjtUZZlYcGQCq4tIfaxBIM9DB1uZ509T5XthHPzV5P3GN4wxLsgVdt465l6UKJcylPcZnFgJbIupV2SyK29HNlC4dS6rSHYXVV3MphNkFFxVeoHlyAmei1Ph6eyKYbeUwR6K9Z4qRL7upIkwSphJOU4nbGs+0Bz6YjHl5vWcYkJXaJvsBGdj4gSZEir6Nx2qLuUOhuq4tVmB4DrJkxGG0QhHKaDglwiSYx+4QssJ58SrLOH0RC6dnWKDX8yUTMrl21W4CtpeTo1/32RX23SSJPCPFqBJIsIpyx0SC8+MY9CfUznNors6oPcNyXkz3ffuiBqgLvokwi/gBBo8030EN4201rqvDqKxuJ9usIh6iuhDszWY0RrUFuAjXrJJVh1PXGH65yDiaBTasaJ39IGvM4a3kPKS5lPI5rD3imYjWe62+ki8LP5TPX1N/86ZZwuuLiiTSGku1nr5L+8cM74wJOVb2QQnCkOzkvL8Ki50hu/doGTaBiJehGBcrN+zb1oNjZaGonzhxxStzc7eZ3GMuidZi8jNX+f/6XTs/X1BNywtUwNWJUsqvUMbHtITuFtstM0+8X4N6YQQ0WQqxhC7KEsRkQARAQABiQI8BBgBCAAmFiEEVzr1kSoWEb8SPeGvnbbKqp8SUNUFAlo/qwcCGwwFCQeGH4AACgkQnbbKqp8SUNX0FA//SwRxUbyLQDcQWq6ScTH1Ym8N2JuST+QILmmvYsonPudVBbJwn9OYnU3mwkr0fCsb6inlApcEM5KlgaXYvQW7UmeNjo8fcdjgkiMh9eZHmRqiVUSr7zuJ2NlKdubptorh7EnmAV0IURgcBLdmyO9ZKYpS708nb5S4O7EY2T2hFSq4y8XklhHNm8kiD1JfjKqjNaMgz0oTBqlXBNlphiCEn5C3hPov8IqcL+qh5qRpQe/GyJ9ZSDfBNkw8iTN7+W0T0JC6POgWOUADw9lngYRB69bXkCcymNgsAKagS+mAJfRojRq11qFCFLRjRhvDgy9THM7RkIS7HKaxkfoIUaj8vER5giAapoNtLIvlOj36XNeoY8Z2Eqk6IOT3zv5E0AgfDgF0k01QQ47T4dU7HDGcURNXQmEZIID2GQjoxxLvBABSfvCi0kt/4KXNsAadfCz7vCuh4wjY11ZWsPGXhOj9/WKJU8FoyeVwXeJO4iPrlWRo1ctcUo7s8GrJWkAmd+lT6QSus7+eB7bMjgDDItcY3Xiz91+ijkZvcYMVDIbLBZogTHNXc3XpzqGw1pgb7ehsjJxkqmG6FYPOZZ/wVqosit1+tNmmRK0MPitvO6LBBG6JkDSEWJun3tv0R0zNtv494ZfD29MmQEi1RFV1qbGEW4LlP19jnNhlr3pP2Xt18Kg==7zR2-----END PGP PUBLIC KEY BLOCK-----]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>yubikey</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月19日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月19日今日记录完成laravel HTTP组件学习。 寻找laravel的通信加密方法。 使用dingo设计API 使用JWT进行通信加密。 JWT与UE4的兼容性有待研究。 路由方法暂定为控制器路由。主要原因是使用缓存访问速度较快。 前端与后端分离是必然。PC端与App端使用的API也应该不同。 今日计划完成度 laravel HTTP组件学习 3日计划 学习gulp与sass 学习laravel 框架与数据部分。 学习数据结构 了解HTML5 与 CSS3]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月14日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月14日今日记录学习完成laravel入门，完成学习笔记。 定制玩家天赋 今日计划完成度 学习gulp与sass 定制玩家天赋 laravel 快速入门学习 学习数据结构 明日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月17日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月17日今日记录laravel学习到 控制器 完成部分笔记 今日计划完成度 laravel 入门学习 3日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月23日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月23日今日记录学习完成了，laravel 框架与数据部分。 Eloquent ORM 处理数据的优势很大。 感觉上比较容易。对于网站与APP的API实现起来也比较容易。 但是PC端，要考虑双向通信的延时问题。需要玩家等待登录的可能性大。 PC端最大问题可能是地图与玩家匹配。 全球大服务器需要很详细的分析。 今日计划完成度 laravel 框架与数据部分 3日计划 学习gulp与sass 学习laravel 服务。 学习数据结构 了解HTML5 与 CSS3]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月15日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月15日今日记录学习完成laravel入门，完成用户部分笔记。 构建laravel基础学习目录。自定义章节：第5章 预计完成web部分学习需要一周时间。 变更计划以时长为3天。后期根据情况调整。 今日计划完成度 学习gulp与sass laravel 快速入门学习 学习数据结构 3日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月26日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月26日今日记录整理完成笔记。进入laravel服务学习。 整理网站需求，根据laravel框架，进行调整。 今日计划完成度 laravel Eloquent ORM部分。 3日计划 学习gulp与sass 学习laravel 服务。 学习数据结构 了解HTML5 与 CSS3 bootstrap学习（前端框架）]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月27日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月27日今日记录新头像很好看想要大图 laravel 是一个框架，像一座空房子。之后要做的，自然就是装修了。 再根据情况对装修的风格进行设计，这叫用户需求设计。这个词在许多领域是通用的。 一个一个的组件可以看做房子里的家具，每个都有自己的使命。 CSS与HTML就是壁纸啊，灯具啊，一些用来欣赏的。也是网页看起来的样子。也是叫前端~ API可以看成墙壁上的电源，给手机充电的。实际上用来传递信息。 嗯 28日啦~ 祝我自己生日快乐啦~ 愿望是在今年11月的某一天，能做完网站与PC端游戏，贪心一点能做完APP就更好了~ 其他： 试用一个叫pandoc的软件，结论是对中文支持并不友好。 用途:转换各种文档的工具。 今日计划完成度 1. laravel服务学习，进行中。 3日计划 1. 学习gulp与sass 2. 学习laravel 服务。 3. 学习数据结构 4. 了解HTML5 与 CSS3 5. bootstrap学习（前端框架）]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ssh使用公钥 与 yubikey OTP]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[修改ssh 使用公钥 与 yubikey OTPssh 部分在 ~/.ssh/authorized_keys中添加公钥。没有文件则手动创建。 修改sudo nano /etc/ssh/sshd_config中的 修改 SSH 登陆端口 Port 22 可选 禁止Root用户密码登陆PermitRootLogin without-password 重启SSH服务 yubikey 部分添加yubikey软件源 123sudo add-apt-repository ppa:yubico/stablesudo apt-get updatesudo apt-get install libpam-yubico 在/etc/pam.d/sshd 中添加id,key 1sudo nano /etc/pam.d/sshd 1auth sufficient pam_yubico.so id=&lt;ID&gt; key=&lt;API_KEY&gt; debug authfile=/etc/yubikey_mappings mode=client 创建/etc/yubikey_mappings 设置用户与对应的yubikey 1sudo nano /etc/yubikey_mappings 12&lt;user1&gt;:&lt;cccccyubikey1&gt;:&lt;cccccyubikey2&gt;&lt;user2&gt;:&lt;cccccyubikey3&gt; 设置ssh 1sudo nano /etc/ssh/sshd_config 修改ChallengeResponseAuthentication no为yes 1ChallengeResponseAuthentication yes 增加 1AuthenticationMethods publickey,keyboard-interactive:pam 重启SSH 1sudo service sshd restart 参考文档 1参考文档 2]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>yubikey</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Lamy]]></title>
+    <url>%2F2017%2F07%2F27%2F</url>
+    <content type="text"><![CDATA[lamy Item Size QTY(Quantity) 备注 Lamy AL-star black Fountain pen F 1 钢笔 Lamy AL-star black Mechanical pencil 0.7 HB 1 自动铅笔 LAMY pencil lead - 1 铅笔芯 LAMY spare eraser tip - 1 铅笔橡皮 LAMY AL-star black Special Edition Ballpoint pen black F 1 签字笔 LAMY giant ballpoint pen refill black F 2 签字笔芯 说明： 钢笔与签字笔的笔芯大小不同，买的时候注意下。 钢笔 笔尖F尖。 签字笔 笔尖F尖，笔芯黑色。 三种笔的外观都要黑色。 下方是外观识别：]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>lamy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于域名呐~]]></title>
+    <url>%2F2016%2F09%2F30%2F</url>
+    <content type="text"><![CDATA[说明 1怪我之前没说过。 .ml的域名代表着，马里共和国 是非洲西部的一个小国，没有办法用在比较重要的地方。 .cn指明是中国，.ca是枫叶国，.co.jp是日本样。 .us是美国，不常见是因为都去用.com了😂 .com被默认国际化的域名，是Commercial organization的缩写。 说明 2网站在mac上看不完整，没有测试过还是我的锅😳 用下面的这个吧 最重要的~真的很喜欢mystery.ml就用这个也问题啦~~👻 👻 👻 域名不一定要一个词的，只要方便让人记住，怎么用都是可以的~ 以上~😊 补充域名超过 $100 USD/year 就算是天价 😡 然后访问下,查询到的mysterygame.com 看吧~ 最后，没有注册的访问后是下面这样的。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年09月27日]]></title>
+    <url>%2F2016%2F09%2F27%2F</url>
+    <content type="text"><![CDATA[碎碎念网站还没有弄完😱😱😱 算是能看了，后端还没有处理 😭😭😭 满满的Twitter样式…… 这个要根据游戏做对应的调整。可以之后慢慢弄。 莫名的无力感…… parallel 依然被注册了 附上一个域名查询地址 freenom.com 如果看不全的话，登录下就可以了~ 今天计划 制作网站 最近计划 完成网站！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年09月11日]]></title>
+    <url>%2F2016%2F09%2F11%2F</url>
+    <content type="text"><![CDATA[一些唠叨看两周时间能不将网站做到可以访问的状态 😁 😁 😁 sunset的域名被别人注册过了 😞 想想也是必然呢~~ 算是常用词了。 游戏的大概内容环境污染严重，人类决定在地表建设，高度30到40米的全新活动层，之下的地方完全被遗弃。 一些人为了探索恢复环境的方法，选择到活动层下去。下层还有一些没有迁移的原住民。 大部分人留在上面，人类在建立活动层后，下方就彻底的沦为了垃圾场。 100 年后，活动层发生破损，再次连接起，活动层上下的人们。 玩家的角色就是两方中的一个。在活动层下，为了各自的信念而战。 其他:嗯，和 有顶棚的车站还是有点像的。 😜 😜 今天计划说是今天计划，应该是睡醒之后的事儿了😂 😂 😂 实验用户注册与密码找回，添加社交账号登录。 注册与密码找回，要使用邮件验证功能。 在注册时，设定一般用户权限，同时开启对应API。 用户API管理在，用户设置中可以找到。 游戏 与 APP 登录 直接使用 API授权。 努力做到 前端 与 后端 完全 分离。 网站间使用HTTPS访问。—— 这个完成一半了，算是容易的。 网站的debug工具安装，与 自动 API 文档 说明 了解OAuth2 对后台登录，要求使用二次验证登录。 计划为同时制作 前端 与 后端 ，后端预计要大量使用 VUE.JS 后端默认不开放注册，找回密码时，使用二次验证。 明日计划构建 文章提交 与 评论 BUG页管理]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年09月01日]]></title>
+    <url>%2F2016%2F09%2F01%2F</url>
+    <content type="text"><![CDATA[今日记录 在mac上布置开发环境 设计网站基本布局 前端+后端 前端直接修改bootstrap，并结合vue.js，增强界面友好度。 laravel 5.3 支持创建API文档。使用自带工具，就可以实现网页聊天。 估计做完游戏的前几个月，收入要靠广告。 下一阶段，增加商店。嗯，之前都计划好了。 :smile_cat::smile_cat::smile_cat: 写下对应的工作笔记。 今日计划完成度 制定网站制作时间表 统计需要的原画 3日计划 设计网站风格 考虑网站操作合理性]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年08月28日]]></title>
+    <url>%2F2016%2F08%2F28%2F</url>
+    <content type="text"><![CDATA[今日记录参加好友婚礼，新郎一脸的幸福，感觉新娘有点冷，但愿是我想多了。 8月25日到8月27日，布置苹果系统。 网站大部分时间要在MAC上制作。 iphone的APP提上日程？ 整个APP部分，11月之前是做不完了。有点小郁闷。 总之还是要先处理好网站与游戏吧。 至于游戏能不能在MAC上运行，还要研究。 MAC 与windows相比最大的优点就 命令行呢。别的还没发现。 然后好多的工具不能在MAC上用。 以上。 随手照片 今日计划完成度 好友婚礼 处理一些零碎的文档 3日计划 网站制做 规划游戏的API 规划APP的API 网站的API]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年08月22日]]></title>
+    <url>%2F2016%2F08%2F23%2F</url>
+    <content type="text"><![CDATA[今日记录花时间处理一些琐事儿，电脑貌似不喜欢被别人动。 电脑闹脾气了，:kissing_heart:，借这个机会，几台电脑都整理了一下。 javascript也不难，:stuck_out_tongue_closed_eyes:。 然后 嗯～ ， 先弄出一个网站了。 网站制作，估计要2两周吧。看不见的地方更重要。 以上了～ 今日计划完成度空……………… 3日计划 网站制做 规划游戏的API 规划APP的API 网站的API]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年08月13日]]></title>
+    <url>%2F2016%2F08%2F13%2F</url>
+    <content type="text"><![CDATA[今日记录心情极差。坏心情在肚子里烂掉算了，说出来只会更糟。 前两天注册了几个域名，留着私房用～ 算是少数能提起精神的事儿 域名有五个 第一个 第二个 第三个 第四个 第五个 正式域名没想好之前，为了方便测试用。 以后大概会改成博客吧。 还处理了一些网站部署的问题，过几天网站，应该每天都有变化。 网站和游戏做完后，想放到kickstarter.com去众筹呢。 明日计划清理下剩余的技术文档。要忙起来了。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年08月09日]]></title>
+    <url>%2F2016%2F08%2F09%2F</url>
+    <content type="text"><![CDATA[今日记录复习下HTML与CSS还是简单的.上次用是8年前呢~ 因为修改bootstrap时要用到,直接用bootstrap没什么色彩:sob: 服务器的地址 域名还没有想好. 然后还要拯救一下我的英文,太烂了:cold_sweat: 游戏的天赋精简到3层,每层4个选1个. 找到了vus.js用了处理前端数据. 总之加油:grey_exclamation: 今日计划完成度 复习HTML与CSS 3日计划 1. 学习gulp与sass 2. 学习数据结构 3. 了解HTML5 与 CSS3 4. bootstrap学习（前端框架） 5. 设计网站制作进度表]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年08月05日]]></title>
+    <url>%2F2016%2F08%2F05%2F</url>
+    <content type="text"><![CDATA[日期：2016年08月05日今日记录github.io 上不能挂载 bootstrap 样式,估计要自己写了! boottstrap还是很简单的,前端除了javascript有点难度,其他的都简单. 下午在digital ocean 弄了一个主机,布置了一下laravel的运行环境. 当然是初步,什么都没有.地址 顺手把梯子也设置了,GFW再见了~ :smiley: 网址什么的还在考虑~ 有推荐吗~ 最好又短又好记~ :ghost: 测试jemoji :+1:! emoji 使用表 今日计划完成度 主机初步搭建 3日计划 1. 学习gulp与sass 2. 学习数据结构 3. 了解HTML5 与 CSS3 4. bootstrap学习（前端框架） 5. 设计网站制作进度表]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Atom设置指南]]></title>
+    <url>%2F2016%2F08%2F04%2F</url>
+    <content type="text"><![CDATA[Atom官网 安装atom123$ sudo add-apt-repository ppa:webupd8team/atom$ sudo apt-get update$ sudo apt-get install atom atom packagesatom-chromegit-plusmarkdown-pdfmarkdown-preview-plusmarkdown-writertidy-markdownemmethtml快速编写工具 jshintjs语法插件 minimap与sublime相似的代码预览 pigmentsmarkdown-preview-enhancedmarkdown-preview-enhanced mermaid 渲染 flowchart 和 sequence diagrammermaid 文档 KaTex 渲染数学表达式需要学习LaTeX语法 KaTeX 参考1 $$\oint_C x^3, dx + 4y^2, dy 2 = \left( \frac{\left(3-x\right) \times 2}{3-x} \right)$$ $$\sum_{m=1}^\infty\sum_{n=1}^\infty\frac{m^2,n} {3^m\left(m,3^n+n,3^m\right)}$$ $$\phi_n(\kappa) = \frac{1}{4\pi^2\kappa^2} \int_0^\infty \frac{\sin(\kappa R)}{\kappa R} \frac{\partial}{\partial R} \left[R^2\frac{\partial D_n(R)}{\partial R}\right],dR$$ PlantUML 渲染图形PlantUML WaveDrom 来渲染 digital timing diagram.WaveDrom 使用json样式文本 1234567891011121314151617181920212223242526272829&#123;signal: [ &#123;name:&apos;clk&apos;, wave: &apos;p.....PPPPp....&apos; &#125;, &#123;name:&apos;dat&apos;, wave: &apos;x....2345x.....&apos;, data: &apos;a b c d&apos; &#125;, &#123;name:&apos;req&apos;, wave: &apos;0....1...0.....&apos; &#125;],head: &#123;text: [&apos;tspan&apos;, [&apos;tspan&apos;, &#123;class:&apos;error h1&apos;&#125;, &apos;error &apos;], [&apos;tspan&apos;, &#123;class:&apos;warning h2&apos;&#125;, &apos;warning &apos;], [&apos;tspan&apos;, &#123;class:&apos;info h3&apos;&#125;, &apos;info &apos;], [&apos;tspan&apos;, &#123;class:&apos;success h4&apos;&#125;, &apos;success &apos;], [&apos;tspan&apos;, &#123;class:&apos;muted h5&apos;&#125;, &apos;muted &apos;], [&apos;tspan&apos;, &#123;class:&apos;h6&apos;&#125;, &apos;h6 &apos;], &apos;default &apos;, [&apos;tspan&apos;, &#123;fill:&apos;pink&apos;, &apos;font-weight&apos;:&apos;bold&apos;, &apos;font-style&apos;:&apos;italic&apos;&#125;, &apos;pink-bold-italic&apos;] ]&#125;,foot: &#123;text: [&apos;tspan&apos;, &apos;E=mc&apos;, [&apos;tspan&apos;, &#123;dy:&apos;-5&apos;&#125;, &apos;2&apos;], [&apos;tspan&apos;, &#123;dy: &apos;5&apos;&#125;, &apos;. &apos;], [&apos;tspan&apos;, &#123;&apos;font-size&apos;:&apos;25&apos;&#125;, &apos;B &apos;], [&apos;tspan&apos;, &#123;&apos;text-decoration&apos;:&apos;overline&apos;&#125;,&apos;over &apos;], [&apos;tspan&apos;, &#123;&apos;text-decoration&apos;:&apos;underline&apos;&#125;,&apos;under &apos;], [&apos;tspan&apos;, &#123;&apos;baseline-shift&apos;:&apos;sub&apos;&#125;, &apos;sub &apos;], [&apos;tspan&apos;, &#123;&apos;baseline-shift&apos;:&apos;super&apos;&#125;, &apos;super &apos;] ],tock:-5&#125;&#125; Viz.js 来渲染 dot language 图形.dot 123456789graph ethane &#123; C_0 -- H_0 [type=s]; C_0 -- H_1 [type=s]; C_0 -- H_2 [type=s]; C_0 -- C_1 [type=s]; C_1 -- H_3 [type=s]; C_1 -- H_4 [type=s]; C_1 -- H_5 [type=s];&#125; reveal.js 来渲染漂亮的 presentations幻灯片样式 presentations]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年08月04日]]></title>
+    <url>%2F2016%2F08%2F04%2F</url>
+    <content type="text"><![CDATA[日期：2016年08月04日今日记录打印laravel文档,方便以后研究. 各个平台功能分析. atom 的 markdown-preview-enhanced 插件有个功能很有意思 地址 今日计划完成度 1. laravel文档打印。 2. 安装atom插件,编辑对应笔记 3日计划 1. 学习gulp与sass 2. 学习数据结构 3. 了解HTML5 与 CSS3 4. bootstrap学习（前端框架） 5. 设计网站制作进度表]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年8月3日]]></title>
+    <url>%2F2016%2F08%2F03%2F</url>
+    <content type="text"><![CDATA[日期：2016年08月03日今日记录安装并使用atom，比sublime好用一点。ubuntu下可以输入中文。 有markdown保存为pdf的插件。 完成laravel学习。 花费时间比预计的要长。 截个图吧~ 今日计划完成度 1. laravel学习完成。 3日计划 1. 学习gulp与sass 2. 学习laravel 服务。 3. 学习数据结构 4. 了解HTML5 与 CSS3 5. bootstrap学习（前端框架） 6. 设计网站制作进度表]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月13日]]></title>
+    <url>%2F2016%2F07%2F13%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月13日今日记录 mysql禁止了root用户登录，所以新建一个高权限用户吧！参考地址 学习laravel快速入门 今日计划完成度 学习gulp与sass [1/2] 2. 定制玩家天赋 laravel 学习 学习数据结构 设置jekyll分页以及disqus模块 明日计划 学习gulp与sass 定制玩家天赋 laravel 学习 学习数据结构]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[vim 学习指南]]></title>
+    <url>%2F2016%2F07%2F13%2F</url>
+    <content type="text"><![CDATA[vim 使用指南1.vim 插件管理器1.1 Vundle git仓库安装文档有中文指南。 1.2 第一步$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim1.3 第二步对.vimrc文件进行设置。 begin()和end()之间的为可以添加的插件。 插件添加支持多种格式。 set rtp+=~/.vim/bundle/Vundle.vim call vundle#begin() Plugin &apos;VundleVim/Vundle.vim&apos; Plugin &apos;tpope/vim-fugitive&apos; Plugin &apos;L9&apos; Plugin &apos;wincent/command-t&apos; Plugin &apos;godlygeek/tabular&apos; Plugin &apos;plasticboy/vim-markdown&apos; Plugin &apos;suan/vim-instant-markdown&apos; call vundle#end() filetype plugin indent on1.4 第三步在vim中输入:PluginInstall来安装插件。 2.vim 常用插件指南2.1 Command-t插件地址 插件需要安装ruby，安装完成后，进入目录~/.vim/bundle/command-t/ruby/command-t 执行下方命令： ruby extconf.rb make之后进入Vim，输入命令:CommandT查看效果。 如果提示vim不支持ruby，则安装vim-nox $ sudo apt-get install vim-nox下图，为正常运行图 简要使用说明 tab为选择切换到文件选择。方向键用了选择文件。enter确认选择。 2.2 vim中编写markdown与预览需要安装的插件有三个。 Plugin &apos;godlygeek/tabular&apos; Plugin &apos;plasticboy/vim-markdown&apos; Plugin &apos;suan/vim-instant-markdown&apos;其中vim-instant-markdown需要安装nodejs、npm、xdg-utils、nodejs-legacy。 安装instant-markdown-d $ sudo npm -g install instant-markdown-d其他需要组件： $ sudo apt-get install nodejs $ sudo apt-get install npm $ sudo apt-get install xdg-utils $ sudo apt-get install nodejs-legacy实现的效果为浏览器预览与markdown语法高亮 安装完成后效果如下图： 2.3 nerdTree参考地址 nerdtree-git-plugin git语法提示 vim-nerdtree-tabs NERDTree tag控制 Plugin &apos;scrooloose/nerdTree&apos; Plugin &apos;Xuyuanp/nerdtree-git-plugin&apos; Plugin &apos;jistr/vim-nerdtree-tabs&apos;vim中输入PluginInstall，输入NERDTree检查是否运行 在.vimrc中添加设置 &quot; NERDTRee config NERDTree 设置 autocmd vimenter * NERDTree “ 当指定文件时，自动随VIM启动。 &quot;未指定文件时，加载NERDTree autocmd StdinReadPre * let s:std_in=1 autocmd VimEnter * if argc() == 0 &amp;&amp; !exists(&quot;s:std_in&quot;) | NERDTree | endif &quot;隐藏与显示快捷键[Ctrl+n] map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt; &quot;左侧只有一个窗口时，随Vim一起关闭 autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月12日]]></title>
+    <url>%2F2016%2F07%2F12%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月12日今日记录在ubuntu中安装gulp与sass。 安装nginx+php7.0+mysql。 明日计划 学习gulp与sass 定制玩家天赋 laravel 学习 学习数据结构]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[gulp 学习指南]]></title>
+    <url>%2F2016%2F07%2F12%2F</url>
+    <content type="text"><![CDATA[about gulp安装nodesudo apt install nodejs安装 nodejs-legacysudo apt install nodejs-legacy安装npmsudo apt install npm安装gulpsudo npm install -g gulp查看node 版本node -v查看npm 版本npm -v查看gulp 版本gulp -v测试gulp时，需要package.json与gulpfile.js文件 安装gulp-sassnpm install gulp-sass]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[zsh指南]]></title>
+    <url>%2F2016%2F07%2F12%2F</url>
+    <content type="text"><![CDATA[zsh pluginzsh tmux 缩写 命令 ta tmux attach -t ts tmux new-session -s tl tmux list-sessions tksv tmux kill-server tkss tmux kill-session -t zsh git 缩写 命令 g git ga git add gaa git add –add gapa git add –patsh gb git branch gba git branch -a gbnm git branch –no-merged gbr git branch –remote gc git commit -v gca git commit -v -a gcam git commit -a -m gcmsg git commit -m gco git checkout gcm git checkout master gcb git checkout -b gcl git clone –recursive gcf git config –list gd git diff gf git fetch gl git pull gm git merge gmom git merge origin/master gp git push gpd git push –dry-run gpoat git push origin –all &amp;&amp; git push origin –tags gr git remote gra git remote add grmv git remote rename grrm git remote remove grv git remote -v grb git rebase grbm git rebase master grh git reset HEAD grhh git reset HEAD –hard gsb git status -sb gss git status -s gst git status gts git tag -s gtv git tag zsh laravel 缩写 命令 la5 php artisan la5cache php artisan cache:clear la5routes php artisan route:list la5vendor php artisan vendor:publish zsh ubuntu 缩写 命令 ag sudo apt-get aga sudo apt-get autoclean agar sudo apt-get autoremove agb sudo apt-get build-dep agc sudo apt-get clean agd sudo apt-get dselect-upgrade agi sudo apt-get install agp sudo apt-get purge agr sudo apt-get remove agu sudo apt-get update agud sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade agug sudo apt-get upgrade aguu sudo apt-get update &amp;&amp; sudo apt-get upgrade zsh npm 缩写 命令 npmg npm i -g npmS npm i -S npmD npm i -D npmO npm outdated zsh ruby 缩写 命令 sgem sudo gem zsh bundler 缩写 命令 be bundle exec bl bundle list bp bundle package bo bundle open bout bundle outdated bu bundle update bi bundle install bcn bundle clean]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[jekyll 学习指南]]></title>
+    <url>%2F2016%2F07%2F12%2F</url>
+    <content type="text"><![CDATA[1.jekylljekyll官方地址 jekyll中文 1.1安装jekyll必要组件下文是在ubuntu上安装与设置 $ sudo apt-get install ruby ruby-dev make gcc nodejs1.2安装jekyll$ sudo gem install jekyll之后查看jekyll版本 $ jekyll -v1.3jekyll使用首先要设置_config.yml文件 随后build为site。 $ jekyll buildbuild后网站文件在_site 使用jekyll server运行测试。 $ jekyll server浏览器输入localhost:4000可以查看网站运行情况。 _post文件下位文章列表，可以将文章放入后build。 注意：文件的头部要使用下方格式 --- layout: post title: Blogging Like a Hacker ---2. kramdown 语法说明2.1 TOC连接[文章目录]* TOC {：toc}生成目录带自动锚点 2.2 删除线~~删除线~~2.3 数学公式需要增加js用于公式解析 &lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;3. disqus添加disqus代码到_layouts/post.html]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月11日]]></title>
+    <url>%2F2016%2F07%2F11%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月11日今日记录UE4 升级到4.12.5 初步设定完成，细化数据库结构以及通信接口。2016年7月11日19:51:58 sass学习参考地址 主要用来处理CSS gulp参考地址1 地址2 前端开发监听工具 bootstrap参考地址 样式与JS包 node.js参考地址 js服务 composer参考地址 php 包管理 laravel 学习参考地址 PHP框架 npm：node.js 包管理器 pip：python 包管理器 ruby：gem、bundle 开发顺序： 网站→服务端后台→ PC端→APP端。 其中网站的开发与游戏原画制作并行。 网站与服务器要求掌握的知识较多，PC端的机械性工作量较大，APP端需要大量的动画数据。 明日计划 学习gulp与sass 定制玩家天赋 laravel 学习 学习数据结构]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月10日]]></title>
+    <url>%2F2016%2F07%2F10%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月10日22:07:00今日活动安装空调用一天时间。 以后早睡早起，零点前睡，六点钟起床 明天计划 完成PC端文档，不要玩游戏。 整理可能使用的数据结构。 学习laravel 5。 了解JS、 Sass、gulp、bootstrap、html5 Composer略微学习一下，创建笔记。 在hp-notebook上部署laravel。以及完整WEB开发环境。 制定开发顺序。 实现markdown画流程图的方法。 研究下 Emacs 如果写 ditaa 与 markdown 。 xmind思维图工具]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Arch Linux 安装指南]]></title>
+    <url>%2F2016%2F07%2F07%2F</url>
+    <content type="text"><![CDATA[1. 基本系统安装1.1. Arch Linux镜像下载1.2. 安装1.2.1. VWmare 基本安装设定 设定任意 Linux 64位虚拟机 内存2G，硬盘20G 挂载镜像光盘 1.2.2. 实体机1234567891011121314151617181920212223# loadkeys us // 设置键盘# cfdisk // 创建硬盘分区# mkfs.ext4 /dev/sda1 // 格式化分区# mkswap /dev/sda2 &amp;&amp; swapon /dev/sda2 // 挂载swap# mount /dev/sda1 /mnt // 挂载 分区# vi /etc/pacman.d/mirrorlist // 添加软件源# pacman -Syy // 更新软件源# pacstrap /mnt base base-devel net-tools // 安装基础包# genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab // 自动生成引导文件# arch-chroot /mnt // 切入硬盘root# vi /etc/locale.gen &amp;&amp; locale-gen // 设置字符# echo LANG=&quot;zh_CN.UTF-8&quot; &gt;&gt; /etc/locale.conf // 设置语言# echo KEYMAP=us &gt;&gt; /etc/vconsole.conf // 设置键盘# ln -s /usr/share/zoneinfo/Asia/Chongqing /etc/localtime // 设置本地时间# echo vm &gt;&gt; /etc/hostname // 设置主机名称# mkinitcpio -p linux // 根据配置生成镜像# passwd // 修改root密码# pacman -S grub-bios // 安装grub引导# grub-install /dev/sda // 安装到硬盘# grub-mkconfig -o /boot/grub/grub.cfg // 自动设置grub# exit // 退出root用户# umount /mnt // 取消挂载硬盘# reboot // 重启 备注： 1# mkdir /mnt/home &amp;&amp; mount /dev/sda9 /mnt/home //创建/home 并挂载硬盘。 在创建硬盘分区后执行，如果有需要。 要添加的软件源： 参考官方 最新地址 12345http://mirror.bit.edu.cn/archlinux/ - Beijing Institute of Technologyhttp://mirrors.aliyun.com/archlinux/ - Alibabahttp://mirrors.sohu.com/archlinux/http://mirrors.yun-idc.com/archlinux/ 以上基本安装完成。 1.2.3. 网站参考地址1 地址2 自动化安装设置工具Archlinux U Install 2. 桌面化安装3. 常用软件补全4. 美化5. 开发环境搭建]]></content>
+      <categories>
+        <category>archlinux</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+</search>
