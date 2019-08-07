@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[日常]]></title>
+    <url>%2F2019%2F08%2F07%2F</url>
+    <content type="text"><![CDATA[日常vbox 导入虚拟机mac 会改变 需要重新编辑git的提交位置。 后端数据控制部分马上就要完工了~ ✿✿ヽ(°▽°)ノ✿ 七夕了人家都说鹊桥相遇，那两颗星距离有点远…… 一直都说这样想的😁 附上 wiki 牛郎星 wiki 织女一 wiki 也许有一天两者真的会相遇吧！ 一年一次什么的……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[gitlab 的问题]]></title>
     <url>%2F2019%2F08%2F05%2F</url>
     <content type="text"><![CDATA[gitlab 的问题gitlab 不能正常启动果然是docker强制使用TLS引起的…… 目前的解决方案使用自定义的docker镜像来载入gitlab…… 并不是什么良策…… 等等看什么时候可以修正吧…… 博客更新博客更新到7.3.0,从jekyll 换到 hexo 设置什么的都没怎么变 关闭评论 1comments: false gitlab 保护分支Projects → Settings → Repository → Protected Branches → unprotect 解除保护 可以将原始文件推送到master，将生成文件推送到新分支。从而不修改分支保护。 deploy 推送不使用hexo d -g，推送内容无变化。]]></content>
