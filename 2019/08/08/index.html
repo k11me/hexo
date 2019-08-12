@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="疼肌肉受风…… 一动就疼…… 不想动…… 不想动…… 不过与胆结石的疼比起来也没什么。略微不适而已……">
-<meta name="keywords" content="日记">
+  <meta name="description" content="vue 多次提交 input 不触发问题主要原因在于提交后$refs数据没有清理 使得vue不能读取到数据变化。 使用下方命令清除数据就好。 1this.$refs.myFileInput.value = &apos;&apos;;  关于上传部分可以查看vue上传 新建input进行二次触发并算不上是良策…… 以上">
+<meta name="keywords" content="日记,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="受风 好疼！">
-<meta property="og:url" content="http://keleven.me/2019/03/12/index.html">
+<meta property="og:title" content="vue 多次提交 input 不触发问题">
+<meta property="og:url" content="http://keleven.me/2019/08/08/index.html">
 <meta property="og:site_name" content="Keleven.Me">
-<meta property="og:description" content="疼肌肉受风…… 一动就疼…… 不想动…… 不想动…… 不过与胆结石的疼比起来也没什么。略微不适而已……">
+<meta property="og:description" content="vue 多次提交 input 不触发问题主要原因在于提交后$refs数据没有清理 使得vue不能读取到数据变化。 使用下方命令清除数据就好。 1this.$refs.myFileInput.value = &apos;&apos;;  关于上传部分可以查看vue上传 新建input进行二次触发并算不上是良策…… 以上">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-28T09:31:26.641Z">
+<meta property="og:updated_time" content="2019-08-07T17:02:55.777Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="受风 好疼！">
-<meta name="twitter:description" content="疼肌肉受风…… 一动就疼…… 不想动…… 不想动…… 不过与胆结石的疼比起来也没什么。略微不适而已……">
-  <link rel="canonical" href="http://keleven.me/2019/03/12/">
+<meta name="twitter:title" content="vue 多次提交 input 不触发问题">
+<meta name="twitter:description" content="vue 多次提交 input 不触发问题主要原因在于提交后$refs数据没有清理 使得vue不能读取到数据变化。 使用下方命令清除数据就好。 1this.$refs.myFileInput.value = &apos;&apos;;  关于上传部分可以查看vue上传 新建input进行二次触发并算不上是良策…… 以上">
+  <link rel="canonical" href="http://keleven.me/2019/08/08/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>受风 好疼！ | Keleven.Me</title>
+  <title>vue 多次提交 input 不触发问题 | Keleven.Me</title>
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
   <script>
@@ -266,7 +266,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/03/12/">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/08/08/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
@@ -280,7 +280,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">受风 好疼！
+          <h1 class="post-title" itemprop="name headline">vue 多次提交 input 不触发问题
 
             
           </h1>
@@ -297,19 +297,11 @@
                 
               
 
-              <time title="Created: 2019-03-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-12T00:00:00+08:00">2019-03-12</time>
+              <time title="Created: 2019-08-08 00:00:00 / Modified: 01:02:55" itemprop="dateCreated datePublished" datetime="2019-08-08T00:00:00+08:00">2019-08-08</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-28 17:31:26" itemprop="dateModified" datetime="2019-03-28T17:31:26+08:00">2019-03-28</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -336,8 +328,8 @@
     </span>
     <span class="post-meta-item-text">Comments: </span>
   
-    <a href="/2019/03/12/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/12/" itemprop="commentCount"></span>
+    <a href="/2019/08/08/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/08/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -353,8 +345,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="疼"><a href="#疼" class="headerlink" title="疼"></a>疼</h1><p>肌肉受风…… 一动就疼…… 不想动…… 不想动……</p>
-<p>不过与胆结石的疼比起来也没什么。略微不适而已……</p>
+        <h1 id="vue-多次提交-input-不触发问题"><a href="#vue-多次提交-input-不触发问题" class="headerlink" title="vue 多次提交 input 不触发问题"></a>vue 多次提交 input 不触发问题</h1><p>主要原因在于提交后<code>$refs</code>数据没有清理</p>
+<p>使得<code>vue</code>不能读取到数据变化。</p>
+<p>使用下方命令清除数据就好。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.$refs.myFileInput.value = <span class="string">''</span>;</span><br></pre></td></tr></table></figure>
+
+<p>关于上传部分可以查看<a href="https://keleven.me/2019/03/04/">vue上传</a></p>
+<p>新建<code>input</code>进行二次触发并算不上是良策……</p>
+<p>以上</p>
 
     </div>
 
@@ -368,10 +366,12 @@
         <div class="post-tags">
             <a href="/tags/日记/" rel="tag"># 日记</a>
           
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
         </div>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-              <a href="/2019/03/08/" rel="next" title="日常">
+              <a href="/2019/08/07/" rel="next" title="日常">
                 <i class="fa fa-chevron-left"></i> 日常
               </a>
             
@@ -380,10 +380,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-              <a href="/2019/03/28/" rel="prev" title="炸毛！">
-                炸毛！ <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
     </footer>
@@ -571,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#疼"><span class="nav-number">1.</span> <span class="nav-text">疼</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-多次提交-input-不触发问题"><span class="nav-number">1.</span> <span class="nav-text">vue 多次提交 input 不触发问题</span></a></li></ol></div>
             
 
           </div>
@@ -694,9 +690,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "http://keleven.me/2019/03/12/";
-    this.page.identifier = "2019/03/12/";
-    this.page.title = '受风 好疼！';};
+    this.page.url = "http://keleven.me/2019/08/08/";
+    this.page.identifier = "2019/08/08/";
+    this.page.title = 'vue 多次提交 input 不触发问题';};
   function loadComments() {
     if (window.DISQUS) {
       DISQUS.reset({

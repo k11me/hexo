@@ -263,6 +263,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/11/25/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2018/11/25/" class="post-title-link" itemprop="url">user 使用uuid</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2018-11-25 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-25T00:00:00+08:00">2018-11-25</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2018-11-26 05:59:59" itemprop="dateModified" datetime="2018-11-26T05:59:59+08:00">2018-11-26</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-comment-o"></i>
+    </span>
+    <span class="post-meta-item-text">Comments: </span>
+  
+    <a href="/2018/11/25/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/25/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h1 id="25日的份"><a href="#25日的份" class="headerlink" title="25日的份"></a>25日的份</h1><p>将<code>laravel</code> 默认的<code>id</code> 改为 <code>uuid</code> 的方法，以及<code>passport</code> 使用<code>uuid</code></p>
+<h2 id="user-部分"><a href="#user-部分" class="headerlink" title="user 部分"></a>user 部分</h2><p>当不使用传统<code>id</code>时，</p>
+<p>先在模型中写入 关闭默认排序</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> $incrementing = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+
+<p>再<code>migrate</code>中修改</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$table-&gt;increments(<span class="string">'id'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>为</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$table-&gt;uuid(<span class="string">'id'</span>)-&gt;primary();</span><br></pre></td></tr></table></figure>
+
+<p>随后运行<code>la5 migrate</code></p>
+<p>新建<code>App\Traits\Uuid</code></p>
+<p>内容如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Traits</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Str</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">trait</span> Uuid</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Boot function from laravel.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">parent</span>::boot();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">static</span>::creating(<span class="function"><span class="keyword">function</span> <span class="params">($model)</span> </span>&#123;</span><br><span class="line">            $model-&gt;&#123;$model-&gt;getKeyName()&#125; = (string) Str::orderedUuid();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>随后在模型中添加</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Traits</span>\<span class="title">Uuid</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Uuid</span>;</span><br></pre></td></tr></table></figure>
+
+<p>之后使用<code>laravel</code>自带的<code>auth</code>可以正常注册了。密码找回功能也可以使用。</p>
+<p><a href="https://medium.com/@steveazz/setting-up-uuids-in-laravel-5-552412db2088" target="_blank" rel="noopener">参考文档</a></p>
+<h2 id="passport-部分"><a href="#passport-部分" class="headerlink" title="passport 部分"></a>passport 部分</h2><p>当 <code>passport</code>安装完成后</p>
+<p>执行<code>php artisan vendor:publish --tag=passport-migrations</code></p>
+<p>复制迁移到<code>migrate</code>目录</p>
+<p>修改<code>CreateOauthClientsTable</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$table-&gt;increments(<span class="string">'id'</span>);</span><br><span class="line">$table-&gt;integer(<span class="string">'user_id'</span>)-&gt;index()-&gt;nullable();</span><br><span class="line"><span class="comment">// 改为</span></span><br><span class="line"></span><br><span class="line">$table-&gt;uuid(<span class="string">'id'</span>)-&gt;primary();</span><br><span class="line">$table-&gt;uuid(<span class="string">'user_id'</span>)-&gt;index()-&gt;nullable();</span><br></pre></td></tr></table></figure>
+
+
+<p>其他迁移将<code>client_id</code>与<code>user_id</code> 改为使用<code>uuid</code></p>
+<p><code>App\Providers\AppServiceProvider</code>中引入部分添加</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Laravel</span>\<span class="title">Passport</span>\<span class="title">Client</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Str</span>;</span><br></pre></td></tr></table></figure>
+
+<p><code>boot()</code>部分添加</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Client::creating(<span class="function"><span class="keyword">function</span> <span class="params">(Client $client)</span> </span>&#123;</span><br><span class="line">    $client-&gt;incrementing = <span class="keyword">false</span>;</span><br><span class="line">    $client-&gt;id = (string) Str::orderedUuid();</span><br><span class="line">&#125;);</span><br><span class="line">Client::retrieved(<span class="function"><span class="keyword">function</span> <span class="params">(Client $client)</span> </span>&#123;</span><br><span class="line">    $client-&gt;incrementing = <span class="keyword">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><code>register()</code> 部分添加</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Passport::ignoreMigrations();</span><br></pre></td></tr></table></figure>
+
+<p>其他部分按照文档即可正常使用。</p>
+<p><a href="https://mlo.io/blog/2018/08/17/laravel-passport-uuid/" target="_blank" rel="noopener">参考文档</a></p>
+<h2 id="user-路径修改"><a href="#user-路径修改" class="headerlink" title="user 路径修改"></a>user 路径修改</h2><p>在<code>App\Http\Controllers\Auth\RegisterController</code>中修改</p>
+<p>在<code>config</code>中的<code>providers</code>修改到对应路径  之后可以正常使用</p>
+<h2 id="laravel-包开发"><a href="#laravel-包开发" class="headerlink" title="laravel 包开发"></a>laravel 包开发</h2><p>包的开发非常有利于后期的维护，同时也可以有效的分配工作任务，对未来的团队工作有极大的优势。</p>
+<p>主要是功能混在一起，找起来超级烦。</p>
+<p>有必要将独立的功能分散出去。</p>
+<p><a href="https://laravel-news.com/developing-laravel-packages-with-local-composer-dependencies" target="_blank" rel="noopener">参考地址 1</a><br><a href="https://laraveldaily.com/how-to-create-a-laravel-5-package-in-10-easy-steps/" target="_blank" rel="noopener">参考地址 2</a></p>
+<p>需要说明的是 <code>namespace</code>与<code>autoload</code>超级重要</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/11/20/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1459,127 +1622,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/10/04/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/10/04/" class="post-title-link" itemprop="url">2FA 基本完成了</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2018-10-04 00:01:00" itemprop="dateCreated datePublished" datetime="2018-10-04T00:01:00+08:00">2018-10-04</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2018-10-10 03:15:04" itemprop="dateModified" datetime="2018-10-10T03:15:04+08:00">2018-10-10</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/10/04/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/04/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h1 id="2FA-基本完成了"><a href="#2FA-基本完成了" class="headerlink" title="2FA 基本完成了"></a>2FA 基本完成了</h1><p>后端还缺权限的判断，与<code>code message</code>预制编码</p>
-<p>前端缺特殊<code>code message</code>的代码响应 指的是2FA的强制验证</p>
-<p>之后要加入批量导入功能 否则会累死~~</p>
-<h2 id="laravel-model-的坑"><a href="#laravel-model-的坑" class="headerlink" title="laravel model 的坑"></a>laravel model 的坑</h2><p>使用<code>get()</code>去取到的数据是<code>array</code> 而不是<code>object</code> </p>
-<p>可以手动转换 也可以直接使用 根据需求决定</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1620,7 +1662,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
