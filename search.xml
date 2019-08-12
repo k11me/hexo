@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[被遗忘的“cURL error 60”]]></title>
+    <url>%2F2019%2F08%2F13%2F</url>
+    <content type="text"><![CDATA[被遗忘的cURL error 60进行本地请求时，cURL error 60问题 php --ini 查询当下 php.ini 文件位置， 添加下方设置。 1curl.cainfo = &quot;/Users/[name]/.config/valet/CA/LaravelValetCASelfSigned.pem&quot; 注意要在/etc/hosts 中将站点设置为本地。 1127.0.0.1 name.test 完成后，重启valet 1valet restart 设置后再7.3下也可以正常使用了~ ✿✿ヽ(°▽°)ノ✿]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue 多次提交 input 不触发问题]]></title>
     <url>%2F2019%2F08%2F08%2F</url>
     <content type="text"><![CDATA[vue 多次提交 input 不触发问题主要原因在于提交后$refs数据没有清理 使得vue不能读取到数据变化。 使用下方命令清除数据就好。 1this.$refs.myFileInput.value = ''; 关于上传部分可以查看vue上传 新建input进行二次触发并算不上是良策…… 以上]]></content>
