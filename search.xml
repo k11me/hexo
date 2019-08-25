@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[laravel 扩展包]]></title>
+    <url>%2F2019%2F08%2F25%2F</url>
+    <content type="text"><![CDATA[laravel 扩展包修改 自己创建的扩展包时，一定要提交git，否则composer 不会进行更新。 尤其是添加了新的Facades时。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[对应]]></title>
+    <url>%2F2019%2F08%2F23%2F</url>
+    <content type="text"><![CDATA[对应使用数据表对远端数据校验，好过大量查询~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[拖延症的救星！快点开始！]]></title>
+    <url>%2F2019%2F08%2F21%2F</url>
+    <content type="text"><![CDATA[快速开始快速进入状态是治疗拖延症的秘诀…… laravel 多对多sync() 与 syncWithoutDetaching() 只对中间表有效！ 震惊 laravel-permission 都有UI了！]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[被遗忘的“cURL error 60”]]></title>
     <url>%2F2019%2F08%2F13%2F</url>
     <content type="text"><![CDATA[被遗忘的cURL error 60进行本地请求时，cURL error 60问题 php --ini 查询当下 php.ini 文件位置， 添加下方设置。 1curl.cainfo = &quot;/Users/[name]/.config/valet/CA/LaravelValetCASelfSigned.pem&quot; 注意要在/etc/hosts 中将站点设置为本地。 1127.0.0.1 name.test 完成后，重启valet 1valet restart 设置后再7.3下也可以正常使用了~ ✿✿ヽ(°▽°)ノ✿]]></content>
