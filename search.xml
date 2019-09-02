@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[laravel 扩展包]]></title>
+    <url>%2F2019%2F09%2F01%2F</url>
+    <content type="text"><![CDATA[laravel 扩展包定义路由在ServiceProvider中引入路由文件。 1include __DIR__.'route.php' 路由中使用中间件记得在middleware中添加web,使auth可以正常运行。 有些事儿真的是想不到……]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[nginx-proxy 多镜像下使用v2ray]]></title>
     <url>%2F2019%2F08%2F29%2F</url>
     <content type="text"><![CDATA[nginx-proxy 多镜像下使用v2ray单一 docker-compose.yml 指路 多个docker-compose.yml 时，上面的方法就不在适用了。 主要原因是nginx-proxy找不到指定的服务器。 指定服务器名称，并加入到相同网络可破 nginx-proxy 加 letsencrypt1234567891011121314151617181920212223242526version: &apos;2&apos;services: nginx-proxy: image: jwilder/nginx-proxy:latest restart: always ports: - &quot;80:80&quot; - &quot;443:443&quot; volumes: - /path/to/certs:/etc/nginx/certs:ro - $PWD/vhost.d:/etc/nginx/vhost.d:rw - /usr/share/nginx/html - /var/run/docker.sock:/tmp/docker.sock:ro labels: - &quot;com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy&quot; network_mode: &quot;bridge&quot; letsencrypt-nginx-proxy-companion: image: jrcs/letsencrypt-nginx-proxy-companion:latest restart: always volumes: - /path/to/certs:/etc/nginx/certs:rw - /var/run/docker.sock:/var/run/docker.sock:ro volumes_from: - nginx-proxy network_mode: &quot;bridge&quot; v2ray 独立123456789101112131415161718192021222324252627282930version: &apos;2&apos;services: v2ray: image: v2ray/official container_name: v2ray restart: always expose: - &quot;1234&quot; volumes: - $PWD/v2ray:/etc/v2ray - $PWD/v2ray/config.json:/etc/v2ray/config.json:ro environment: - VIRTUAL_HOST=v2ray network_mode: &quot;bridge&quot; web1: image: nginx:latest restart: always expose: - &quot;80&quot; volumes: - $PWD/html:/usr/share/nginx/html:ro environment: - VIRTUAL_HOST=your.domain.name - VIRTUAL_PORT=80 - LETSENCRYPT_HOST=your.domain.name - LETSENCRYPT_EMAIL=your@domain.name network_mode: &quot;bridge&quot; your.domain.name_location直接指定服务器不需端口 12345678proxy_redirect off;proxy_http_version 1.1;proxy_set_header Upgrade $http_upgrade;proxy_set_header Connection &quot;upgrade&quot;;proxy_set_header Host $http_host;if ($http_upgrade = &quot;websocket&quot; ) &#123; proxy_pass http://v2ray;&#125; 重要信息别忘了创建config.json文件！😁 以上 长久的问题解决了]]></content>
