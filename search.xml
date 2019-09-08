@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[我回来了 ╮(￣▽￣)╭]]></title>
+    <url>%2F2019%2F09%2F08%2F</url>
+    <content type="text"><![CDATA[我回来了 []~(￣▽￣)~*从长白山回来了~ 运气超级好~ 看到两次天池~~ 虽然比原定计划有偏差，要加倍努力才可以！ 照片是手机拍摄，ps拼接的 ￣▽￣ 一个人旅行也没什么不好的 (￣３￣) 想着要不要给手机配个广角镜 \（￣︶￣）/ 在 Instagram 查看这篇帖子 @_y.o_o.y_ 分享的帖子 · PDT 2019 年 9月 7 日 下午 10:28 在 Instagram 查看这篇帖子 @_y.o_o.y_ 分享的帖子 · PDT 2019 年 9月 7 日 下午 10:26]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[laravel 扩展包]]></title>
     <url>%2F2019%2F09%2F01%2F</url>
     <content type="text"><![CDATA[laravel 扩展包定义路由在ServiceProvider中引入路由文件。 1include __DIR__.'route.php' 路由中使用中间件记得在middleware中添加web,使auth可以正常运行。 有些事儿真的是想不到……]]></content>
