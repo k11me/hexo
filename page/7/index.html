@@ -4,19 +4,18 @@
 
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
@@ -27,17 +26,18 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.3.0',
+    version: '7.4.0',
+    exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
     copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
@@ -45,13 +45,13 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: 'Copy',
       copy_success: 'Copied',
       copy_failure: 'Copy failed'
-    }
+    },
+    sidebarPadding: 40
   };
 </script>
 
@@ -101,7 +101,6 @@
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -110,7 +109,7 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
   .use-motion .logo,
   .use-motion .site-title,
@@ -127,15 +126,14 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  <div class="container sidebar-position-left">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Keleven.Me</span>
@@ -194,17 +192,6 @@
       
       
         
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
       
     
@@ -222,47 +209,201 @@
 
     
 
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-    </div>
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content page-home">
+          <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-      
+  <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/28/">
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/09/28/" class="post-title-link" itemprop="url">记录</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2018-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-28T00:00:00+08:00">2018-09-28</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2018-09-29 04:01:29" itemprop="dateModified" datetime="2018-09-29T04:01:29+08:00">2018-09-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/28/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/28/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><p>工作指南</p>
+<ol>
+<li>Code Message UI 部分处理</li>
+<li>权限手动调整UI</li>
+<li>权限系统的全局化，将权限处理加入列队</li>
+<li>特定返回信息的响应</li>
+<li>二步验证 UI 部分</li>
+<li>语言全面本地化 【vuex-i18n】</li>
+</ol>
+<h2 id="code-message"><a href="#code-message" class="headerlink" title="code message"></a>code message</h2><p>工作详解</p>
+<ol>
+<li>将全局信息显示功能独立</li>
+<li>需要为信息增加分页显示</li>
+<li>搜索结果是否使用通用部分显示</li>
+<li>识别2fa验证信息并相应【全局模组】</li>
+<li>新建信息页面 【需要验证2FA】</li>
+<li>编辑信息页面 【需要验证2FA】</li>
+<li>删除信息页面 【需要验证2FA】</li>
+</ol>
+<p>好在<code>2FA</code>与 <code>code message</code>可以使用代码手动添加，如果没先做后端真是难以想象，估计是灾难或者加班地狱吧</p>
+<p>反而是语言本地化容易的，可以在休息时完成。</p>
+<p>其他 貌似2FA的优先度比较高，但是信息提示也是非常重要</p>
+<p>对功能分组编写非常重要！一人并行写是比较容易混乱 笔记是一定要的</p>
+<p>好处是发现问题可以及时修正，也要考虑之后的多人协作的效率问题</p>
+<p>多是交给组长处理吧</p>
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p><code>bootstrap 4.*</code>是没有图标的 需要自己找</p>
+<p>使用<code>fontawesome</code> 解决了</p>
+<h2 id="23号的份"><a href="#23号的份" class="headerlink" title="23号的份"></a>23号的份</h2><p><code>Code Message</code>资源获取、更新、删除部分的UI完成。 调用与测试正常</p>
+<p>想着将<code>laravel</code> 自带的UI 使用 <code>vue</code> 重构 最严重的问题还是在本地化语言上。</p>
+<p>只能将使用的分离，其他的再做打算 😭</p>
+<p>基本上这种感觉</p>
+<p>分页显示也是有做的~</p>
+<p><img src="https://i.loli.net/2018/09/24/5ba7f4b0cbf57.png" alt></p>
+<h2 id="26号的份"><a href="#26号的份" class="headerlink" title="26号的份"></a>26号的份</h2><p><code>code message</code> 部分基本完成，之后要调整<code>code</code>并修正一些细小的地方。</p>
+<p>感到前端与后端的耦合度很高，这样之后是大麻烦，要不要全部使用<code>vuex</code>呢……</p>
+<p>之后 先处理<code>2fa</code>与验证吧，<code>2fa</code> 比如是全局的…… 不跨域使用<code>oauth</code>的意义不大</p>
+<p>不过使用<code>oauth</code>容易啊<del>~ 啊啊啊啊啊</del></p>
+<h2 id="28号的份"><a href="#28号的份" class="headerlink" title="28号的份"></a>28号的份</h2><p>添加<code>2fa ui</code>了，没什么创造性的劳动…… </p>
+<p>使<code>button:hover</code>文字与样式 随鼠标产生变化</p>
+<p>注意定义<code>css</code> 否则效果不会有变化 </p>
+<p>如果使用 <code>vuex-i18n</code> 可以使用语言行替代 对应位置文字</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-outline-success"</span></span></span><br><span class="line"><span class="tag"><span class="attr">v-on:mouseenter</span>=<span class="string">"button = 'in button'"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-on:mouseleave</span>=<span class="string">"button = 'out button'"</span>&gt;</span></span><br><span class="line">&#123;&#123; button &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data()&#123;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		button: <span class="string">'out button'</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn-outline-success</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-outline-success</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:disabled)</span><span class="selector-pseudo">:not(.disabled)</span><span class="selector-pseudo">:active</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-outline-success</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:disabled)</span><span class="selector-pseudo">:not(.disabled)</span><span class="selector-pseudo">:focus</span>&#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
   
   
   
-  <div class="post-block">
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/19/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -275,14 +416,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/09/19/" class="post-title-link" itemprop="url">vuex 提交后清空很重要！</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/09/19/" class="post-title-link" itemprop="url">vuex 提交后清空很重要！</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -325,22 +463,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/09/19/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/19/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/19/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/19/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -351,8 +487,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h1 id="18号的份"><a href="#18号的份" class="headerlink" title="18号的份"></a>18号的份</h1><p>使用<code>vuex</code> 推送信息时 会让之前的消息一起发送变动</p>
+          <h1 id="18号的份"><a href="#18号的份" class="headerlink" title="18号的份"></a>18号的份</h1><p>使用<code>vuex</code> 推送信息时 会让之前的消息一起发送变动</p>
 <p>使用<code>vue</code> 工具发现 <code>state</code> 的数据被覆盖</p>
 <p>使用手动输入框 更新 发现<code>state</code>并没有更新只是视图上的变化</p>
 <p>最后发现为 提交<code>active</code>后没有清空数据导致……</p>
@@ -372,7 +507,6 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@component(<span class="string">'mail::layout'</span>)</span><br><span class="line"></span><br><span class="line">@slot(<span class="string">'header'</span>)</span><br><span class="line">@component(<span class="string">'mail::header'</span>, [<span class="string">'url'</span> =&gt; config(<span class="string">'app.url'</span>)])</span><br><span class="line">header</span><br><span class="line">@endcomponent</span><br><span class="line">@endslot</span><br><span class="line"></span><br><span class="line"><span class="comment"># Introduction</span></span><br><span class="line">The body of your message.</span><br><span class="line"></span><br><span class="line">@component(<span class="string">'mail::button'</span>, [<span class="string">'url'</span> =&gt; $url])</span><br><span class="line">button</span><br><span class="line">@endcomponent</span><br><span class="line"></span><br><span class="line">Thanks,&lt;br&gt;</span><br><span class="line"></span><br><span class="line">@slot(<span class="string">'footer'</span>)</span><br><span class="line">@component(<span class="string">'mail::footer'</span>)</span><br><span class="line">© footer</span><br><span class="line">@endcomponent</span><br><span class="line">@endslot</span><br><span class="line">@endcomponent</span><br></pre></td></tr></table></figure>
 
 
-          
         
       
     </div>
@@ -380,10 +514,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -391,13 +525,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -410,14 +542,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/09/16/" class="post-title-link" itemprop="url">新键盘购入！</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/09/16/" class="post-title-link" itemprop="url">新键盘购入！</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -460,22 +589,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/09/16/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/16/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/16/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/16/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -486,8 +613,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h1 id="11号的份"><a href="#11号的份" class="headerlink" title="11号的份"></a>11号的份</h1><h2 id="新键盘到了"><a href="#新键盘到了" class="headerlink" title="新键盘到了"></a>新键盘到了</h2><p>果然用习惯了<code>Microsoft Sculpt Ergonomic Desktop</code>套装后</p>
+          <h1 id="11号的份"><a href="#11号的份" class="headerlink" title="11号的份"></a>11号的份</h1><h2 id="新键盘到了"><a href="#新键盘到了" class="headerlink" title="新键盘到了"></a>新键盘到了</h2><p>果然用习惯了<code>Microsoft Sculpt Ergonomic Desktop</code>套装后</p>
 <p>正常的布局的键盘难以适应…… 虽然新键盘的手感不错……</p>
 <p>还是有点局促……</p>
 <h1 id="16号的份"><a href="#16号的份" class="headerlink" title="16号的份"></a>16号的份</h1><h2 id="增加信息提示"><a href="#增加信息提示" class="headerlink" title="增加信息提示"></a>增加信息提示</h2><p>增加信息提示功能，将返回信息推入 <code>vuex</code></p>
@@ -496,7 +622,6 @@
 <p>##其他</p>
 <p><code>git</code>居然有中文版了！</p>
 
-          
         
       
     </div>
@@ -504,10 +629,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -515,13 +640,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/08/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,14 +657,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/09/08/" class="post-title-link" itemprop="url">Vuex技能点获得 (づ｡◕‿‿◕｡)づ</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/09/08/" class="post-title-link" itemprop="url">Vuex技能点获得 (づ｡◕‿‿◕｡)づ</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -584,22 +704,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/09/08/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/08/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/08/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/08/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -610,8 +728,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h1 id="随手"><a href="#随手" class="headerlink" title="随手"></a>随手</h1><p>项目复杂没有规划就是容易混乱呢……</p>
+          <h1 id="随手"><a href="#随手" class="headerlink" title="随手"></a>随手</h1><p>项目复杂没有规划就是容易混乱呢……</p>
 <p>看来<code>vuex</code>的例子的代码，完全掌握了~~ </p>
 <p>还发现了其中的小bug 😁 </p>
 <p><code>vuex</code>的主要用途</p>
@@ -625,7 +742,6 @@
 <p>上面的指纹 </p>
 <p>嗯……</p>
 
-          
         
       
     </div>
@@ -633,10 +749,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -644,13 +760,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -663,14 +777,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/09/04/" class="post-title-link" itemprop="url">失败了………………😭</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/09/04/" class="post-title-link" itemprop="url">失败了………………😭</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -713,22 +824,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/09/04/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/04/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/04/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/04/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -739,8 +848,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h1 id="套餐有点烦"><a href="#套餐有点烦" class="headerlink" title="套餐有点烦"></a>套餐有点烦</h1><p>办宽带一定要开卡就没人管一管吗……</p>
+          <h1 id="套餐有点烦"><a href="#套餐有点烦" class="headerlink" title="套餐有点烦"></a>套餐有点烦</h1><p>办宽带一定要开卡就没人管一管吗……</p>
 <p>无奈更换旧手机的SIM卡槽 没错让我弄坏了…… </p>
 <p>在此之前都不敢卸下SIM卡也神奇……</p>
 <p>元件直接淘宝还是很方便的 </p>
@@ -750,7 +858,6 @@
 <p><a href="http://www.hakko.com/japan/products/hakko_fr702.html" target="_blank" rel="noopener">HAKKO FR-702</a></p>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>作息时间混乱，啊啊啊 好想正常一点啊……</p>
 
-          
         
       
     </div>
@@ -758,10 +865,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -769,13 +876,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -788,14 +893,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/09/03/" class="post-title-link" itemprop="url">彩虹~~</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/09/03/" class="post-title-link" itemprop="url">彩虹~~</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -838,22 +940,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/09/03/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/03/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/03/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/03/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -864,13 +964,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="出门看见彩虹了"><a href="#出门看见彩虹了" class="headerlink" title="出门看见彩虹了~~"></a>出门看见彩虹了~~</h2><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/BnRfC0EnQ0X/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BnRfC0EnQ0X/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">🌈🌈</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">@<a href="https://www.instagram.com/_y.o_o.y_/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> _y.o_o.y_</a> 分享的帖子 · <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-09-03T17:58:58+00:00">PDT 2018 年 9月 3 日 上午 10:58</time></p></div></blockquote> <script async defer src="//www.instagram.com/embed.js"></script>
+          <h2 id="出门看见彩虹了"><a href="#出门看见彩虹了" class="headerlink" title="出门看见彩虹了~~"></a>出门看见彩虹了~~</h2><blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/BnRfC0EnQ0X/?utm_source=ig_embed" data-instgrm-version="9" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BnRfC0EnQ0X/?utm_source=ig_embed" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">🌈🌈</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">@<a href="https://www.instagram.com/_y.o_o.y_/?utm_source=ig_embed" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px;" target="_blank"> _y.o_o.y_</a> 分享的帖子 · <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2018-09-03T17:58:58+00:00">PDT 2018 年 9月 3 日 上午 10:58</time></p></div></blockquote> <script async defer src="//www.instagram.com/embed.js"></script>
 
 <h2 id="集中精神干活了"><a href="#集中精神干活了" class="headerlink" title="集中精神干活了"></a>集中精神干活了</h2><p>添加信息提示，将信息反馈的更加直观</p>
 <p>最让人愁的是胜利的判断方式，要最简单不能复杂……</p>
 
-          
         
       
     </div>
@@ -878,10 +976,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -889,13 +987,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/01/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -908,14 +1004,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/09/01/" class="post-title-link" itemprop="url">寒冬？不存在的~~</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/09/01/" class="post-title-link" itemprop="url">寒冬？不存在的~~</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -958,22 +1051,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/09/01/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/01/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/01/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/01/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -984,8 +1075,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="沸沸扬扬"><a href="#沸沸扬扬" class="headerlink" title="沸沸扬扬"></a>沸沸扬扬</h2><p>我朝文件震惊游戏行业，寒冬已至。</p>
+          <h2 id="沸沸扬扬"><a href="#沸沸扬扬" class="headerlink" title="沸沸扬扬"></a>沸沸扬扬</h2><p>我朝文件震惊游戏行业，寒冬已至。</p>
 <p>错估形势，将我朝当主要市场也是必然吧。</p>
 <p>从架起GFW的那天开始，就注定没有未来。</p>
 <p>最糟糕的时，境外公司不能对我朝个人付款。</p>
@@ -996,7 +1086,6 @@
 <p>希望可以在坚持几个月~~</p>
 <p>群辉的购入也在计划之中……</p>
 
-          
         
       
     </div>
@@ -1004,10 +1093,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -1015,13 +1104,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/08/24/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1034,14 +1121,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/08/24/" class="post-title-link" itemprop="url">Update😍😍</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/08/24/" class="post-title-link" itemprop="url">Update😍😍</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1084,22 +1168,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/08/24/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/24/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/08/24/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/24/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -1110,8 +1192,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h1 id="全球化语言"><a href="#全球化语言" class="headerlink" title="全球化语言"></a>全球化语言</h1><p>将 <code>laravel</code> 返回语言指定 </p>
+          <h1 id="全球化语言"><a href="#全球化语言" class="headerlink" title="全球化语言"></a>全球化语言</h1><p>将 <code>laravel</code> 返回语言指定 </p>
 <p>为库中的 对应语言 并 可以切换到其他语言</p>
 <p>直接返回<code>lang</code>行就可以 比如<code>auth.Login</code></p>
 <p><code>vue</code>中使用<code>Vue.i18n.translate(auth.Login)</code> 就完成了</p>
@@ -1119,7 +1200,6 @@
 <h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><p>鞋子 和 裙子 绝赞好评 ~~</p>
 <p>忘了说  xbox one 的手柄真好用啊~~</p>
 
-          
         
       
     </div>
@@ -1127,10 +1207,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -1138,13 +1218,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/08/20/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1157,14 +1235,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/08/20/" class="post-title-link" itemprop="url">我回来了😁</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/08/20/" class="post-title-link" itemprop="url">我回来了😁</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1207,22 +1282,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/08/20/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/20/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/08/20/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/20/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -1233,8 +1306,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h1 id="添加-Instagram"><a href="#添加-Instagram" class="headerlink" title="添加 Instagram"></a>添加 Instagram</h1><p>为<code>blog</code>添加的<a href="https://www.instagram.com/_y.o_o.y_/" target="_blank" rel="noopener">Instagram</a>连接 </p>
+          <h1 id="添加-Instagram"><a href="#添加-Instagram" class="headerlink" title="添加 Instagram"></a>添加 Instagram</h1><p>为<code>blog</code>添加的<a href="https://www.instagram.com/_y.o_o.y_/" target="_blank" rel="noopener">Instagram</a>连接 </p>
 <p>有兴趣可以点进去看看哦</p>
 <h1 id="旅行还是很开心的"><a href="#旅行还是很开心的" class="headerlink" title="旅行还是很开心的"></a>旅行还是很开心的</h1><p>自己逛逛澳门真的很有趣</p>
 <p>与不合适的人在一起难免强颜欢笑<del>~</del></p>
@@ -1243,7 +1315,6 @@
 <p>人文环境 确实 好过大陆</p>
 <h1 id="回来要加油了"><a href="#回来要加油了" class="headerlink" title="回来要加油了"></a>回来要加油了</h1><p>局势有点不稳…… 不加油不行呢……</p>
 
-          
         
       
     </div>
@@ -1251,10 +1322,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -1262,13 +1333,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/08/08/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1281,14 +1350,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/08/08/" class="post-title-link" itemprop="url">环保不是说说而已</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/08/08/" class="post-title-link" itemprop="url">环保不是说说而已</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1323,22 +1389,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/08/08/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/08/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/08/08/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/08/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -1349,8 +1413,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="奥运10年"><a href="#奥运10年" class="headerlink" title="奥运10年"></a>奥运10年</h2><p>场馆荒废了 看着心疼</p>
+          <h2 id="奥运10年"><a href="#奥运10年" class="headerlink" title="奥运10年"></a>奥运10年</h2><p>场馆荒废了 看着心疼</p>
 <h2 id="表弟回来了"><a href="#表弟回来了" class="headerlink" title="表弟回来了"></a>表弟回来了</h2><p>表弟回来了 嗯 考上的多大~~</p>
 <p>略微的研究了一下公司注册的事儿~~</p>
 <p>明天9号 要久违的出去旅行了~~</p>
@@ -1373,7 +1436,6 @@
 <p>修改后一般用户不能查看<code>api doc</code> </p>
 <p><code>admin</code> 用户 登录后可以正常查看</p>
 <h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
-          
         
       
     </div>
@@ -1381,10 +1443,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -1392,138 +1454,7 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/30/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/07/30/" class="post-title-link" itemprop="url">i18n 全球化语言</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2018-07-30 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-30T00:00:00+08:00">2018-07-30</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2018-07-31 11:51:17" itemprop="dateModified" datetime="2018-07-31T11:51:17+08:00">2018-07-31</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/07/30/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/30/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h1 id="i18n-全球化语言"><a href="#i18n-全球化语言" class="headerlink" title="i18n 全球化语言"></a>i18n 全球化语言</h1><p>@lang 与 <code>__(&#39;lange&#39;)</code> 不能在vue中使用</p>
-<p>于是找到<code>martinlindhe/laravel-vue-i18n-generator</code>包</p>
-<p>不过要注意的 README 有错误</p>
-<p>使用<code>vue-i18n</code> 后<code>$t(&#39;lang&#39;)</code> 不能正常渲染 疑似<code>vue</code>的bug</p>
-<p><code>vuex-i18n</code> 则正常</p>
-<p>修改<code>resources/assets/js/app.js</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;</span><br><span class="line"><span class="keyword">import</span> vuexI18n <span class="keyword">from</span> <span class="string">'vuex-i18n'</span>;</span><br><span class="line"><span class="keyword">import</span> Locales <span class="keyword">from</span> <span class="string">'./vue-i18n-locales.generated.js'</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store();</span><br><span class="line">Vue.use(vuexI18n.plugin, store);</span><br><span class="line"></span><br><span class="line">Vue.i18n.add(<span class="string">'en'</span>, Locales.en);</span><br><span class="line">Vue.i18n.add(<span class="string">'zh'</span>, Locales.zh);</span><br><span class="line"></span><br><span class="line">Vue.i18n.set(<span class="string">'en'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    store,</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>之后就可以正常的使用<code>$t()</code>了 同时也支持复数形式</p>
-<p><a href="https://medium.com/@konafets/localization-with-laravel-and-vuejs-e27068e68ee8" target="_blank" rel="noopener">参考地址</a></p>
-<p><strong>优点：不用设置后端后再设置前端 使用<code>php artisan vue-i18n:generate</code>可以直接创建或更新<code>vue</code>的语言设置</strong></p>
-<h1 id="天朝上邦"><a href="#天朝上邦" class="headerlink" title="天朝上邦"></a>天朝上邦</h1><p>估计汇率1比20是早晚的事儿了</p>
-<p>某不可描述的两物必须灭亡</p>
-<p>也算死了 账也是要算的 逃不掉的 </p>
-<p>准备被人唾弃到世界终结吧</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-  </section>
 
   
   <nav class="pagination">
@@ -1545,25 +1476,37 @@
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
       src="/images/avatar.jpg"
       alt="K11">
   <p class="site-author-name" itemprop="name">K11</p>
-  <div class="site-description motion-element" itemprop="description">千变万化的是世界</div>
+  <div class="site-description" itemprop="description">千变万化的是世界</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1574,14 +1517,6 @@
         
           
             <a href="/categories/">
-          
-        
-        
-        
-          
-        
-          
-        
           
         
         <span class="site-state-item-count">3</span>
@@ -1595,64 +1530,6 @@
         
           
             <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
           
         
         <span class="site-state-item-count">28</span>
@@ -1699,7 +1576,6 @@
 
 
 
-        </div>
       </div>
 
     </div>
@@ -1720,9 +1596,13 @@
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.0</div>
 
         
+
+
+
+
 
 
 
@@ -1734,30 +1614,17 @@
         
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
   </div>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-<script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-
-  <script src="/js/schemes/muse.js?v=7.3.0"></script>
-
-
-<script src="/js/next-boot.js?v=7.3.0"></script>
-
-
-
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
 
 
 
@@ -1770,14 +1637,7 @@
 
 
 
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.3.0"></script>
+  <script src="/js/local-search.js?v=7.4.0"></script>
 
 
 
@@ -1798,9 +1658,6 @@
 
   
 
-
-  
-    
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');

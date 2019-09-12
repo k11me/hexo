@@ -4,19 +4,18 @@
 
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
@@ -27,17 +26,18 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.3.0',
+    version: '7.4.0',
+    exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
     copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
@@ -45,13 +45,13 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: 'Copy',
       copy_success: 'Copied',
       copy_failure: 'Copy failed'
-    }
+    },
+    sidebarPadding: 40
   };
 </script>
 
@@ -101,7 +101,6 @@
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -110,7 +109,7 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
   .use-motion .logo,
   .use-motion .site-title,
@@ -127,15 +126,14 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  <div class="container sidebar-position-left">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Keleven.Me</span>
@@ -194,17 +192,6 @@
       
       
         
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
       
     
@@ -222,47 +209,552 @@
 
     
 
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-    </div>
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content page-home">
+          <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-      
+  <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/12/">
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/07/12/" class="post-title-link" itemprop="url">zsh指南</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2016-07-12 23:30:45" itemprop="dateCreated datePublished" datetime="2016-07-12T23:30:45+08:00">2016-07-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-05 06:21:43" itemprop="dateModified" datetime="2019-08-05T06:21:43+08:00">2019-08-05</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/12/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="zsh-plugin"><a href="#zsh-plugin" class="headerlink" title="zsh plugin"></a>zsh plugin</h1><h3 id="zsh-tmux"><a href="#zsh-tmux" class="headerlink" title="zsh tmux"></a>zsh tmux</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ta</td>
+<td align="left">tmux attach -t</td>
+</tr>
+<tr>
+<td align="left">ts</td>
+<td align="left">tmux new-session -s</td>
+</tr>
+<tr>
+<td align="left">tl</td>
+<td align="left">tmux list-sessions</td>
+</tr>
+<tr>
+<td align="left">tksv</td>
+<td align="left">tmux kill-server</td>
+</tr>
+<tr>
+<td align="left">tkss</td>
+<td align="left">tmux kill-session -t</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-git"><a href="#zsh-git" class="headerlink" title="zsh git"></a>zsh git</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">g</td>
+<td align="left">git</td>
+</tr>
+<tr>
+<td align="left">ga</td>
+<td align="left">git add</td>
+</tr>
+<tr>
+<td align="left">gaa</td>
+<td align="left">git add –add</td>
+</tr>
+<tr>
+<td align="left">gapa</td>
+<td align="left">git add –patsh</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gb</td>
+<td align="left">git branch</td>
+</tr>
+<tr>
+<td align="left">gba</td>
+<td align="left">git branch -a</td>
+</tr>
+<tr>
+<td align="left">gbnm</td>
+<td align="left">git branch –no-merged</td>
+</tr>
+<tr>
+<td align="left">gbr</td>
+<td align="left">git branch –remote</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gc</td>
+<td align="left">git commit -v</td>
+</tr>
+<tr>
+<td align="left">gca</td>
+<td align="left">git commit -v -a</td>
+</tr>
+<tr>
+<td align="left">gcam</td>
+<td align="left">git commit -a -m</td>
+</tr>
+<tr>
+<td align="left">gcmsg</td>
+<td align="left">git commit -m</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gco</td>
+<td align="left">git checkout</td>
+</tr>
+<tr>
+<td align="left">gcm</td>
+<td align="left">git checkout master</td>
+</tr>
+<tr>
+<td align="left">gcb</td>
+<td align="left">git checkout -b</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gcl</td>
+<td align="left">git clone –recursive</td>
+</tr>
+<tr>
+<td align="left">gcf</td>
+<td align="left">git config –list</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gd</td>
+<td align="left">git diff</td>
+</tr>
+<tr>
+<td align="left">gf</td>
+<td align="left">git fetch</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gl</td>
+<td align="left">git pull</td>
+</tr>
+<tr>
+<td align="left">gm</td>
+<td align="left">git merge</td>
+</tr>
+<tr>
+<td align="left">gmom</td>
+<td align="left">git merge origin/master</td>
+</tr>
+<tr>
+<td align="left">gp</td>
+<td align="left">git push</td>
+</tr>
+<tr>
+<td align="left">gpd</td>
+<td align="left">git push –dry-run</td>
+</tr>
+<tr>
+<td align="left">gpoat</td>
+<td align="left">git push origin –all &amp;&amp; git push origin –tags</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gr</td>
+<td align="left">git remote</td>
+</tr>
+<tr>
+<td align="left">gra</td>
+<td align="left">git remote add</td>
+</tr>
+<tr>
+<td align="left">grmv</td>
+<td align="left">git remote rename</td>
+</tr>
+<tr>
+<td align="left">grrm</td>
+<td align="left">git remote remove</td>
+</tr>
+<tr>
+<td align="left">grv</td>
+<td align="left">git remote -v</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">grb</td>
+<td align="left">git rebase</td>
+</tr>
+<tr>
+<td align="left">grbm</td>
+<td align="left">git rebase master</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">grh</td>
+<td align="left">git reset HEAD</td>
+</tr>
+<tr>
+<td align="left">grhh</td>
+<td align="left">git reset HEAD –hard</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gsb</td>
+<td align="left">git status -sb</td>
+</tr>
+<tr>
+<td align="left">gss</td>
+<td align="left">git status -s</td>
+</tr>
+<tr>
+<td align="left">gst</td>
+<td align="left">git status</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gts</td>
+<td align="left">git tag -s</td>
+</tr>
+<tr>
+<td align="left">gtv</td>
+<td align="left">git tag</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-laravel"><a href="#zsh-laravel" class="headerlink" title="zsh laravel"></a>zsh laravel</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">la5</td>
+<td align="left">php artisan</td>
+</tr>
+<tr>
+<td align="left">la5cache</td>
+<td align="left">php artisan cache:clear</td>
+</tr>
+<tr>
+<td align="left">la5routes</td>
+<td align="left">php artisan route:list</td>
+</tr>
+<tr>
+<td align="left">la5vendor</td>
+<td align="left">php artisan vendor:publish</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-ubuntu"><a href="#zsh-ubuntu" class="headerlink" title="zsh ubuntu"></a>zsh ubuntu</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ag</td>
+<td align="left">sudo apt-get</td>
+</tr>
+<tr>
+<td align="left">aga</td>
+<td align="left">sudo apt-get autoclean</td>
+</tr>
+<tr>
+<td align="left">agar</td>
+<td align="left">sudo apt-get autoremove</td>
+</tr>
+<tr>
+<td align="left">agb</td>
+<td align="left">sudo apt-get build-dep</td>
+</tr>
+<tr>
+<td align="left">agc</td>
+<td align="left">sudo apt-get clean</td>
+</tr>
+<tr>
+<td align="left">agd</td>
+<td align="left">sudo apt-get dselect-upgrade</td>
+</tr>
+<tr>
+<td align="left">agi</td>
+<td align="left">sudo apt-get install</td>
+</tr>
+<tr>
+<td align="left">agp</td>
+<td align="left">sudo apt-get purge</td>
+</tr>
+<tr>
+<td align="left">agr</td>
+<td align="left">sudo apt-get remove</td>
+</tr>
+<tr>
+<td align="left">agu</td>
+<td align="left">sudo apt-get update</td>
+</tr>
+<tr>
+<td align="left">agud</td>
+<td align="left">sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</td>
+</tr>
+<tr>
+<td align="left">agug</td>
+<td align="left">sudo apt-get upgrade</td>
+</tr>
+<tr>
+<td align="left">aguu</td>
+<td align="left">sudo apt-get update &amp;&amp; sudo apt-get upgrade</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-npm"><a href="#zsh-npm" class="headerlink" title="zsh npm"></a>zsh npm</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">npmg</td>
+<td align="left">npm i -g</td>
+</tr>
+<tr>
+<td align="left">npmS</td>
+<td align="left">npm i -S</td>
+</tr>
+<tr>
+<td align="left">npmD</td>
+<td align="left">npm i -D</td>
+</tr>
+<tr>
+<td align="left">npmO</td>
+<td align="left">npm outdated</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-ruby"><a href="#zsh-ruby" class="headerlink" title="zsh ruby"></a>zsh ruby</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">sgem</td>
+<td align="left">sudo gem</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-bundler"><a href="#zsh-bundler" class="headerlink" title="zsh bundler"></a>zsh bundler</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">be</td>
+<td align="left">bundle exec</td>
+</tr>
+<tr>
+<td align="left">bl</td>
+<td align="left">bundle list</td>
+</tr>
+<tr>
+<td align="left">bp</td>
+<td align="left">bundle package</td>
+</tr>
+<tr>
+<td align="left">bo</td>
+<td align="left">bundle open</td>
+</tr>
+<tr>
+<td align="left">bout</td>
+<td align="left">bundle outdated</td>
+</tr>
+<tr>
+<td align="left">bu</td>
+<td align="left">bundle update</td>
+</tr>
+<tr>
+<td align="left">bi</td>
+<td align="left">bundle install</td>
+</tr>
+<tr>
+<td align="left">bcn</td>
+<td align="left">bundle clean</td>
+</tr>
+</tbody></table>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
   
   
   
-  <div class="post-block">
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -275,14 +767,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2016/07/11/" class="post-title-link" itemprop="url">2016年7月11日</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2016/07/11/" class="post-title-link" itemprop="url">2016年7月11日</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -325,22 +814,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2016/07/11/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/11/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/11/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/11/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -351,8 +838,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="日期：2016年7月11日"><a href="#日期：2016年7月11日" class="headerlink" title="日期：2016年7月11日"></a>日期：2016年7月11日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>UE4 升级到4.12.5</p>
+          <h2 id="日期：2016年7月11日"><a href="#日期：2016年7月11日" class="headerlink" title="日期：2016年7月11日"></a>日期：2016年7月11日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>UE4 升级到4.12.5</p>
 <p>初步设定完成，细化数据库结构以及通信接口。2016年7月11日19:51:58</p>
 <ul>
 <li><p>sass学习参考<a href="http://www.sasschina.com/" target="_blank" rel="noopener">地址</a></p>
@@ -400,7 +886,6 @@
 </li>
 </ul>
 
-          
         
       
     </div>
@@ -408,10 +893,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -419,13 +904,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -438,14 +921,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2016/07/10/" class="post-title-link" itemprop="url">2016年7月10日</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2016/07/10/" class="post-title-link" itemprop="url">2016年7月10日</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -488,22 +968,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2016/07/10/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/10/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/10/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/10/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -514,8 +992,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="日期：2016年7月10日22-07-00"><a href="#日期：2016年7月10日22-07-00" class="headerlink" title="日期：2016年7月10日22:07:00"></a>日期：2016年7月10日22:07:00</h2><h3 id="今日活动"><a href="#今日活动" class="headerlink" title="今日活动"></a>今日活动</h3><p>安装空调用一天时间。</p>
+          <h2 id="日期：2016年7月10日22-07-00"><a href="#日期：2016年7月10日22-07-00" class="headerlink" title="日期：2016年7月10日22:07:00"></a>日期：2016年7月10日22:07:00</h2><h3 id="今日活动"><a href="#今日活动" class="headerlink" title="今日活动"></a>今日活动</h3><p>安装空调用一天时间。</p>
 <p><strong>以后早睡早起，零点前睡，六点钟起床</strong></p>
 <h3 id="明天计划"><a href="#明天计划" class="headerlink" title="明天计划"></a>明天计划</h3><ul>
 <li><input checked disabled type="checkbox"> <ol>
@@ -560,7 +1037,6 @@
 </li>
 </ul>
 
-          
         
       
     </div>
@@ -568,10 +1044,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -579,13 +1055,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/07/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -598,14 +1072,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2016/07/07/" class="post-title-link" itemprop="url">Arch Linux  安装指南</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2016/07/07/" class="post-title-link" itemprop="url">Arch Linux  安装指南</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -648,22 +1119,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2016/07/07/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/07/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/07/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/07/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -674,8 +1143,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="1-基本系统安装"><a href="#1-基本系统安装" class="headerlink" title="1. 基本系统安装"></a>1. 基本系统安装</h2><h3 id="1-1-Arch-Linux镜像下载"><a href="#1-1-Arch-Linux镜像下载" class="headerlink" title="1.1. Arch Linux镜像下载"></a>1.1. Arch Linux镜像<a href="https://www.archlinux.org/download/" target="_blank" rel="noopener">下载</a></h3><h3 id="1-2-安装"><a href="#1-2-安装" class="headerlink" title="1.2. 安装"></a>1.2. 安装</h3><h4 id="1-2-1-VWmare"><a href="#1-2-1-VWmare" class="headerlink" title="1.2.1. VWmare"></a>1.2.1. VWmare</h4><blockquote>
+          <h2 id="1-基本系统安装"><a href="#1-基本系统安装" class="headerlink" title="1. 基本系统安装"></a>1. 基本系统安装</h2><h3 id="1-1-Arch-Linux镜像下载"><a href="#1-1-Arch-Linux镜像下载" class="headerlink" title="1.1. Arch Linux镜像下载"></a>1.1. Arch Linux镜像<a href="https://www.archlinux.org/download/" target="_blank" rel="noopener">下载</a></h3><h3 id="1-2-安装"><a href="#1-2-安装" class="headerlink" title="1.2. 安装"></a>1.2. 安装</h3><h4 id="1-2-1-VWmare"><a href="#1-2-1-VWmare" class="headerlink" title="1.2.1. VWmare"></a>1.2.1. VWmare</h4><blockquote>
 <p><strong>基本安装设定</strong></p>
 </blockquote>
 <blockquote>
@@ -699,7 +1167,6 @@
 <p><a href="https://bbs.archlinuxcn.org/viewtopic.php?id=1037" target="_blank" rel="noopener">地址2</a></p>
 <p>自动化安装设置工具<a href="https://github.com/helmuthdu/aui" target="_blank" rel="noopener">Archlinux U Install</a></p>
 <h2 id="2-桌面化安装"><a href="#2-桌面化安装" class="headerlink" title="2. 桌面化安装"></a>2. 桌面化安装</h2><h2 id="3-常用软件补全"><a href="#3-常用软件补全" class="headerlink" title="3. 常用软件补全"></a>3. 常用软件补全</h2><h2 id="4-美化"><a href="#4-美化" class="headerlink" title="4. 美化"></a>4. 美化</h2><h2 id="5-开发环境搭建"><a href="#5-开发环境搭建" class="headerlink" title="5. 开发环境搭建"></a>5. 开发环境搭建</h2>
-          
         
       
     </div>
@@ -707,10 +1174,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -718,7 +1185,7 @@
   </article>
 
     
-  </section>
+  </div>
 
   
   <nav class="pagination">
@@ -740,25 +1207,37 @@
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
       src="/images/avatar.jpg"
       alt="K11">
   <p class="site-author-name" itemprop="name">K11</p>
-  <div class="site-description motion-element" itemprop="description">千变万化的是世界</div>
+  <div class="site-description" itemprop="description">千变万化的是世界</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -769,14 +1248,6 @@
         
           
             <a href="/categories/">
-          
-        
-        
-        
-          
-        
-          
-        
           
         
         <span class="site-state-item-count">3</span>
@@ -790,64 +1261,6 @@
         
           
             <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
           
         
         <span class="site-state-item-count">28</span>
@@ -894,7 +1307,6 @@
 
 
 
-        </div>
       </div>
 
     </div>
@@ -915,9 +1327,13 @@
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.0</div>
 
         
+
+
+
+
 
 
 
@@ -929,30 +1345,17 @@
         
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
   </div>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-<script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-
-  <script src="/js/schemes/muse.js?v=7.3.0"></script>
-
-
-<script src="/js/next-boot.js?v=7.3.0"></script>
-
-
-
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
 
 
 
@@ -965,14 +1368,7 @@
 
 
 
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.3.0"></script>
+  <script src="/js/local-search.js?v=7.4.0"></script>
 
 
 
@@ -993,9 +1389,6 @@
 
   
 
-
-  
-    
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');

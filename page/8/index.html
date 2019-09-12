@@ -4,19 +4,18 @@
 
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
@@ -27,17 +26,18 @@
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '7.3.0',
+    version: '7.4.0',
+    exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
     copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
     pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
@@ -45,13 +45,13 @@
     },
     localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
-    tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
       copy_button: 'Copy',
       copy_success: 'Copied',
       copy_failure: 'Copy failed'
-    }
+    },
+    sidebarPadding: 40
   };
 </script>
 
@@ -101,7 +101,6 @@
 
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -110,7 +109,7 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
   .use-motion .logo,
   .use-motion .site-title,
@@ -127,15 +126,14 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  <div class="container sidebar-position-left">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-meta">
 
-    <div class="custom-logo-site-title">
+    <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Keleven.Me</span>
@@ -194,17 +192,6 @@
       
       
         
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
       
     
@@ -222,47 +209,171 @@
 
     
 
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-    </div>
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content page-home">
+          <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
-      
+  <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/30/">
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2018/07/30/" class="post-title-link" itemprop="url">i18n 全球化语言</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2018-07-30 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-30T00:00:00+08:00">2018-07-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2018-07-31 11:51:17" itemprop="dateModified" datetime="2018-07-31T11:51:17+08:00">2018-07-31</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/30/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/30/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="i18n-全球化语言"><a href="#i18n-全球化语言" class="headerlink" title="i18n 全球化语言"></a>i18n 全球化语言</h1><p>@lang 与 <code>__(&#39;lange&#39;)</code> 不能在vue中使用</p>
+<p>于是找到<code>martinlindhe/laravel-vue-i18n-generator</code>包</p>
+<p>不过要注意的 README 有错误</p>
+<p>使用<code>vue-i18n</code> 后<code>$t(&#39;lang&#39;)</code> 不能正常渲染 疑似<code>vue</code>的bug</p>
+<p><code>vuex-i18n</code> 则正常</p>
+<p>修改<code>resources/assets/js/app.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;</span><br><span class="line"><span class="keyword">import</span> vuexI18n <span class="keyword">from</span> <span class="string">'vuex-i18n'</span>;</span><br><span class="line"><span class="keyword">import</span> Locales <span class="keyword">from</span> <span class="string">'./vue-i18n-locales.generated.js'</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store();</span><br><span class="line">Vue.use(vuexI18n.plugin, store);</span><br><span class="line"></span><br><span class="line">Vue.i18n.add(<span class="string">'en'</span>, Locales.en);</span><br><span class="line">Vue.i18n.add(<span class="string">'zh'</span>, Locales.zh);</span><br><span class="line"></span><br><span class="line">Vue.i18n.set(<span class="string">'en'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    store,</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>之后就可以正常的使用<code>$t()</code>了 同时也支持复数形式</p>
+<p><a href="https://medium.com/@konafets/localization-with-laravel-and-vuejs-e27068e68ee8" target="_blank" rel="noopener">参考地址</a></p>
+<p><strong>优点：不用设置后端后再设置前端 使用<code>php artisan vue-i18n:generate</code>可以直接创建或更新<code>vue</code>的语言设置</strong></p>
+<h1 id="天朝上邦"><a href="#天朝上邦" class="headerlink" title="天朝上邦"></a>天朝上邦</h1><p>估计汇率1比20是早晚的事儿了</p>
+<p>某不可描述的两物必须灭亡</p>
+<p>也算死了 账也是要算的 逃不掉的 </p>
+<p>准备被人唾弃到世界终结吧</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
   
   
   
-  <div class="post-block">
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/28/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -275,14 +386,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/07/28/" class="post-title-link" itemprop="url">今天我最大~~</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/07/28/" class="post-title-link" itemprop="url">今天我最大~~</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -325,22 +433,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/07/28/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/28/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/28/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/28/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -351,8 +457,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="生日快乐"><a href="#生日快乐" class="headerlink" title="生日快乐"></a>生日快乐</h2><p>还有18分钟就是 本世纪时间就久的<code>月全食</code> 还有<code>火星大冲</code>~~</p>
+          <h2 id="生日快乐"><a href="#生日快乐" class="headerlink" title="生日快乐"></a>生日快乐</h2><p>还有18分钟就是 本世纪时间就久的<code>月全食</code> 还有<code>火星大冲</code>~~</p>
 <p>嗯 看到了红色的~~</p>
 <p><img src="https://i.loli.net/2018/07/28/5b5b7dcbe445a.png" alt="NASA"></p>
 <p><img src="https://i.loli.net/2018/07/28/5b5b7f5c2289a.png" alt="屏幕快照 2018-07-28 04.23.16"></p>
@@ -364,7 +469,6 @@
 <p>恐怕是气数将尽</p>
 <p>湾湾不能动哦 会被介入哦</p>
 
-          
         
       
     </div>
@@ -372,10 +476,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -383,13 +487,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/27/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -402,14 +504,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/07/27/" class="post-title-link" itemprop="url">😇预感准确的有点可拍😇</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/07/27/" class="post-title-link" itemprop="url">😇预感准确的有点可拍😇</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -444,22 +543,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/07/27/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/27/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/27/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/27/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -470,8 +567,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="明天"><a href="#明天" class="headerlink" title="明天"></a>明天</h2><p>明天有人送祝福吗？</p>
+          <h2 id="明天"><a href="#明天" class="headerlink" title="明天"></a>明天</h2><p>明天有人送祝福吗？</p>
 <p>不过开心的今天晚上的两个天象~~</p>
 <p>超难得的礼物的说~~</p>
 <p>订了明天的午餐~~ </p>
@@ -486,7 +582,6 @@
 <p><a href="https://keleven.me/living/2018/04/15/blog/">laravel 5.5 升级到 5.6</a></p>
 <p>另外 API 文档注释 <code>@OAS</code> 改为 <code>@OA</code> 否则报错！</p>
 
-          
         
       
     </div>
@@ -494,10 +589,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -505,13 +600,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/23/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -524,14 +617,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/07/23/" class="post-title-link" itemprop="url">细小的修正</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/07/23/" class="post-title-link" itemprop="url">细小的修正</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -574,22 +664,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/07/23/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/23/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/23/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/23/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -600,8 +688,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="21号的份"><a href="#21号的份" class="headerlink" title="21号的份"></a>21号的份</h2><p>调整文档,并进行一些细节调整</p>
+          <h2 id="21号的份"><a href="#21号的份" class="headerlink" title="21号的份"></a>21号的份</h2><p>调整文档,并进行一些细节调整</p>
 <p>最近对日期 时间非常混乱……</p>
 <h2 id="23-号的份"><a href="#23-号的份" class="headerlink" title="23 号的份"></a>23 号的份</h2><p>新手机到了<del>~ 等了两周</del> 指纹万岁~~</p>
 <p>注册美国ID了<del>~ 日本的也是有的</del></p>
@@ -612,7 +699,6 @@
 <p>程序真无聊呢……</p>
 <p>看看最近的新闻 我朝人还真是坚韧呢…… </p>
 
-          
         
       
     </div>
@@ -620,10 +706,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -631,13 +717,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -650,14 +734,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/07/16/" class="post-title-link" itemprop="url">laravel 队列的坑</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/07/16/" class="post-title-link" itemprop="url">laravel 队列的坑</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -700,22 +781,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/07/16/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/16/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/16/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/16/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -726,8 +805,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="laravel-队列的坑"><a href="#laravel-队列的坑" class="headerlink" title="laravel 队列的坑"></a>laravel 队列的坑</h2><h3 id="正确的入坑姿势"><a href="#正确的入坑姿势" class="headerlink" title="正确的入坑姿势"></a>正确的入坑姿势</h3><p>使用<code>laravel horizon</code>的 <code>php artisan horizon</code> 运行 队列。</p>
+          <h2 id="laravel-队列的坑"><a href="#laravel-队列的坑" class="headerlink" title="laravel 队列的坑"></a>laravel 队列的坑</h2><h3 id="正确的入坑姿势"><a href="#正确的入坑姿势" class="headerlink" title="正确的入坑姿势"></a>正确的入坑姿势</h3><p>使用<code>laravel horizon</code>的 <code>php artisan horizon</code> 运行 队列。</p>
 <p>使用<code>-&gt;onQueue(SendMail)</code>方法指定队列时，<code>Job</code>可以正常的载入，<code>Queue</code>不正常……</p>
 <p>判断为<code>Queue</code>问题</p>
 <p>使用<code>php artisan queue:work --queue=SendMail,default</code> 时正常显示</p>
@@ -745,7 +823,6 @@
 <h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">运行</span><br><span class="line">php artisan horizon </span><br><span class="line"></span><br><span class="line">彻底关闭</span><br><span class="line">php artisan horizon:terminate</span><br><span class="line"></span><br><span class="line">暂定</span><br><span class="line">php artisan horizon:pause</span><br><span class="line"></span><br><span class="line">恢复</span><br><span class="line">php artisan horizon:continue</span><br></pre></td></tr></table></figure>
 
 <h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
-          
         
       
     </div>
@@ -753,10 +830,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -764,13 +841,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/13/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -783,14 +858,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/07/13/" class="post-title-link" itemprop="url">laravel 日常的坑</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/07/13/" class="post-title-link" itemprop="url">laravel 日常的坑</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -833,22 +905,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/07/13/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/13/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/13/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/13/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -859,8 +929,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h1 id="laravel-horizon-的坑"><a href="#laravel-horizon-的坑" class="headerlink" title="laravel horizon 的坑"></a>laravel horizon 的坑</h1><p>安装<code>laravel horizon</code> 后不能正常的访问</p>
+          <h1 id="laravel-horizon-的坑"><a href="#laravel-horizon-的坑" class="headerlink" title="laravel horizon 的坑"></a>laravel horizon 的坑</h1><p>安装<code>laravel horizon</code> 后不能正常的访问</p>
 <p>使用<code>la5 opcache:clear</code> 清空页面缓存</p>
 <p>之后就正常了…… </p>
 <h2 id="通知-与-队列"><a href="#通知-与-队列" class="headerlink" title="通知 与 队列"></a>通知 与 队列</h2><p>任务队列 与 发送通知 掌握 </p>
@@ -872,7 +941,6 @@
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>鼠标从 <code>Microsoft Sculpt</code> 换的了 <code>logitech mx master 2s</code> </p>
 <p>手感还是 微软 的好点 罗技的触发有点重…… 不过罗技的功能必须多</p>
 
-          
         
       
     </div>
@@ -880,10 +948,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -891,13 +959,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -910,14 +976,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/07/11/" class="post-title-link" itemprop="url">mail server 附件大小调整</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/07/11/" class="post-title-link" itemprop="url">mail server 附件大小调整</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -960,22 +1023,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/07/11/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/11/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/11/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/11/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -986,8 +1047,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="默认邮件大小调整方法"><a href="#默认邮件大小调整方法" class="headerlink" title="默认邮件大小调整方法"></a>默认邮件大小调整方法</h2><p>注意要在镜像 挂载的<code>volumes</code>中对应位置<code>config</code></p>
+          <h2 id="默认邮件大小调整方法"><a href="#默认邮件大小调整方法" class="headerlink" title="默认邮件大小调整方法"></a>默认邮件大小调整方法</h2><p>注意要在镜像 挂载的<code>volumes</code>中对应位置<code>config</code></p>
 <p>新建<code>config/postfix-main.cf</code></p>
 <p>内容填写</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">message_size_limit = 52428800</span><br></pre></td></tr></table></figure>
@@ -1002,7 +1062,6 @@
 <p>不过 一般用户之后会关掉问题不大。</p>
 <p>之后就是添加二步验证了<del>~ admin 账号安全有保证了</del> </p>
 <h2 id="以上我去睡了😴😴"><a href="#以上我去睡了😴😴" class="headerlink" title="以上我去睡了😴😴"></a>以上我去睡了😴😴</h2>
-          
         
       
     </div>
@@ -1010,10 +1069,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -1021,13 +1080,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1040,14 +1097,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/07/10/" class="post-title-link" itemprop="url">一些日常😁😁😁</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/07/10/" class="post-title-link" itemprop="url">一些日常😁😁😁</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1090,22 +1144,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/07/10/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/10/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/10/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/10/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -1116,8 +1168,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="一些日常😁😁😁"><a href="#一些日常😁😁😁" class="headerlink" title="一些日常😁😁😁"></a>一些日常😁😁😁</h2><p>代码稳定进行中，明显能感受到在进步，就是数量有点大</p>
+          <h2 id="一些日常😁😁😁"><a href="#一些日常😁😁😁" class="headerlink" title="一些日常😁😁😁"></a>一些日常😁😁😁</h2><p>代码稳定进行中，明显能感受到在进步，就是数量有点大</p>
 <p>最近喜欢听楞严咒 ，梵文的很好听</p>
 <p>怀疑与否定的意义完全不同</p>
 <p>我选择相信我想相信的~~</p>
@@ -1129,7 +1180,6 @@
 <h2 id="种子字-发音-解释"><a href="#种子字-发音-解释" class="headerlink" title="种子字 发音 解释"></a>种子字 发音 解释</h2><p><a href="http://buddha.goodweb.net.cn/music/musictxt/ly_zhou2.asp" target="_blank" rel="noopener">重要来源</a></p>
 <p><img src="https://i.loli.net/2018/07/11/5b4514a35f569.jpg" alt="p01"><br><img src="https://i.loli.net/2018/07/11/5b4514a2adf40.jpg" alt="p02"><br><img src="https://i.loli.net/2018/07/11/5b4514a389046.jpg" alt="p03"><br><img src="https://i.loli.net/2018/07/11/5b4514a36309c.jpg" alt="p04"><br><img src="https://i.loli.net/2018/07/11/5b4514a3bcab7.jpg" alt="p05"><br><img src="https://i.loli.net/2018/07/11/5b4514a3a693f.jpg" alt="p06"><br><img src="https://i.loli.net/2018/07/11/5b4514a37c884.jpg" alt="p07"><br><img src="https://i.loli.net/2018/07/11/5b45171cd1bad.jpg" alt="p08"></p>
 <h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
-          
         
       
     </div>
@@ -1137,10 +1187,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -1148,13 +1198,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/06/28/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1167,14 +1215,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/06/28/" class="post-title-link" itemprop="url">我是修理工！</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/06/28/" class="post-title-link" itemprop="url">我是修理工！</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1217,22 +1262,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/06/28/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/28/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/06/28/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/28/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -1243,12 +1286,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h2><p>家里电器各种坏心烦</p>
+          <h2 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h2><p>家里电器各种坏心烦</p>
 <p>一样一样修 也是心累……</p>
 <p>因祸得福的也算是愉快~~</p>
 
-          
         
       
     </div>
@@ -1256,10 +1297,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -1267,13 +1308,11 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+        <article itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/06/23/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1286,14 +1325,11 @@
       <meta itemprop="name" content="Keleven.Me">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/06/23/" class="post-title-link" itemprop="url">镜花雪月</a>
+        <h1 class="post-title" itemprop="name headline">
             
-          </h1>
-        
+            <a href="/2018/06/23/" class="post-title-link" itemprop="url">镜花雪月</a>
+          
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -1336,22 +1372,20 @@
           
 
           
-            
   
   <span class="post-meta-item">
     
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/06/23/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/23/" itemprop="commentCount"></span>
-    </a>
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/06/23/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/23/" itemprop="commentCount"></span></a>
   </span>
   
   
-          
 
         </div>
       </header>
@@ -1362,14 +1396,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h2><p>风暴将起，日常快没有了</p>
+          <h2 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h2><p>风暴将起，日常快没有了</p>
 <p>用点意思的童话 🙃 🙃 🙃 🙃</p>
 <p>有点火估计快没有了 作者让我匿名吧 安全考虑</p>
 <p><img src="https://i.loli.net/2018/06/23/5b2db94412b82.png" alt="00"></p>
 <p>看似无关的事儿 终有一天要降临在身上……</p>
 
-          
         
       
     </div>
@@ -1377,10 +1409,10 @@
     
     
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
   </div>
   
   
@@ -1388,140 +1420,7 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/06/22/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2018/06/22/" class="post-title-link" itemprop="url">时间走慢点！</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2018-06-22 00:00:01 / Modified: 23:25:41" itemprop="dateCreated datePublished" datetime="2018-06-22T00:00:01+08:00">2018-06-22</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    <span class="post-meta-item-text">Comments: </span>
-  
-    <a href="/2018/06/22/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/22/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h2 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h2><h3 id="这是粽子节的份"><a href="#这是粽子节的份" class="headerlink" title="这是粽子节的份"></a>这是粽子节的份</h3><p>粽子节了~</p>
-<p>为什么想到的是僵尸小美😂</p>
-<p>一些事儿突然懂了……</p>
-<h3 id="6月22日的份"><a href="#6月22日的份" class="headerlink" title="6月22日的份"></a>6月22日的份</h3><p>单方面利用率高也是够了</p>
-<p>知识也并不是免费的</p>
-<p>好烦估计就没有下次了</p>
-<p>张开口就朋友，兄弟的…… 超恶心……</p>
-<p>还有一点小事就半夜2点给人打电话的……</p>
-<p>你算老几啊……</p>
-<p>还有没有事先说明就向人家家里带人的</p>
-<p>有点常识和礼貌会死吗……</p>
-<h3 id="梦想的秋叶原"><a href="#梦想的秋叶原" class="headerlink" title="梦想的秋叶原"></a>梦想的秋叶原</h3><p>前几天拆了空气净化器，发现是步进电机的齿轮磨损了</p>
-<p>只能换新</p>
-<p>型号<code>MSBPC20A20</code> 我朝是弄不到了……</p>
-<p><img src="https://i.loli.net/2018/06/22/5b2d08a448e14.jpg" alt="IMG_20180617_184254.png"></p>
-<p>估计只有秋叶原了加入购物列表吧…… </p>
-<p>某种程度上来说，秋叶原是天堂！！</p>
-<h3 id="相机入手考虑"><a href="#相机入手考虑" class="headerlink" title="相机入手考虑"></a>相机入手考虑</h3><p>就易用性来说大法a7r3 比 X1D 好很多…… </p>
-<p>莱卡？ 什么时候到到四千万像素，什么时候在说……</p>
-<p>有消息说<code>ZEISS Batis 40mm</code> 要出了 完美挂机 手动再见了~~</p>
-<p>佳能的17mm移轴 与 <a href="http://www.metabones.com/products/details/MB-EF-E-BT5" target="_blank" rel="noopener">转接环</a> 也是必须入手的 谁让我爱照建筑与风景呢 </p>
-<p>用移轴拍出到长腿太容易了</p>
-<p>三脚架什么的是必须有的吧 HDR 摄像也是非常有趣的</p>
-<p><code>ZEISS Batis 2.8/18</code> 也是必备呢</p>
-<p><code>ZEISS Batis 1.8/85</code> 与 <code>ZEISS Batis 2.8/135</code> 也遇到喜欢人在考虑吧</p>
-<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-    
-  </section>
 
   
   <nav class="pagination">
@@ -1543,25 +1442,37 @@
     </div>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
       src="/images/avatar.jpg"
       alt="K11">
   <p class="site-author-name" itemprop="name">K11</p>
-  <div class="site-description motion-element" itemprop="description">千变万化的是世界</div>
+  <div class="site-description" itemprop="description">千变万化的是世界</div>
 </div>
   <nav class="site-state motion-element">
       <div class="site-state-item site-state-posts">
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1572,14 +1483,6 @@
         
           
             <a href="/categories/">
-          
-        
-        
-        
-          
-        
-          
-        
           
         
         <span class="site-state-item-count">3</span>
@@ -1593,64 +1496,6 @@
         
           
             <a href="/tags/">
-          
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
           
         
         <span class="site-state-item-count">28</span>
@@ -1697,7 +1542,6 @@
 
 
 
-        </div>
       </div>
 
     </div>
@@ -1718,9 +1562,13 @@
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.3.0</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.0</div>
 
         
+
+
+
+
 
 
 
@@ -1732,30 +1580,17 @@
         
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
   </div>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-<script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
-
-
-  <script src="/js/schemes/muse.js?v=7.3.0"></script>
-
-
-<script src="/js/next-boot.js?v=7.3.0"></script>
-
-
-
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/muse.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
 
 
 
@@ -1768,14 +1603,7 @@
 
 
 
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.3.0"></script>
+  <script src="/js/local-search.js?v=7.4.0"></script>
 
 
 
@@ -1796,9 +1624,6 @@
 
   
 
-
-  
-    
 <script>
   function loadCount() {
     var d = document, s = d.createElement('script');
