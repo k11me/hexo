@@ -1370,17 +1370,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2016年7月17日]]></title>
-    <url>%2F2017%2F12%2F24%2F</url>
-    <content type="text"><![CDATA[日期：2016年7月17日今日记录laravel学习到 控制器 完成部分笔记 今日计划完成度 laravel 入门学习 3日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[2016年7月19日]]></title>
     <url>%2F2017%2F12%2F24%2F</url>
     <content type="text"><![CDATA[日期：2016年7月19日今日记录完成laravel HTTP组件学习。 寻找laravel的通信加密方法。 使用dingo设计API 使用JWT进行通信加密。 JWT与UE4的兼容性有待研究。 路由方法暂定为控制器路由。主要原因是使用缓存访问速度较快。 前端与后端分离是必然。PC端与App端使用的API也应该不同。 今日计划完成度 laravel HTTP组件学习 3日计划 学习gulp与sass 学习laravel 框架与数据部分。 学习数据结构 了解HTML5 与 CSS3]]></content>
@@ -1406,6 +1395,17 @@
     <title><![CDATA[2016年7月26日]]></title>
     <url>%2F2017%2F12%2F24%2F</url>
     <content type="text"><![CDATA[日期：2016年7月26日今日记录整理完成笔记。进入laravel服务学习。 整理网站需求，根据laravel框架，进行调整。 今日计划完成度 laravel Eloquent ORM部分。 3日计划 学习gulp与sass 学习laravel 服务。 学习数据结构 了解HTML5 与 CSS3 bootstrap学习（前端框架）]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月17日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月17日今日记录laravel学习到 控制器 完成部分笔记 今日计划完成度 laravel 入门学习 3日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
       <categories>
         <category>Living</category>
       </categories>
@@ -1548,17 +1548,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2016年08月04日]]></title>
-    <url>%2F2016%2F08%2F04%2F</url>
-    <content type="text"><![CDATA[日期：2016年08月04日今日记录打印laravel文档,方便以后研究. 各个平台功能分析. atom 的 markdown-preview-enhanced 插件有个功能很有意思 地址 今日计划完成度 1. laravel文档打印。 2. 安装atom插件,编辑对应笔记 3日计划 1. 学习gulp与sass 2. 学习数据结构 3. 了解HTML5 与 CSS3 4. bootstrap学习（前端框架） 5. 设计网站制作进度表]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Atom设置指南]]></title>
     <url>%2F2016%2F08%2F04%2F</url>
     <content type="text"><![CDATA[Atom官网 安装atom123$ sudo add-apt-repository ppa:webupd8team/atom$ sudo apt-get update$ sudo apt-get install atom atom packagesatom-chromegit-plusmarkdown-pdfmarkdown-preview-plusmarkdown-writertidy-markdownemmethtml快速编写工具 jshintjs语法插件 minimap与sublime相似的代码预览 pigmentsmarkdown-preview-enhancedmarkdown-preview-enhanced mermaid 渲染 flowchart 和 sequence diagrammermaid 文档 KaTex 渲染数学表达式需要学习LaTeX语法 KaTeX 参考1 $$\oint_C x^3, dx + 4y^2, dy 2 = \left( \frac{\left(3-x\right) \times 2}{3-x} \right)$$ $$\sum_{m=1}^\infty\sum_{n=1}^\infty\frac{m^2,n} {3^m\left(m,3^n+n,3^m\right)}$$ $$\phi_n(\kappa) = \frac{1}{4\pi^2\kappa^2} \int_0^\infty \frac{\sin(\kappa R)}{\kappa R} \frac{\partial}{\partial R} \left[R^2\frac{\partial D_n(R)}{\partial R}\right],dR$$ PlantUML 渲染图形PlantUML WaveDrom 来渲染 digital timing diagram.WaveDrom 使用json样式文本 1234567891011121314151617181920212223242526272829&#123;signal: [ &#123;name:&apos;clk&apos;, wave: &apos;p.....PPPPp....&apos; &#125;, &#123;name:&apos;dat&apos;, wave: &apos;x....2345x.....&apos;, data: &apos;a b c d&apos; &#125;, &#123;name:&apos;req&apos;, wave: &apos;0....1...0.....&apos; &#125;],head: &#123;text: [&apos;tspan&apos;, [&apos;tspan&apos;, &#123;class:&apos;error h1&apos;&#125;, &apos;error &apos;], [&apos;tspan&apos;, &#123;class:&apos;warning h2&apos;&#125;, &apos;warning &apos;], [&apos;tspan&apos;, &#123;class:&apos;info h3&apos;&#125;, &apos;info &apos;], [&apos;tspan&apos;, &#123;class:&apos;success h4&apos;&#125;, &apos;success &apos;], [&apos;tspan&apos;, &#123;class:&apos;muted h5&apos;&#125;, &apos;muted &apos;], [&apos;tspan&apos;, &#123;class:&apos;h6&apos;&#125;, &apos;h6 &apos;], &apos;default &apos;, [&apos;tspan&apos;, &#123;fill:&apos;pink&apos;, &apos;font-weight&apos;:&apos;bold&apos;, &apos;font-style&apos;:&apos;italic&apos;&#125;, &apos;pink-bold-italic&apos;] ]&#125;,foot: &#123;text: [&apos;tspan&apos;, &apos;E=mc&apos;, [&apos;tspan&apos;, &#123;dy:&apos;-5&apos;&#125;, &apos;2&apos;], [&apos;tspan&apos;, &#123;dy: &apos;5&apos;&#125;, &apos;. &apos;], [&apos;tspan&apos;, &#123;&apos;font-size&apos;:&apos;25&apos;&#125;, &apos;B &apos;], [&apos;tspan&apos;, &#123;&apos;text-decoration&apos;:&apos;overline&apos;&#125;,&apos;over &apos;], [&apos;tspan&apos;, &#123;&apos;text-decoration&apos;:&apos;underline&apos;&#125;,&apos;under &apos;], [&apos;tspan&apos;, &#123;&apos;baseline-shift&apos;:&apos;sub&apos;&#125;, &apos;sub &apos;], [&apos;tspan&apos;, &#123;&apos;baseline-shift&apos;:&apos;super&apos;&#125;, &apos;super &apos;] ],tock:-5&#125;&#125; Viz.js 来渲染 dot language 图形.dot 123456789graph ethane &#123; C_0 -- H_0 [type=s]; C_0 -- H_1 [type=s]; C_0 -- H_2 [type=s]; C_0 -- C_1 [type=s]; C_1 -- H_3 [type=s]; C_1 -- H_4 [type=s]; C_1 -- H_5 [type=s];&#125; reveal.js 来渲染漂亮的 presentations幻灯片样式 presentations]]></content>
@@ -1567,6 +1556,17 @@
       </categories>
       <tags>
         <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年08月04日]]></title>
+    <url>%2F2016%2F08%2F04%2F</url>
+    <content type="text"><![CDATA[日期：2016年08月04日今日记录打印laravel文档,方便以后研究. 各个平台功能分析. atom 的 markdown-preview-enhanced 插件有个功能很有意思 地址 今日计划完成度 1. laravel文档打印。 2. 安装atom插件,编辑对应笔记 3日计划 1. 学习gulp与sass 2. 学习数据结构 3. 了解HTML5 与 CSS3 4. bootstrap学习（前端框架） 5. 设计网站制作进度表]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
       </tags>
   </entry>
   <entry>
