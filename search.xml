@@ -138,8 +138,8 @@
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>docker</tag>
         <tag>gitlab</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -1370,6 +1370,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[2016年7月17日]]></title>
+    <url>%2F2017%2F12%2F24%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月17日今日记录laravel学习到 控制器 完成部分笔记 今日计划完成度 laravel 入门学习 3日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2016年7月19日]]></title>
     <url>%2F2017%2F12%2F24%2F</url>
     <content type="text"><![CDATA[日期：2016年7月19日今日记录完成laravel HTTP组件学习。 寻找laravel的通信加密方法。 使用dingo设计API 使用JWT进行通信加密。 JWT与UE4的兼容性有待研究。 路由方法暂定为控制器路由。主要原因是使用缓存访问速度较快。 前端与后端分离是必然。PC端与App端使用的API也应该不同。 今日计划完成度 laravel HTTP组件学习 3日计划 学习gulp与sass 学习laravel 框架与数据部分。 学习数据结构 了解HTML5 与 CSS3]]></content>
@@ -1395,17 +1406,6 @@
     <title><![CDATA[2016年7月26日]]></title>
     <url>%2F2017%2F12%2F24%2F</url>
     <content type="text"><![CDATA[日期：2016年7月26日今日记录整理完成笔记。进入laravel服务学习。 整理网站需求，根据laravel框架，进行调整。 今日计划完成度 laravel Eloquent ORM部分。 3日计划 学习gulp与sass 学习laravel 服务。 学习数据结构 了解HTML5 与 CSS3 bootstrap学习（前端框架）]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[2016年7月17日]]></title>
-    <url>%2F2017%2F12%2F24%2F</url>
-    <content type="text"><![CDATA[日期：2016年7月17日今日记录laravel学习到 控制器 完成部分笔记 今日计划完成度 laravel 入门学习 3日计划 学习gulp与sass laravel 学习 学习数据结构 了解HTML5 与 CSS3]]></content>
       <categories>
         <category>Living</category>
       </categories>
