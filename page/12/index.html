@@ -43,7 +43,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -81,16 +81,6 @@
 
   <title>Keleven.Me</title>
   
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
-  <script>
-    var host = window.location.hostname;
-    if (host !== "localhost" || !true) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-111519029-1');
-    }
-  </script>
 
 
 
@@ -170,28 +160,6 @@
       
       
         
-        <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
-
-  </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
       
     
@@ -199,38 +167,11 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
 
   </li>
-      <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
-      </li>
-    
   </ul>
 
     
 
 </nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="Searching..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
 </div>
     </header>
 
@@ -257,7 +198,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -311,20 +252,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/02/02/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/02/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -374,7 +301,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -428,20 +355,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/01/26/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/26/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -491,7 +404,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -545,20 +458,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/01/22/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/22/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -612,7 +511,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -666,20 +565,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/01/21/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/21/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -732,7 +617,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -786,20 +671,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/27/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/27/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -862,7 +733,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -916,20 +787,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/24/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/24/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1007,7 +864,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1016,7 +873,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2017/12/24/" class="post-title-link" itemprop="url">2016年7月23日</a>
+            <a href="/2017/12/24/" class="post-title-link" itemprop="url">2016年7月19日</a>
           
         </h1>
 
@@ -1042,7 +899,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-05 06:22:10" itemprop="dateModified" datetime="2019-08-05T06:22:10+08:00">2019-08-05</time>
+                <time title="Modified: 2019-08-05 06:22:06" itemprop="dateModified" datetime="2019-08-05T06:22:06+08:00">2019-08-05</time>
               </span>
             
           
@@ -1061,20 +918,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/24/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/24/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1085,15 +928,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="日期：2016年7月23日"><a href="#日期：2016年7月23日" class="headerlink" title="日期：2016年7月23日"></a>日期：2016年7月23日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成了，laravel 框架与数据部分。</p>
-<p>Eloquent ORM 处理数据的优势很大。</p>
-<p>感觉上比较容易。对于网站与APP的API实现起来也比较容易。</p>
-<p>但是PC端，要考虑双向通信的延时问题。需要玩家等待登录的可能性大。</p>
-<p>PC端最大问题可能是地图与玩家匹配。</p>
-<p>全球大服务器需要很详细的分析。</p>
+          <h2 id="日期：2016年7月19日"><a href="#日期：2016年7月19日" class="headerlink" title="日期：2016年7月19日"></a>日期：2016年7月19日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>完成laravel HTTP组件学习。</p>
+<p>寻找laravel的通信加密方法。</p>
+<ul>
+<li><p>使用dingo设计API</p>
+</li>
+<li><p>使用JWT进行通信加密。</p>
+</li>
+<li><p>JWT与UE4的兼容性有待研究。</p>
+</li>
+</ul>
+<p>路由方法暂定为<code>控制器路由</code>。主要原因是使用缓存访问速度较快。</p>
+<p>前端与后端分离是必然。PC端与App端使用的API也应该不同。</p>
 <h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
 <li><input checked disabled type="checkbox"> <ol>
-<li>laravel 框架与数据部分</li>
+<li>laravel HTTP组件学习</li>
 </ol>
 </li>
 </ul>
@@ -1103,7 +952,7 @@
 </ol>
 </li>
 <li><input disabled type="checkbox"> <ol start="2">
-<li>学习laravel 服务。</li>
+<li>学习laravel 框架与数据部分。</li>
 </ol>
 </li>
 <li><input disabled type="checkbox"> <ol start="3">
@@ -1115,6 +964,7 @@
 </ol>
 </li>
 </ul>
+<hr>
 
         
       
@@ -1144,7 +994,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1198,20 +1048,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/24/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/24/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1287,7 +1123,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1341,20 +1177,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/24/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/24/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1420,7 +1242,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
       <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1429,7 +1251,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2017/12/24/" class="post-title-link" itemprop="url">2016年7月26日</a>
+            <a href="/2017/12/24/" class="post-title-link" itemprop="url">2016年7月23日</a>
           
         </h1>
 
@@ -1455,7 +1277,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-05 06:22:16" itemprop="dateModified" datetime="2019-08-05T06:22:16+08:00">2019-08-05</time>
+                <time title="Modified: 2019-08-05 06:22:10" itemprop="dateModified" datetime="2019-08-05T06:22:10+08:00">2019-08-05</time>
               </span>
             
           
@@ -1474,20 +1296,6 @@
           
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/24/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/24/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1498,11 +1306,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="日期：2016年7月26日"><a href="#日期：2016年7月26日" class="headerlink" title="日期：2016年7月26日"></a>日期：2016年7月26日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>整理完成笔记。进入laravel服务学习。</p>
-<p>整理网站需求，根据laravel框架，进行调整。</p>
+          <h2 id="日期：2016年7月23日"><a href="#日期：2016年7月23日" class="headerlink" title="日期：2016年7月23日"></a>日期：2016年7月23日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成了，laravel 框架与数据部分。</p>
+<p>Eloquent ORM 处理数据的优势很大。</p>
+<p>感觉上比较容易。对于网站与APP的API实现起来也比较容易。</p>
+<p>但是PC端，要考虑双向通信的延时问题。需要玩家等待登录的可能性大。</p>
+<p>PC端最大问题可能是地图与玩家匹配。</p>
+<p>全球大服务器需要很详细的分析。</p>
 <h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
 <li><input checked disabled type="checkbox"> <ol>
-<li>laravel Eloquent ORM部分。</li>
+<li>laravel 框架与数据部分</li>
 </ol>
 </li>
 </ul>
@@ -1523,12 +1335,7 @@
 <li>了解HTML5 与 CSS3</li>
 </ol>
 </li>
-<li><input disabled type="checkbox"> <ol start="5">
-<li>bootstrap学习（前端框架）</li>
-</ol>
-</li>
 </ul>
-<hr>
 
         
       
@@ -1589,9 +1396,6 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.jpg"
-      alt="K11">
   <p class="site-author-name" itemprop="name">K11</p>
   <div class="site-description" itemprop="description">千变万化的是世界</div>
 </div>
@@ -1632,41 +1436,6 @@
       </div>
     
   </nav>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/k11me" title="GitHub &rarr; https://github.com/k11me" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:k11@keleven.me" title="E-Mail &rarr; mailto:k11@keleven.me"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://www.instagram.com/_y.o_o.y_/" title="Instagram &rarr; https://www.instagram.com/_y.o_o.y_/" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
-      </span>
-    
-  </div>
 
 
 
@@ -1682,7 +1451,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1731,8 +1500,6 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.0"></script>
-
 
 
 
@@ -1751,17 +1518,6 @@
   
 
   
-
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://keleven.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
 
 </body>
 </html>
