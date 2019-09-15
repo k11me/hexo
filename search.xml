@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[继续的日常]]></title>
+    <url>%2F2019%2F09%2F14%2F</url>
+    <content type="text"><![CDATA[继续的日常昨天被chrome的缓存坑了一晚上…… 还好找到问题了…… where 与 whereStrictlaravel的where中对01 与 001 的区分并不敏感。 对复杂数据判断不足，使用whereStrict可以修正问题。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[有点意思]]></title>
     <url>%2F2019%2F09%2F12%2F</url>
     <content type="text"><![CDATA[有点意思各说各话有什么好谈的……]]></content>
@@ -138,8 +150,8 @@
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>gitlab</tag>
         <tag>docker</tag>
+        <tag>gitlab</tag>
       </tags>
   </entry>
   <entry>
@@ -1139,8 +1151,8 @@
         <category>Living</category>
       </categories>
       <tags>
-        <tag>日记</tag>
         <tag>yubikey</tag>
+        <tag>日记</tag>
         <tag>laravel</tag>
         <tag>php</tag>
         <tag>swagger</tag>
@@ -1343,8 +1355,8 @@
         <category>Living</category>
       </categories>
       <tags>
-        <tag>日记</tag>
         <tag>yubikey</tag>
+        <tag>日记</tag>
       </tags>
   </entry>
   <entry>
@@ -1432,9 +1444,9 @@
         <category>Living</category>
       </categories>
       <tags>
-        <tag>ubuntu</tag>
         <tag>yubikey</tag>
         <tag>ssh</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -1603,17 +1615,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2016年7月12日]]></title>
-    <url>%2F2016%2F07%2F12%2F</url>
-    <content type="text"><![CDATA[日期：2016年7月12日今日记录在ubuntu中安装gulp与sass。 安装nginx+php7.0+mysql。 明日计划 学习gulp与sass 定制玩家天赋 laravel 学习 学习数据结构]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[gulp 学习指南]]></title>
     <url>%2F2016%2F07%2F12%2F</url>
     <content type="text"><![CDATA[about gulp安装nodesudo apt install nodejs安装 nodejs-legacysudo apt install nodejs-legacy安装npmsudo apt install npm安装gulpsudo npm install -g gulp查看node 版本node -v查看npm 版本npm -v查看gulp 版本gulp -v测试gulp时，需要package.json与gulpfile.js文件 安装gulp-sassnpm install gulp-sass]]></content>
@@ -1633,6 +1634,17 @@
       </categories>
       <tags>
         <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2016年7月12日]]></title>
+    <url>%2F2016%2F07%2F12%2F</url>
+    <content type="text"><![CDATA[日期：2016年7月12日今日记录在ubuntu中安装gulp与sass。 安装nginx+php7.0+mysql。 明日计划 学习gulp与sass 定制玩家天赋 laravel 学习 学习数据结构]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
       </tags>
   </entry>
   <entry>
