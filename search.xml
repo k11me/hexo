@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[postman 的坑]]></title>
+    <url>%2F2019%2F10%2F03%2F</url>
+    <content type="text"><![CDATA[postman 的坑使用postman oauth2.0 请求token时报错。 1Could not complete OAuth 2.0 login. Check Postman Console for more details. 原因是valet 开启了https 产生了验证错误。 关闭https后可以正常使用。 貌似更新到新版本后正常…… 这一下午做了什么啊！！！心累！ 多个Scopes时，使用空格分隔。]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>postman</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[想换椅子了！]]></title>
+    <url>%2F2019%2F10%2F02%2F</url>
+    <content type="text"><![CDATA[想换椅子了椅子坐久了疲劳感上升。 刚好用的时间久了，想换掉。 椅子是舒适度会直接影响工作效率！ 哈哈哈哈哈哈哈哈~~]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[manjaro 与 kvm]]></title>
     <url>%2F2019%2F09%2F29%2F</url>
     <content type="text"><![CDATA[kvmYouTube某人安利的kvm动心了 尝试了一下，比vbox快~~ 于是安装manjaro+kvm manjaro 下用搜狗搜狗的安装程序不再国际源中需要手动添加 1sudo nano /etc/pacman.conf 添加内容 123[archlinuxcn]SigLevel = Optional TrustedOnlyServer = https://mirrors.ustc.edu.cn/archlinuxcn/$arch 安装秘钥 1sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring 安装需要的包 1234sudo pacman -S fcitx-imsudo pacman -S fcitx-configtoolsudo pacman -S fcitx-sogoupinyinyaourt -S fcitx-qt4 添加设置文件 1sudo nano ~/.xprofile 123export GTK_IM_MODULE=fcitxexport QT_IM_MODULE=fcitxexport XMODIFIERS=&quot;@im=fcitx&quot; 注销重新登录后搜狗可以正常使用了 manjaro 下安装kvm查看内核模块是否装载 12lsmod | grep kvm lsmod | grep virtio 装载 virtio 1sudo modprobe virtio 安装包 1sudo pacman -S virt-manager qemu vde2 ebtables dnsmasq bridge-utils openbsd-netcat 启动服务 123sudo systemctl enable libvirtdsudo systemctl start libvirtdsudo systemctl start virtlogd 注意新版 virt-manager 需要输入后选择系统]]></content>
