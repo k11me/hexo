@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[migrations 自动载入]]></title>
+    <url>%2F2019%2F10%2F15%2F</url>
+    <content type="text"><![CDATA[migrations 自动载入/../database/migrations 为扩展包中路径 1$this-&gt;loadMigrationsFrom(__DIR__.'/../database/migrations');]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[laravel 升级]]></title>
     <url>%2F2019%2F10%2F08%2F</url>
     <content type="text"><![CDATA[laravel 升级了predis 要换成 PhpRedis 原本的auth 使用 vue 重构了 phpredis安装好后记得重启！ 重启！ 重启！ 重启！]]></content>
@@ -648,7 +660,7 @@
   <entry>
     <title><![CDATA[user 使用uuid]]></title>
     <url>%2F2018%2F11%2F25%2F</url>
-    <content type="text"><![CDATA[25日的份将laravel 默认的id 改为 uuid 的方法，以及passport 使用uuid user 部分当不使用传统id时， 先在模型中写入 关闭默认排序 1public $incrementing = false; 再migrate中修改 1$table-&gt;increments('id'); 为 1$table-&gt;uuid('id')-&gt;primary(); 随后运行la5 migrate 新建App\Traits\Uuid 内容如下 123456789101112131415161718192021&lt;?phpnamespace App\Traits;use Illuminate\Support\Str;trait Uuid&#123; /** * Boot function from laravel. */ protected static function boot() &#123; parent::boot(); static::creating(function ($model) &#123; $model-&gt;&#123;$model-&gt;getKeyName()&#125; = (string) Str::orderedUuid(); &#125;); &#125;&#125; 随后在模型中添加 123use App\Traits\Uuid;use Uuid; 之后使用laravel自带的auth可以正常注册了。密码找回功能也可以使用。 参考文档 passport 部分当 passport安装完成后 执行php artisan vendor:publish --tag=passport-migrations 复制迁移到migrate目录 修改CreateOauthClientsTable 123456$table-&gt;increments('id');$table-&gt;integer('user_id')-&gt;index()-&gt;nullable();// 改为$table-&gt;uuid('id')-&gt;primary();$table-&gt;uuid('user_id')-&gt;index()-&gt;nullable(); 其他迁移将client_id与user_id 改为使用uuid App\Providers\AppServiceProvider中引入部分添加 12use Laravel\Passport\Client;use Illuminate\Support\Str; boot()部分添加 1234567Client::creating(function (Client $client) &#123; $client-&gt;incrementing = false; $client-&gt;id = (string) Str::orderedUuid();&#125;);Client::retrieved(function (Client $client) &#123; $client-&gt;incrementing = false;&#125;); register() 部分添加 1Passport::ignoreMigrations(); 其他部分按照文档即可正常使用。 参考文档 user 路径修改在App\Http\Controllers\Auth\RegisterController中修改 在config中的providers修改到对应路径 之后可以正常使用 laravel 包开发包的开发非常有利于后期的维护，同时也可以有效的分配工作任务，对未来的团队工作有极大的优势。 主要是功能混在一起，找起来超级烦。 有必要将独立的功能分散出去。 参考地址 1参考地址 2 需要说明的是 namespace与autoload超级重要]]></content>
+    <content type="text"><![CDATA[25日的份将laravel 默认的id 改为 uuid 的方法，以及passport 使用uuid user 部分当不使用传统id时， 先在模型中写入 关闭默认排序 1public $incrementing = false; 再migrate中修改 1$table-&gt;increments('id'); 为 1$table-&gt;uuid('id')-&gt;primary(); 随后运行la5 migrate 新建App\Traits\Uuid 内容如下 123456789101112131415161718192021&lt;?phpnamespace App\Traits;use Illuminate\Support\Str;trait Uuid&#123; /** * Boot function from laravel. */ protected static function boot() &#123; parent::boot(); static::creating(function ($model) &#123; $model-&gt;&#123;$model-&gt;getKeyName()&#125; = (string) Str::orderedUuid(); &#125;); &#125;&#125; 随后在模型中添加 123use App\Traits\Uuid;use Uuid; 之后使用laravel自带的auth可以正常注册了。密码找回功能也可以使用。 参考文档 passport 部分当 passport安装完成后 执行php artisan vendor:publish --tag=passport-migrations 复制迁移到migrate目录 修改CreateOauthClientsTable 123456$table-&gt;increments('id');$table-&gt;integer('user_id')-&gt;index()-&gt;nullable();// 改为$table-&gt;uuid('id')-&gt;primary();$table-&gt;uuid('user_id')-&gt;index()-&gt;nullable(); 其他迁移将client_id与user_id 改为使用uuid App\Providers\AppServiceProvider中引入部分添加 12use Laravel\Passport\Client;use Illuminate\Support\Str; boot()部分添加 1234567Client::creating(function (Client $client) &#123; $client-&gt;incrementing = false; $client-&gt;id = (string) Str::orderedUuid();&#125;);Client::retrieved(function (Client $client) &#123; $client-&gt;incrementing = false;&#125;); register() 部分添加 1Passport::ignoreMigrations(); 其他部分按照文档即可正常使用。 参考文档 user 路径修改在App\Http\Controllers\Auth\RegisterController中修改 在config中的providers修改到对应路径 之后可以正常使用 laravel 包开发包的开发非常有利于后期的维护，同时也可以有效的分配工作任务，对未来的团队工作有极大的优势。 主要是功能混在一起，找起来超级烦。 有必要将独立的功能分散出去。 参考地址 1参考地址 2 需要说明的是 namespace与autoload超级重要 2019年10月11日 更新Ramsey\Uuid\Exception\UnsatisfiedDependencyException 错误。 1composer require &quot;moontoast/math&quot;]]></content>
       <categories>
         <category>Living</category>
       </categories>
