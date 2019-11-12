@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>略微心烦</title>
+    <url>/2019/11/12/</url>
+    <content><![CDATA[<h1 id="略微心烦"><a href="#略微心烦" class="headerlink" title="略微心烦"></a>略微心烦</h1>]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>passport scope</title>
     <url>/2019/10/23/</url>
     <content><![CDATA[<h1 id="passport-scope-的作用域"><a href="#passport-scope-的作用域" class="headerlink" title="passport scope 的作用域"></a>passport scope 的作用域</h1><h2 id="使用-client"><a href="#使用-client" class="headerlink" title="使用 client"></a>使用 client</h2><p>使用<code>middleware(&#39;client&#39;)</code>时，<code>token</code>请求的<code>grant_type</code>应为<code>grant_type</code>。</p>
