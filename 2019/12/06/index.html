@@ -365,6 +365,10 @@
 
             <div class="post-nav-prev post-nav-item">
               
+                <a href="/2019/12/12/" rel="prev" title="使用 mermaid">
+                  使用 mermaid <i class="fa fa-chevron-right"></i>
+                </a>
+              
             </div>
           </div>
         
@@ -436,7 +440,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -578,6 +582,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'default',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
 

@@ -292,6 +292,64 @@
 
       <h2 class="post-title">
         
+          <a class="post-title-link" href="/2019/12/13/" itemprop="url">
+            <span itemprop="name">日常</span>
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-12-13T00:00:00+08:00"
+              content="2019-12-13">
+          12-13
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+  
+  
+
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+          <a class="post-title-link" href="/2019/12/12/" itemprop="url">
+            <span itemprop="name">使用 mermaid</span>
+          </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-12-12T00:00:00+08:00"
+              content="2019-12-12">
+          12-12
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+  
+  
+
+  
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
           <a class="post-title-link" href="/2019/12/06/" itemprop="url">
             <span itemprop="name">健身环吹爆！</span>
           </a>
@@ -514,64 +572,6 @@
 
 
 
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/08/" itemprop="url">
-            <span itemprop="name">laravel 升级</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-08T00:00:00+08:00"
-              content="2019-10-08">
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-
-  
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/10/03/" itemprop="url">
-            <span itemprop="name">postman 的坑</span>
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-10-03T00:00:00+08:00"
-              content="2019-10-03">
-          10-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
     </div>
   </div>
   
@@ -626,7 +626,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">162</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -768,6 +768,19 @@
 
 
 
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme: 'default',
+      logLevel: 3,
+      flowchart: { curve: 'linear' },
+      gantt: { axisFormat: '%m/%d/%Y' },
+      sequence: { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
 
