@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>无言</title>
+      <link href="/2020/01/27/"/>
+      <url>/2020/01/27/</url>
+      
+        <content type="html"><![CDATA[<h1 id="无言"><a href="#无言" class="headerlink" title="无言"></a>无言</h1><p>不知道说什么</p><p>想说的书上都写了</p><p>分包顺利进行中</p><p>更多的是无力感</p><h1 id="新年快乐"><a href="#新年快乐" class="headerlink" title="新年快乐"></a>新年快乐</h1><p>并快乐不起来</p><p>如果没估计错的话</p><p>之后也不会快乐的</p><p>纵观千年，一成不变</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Living </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在 vue 独立组件中使用 laravel echo</title>
+      <link href="/2020/01/18/"/>
+      <url>/2020/01/18/</url>
+      
+        <content type="html"><![CDATA[<h1 id="在-vue-独立组件中使用-laravel-echo"><a href="#在-vue-独立组件中使用-laravel-echo" class="headerlink" title="在 vue 独立组件中使用 laravel echo"></a>在 vue 独立组件中使用 laravel echo</h1><p>引入包</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Echo <span class="keyword">from</span> <span class="string">"laravel-echo"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.io = <span class="built_in">require</span>(<span class="string">'socket.io-client'</span>);</span><br></pre></td></tr></table></figure><p>设置新的<code>Echo</code>,同时监听新的<code>echo</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.echo = <span class="keyword">new</span> Echo(&#123;</span><br><span class="line">                    broadcaster: <span class="string">'socket.io'</span>,</span><br><span class="line">                    host: <span class="keyword">this</span>.url.host,</span><br><span class="line">                    key: <span class="keyword">this</span>.url.key,</span><br><span class="line">                &#125;)</span><br><span class="line"><span class="keyword">this</span>.echo.channel(<span class="keyword">this</span>.url.channel)</span><br><span class="line">                .listen(<span class="keyword">this</span>.url.listen, (res) =&gt; &#123;</span><br><span class="line">                    <span class="keyword">this</span>.pushData(res)</span><br><span class="line">                &#125;)</span><br></pre></td></tr></table></figure><h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Living </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>laravel 包中创建新 view 并使用 vue-route</title>
       <link href="/2020/01/16/"/>
       <url>/2020/01/16/</url>
@@ -3636,11 +3686,11 @@
     
     
     <entry>
-      <title>2016年7月17日</title>
+      <title>2016年7月15日</title>
       <link href="/2017/12/24/"/>
       <url>/2017/12/24/</url>
       
-        <content type="html"><![CDATA[<h2 id="日期：2016年7月17日"><a href="#日期：2016年7月17日" class="headerlink" title="日期：2016年7月17日"></a>日期：2016年7月17日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>laravel学习到 控制器</p><p>完成部分笔记</p><h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul><li><input checked disabled type="checkbox"> <ol><li>laravel 入门学习</li></ol></li></ul><h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul><li><input disabled type="checkbox"> <ol><li>学习gulp与sass</li></ol></li><li><input disabled type="checkbox"> <ol start="2"><li>laravel 学习</li></ol></li><li><input disabled type="checkbox"> <ol start="3"><li>学习数据结构</li></ol></li><li><input disabled type="checkbox"> <ol start="4"><li>了解HTML5 与 CSS3</li></ol></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="日期：2016年7月15日"><a href="#日期：2016年7月15日" class="headerlink" title="日期：2016年7月15日"></a>日期：2016年7月15日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成laravel入门，完成用户部分笔记。</p><p>构建laravel基础学习目录。自定义章节：第5章</p><p>预计完成web部分学习需要一周时间。</p><p>变更计划以时长为3天。后期根据情况调整。</p><h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul><li><input disabled type="checkbox"> <ol><li>学习gulp与sass</li></ol></li><li><input checked disabled type="checkbox"> <ol start="2"><li>laravel 快速入门学习</li></ol></li><li><input disabled type="checkbox"> <ol start="3"><li>学习数据结构</li></ol></li></ul><h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul><li><input disabled type="checkbox"> <ol><li>学习gulp与sass</li></ol></li><li><input disabled type="checkbox"> <ol start="2"><li>laravel 学习</li></ol></li><li><input disabled type="checkbox"> <ol start="3"><li>学习数据结构</li></ol></li><li><input disabled type="checkbox"> <ol start="4"><li>了解HTML5 与 CSS3</li></ol></li></ul>]]></content>
       
       
       <categories>
@@ -3661,11 +3711,11 @@
     
     
     <entry>
-      <title>2016年7月15日</title>
+      <title>2016年7月17日</title>
       <link href="/2017/12/24/"/>
       <url>/2017/12/24/</url>
       
-        <content type="html"><![CDATA[<h2 id="日期：2016年7月15日"><a href="#日期：2016年7月15日" class="headerlink" title="日期：2016年7月15日"></a>日期：2016年7月15日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成laravel入门，完成用户部分笔记。</p><p>构建laravel基础学习目录。自定义章节：第5章</p><p>预计完成web部分学习需要一周时间。</p><p>变更计划以时长为3天。后期根据情况调整。</p><h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul><li><input disabled type="checkbox"> <ol><li>学习gulp与sass</li></ol></li><li><input checked disabled type="checkbox"> <ol start="2"><li>laravel 快速入门学习</li></ol></li><li><input disabled type="checkbox"> <ol start="3"><li>学习数据结构</li></ol></li></ul><h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul><li><input disabled type="checkbox"> <ol><li>学习gulp与sass</li></ol></li><li><input disabled type="checkbox"> <ol start="2"><li>laravel 学习</li></ol></li><li><input disabled type="checkbox"> <ol start="3"><li>学习数据结构</li></ol></li><li><input disabled type="checkbox"> <ol start="4"><li>了解HTML5 与 CSS3</li></ol></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="日期：2016年7月17日"><a href="#日期：2016年7月17日" class="headerlink" title="日期：2016年7月17日"></a>日期：2016年7月17日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>laravel学习到 控制器</p><p>完成部分笔记</p><h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul><li><input checked disabled type="checkbox"> <ol><li>laravel 入门学习</li></ol></li></ul><h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul><li><input disabled type="checkbox"> <ol><li>学习gulp与sass</li></ol></li><li><input disabled type="checkbox"> <ol start="2"><li>laravel 学习</li></ol></li><li><input disabled type="checkbox"> <ol start="3"><li>学习数据结构</li></ol></li><li><input disabled type="checkbox"> <ol start="4"><li>了解HTML5 与 CSS3</li></ol></li></ul>]]></content>
       
       
       <categories>
@@ -3736,11 +3786,11 @@
     
     
     <entry>
-      <title>2016年7月23日</title>
+      <title>2016年7月27日</title>
       <link href="/2017/12/24/"/>
       <url>/2017/12/24/</url>
       
-        <content type="html"><![CDATA[<h2 id="日期：2016年7月23日"><a href="#日期：2016年7月23日" class="headerlink" title="日期：2016年7月23日"></a>日期：2016年7月23日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成了，laravel 框架与数据部分。</p><p>Eloquent ORM 处理数据的优势很大。</p><p>感觉上比较容易。对于网站与APP的API实现起来也比较容易。</p><p>但是PC端，要考虑双向通信的延时问题。需要玩家等待登录的可能性大。</p><p>PC端最大问题可能是地图与玩家匹配。</p><p>全球大服务器需要很详细的分析。</p><h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul><li><input checked disabled type="checkbox"> <ol><li>laravel 框架与数据部分</li></ol></li></ul><h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul><li><input disabled type="checkbox"> <ol><li>学习gulp与sass</li></ol></li><li><input disabled type="checkbox"> <ol start="2"><li>学习laravel 服务。</li></ol></li><li><input disabled type="checkbox"> <ol start="3"><li>学习数据结构</li></ol></li><li><input disabled type="checkbox"> <ol start="4"><li>了解HTML5 与 CSS3</li></ol></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="日期：2016年7月27日"><a href="#日期：2016年7月27日" class="headerlink" title="日期：2016年7月27日"></a>日期：2016年7月27日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>新头像很好看<del>想要大图</del></p><p>laravel 是一个框架，像一座空房子。之后要做的，自然就是装修了。</p><p>再根据情况对装修的风格进行设计，这叫<code>用户需求设计</code>。这个词在许多领域是通用的。</p><p>一个一个的组件可以看做房子里的家具，每个都有自己的使命。</p><p><code>CSS与HTML</code>就是壁纸啊，灯具啊，一些用来欣赏的。也是网页看起来的样子。也是叫前端~</p><p><code>API</code>可以看成墙壁上的电源，给手机充电的。实际上用来传递信息。</p><p>嗯 28日啦~ 祝我自己生日快乐啦~</p><p>愿望是在今年11月的某一天，能做完网站与PC端游戏，贪心一点能做完APP就更好了~</p><p>其他：</p><p>试用一个叫pandoc的软件，结论是对中文支持并不友好。</p><p>用途:转换各种文档的工具。</p><h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul><li><input checked disabled type="checkbox"> 1. laravel服务学习，进行中。</li></ul><h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul><li><input disabled type="checkbox"> <p>1. 学习gulp与sass</p></li><li><input disabled type="checkbox"> <p>2. 学习laravel 服务。</p></li><li><input disabled type="checkbox"> <p>3. 学习数据结构</p></li><li><input disabled type="checkbox"> <p>4. 了解HTML5 与 CSS3</p></li><li><input disabled type="checkbox"> <p>5. bootstrap学习（前端框架）</p></li></ul><hr>]]></content>
       
       
       <categories>
@@ -3761,11 +3811,11 @@
     
     
     <entry>
-      <title>2016年7月27日</title>
+      <title>2016年7月23日</title>
       <link href="/2017/12/24/"/>
       <url>/2017/12/24/</url>
       
-        <content type="html"><![CDATA[<h2 id="日期：2016年7月27日"><a href="#日期：2016年7月27日" class="headerlink" title="日期：2016年7月27日"></a>日期：2016年7月27日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>新头像很好看<del>想要大图</del></p><p>laravel 是一个框架，像一座空房子。之后要做的，自然就是装修了。</p><p>再根据情况对装修的风格进行设计，这叫<code>用户需求设计</code>。这个词在许多领域是通用的。</p><p>一个一个的组件可以看做房子里的家具，每个都有自己的使命。</p><p><code>CSS与HTML</code>就是壁纸啊，灯具啊，一些用来欣赏的。也是网页看起来的样子。也是叫前端~</p><p><code>API</code>可以看成墙壁上的电源，给手机充电的。实际上用来传递信息。</p><p>嗯 28日啦~ 祝我自己生日快乐啦~</p><p>愿望是在今年11月的某一天，能做完网站与PC端游戏，贪心一点能做完APP就更好了~</p><p>其他：</p><p>试用一个叫pandoc的软件，结论是对中文支持并不友好。</p><p>用途:转换各种文档的工具。</p><h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul><li><input checked disabled type="checkbox"> 1. laravel服务学习，进行中。</li></ul><h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul><li><input disabled type="checkbox"> <p>1. 学习gulp与sass</p></li><li><input disabled type="checkbox"> <p>2. 学习laravel 服务。</p></li><li><input disabled type="checkbox"> <p>3. 学习数据结构</p></li><li><input disabled type="checkbox"> <p>4. 了解HTML5 与 CSS3</p></li><li><input disabled type="checkbox"> <p>5. bootstrap学习（前端框架）</p></li></ul><hr>]]></content>
+        <content type="html"><![CDATA[<h2 id="日期：2016年7月23日"><a href="#日期：2016年7月23日" class="headerlink" title="日期：2016年7月23日"></a>日期：2016年7月23日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成了，laravel 框架与数据部分。</p><p>Eloquent ORM 处理数据的优势很大。</p><p>感觉上比较容易。对于网站与APP的API实现起来也比较容易。</p><p>但是PC端，要考虑双向通信的延时问题。需要玩家等待登录的可能性大。</p><p>PC端最大问题可能是地图与玩家匹配。</p><p>全球大服务器需要很详细的分析。</p><h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul><li><input checked disabled type="checkbox"> <ol><li>laravel 框架与数据部分</li></ol></li></ul><h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul><li><input disabled type="checkbox"> <ol><li>学习gulp与sass</li></ol></li><li><input disabled type="checkbox"> <ol start="2"><li>学习laravel 服务。</li></ol></li><li><input disabled type="checkbox"> <ol start="3"><li>学习数据结构</li></ol></li><li><input disabled type="checkbox"> <ol start="4"><li>了解HTML5 与 CSS3</li></ol></li></ul>]]></content>
       
       
       <categories>
