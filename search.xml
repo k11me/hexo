@@ -5,7 +5,7 @@
     <url>/2020/05/26/</url>
     <content><![CDATA[<h1 id="mac-下-node-版本切换"><a href="#mac-下-node-版本切换" class="headerlink" title="mac 下 node 版本切换"></a>mac 下 node 版本切换</h1><p><code>hexo</code> 不支持 新版的<code>node</code>，需要切换为旧版本</p>
 <p>使用<code>nvm</code> 可以进行版本切换。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
 
 <p>编辑<code>.zshrc</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">  [ -s <span class="string">"/usr/local/opt/nvm/nvm.sh"</span> ] &amp;&amp; . <span class="string">"/usr/local/opt/nvm/nvm.sh"</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">  [ -s <span class="string">"/usr/local/opt/nvm/etc/bash_completion.d/nvm"</span> ] &amp;&amp; . <span class="string">"/usr/local/opt/nvm/etc/bash_completion.d/nvm"</span>  <span class="comment"># This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
@@ -13,14 +13,24 @@
 <p>重载zsh</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">. ~/.zshrc</span><br></pre></td></tr></table></figure>
 
-<p>查看有哪些版本可以被安裝</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>查看有哪些版本可以被安裝</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote</span><br></pre></td></tr></table></figure>
 
 <p>指定想要的版本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install &lt;version&gt;</span><br></pre></td></tr></table></figure>
 
 <p>安裝目前的穩定版</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>
+
+<h2 id="自动切换"><a href="#自动切换" class="headerlink" title="自动切换"></a>自动切换</h2><p>项目文件夹运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">node -v &gt; .nvmrc</span><br></pre></td></tr></table></figure>
+
+<p><code>.zshrc</code> 加入钩子</p>
+<p>作用：<code>cd</code>进入文件夹是自动切换为设定的<code>node</code>版本，未设定时切换为系统默认版本。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">autoload</span> -U add-zsh-hook</span><br><span class="line">load-<span class="function"><span class="title">nvmrc</span></span>() &#123;</span><br><span class="line">  <span class="keyword">if</span> [[ -f .nvmrc &amp;&amp; -r .nvmrc ]]; <span class="keyword">then</span></span><br><span class="line">    nvm use</span><br><span class="line">  <span class="keyword">elif</span> [[ $(nvm version) != $(nvm version default)  ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Reverting to nvm default version"</span></span><br><span class="line">    nvm use default</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line">add-zsh-hook chpwd load-nvmrc</span><br><span class="line">load-nvmrc</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://medium.com/@kinduff/automatic-version-switch-for-nvm-ff9e00ae67f3" target="_blank" rel="noopener">帮助文档</a></p>
+]]></content>
       <categories>
         <category>Living</category>
       </categories>
@@ -2076,8 +2086,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2166,8 +2176,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2224,8 +2234,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2256,8 +2266,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2429,8 +2439,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2457,8 +2467,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2801,7 +2811,7 @@ section 2019-12-12
 <p>完成后进入<code>DD-wrt</code>, 设置用户名，密码，之后会用到</p>
 <p><code>services</code>中开启<code>ssh</code></p>
 <p>进入<code>ssh</code> 账号是<code>root</code>，密码是刚刚设置的，验证设备是否匹配固件，如下方，基本可以刷了</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> nvram get boardnum</span><br><span class="line">679</span><br><span class="line"><span class="meta">$</span> nvram get boardtype</span><br><span class="line">0x0646</span><br><span class="line"><span class="meta">$</span> nvram get boardrev</span><br><span class="line">0x1110</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardnum</span></span><br><span class="line">679</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardtype</span></span><br><span class="line">0x0646</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardrev</span></span><br><span class="line">0x1110</span><br></pre></td></tr></table></figure>
 
 <p>随后进入<code>192.168.1.1</code>-&gt;<code>administration</code> </p>
 <blockquote>
@@ -3067,7 +3077,7 @@ section 2019-12-12
 
 <p><code>p==***********</code>为<code>DKIM key</code>这里隐去了</p>
 <h3 id="docker-mailserver-启动"><a href="#docker-mailserver-启动" class="headerlink" title="docker-mailserver 启动"></a>docker-mailserver 启动</h3><p>启动 docker-proxy 【反向代理】</p>
-<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -d -p 80:80 -p 443:443 \</span><br><span class="line">    --name nginx-proxy \</span><br><span class="line">    -v /path/to/certs:/etc/nginx/certs:ro \</span><br><span class="line">    -v /etc/nginx/vhost.d \</span><br><span class="line">    -v /usr/share/nginx/html \</span><br><span class="line">    -v /var/run/docker.sock:/tmp/docker.sock:ro \</span><br><span class="line">    --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \</span><br><span class="line">    jwilder/nginx-proxy</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 80:80 -p 443:443 \</span></span><br><span class="line"><span class="bash">    --name nginx-proxy \</span></span><br><span class="line"><span class="bash">    -v /path/to/certs:/etc/nginx/certs:ro \</span></span><br><span class="line"><span class="bash">    -v /etc/nginx/vhost.d \</span></span><br><span class="line"><span class="bash">    -v /usr/share/nginx/html \</span></span><br><span class="line"><span class="bash">    -v /var/run/docker.sock:/tmp/docker.sock:ro \</span></span><br><span class="line"><span class="bash">    --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \</span></span><br><span class="line"><span class="bash">    jwilder/nginx-proxy</span></span><br></pre></td></tr></table></figure>
 
 <p>启动 letsencrypt-nginx-proxy-companion 【挂载TLS证书】</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    -v /path/to/certs:/etc/nginx/certs:rw \</span><br><span class="line">    -v /var/run/docker.sock:/var/run/docker.sock:ro \</span><br><span class="line">    --volumes-from nginx-proxy \</span><br><span class="line">    jrcs/letsencrypt-nginx-proxy-companion</span><br></pre></td></tr></table></figure>
@@ -3265,8 +3275,8 @@ section 2019-12-12
         <tag>日记</tag>
         <tag>yubikey</tag>
         <tag>laravel</tag>
-        <tag>swagger</tag>
         <tag>php</tag>
+        <tag>swagger</tag>
       </tags>
   </entry>
   <entry>
@@ -3777,101 +3787,6 @@ section 2019-12-12
       </tags>
   </entry>
   <entry>
-    <title>2016年7月15日</title>
-    <url>/2017/12/24/</url>
-    <content><![CDATA[<h2 id="日期：2016年7月15日"><a href="#日期：2016年7月15日" class="headerlink" title="日期：2016年7月15日"></a>日期：2016年7月15日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成laravel入门，完成用户部分笔记。</p>
-<p>构建laravel基础学习目录。自定义章节：第5章</p>
-<p>预计完成web部分学习需要一周时间。</p>
-<p>变更计划以时长为3天。后期根据情况调整。</p>
-<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
-<li><input disabled type="checkbox"> <ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><input checked disabled type="checkbox"> <ol start="2">
-<li>laravel 快速入门学习</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="3">
-<li>学习数据结构</li>
-</ol>
-</li>
-</ul>
-<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
-<li><input disabled type="checkbox"> <ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="2">
-<li>laravel 学习</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="3">
-<li>学习数据结构</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="4">
-<li>了解HTML5 与 CSS3</li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2016年7月19日</title>
-    <url>/2017/12/24/</url>
-    <content><![CDATA[<h2 id="日期：2016年7月19日"><a href="#日期：2016年7月19日" class="headerlink" title="日期：2016年7月19日"></a>日期：2016年7月19日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>完成laravel HTTP组件学习。</p>
-<p>寻找laravel的通信加密方法。</p>
-<ul>
-<li><p>使用dingo设计API</p>
-</li>
-<li><p>使用JWT进行通信加密。</p>
-</li>
-<li><p>JWT与UE4的兼容性有待研究。</p>
-</li>
-</ul>
-<p>路由方法暂定为<code>控制器路由</code>。主要原因是使用缓存访问速度较快。</p>
-<p>前端与后端分离是必然。PC端与App端使用的API也应该不同。</p>
-<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
-<li><input checked disabled type="checkbox"> <ol>
-<li>laravel HTTP组件学习</li>
-</ol>
-</li>
-</ul>
-<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
-<li><input disabled type="checkbox"> <ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="2">
-<li>学习laravel 框架与数据部分。</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="3">
-<li>学习数据结构</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="4">
-<li>了解HTML5 与 CSS3</li>
-</ol>
-</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2016年7月17日</title>
     <url>/2017/12/24/</url>
     <content><![CDATA[<h2 id="日期：2016年7月17日"><a href="#日期：2016年7月17日" class="headerlink" title="日期：2016年7月17日"></a>日期：2016年7月17日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>laravel学习到 控制器</p>
@@ -3889,47 +3804,6 @@ section 2019-12-12
 </li>
 <li><input disabled type="checkbox"> <ol start="2">
 <li>laravel 学习</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="3">
-<li>学习数据结构</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="4">
-<li>了解HTML5 与 CSS3</li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2016年7月23日</title>
-    <url>/2017/12/24/</url>
-    <content><![CDATA[<h2 id="日期：2016年7月23日"><a href="#日期：2016年7月23日" class="headerlink" title="日期：2016年7月23日"></a>日期：2016年7月23日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成了，laravel 框架与数据部分。</p>
-<p>Eloquent ORM 处理数据的优势很大。</p>
-<p>感觉上比较容易。对于网站与APP的API实现起来也比较容易。</p>
-<p>但是PC端，要考虑双向通信的延时问题。需要玩家等待登录的可能性大。</p>
-<p>PC端最大问题可能是地图与玩家匹配。</p>
-<p>全球大服务器需要很详细的分析。</p>
-<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
-<li><input checked disabled type="checkbox"> <ol>
-<li>laravel 框架与数据部分</li>
-</ol>
-</li>
-</ul>
-<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
-<li><input disabled type="checkbox"> <ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="2">
-<li>学习laravel 服务。</li>
 </ol>
 </li>
 <li><input disabled type="checkbox"> <ol start="3">
@@ -3992,6 +3866,54 @@ section 2019-12-12
       </tags>
   </entry>
   <entry>
+    <title>2016年7月19日</title>
+    <url>/2017/12/24/</url>
+    <content><![CDATA[<h2 id="日期：2016年7月19日"><a href="#日期：2016年7月19日" class="headerlink" title="日期：2016年7月19日"></a>日期：2016年7月19日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>完成laravel HTTP组件学习。</p>
+<p>寻找laravel的通信加密方法。</p>
+<ul>
+<li><p>使用dingo设计API</p>
+</li>
+<li><p>使用JWT进行通信加密。</p>
+</li>
+<li><p>JWT与UE4的兼容性有待研究。</p>
+</li>
+</ul>
+<p>路由方法暂定为<code>控制器路由</code>。主要原因是使用缓存访问速度较快。</p>
+<p>前端与后端分离是必然。PC端与App端使用的API也应该不同。</p>
+<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
+<li><input checked disabled type="checkbox"> <ol>
+<li>laravel HTTP组件学习</li>
+</ol>
+</li>
+</ul>
+<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
+<li><input disabled type="checkbox"> <ol>
+<li>学习gulp与sass</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="2">
+<li>学习laravel 框架与数据部分。</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="3">
+<li>学习数据结构</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="4">
+<li>了解HTML5 与 CSS3</li>
+</ol>
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2016年7月27日</title>
     <url>/2017/12/24/</url>
     <content><![CDATA[<h2 id="日期：2016年7月27日"><a href="#日期：2016年7月27日" class="headerlink" title="日期：2016年7月27日"></a>日期：2016年7月27日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>新头像很好看<del>想要大图</del></p>
@@ -4021,6 +3943,94 @@ section 2019-12-12
 </li>
 </ul>
 <hr>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2016年7月23日</title>
+    <url>/2017/12/24/</url>
+    <content><![CDATA[<h2 id="日期：2016年7月23日"><a href="#日期：2016年7月23日" class="headerlink" title="日期：2016年7月23日"></a>日期：2016年7月23日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成了，laravel 框架与数据部分。</p>
+<p>Eloquent ORM 处理数据的优势很大。</p>
+<p>感觉上比较容易。对于网站与APP的API实现起来也比较容易。</p>
+<p>但是PC端，要考虑双向通信的延时问题。需要玩家等待登录的可能性大。</p>
+<p>PC端最大问题可能是地图与玩家匹配。</p>
+<p>全球大服务器需要很详细的分析。</p>
+<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
+<li><input checked disabled type="checkbox"> <ol>
+<li>laravel 框架与数据部分</li>
+</ol>
+</li>
+</ul>
+<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
+<li><input disabled type="checkbox"> <ol>
+<li>学习gulp与sass</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="2">
+<li>学习laravel 服务。</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="3">
+<li>学习数据结构</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="4">
+<li>了解HTML5 与 CSS3</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2016年7月15日</title>
+    <url>/2017/12/24/</url>
+    <content><![CDATA[<h2 id="日期：2016年7月15日"><a href="#日期：2016年7月15日" class="headerlink" title="日期：2016年7月15日"></a>日期：2016年7月15日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成laravel入门，完成用户部分笔记。</p>
+<p>构建laravel基础学习目录。自定义章节：第5章</p>
+<p>预计完成web部分学习需要一周时间。</p>
+<p>变更计划以时长为3天。后期根据情况调整。</p>
+<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
+<li><input disabled type="checkbox"> <ol>
+<li>学习gulp与sass</li>
+</ol>
+</li>
+<li><input checked disabled type="checkbox"> <ol start="2">
+<li>laravel 快速入门学习</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="3">
+<li>学习数据结构</li>
+</ol>
+</li>
+</ul>
+<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
+<li><input disabled type="checkbox"> <ol>
+<li>学习gulp与sass</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="2">
+<li>laravel 学习</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="3">
+<li>学习数据结构</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="4">
+<li>了解HTML5 与 CSS3</li>
+</ol>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Living</category>
