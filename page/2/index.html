@@ -252,6 +252,356 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/01/18/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/01/18/" class="post-title-link" itemprop="url">在 vue 独立组件中使用 laravel echo</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-01-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-18T00:00:00+08:00">2020-01-18</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-20 10:00:53" itemprop="dateModified" datetime="2020-01-20T10:00:53+08:00">2020-01-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/01/18/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/18/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="在-vue-独立组件中使用-laravel-echo"><a href="#在-vue-独立组件中使用-laravel-echo" class="headerlink" title="在 vue 独立组件中使用 laravel echo"></a>在 vue 独立组件中使用 laravel echo</h1><p>引入包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Echo <span class="keyword">from</span> <span class="string">"laravel-echo"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.io = <span class="built_in">require</span>(<span class="string">'socket.io-client'</span>);</span><br></pre></td></tr></table></figure>
+
+<p>设置新的<code>Echo</code>,同时监听新的<code>echo</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.echo = <span class="keyword">new</span> Echo(&#123;</span><br><span class="line">                    broadcaster: <span class="string">'socket.io'</span>,</span><br><span class="line">                    host: <span class="keyword">this</span>.url.host,</span><br><span class="line">                    key: <span class="keyword">this</span>.url.key,</span><br><span class="line">                &#125;)</span><br><span class="line"><span class="keyword">this</span>.echo.channel(<span class="keyword">this</span>.url.channel)</span><br><span class="line">                .listen(<span class="keyword">this</span>.url.listen, (res) =&gt; &#123;</span><br><span class="line">                    <span class="keyword">this</span>.pushData(res)</span><br><span class="line">                &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/01/16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/01/16/" class="post-title-link" itemprop="url">laravel 包中创建新 view 并使用 vue-route</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-01-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-16T00:00:00+08:00">2020-01-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-17 12:38:33" itemprop="dateModified" datetime="2020-01-17T12:38:33+08:00">2020-01-17</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/01/16/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/16/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="laravel-包中创建新-view-并使用-vue-route"><a href="#laravel-包中创建新-view-并使用-vue-route" class="headerlink" title="laravel 包中创建新 view 并使用 vue-route"></a>laravel 包中创建新 view 并使用 vue-route</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>自行开发的<code>laravel</code>扩展包少不了<code>UI</code>的显示。</p>
+<p>官方又没有写明，于是就踩了不少的坑。</p>
+<p>填坑方法如下。</p>
+<h2 id="js-设置文件"><a href="#js-设置文件" class="headerlink" title="js 设置文件"></a>js 设置文件</h2><h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>复制<code>laravel</code>最初的设置就好</p>
+<h3 id="webpack-mix-js"><a href="#webpack-mix-js" class="headerlink" title="webpack.mix.js"></a>webpack.mix.js</h3><p>注意<code>copy</code>到对应的<code>laravel</code>项目路径</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mix = <span class="built_in">require</span>(<span class="string">'laravel-mix'</span>);</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mix.setPublicPath(<span class="string">'public'</span>)</span><br><span class="line">    .js(<span class="string">'resources/js/app.js'</span>, <span class="string">'public'</span>)</span><br><span class="line">    .sass(<span class="string">'resources/sass/app.scss'</span>, <span class="string">'public'</span>)</span><br><span class="line">    .copy(<span class="string">'public'</span>, <span class="string">'../../../web/public/vendor/logsservice'</span>)</span><br><span class="line">    .webpackConfig(&#123;</span><br><span class="line">        resolve: &#123;</span><br><span class="line">            symlinks: <span class="literal">false</span>,</span><br><span class="line">            alias: &#123;</span><br><span class="line">                <span class="string">'@'</span>: path.resolve(__dirname, <span class="string">'resources/js/'</span>),</span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line">        plugins: [<span class="keyword">new</span> webpack.IgnorePlugin(<span class="regexp">/^\.\/locale$/</span>, /moment$/)],</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="resources-文件夹"><a href="#resources-文件夹" class="headerlink" title="resources 文件夹"></a>resources 文件夹</h3><h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;</span><br><span class="line"><span class="keyword">import</span> Routes <span class="keyword">from</span> <span class="string">'./routes'</span>;</span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; BootstrapVue, IconsPlugin &#125; <span class="keyword">from</span> <span class="string">'bootstrap-vue'</span>;</span><br><span class="line"><span class="keyword">import</span> moment <span class="keyword">from</span> <span class="string">'moment-timezone'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'./socket'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> token = <span class="built_in">document</span>.head.querySelector(<span class="string">'meta[name="csrf-token"]'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (token) &#123;</span><br><span class="line">    axios.defaults.headers.common[<span class="string">'X-CSRF-TOKEN'</span>] = token.content;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">Vue.use(VueRouter);</span><br><span class="line">Vue.use(BootstrapVue);</span><br><span class="line">Vue.use(IconsPlugin);</span><br><span class="line"></span><br><span class="line">moment.tz.setDefault(LogsService.timezone);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.LogsService.basePath = <span class="string">'/'</span> + <span class="built_in">window</span>.LogsService.path;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> routerBasePath = <span class="built_in">window</span>.LogsService.basePath + <span class="string">'/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.LogsService.path === <span class="string">''</span> || <span class="built_in">window</span>.LogsService.path === <span class="string">'/'</span>) &#123;</span><br><span class="line">    routerBasePath = <span class="string">'/'</span>;</span><br><span class="line">    <span class="built_in">window</span>.LogsService.basePath = <span class="string">''</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes: Routes,</span><br><span class="line">    mode: <span class="string">'history'</span>,</span><br><span class="line">    base: routerBasePath,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	router,</span><br><span class="line">	el: <span class="string">'#logs'</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="routes-js"><a href="#routes-js" class="headerlink" title="routes.js"></a>routes.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [</span><br><span class="line">	&#123; <span class="attr">path</span>: <span class="string">'/'</span> , <span class="attr">redirect</span>: <span class="string">'/home'</span> &#125;,</span><br><span class="line">	&#123; </span><br><span class="line">		path: <span class="string">'/home'</span> ,</span><br><span class="line">		name: <span class="string">'home'</span>, </span><br><span class="line">		component: <span class="built_in">require</span>(<span class="string">'./screens/home/index'</span>).default,</span><br><span class="line">	&#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h4 id="其他vue组件"><a href="#其他vue组件" class="headerlink" title="其他vue组件"></a>其他vue组件</h4><p>正常写法，没什么需要注意的</p>
+<h2 id="laravel"><a href="#laravel" class="headerlink" title="laravel"></a>laravel</h2><h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>有使用<code>vue-router</code>,不按照下面的写会<code>404</code>哦。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/&#123;view?&#125;'</span> , <span class="string">'LogServiceController@getHome'</span>)-&gt;where(<span class="string">'view'</span>, <span class="string">'(.*)'</span> )-&gt;name(<span class="string">'home'</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><p>传递<code>logsServicePath</code>到页面。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> view(<span class="string">'logsservice::layout'</span> , [ <span class="string">'logsServicePath'</span> =&gt; [ <span class="string">'path'</span> =&gt; <span class="string">'logs'</span> ] ]);</span><br></pre></td></tr></table></figure>
+
+<h3 id="blade"><a href="#blade" class="headerlink" title="blade"></a>blade</h3><p>注意<code>$logsServicePath</code>有控制器传递了。注意根据需要修改。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- CSRF Token --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"csrf-token"</span> <span class="attr">content</span>=<span class="string">"&#123;&#123; csrf_token() &#125;&#125;"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>logs &#123;&#123; config('app.name') ? ' - ' . config('app.name') : ''  &#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://fonts.googleapis.com/css?family=Nunito"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; asset( 'vendor/logsservice/app.css') &#125;&#125;"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"logs"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.LogsService = @json($logsServicePath);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"&#123;&#123; asset( 'vendor/logsservice/app.js') &#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/01/11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/01/11/" class="post-title-link" itemprop="url">Clashx</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-01-11 00:00:00 / Modified: 15:09:10" itemprop="dateCreated datePublished" datetime="2020-01-11T00:00:00+08:00">2020-01-11</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/01/11/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/11/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>移动网络天生带墙</p>
+<p><code>v2ray</code> 使用不能</p>
+<p>尝试<code>trojan</code>，不能使用 <code>cloudflare</code> ，不能使用<code>nginx</code>反正代理 </p>
+<p>放弃。</p>
+<h1 id="Clashx"><a href="#Clashx" class="headerlink" title="Clashx"></a>Clashx</h1><p><code>mac</code>上<code>v2rayX</code>经常崩溃。换到<code>ClashX</code></p>
+<p>设置全部在<code>config.yml</code>中不复杂</p>
+<p><code>Clash</code>用在<code>windows</code></p>
+<p><code>ClashX</code>用在<code>mac</code> </p>
+<p>设置方向相同</p>
+<p><a href="https://github.com/Dreamacro/clash" target="_blank" rel="noopener">文档使用Clash</a></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/01/10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1039,318 +1389,6 @@ section 2019-12-12
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/11/30/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/30/" class="post-title-link" itemprop="url">还活着~</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-30 00:00:00 / Modified: 02:10:08" itemprop="dateCreated datePublished" datetime="2019-11-30T00:00:00+08:00">2019-11-30</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/11/30/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/30/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="日常是无聊的"><a href="#日常是无聊的" class="headerlink" title="日常是无聊的"></a>日常是无聊的</h1><p>没有什么要说的 </p>
-<p>证明还活着~</p>
-<p>域名快到期了~</p>
-<p>并不想换</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/11/21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/21/" class="post-title-link" itemprop="url">知道了一些！决定了一些！</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-21 00:00:00 / Modified: 01:09:32" itemprop="dateCreated datePublished" datetime="2019-11-21T00:00:00+08:00">2019-11-21</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/11/21/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/21/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>沧海一粟</p>
-<p>动其精华</p>
-<p>不容小觑</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/11/12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/11/12/" class="post-title-link" itemprop="url">略微心烦</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-11-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-12T00:00:00+08:00">2019-11-12</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-13 01:12:02" itemprop="dateModified" datetime="2019-11-13T01:12:02+08:00">2019-11-13</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/11/12/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/12/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="略微心烦"><a href="#略微心烦" class="headerlink" title="略微心烦"></a>略微心烦</h1>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1400,7 +1438,7 @@ section 2019-12-12
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">175</span>
+          <span class="site-state-item-count">178</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

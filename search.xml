@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>mac 下 node 版本切换</title>
+    <url>/2020/05/26/</url>
+    <content><![CDATA[<h1 id="mac-下-node-版本切换"><a href="#mac-下-node-版本切换" class="headerlink" title="mac 下 node 版本切换"></a>mac 下 node 版本切换</h1><p><code>hexo</code> 不支持 新版的<code>node</code>，需要切换为旧版本</p>
+<p>使用<code>nvm</code> 可以进行版本切换。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>.zshrc</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> NVM_DIR=<span class="string">"<span class="variable">$HOME</span>/.nvm"</span></span><br><span class="line">  [ -s <span class="string">"/usr/local/opt/nvm/nvm.sh"</span> ] &amp;&amp; . <span class="string">"/usr/local/opt/nvm/nvm.sh"</span>  <span class="comment"># This loads nvm</span></span><br><span class="line">  [ -s <span class="string">"/usr/local/opt/nvm/etc/bash_completion.d/nvm"</span> ] &amp;&amp; . <span class="string">"/usr/local/opt/nvm/etc/bash_completion.d/nvm"</span>  <span class="comment"># This loads nvm bash_completion</span></span><br></pre></td></tr></table></figure>
+
+<p>重载zsh</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">. ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>查看有哪些版本可以被安裝</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm ls-remote</span><br></pre></td></tr></table></figure>
+
+<p>指定想要的版本</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install &lt;version&gt;</span><br></pre></td></tr></table></figure>
+
+<p>安裝目前的穩定版</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install stable</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>有人想我吗~</title>
+    <url>/2020/05/24/</url>
+    <content><![CDATA[<h1 id="没有呢！"><a href="#没有呢！" class="headerlink" title="没有呢！"></a>没有呢！</h1><p>无事儿……</p>
+<p>果然不是自己架设的东西都靠不住……</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>诸神佛是存在的！</title>
+    <url>/2020/04/13/</url>
+    <content><![CDATA[<h1 id="诸神是存在的！"><a href="#诸神是存在的！" class="headerlink" title="诸神是存在的！"></a>诸神是存在的！</h1><p>2020-04-12 （庚子年庚辰月乙酉日） 发生了一些事情</p>
+<p>证实了一些事情</p>
+<p>结论是好好做人！上天什么都知道！</p>
+<p>没事儿多念念经，记得回向。</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>沉迷动森</title>
     <url>/2020/04/03/</url>
     <content><![CDATA[<h1 id="沉迷动森"><a href="#沉迷动森" class="headerlink" title="沉迷动森"></a>沉迷动森</h1><p>自由度高的游戏果然吸引人。角色也可爱~</p>
@@ -3209,8 +3265,8 @@ section 2019-12-12
         <tag>日记</tag>
         <tag>yubikey</tag>
         <tag>laravel</tag>
-        <tag>php</tag>
         <tag>swagger</tag>
+        <tag>php</tag>
       </tags>
   </entry>
   <entry>
@@ -3768,43 +3824,6 @@ section 2019-12-12
       </tags>
   </entry>
   <entry>
-    <title>2016年7月17日</title>
-    <url>/2017/12/24/</url>
-    <content><![CDATA[<h2 id="日期：2016年7月17日"><a href="#日期：2016年7月17日" class="headerlink" title="日期：2016年7月17日"></a>日期：2016年7月17日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>laravel学习到 控制器</p>
-<p>完成部分笔记</p>
-<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
-<li><input checked disabled type="checkbox"> <ol>
-<li>laravel 入门学习</li>
-</ol>
-</li>
-</ul>
-<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
-<li><input disabled type="checkbox"> <ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="2">
-<li>laravel 学习</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="3">
-<li>学习数据结构</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="4">
-<li>了解HTML5 与 CSS3</li>
-</ol>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2016年7月19日</title>
     <url>/2017/12/24/</url>
     <content><![CDATA[<h2 id="日期：2016年7月19日"><a href="#日期：2016年7月19日" class="headerlink" title="日期：2016年7月19日"></a>日期：2016年7月19日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>完成laravel HTTP组件学习。</p>
@@ -3844,6 +3863,43 @@ section 2019-12-12
 </li>
 </ul>
 <hr>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2016年7月17日</title>
+    <url>/2017/12/24/</url>
+    <content><![CDATA[<h2 id="日期：2016年7月17日"><a href="#日期：2016年7月17日" class="headerlink" title="日期：2016年7月17日"></a>日期：2016年7月17日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>laravel学习到 控制器</p>
+<p>完成部分笔记</p>
+<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
+<li><input checked disabled type="checkbox"> <ol>
+<li>laravel 入门学习</li>
+</ol>
+</li>
+</ul>
+<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
+<li><input disabled type="checkbox"> <ol>
+<li>学习gulp与sass</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="2">
+<li>laravel 学习</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="3">
+<li>学习数据结构</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="4">
+<li>了解HTML5 与 CSS3</li>
+</ol>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Living</category>
@@ -4383,38 +4439,6 @@ section 2019-12-12
       </tags>
   </entry>
   <entry>
-    <title>2016年08月04日</title>
-    <url>/2016/08/04/</url>
-    <content><![CDATA[<h2 id="日期：2016年08月04日"><a href="#日期：2016年08月04日" class="headerlink" title="日期：2016年08月04日"></a>日期：2016年08月04日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>打印laravel文档,方便以后研究.</p>
-<p>各个平台功能分析.</p>
-<p>atom 的 markdown-preview-enhanced 插件有个功能很有意思 <a href="https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html" target="_blank" rel="noopener">地址</a></p>
-<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
-<li><input checked disabled type="checkbox"> <p>1. laravel文档打印。</p>
-</li>
-<li><input checked disabled type="checkbox"> <p>2. 安装atom插件,编辑对应笔记</p>
-</li>
-</ul>
-<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
-<li><input disabled type="checkbox"> <p>1. 学习gulp与sass</p>
-</li>
-<li><input disabled type="checkbox"> <p>2. 学习数据结构</p>
-</li>
-<li><input disabled type="checkbox"> <p>3. 了解HTML5 与 CSS3</p>
-</li>
-<li><input disabled type="checkbox"> <p>4. bootstrap学习（前端框架）</p>
-</li>
-<li><input disabled type="checkbox"> <p>5. 设计网站制作进度表</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Atom设置指南</title>
     <url>/2016/08/04/</url>
     <content><![CDATA[<h1 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h1><p><a href="atom.io">官网</a></p>
@@ -4456,6 +4480,38 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2016年08月04日</title>
+    <url>/2016/08/04/</url>
+    <content><![CDATA[<h2 id="日期：2016年08月04日"><a href="#日期：2016年08月04日" class="headerlink" title="日期：2016年08月04日"></a>日期：2016年08月04日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>打印laravel文档,方便以后研究.</p>
+<p>各个平台功能分析.</p>
+<p>atom 的 markdown-preview-enhanced 插件有个功能很有意思 <a href="https://rawgit.com/shd101wyy/markdown-preview-enhanced/master/docs/presentation-intro.html" target="_blank" rel="noopener">地址</a></p>
+<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
+<li><input checked disabled type="checkbox"> <p>1. laravel文档打印。</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>2. 安装atom插件,编辑对应笔记</p>
+</li>
+</ul>
+<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
+<li><input disabled type="checkbox"> <p>1. 学习gulp与sass</p>
+</li>
+<li><input disabled type="checkbox"> <p>2. 学习数据结构</p>
+</li>
+<li><input disabled type="checkbox"> <p>3. 了解HTML5 与 CSS3</p>
+</li>
+<li><input disabled type="checkbox"> <p>4. bootstrap学习（前端框架）</p>
+</li>
+<li><input disabled type="checkbox"> <p>5. 设计网站制作进度表</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
       </tags>
   </entry>
   <entry>
