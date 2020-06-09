@@ -252,6 +252,127 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/06/10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/06/10/" class="post-title-link" itemprop="url">docker-compose 下使用 clash</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-06-10 00:00:00 / Modified: 01:56:17" itemprop="dateCreated datePublished" datetime="2020-06-10T00:00:00+08:00">2020-06-10</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/06/10/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/10/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="docker-compose-下使用-clash"><a href="#docker-compose-下使用-clash" class="headerlink" title="docker-compose 下使用 clash"></a>docker-compose 下使用 clash</h1><p>天朝的墙很高，新装系统都需要翻之。</p>
+<p>理论上<code>docker</code>在全平台可以使用。</p>
+<p>不同<code>linux</code>设置方法是相同的。</p>
+<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p><a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank" rel="noopener">安装docker方法</a></p>
+<p><code>docker-compose</code>也是必须的。</p>
+<p><a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener">安装docker-compose方法</a></p>
+<p><a href="https://github.com/Dreamacro/clash/wiki/Run-clash-in-docker" target="_blank" rel="noopener">clash官方文档</a></p>
+<h2 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h2><p>直接在修改官方设置就可以。</p>
+<p>这里使用的本地<code>ui</code></p>
+<p>放在<code>docker-compose.yml</code>相同目录下</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  clash:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">dreamacro/clash</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">./config.yaml:/root/.config/clash/config.yaml</span></span><br><span class="line">      <span class="comment"># dashboard volume</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">./ui:/ui</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"7890:7890"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"7891:7891"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"9090:9090"</span></span><br><span class="line">      <span class="comment"># If you need external controller, you can export this port.</span></span><br><span class="line">      <span class="comment"># - "8080:8080"</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="comment"># When your system is Linux, you can use `network_mode: "host"` directly.</span></span><br><span class="line"><span class="attr">    network_mode:</span> <span class="string">"host"</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">clash</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="config-yaml"><a href="#config-yaml" class="headerlink" title="config.yaml"></a>config.yaml</h2><p><code>proxy</code>部分省略</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">port:</span> <span class="number">7890</span></span><br><span class="line"><span class="attr">socks-port:</span> <span class="number">7891</span></span><br><span class="line"><span class="comment">#允许局域网连接</span></span><br><span class="line"><span class="attr">allow-lan:</span> <span class="literal">true</span> </span><br><span class="line"><span class="attr">mode:</span> <span class="string">Rule</span></span><br><span class="line"><span class="attr">log-level:</span> <span class="string">info</span></span><br><span class="line"><span class="comment">#访问密码，可以移除</span></span><br><span class="line"><span class="attr">secret:</span> <span class="string">'secret'</span> </span><br><span class="line"><span class="attr">external-controller:</span> <span class="string">'0.0.0.0:9090'</span></span><br><span class="line"><span class="comment"># ui连接</span></span><br><span class="line"><span class="attr">external-ui:</span> <span class="string">/ui</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ui选择"><a href="#ui选择" class="headerlink" title="ui选择"></a>ui选择</h2><p>如果不设置<code>ui</code>,可以直接访问对应的开放<code>UI</code></p>
+<p><a href="https://yacd.haishan.me/" target="_blank" rel="noopener">Yacd UI</a></p>
+<p><a href="https://clash.razord.top/#/proxies" target="_blank" rel="noopener">Dashboard文档</a></p>
+<p><a href="https://github.com/haishanh/yacd" target="_blank" rel="noopener">yacd文档</a></p>
+<p><a href="https://github.com/Dreamacro/clash-dashboard" target="_blank" rel="noopener">dashboard文档</a></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>访问<code>127.0.0.1:9090/ui</code></p>
+<p>填入对应信息就可以使用了</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/05/30/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -281,7 +402,7 @@
                 
               
 
-              <time title="Created: 2020-05-30 00:00:00 / Modified: 06:15:59" itemprop="dateCreated datePublished" datetime="2020-05-30T00:00:00+08:00">2020-05-30</time>
+              <time title="Created: 2020-05-30 00:00:00 / Modified: 06:31:50" itemprop="dateCreated datePublished" datetime="2020-05-30T00:00:00+08:00">2020-05-30</time>
             </span>
           
             
@@ -328,7 +449,7 @@
 
       
           <h1 id="vue-i18n-设置保存到-Cookies"><a href="#vue-i18n-设置保存到-Cookies" class="headerlink" title="vue i18n 设置保存到 Cookies"></a>vue i18n 设置保存到 Cookies</h1><p>安装js-cookie</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install js-cookie --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add js-cookie --save</span><br></pre></td></tr></table></figure>
 
 <p>引起</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Cookies <span class="keyword">from</span> <span class="string">'js-cookie'</span></span><br></pre></td></tr></table></figure>
@@ -1244,126 +1365,11 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/02/21/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2020/02/21/" class="post-title-link" itemprop="url">更新phpredis</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2020-02-21 00:00:00 / Modified: 20:34:57" itemprop="dateCreated datePublished" datetime="2020-02-21T00:00:00+08:00">2020-02-21</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2020/02/21/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/21/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="更新到-php-7-4"><a href="#更新到-php-7-4" class="headerlink" title="更新到 php 7.4"></a>更新到 php 7.4</h1><p>切换到对应的<code>php</code>版本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">brew-php-switcher 7.4</span><br><span class="line">sudo brew services stop php@7.3</span><br><span class="line">sudo brew services start php</span><br></pre></td></tr></table></figure>
-
-<p>安装<code>redis</code>扩展</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pecl install redis</span><br></pre></td></tr></table></figure>
-
-<p>确认redis包安装完成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -m</span><br></pre></td></tr></table></figure>
-
-<p>确认设置文件位置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php --ini</span><br></pre></td></tr></table></figure>
-
-<p>添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=&quot;redis.so&quot;</span><br></pre></td></tr></table></figure>
-
-<p>重启<code>php</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo brew services restart php</span><br></pre></td></tr></table></figure>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1408,7 +1414,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">180</span>
+          <span class="site-state-item-count">181</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1434,7 +1440,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>

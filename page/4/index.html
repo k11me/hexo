@@ -252,6 +252,113 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/10/03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2019/10/03/" class="post-title-link" itemprop="url">postman 的坑</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-03 00:00:00 / Modified: 18:52:27" itemprop="dateCreated datePublished" datetime="2019-10-03T00:00:00+08:00">2019-10-03</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/10/03/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/03/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="postman-的坑"><a href="#postman-的坑" class="headerlink" title="postman 的坑"></a>postman 的坑</h1><p>使用<code>postman oauth2.0</code> 请求<code>token</code>时报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Could not complete OAuth 2.0 login. Check Postman Console for more details.</span><br></pre></td></tr></table></figure>
+
+<p>原因是<code>valet</code> 开启了<code>https</code> 产生了验证错误。</p>
+<p>关闭<code>https</code>后可以正常使用。</p>
+<p>貌似更新到新版本后正常……</p>
+<p>这一下午做了什么啊！！！心累！</p>
+<p>多个<code>Scopes</code>时，使用<code>空格</code>分隔。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/10/02/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1229,122 +1336,11 @@
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/08/29/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/08/29/" class="post-title-link" itemprop="url">nginx-proxy 多镜像下使用v2ray</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-29 00:00:00 / Modified: 15:22:58" itemprop="dateCreated datePublished" datetime="2019-08-29T00:00:00+08:00">2019-08-29</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/08/29/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/29/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="nginx-proxy-多镜像下使用v2ray"><a href="#nginx-proxy-多镜像下使用v2ray" class="headerlink" title="nginx-proxy 多镜像下使用v2ray"></a>nginx-proxy 多镜像下使用v2ray</h1><p><a href="https://keleven.me/2018/03/01/">单一 docker-compose.yml 指路</a></p>
-<p>多个<code>docker-compose.yml</code> 时，上面的方法就不在适用了。</p>
-<p>主要原因是<code>nginx-proxy</code>找不到指定的服务器。</p>
-<p>指定服务器名称，并加入到相同网络可破</p>
-<h2 id="nginx-proxy-加-letsencrypt"><a href="#nginx-proxy-加-letsencrypt" class="headerlink" title="nginx-proxy 加 letsencrypt"></a>nginx-proxy 加 letsencrypt</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">version: &apos;2&apos;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">    nginx-proxy:</span><br><span class="line">        image: jwilder/nginx-proxy:latest</span><br><span class="line">        restart: always</span><br><span class="line">        ports:</span><br><span class="line">            - &quot;80:80&quot;</span><br><span class="line">            - &quot;443:443&quot;</span><br><span class="line">        volumes:</span><br><span class="line">            - /path/to/certs:/etc/nginx/certs:ro</span><br><span class="line">            - $PWD/vhost.d:/etc/nginx/vhost.d:rw</span><br><span class="line">            - /usr/share/nginx/html</span><br><span class="line">            - /var/run/docker.sock:/tmp/docker.sock:ro</span><br><span class="line">        labels:</span><br><span class="line">            - &quot;com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy&quot;</span><br><span class="line">        network_mode: &quot;bridge&quot;</span><br><span class="line">    letsencrypt-nginx-proxy-companion:</span><br><span class="line">        image: jrcs/letsencrypt-nginx-proxy-companion:latest</span><br><span class="line">        restart: always</span><br><span class="line">        volumes:</span><br><span class="line">            - /path/to/certs:/etc/nginx/certs:rw</span><br><span class="line">            - /var/run/docker.sock:/var/run/docker.sock:ro</span><br><span class="line">        volumes_from:</span><br><span class="line">            - nginx-proxy</span><br><span class="line">        network_mode: &quot;bridge&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="v2ray-独立"><a href="#v2ray-独立" class="headerlink" title="v2ray 独立"></a>v2ray 独立</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">version: &apos;2&apos;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  v2ray:</span><br><span class="line">    image: v2ray/official</span><br><span class="line">    container_name: v2ray</span><br><span class="line">    restart: always</span><br><span class="line">    expose:</span><br><span class="line">      - &quot;1234&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/v2ray:/etc/v2ray</span><br><span class="line">      - $PWD/v2ray/config.json:/etc/v2ray/config.json:ro</span><br><span class="line">    environment:</span><br><span class="line">      - VIRTUAL_HOST=v2ray</span><br><span class="line"></span><br><span class="line">    network_mode: &quot;bridge&quot;</span><br><span class="line"></span><br><span class="line">  web1:</span><br><span class="line">    image: nginx:latest</span><br><span class="line">    restart: always</span><br><span class="line">    expose:</span><br><span class="line">      - &quot;80&quot;</span><br><span class="line">    volumes:</span><br><span class="line">          - $PWD/html:/usr/share/nginx/html:ro</span><br><span class="line">    environment:</span><br><span class="line">      - VIRTUAL_HOST=your.domain.name</span><br><span class="line">      - VIRTUAL_PORT=80</span><br><span class="line">      - LETSENCRYPT_HOST=your.domain.name</span><br><span class="line">      - LETSENCRYPT_EMAIL=your@domain.name</span><br><span class="line">    network_mode: &quot;bridge&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="your-domain-name-location"><a href="#your-domain-name-location" class="headerlink" title="your.domain.name_location"></a>your.domain.name_location</h2><p>直接指定服务器不需端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">proxy_redirect off;</span><br><span class="line">proxy_http_version 1.1;</span><br><span class="line">proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">proxy_set_header Host $http_host;</span><br><span class="line">if ($http_upgrade = &quot;websocket&quot; ) &#123;</span><br><span class="line">    proxy_pass http://v2ray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="重要信息"><a href="#重要信息" class="headerlink" title="重要信息"></a>重要信息</h2><p>别忘了创建<code>config.json</code>文件！😁</p>
-<h2 id="以上-长久的问题解决了"><a href="#以上-长久的问题解决了" class="headerlink" title="以上 长久的问题解决了"></a>以上 长久的问题解决了</h2>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1389,7 +1385,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">180</span>
+          <span class="site-state-item-count">181</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1415,7 +1411,7 @@
             <a href="/tags/">
           
         
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
