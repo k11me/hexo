@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>久不更新 想我了吗</title>
+    <url>/2021/06/07/</url>
+    <content><![CDATA[<h1 id="久不更新-想我了吗"><a href="#久不更新-想我了吗" class="headerlink" title="久不更新 想我了吗"></a>久不更新 想我了吗</h1><h2 id="laravel-Sanctum-使用uuid"><a href="#laravel-Sanctum-使用uuid" class="headerlink" title="laravel Sanctum 使用uuid"></a>laravel Sanctum 使用uuid</h2><p>需要在主laravel目标下运行，尝试过在自建包中使用<code>-&gt;change()</code>失败。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">php artisan vendor:publish --tag=sanctum-migrations</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$table-&gt;uuidMorphs(<span class="string">'tokenable'</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/laravel/sanctum/issues/82" target="_blank" rel="noopener">参考</a></p>
+<hr>
+<h2 id="laravel-sail-安装"><a href="#laravel-sail-安装" class="headerlink" title="laravel sail 安装"></a>laravel sail 安装</h2><p><code>laravel sail</code>在<code>win10</code>上安装。</p>
+<p>什么? 你用<code>mac</code>? <code>laravle valet</code>不香吗？</p>
+<p>ps: 等一个新版<code>macbook pro</code>, <code>XDR</code>真香 ✿✿ヽ(°▽°)ノ✿</p>
+<p><code>laravel sail</code>需要使用<code>Docker</code>与<code>WSL2</code></p>
+<h3 id="安装-Docker-Desktop"><a href="#安装-Docker-Desktop" class="headerlink" title="安装 Docker Desktop"></a>安装 Docker Desktop</h3><p><code>Docker</code>直接去下载 <code>Docker Desktop</code>安装。</p>
+<h3 id="安装一个WSL2的镜像"><a href="#安装一个WSL2的镜像" class="headerlink" title="安装一个WSL2的镜像"></a>安装一个WSL2的镜像</h3><p>下面的连接中有许多<code>linux</code>，选一个熟悉的，使用<code>Microsoft Store</code>安装，坐标天朝记得关闭VPN。</p>
+<p>我用的是<code>Ubuntu-20.04 LTS</code>。</p>
+<p>推荐随手安装一个<a href="https://www.microsoft.com/zh-tw/p/windows-terminal/9n0dx20hk701?rtc=1#activetab=pivot:overviewtab" target="_blank" rel="noopener"><code>Windows Terminal</code></a>，比自带的强了好多_(:з」∠)_</p>
+<p><a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10" target="_blank" rel="noopener">适用于 Linux 的 Windows 子系统安装指南</a></p>
+<h3 id="设置WSL2"><a href="#设置WSL2" class="headerlink" title="设置WSL2"></a>设置WSL2</h3><h4 id="Windows-修改默认-WSL2"><a href="#Windows-修改默认-WSL2" class="headerlink" title="Windows 修改默认 WSL2"></a>Windows 修改默认 WSL2</h4><p>查看<code>WSL</code>版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wsl --list --verbose</span><br><span class="line">wsl -l</span><br></pre></td></tr></table></figure>
+
+<p>设置<code>WSL</code>版本</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wsl --set-version Ubuntu-20.04 2</span><br><span class="line">wsl -s Ubuntu-20.04 2</span><br></pre></td></tr></table></figure>
+
+<h4 id="Docker-Desktop-设置-WSL2"><a href="#Docker-Desktop-设置-WSL2" class="headerlink" title="Docker Desktop 设置 WSL2"></a>Docker Desktop 设置 WSL2</h4><p><del>主要是在<code>Setting</code>-&gt;<code>Resources</code>中开启对应的<code>linux</code>。这个设置的是<code>docker</code>的<code>WSL2</code>。设置完可以在<code>Docker Desktop</code>中直接使用。</del><br><a href="https://laravel.com/docs/8.x/installation#getting-started-on-windows" target="_blank" rel="noopener"><del><code>Docker</code>设置<code>WSL2</code></del></a></p>
+<p>基础安装到这里也结束了~</p>
+<p><code>WSL2</code>目录使用<code>\\wsl$</code>可以直接访问</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>先重启！先重启！先重启！</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -s https://laravel.build/example-app | bash</span><br><span class="line"></span><br><span class="line">cd example-app</span><br><span class="line">./vendor/bin/sail up</span><br></pre></td></tr></table></figure>
+
+<p>随后访问<a href="http://localhost" target="_blank" rel="noopener">localhost</a></p>
+<p>如果不能正常使用关闭<code>SEP</code>，或者其他防护墙试试。</p>
+<p>以上</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>久违的更新</title>
     <url>/2021/02/09/</url>
     <content><![CDATA[<h1 id="久违的更新"><a href="#久违的更新" class="headerlink" title="久违的更新"></a>久违的更新</h1><p>马上就是农历新年了~ 撒花~</p>
@@ -1071,8 +1113,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>docker</tag>
         <tag>gitlab</tag>
+        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -2257,8 +2299,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2347,8 +2389,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2405,8 +2447,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2437,8 +2479,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2610,8 +2652,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2638,8 +2680,8 @@ section 2019-12-12
       </categories>
       <tags>
         <tag>日记</tag>
-        <tag>laravel</tag>
         <tag>vue</tag>
+        <tag>laravel</tag>
       </tags>
   </entry>
   <entry>
@@ -2982,7 +3024,7 @@ section 2019-12-12
 <p>完成后进入<code>DD-wrt</code>, 设置用户名，密码，之后会用到</p>
 <p><code>services</code>中开启<code>ssh</code></p>
 <p>进入<code>ssh</code> 账号是<code>root</code>，密码是刚刚设置的，验证设备是否匹配固件，如下方，基本可以刷了</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span> nvram get boardnum</span><br><span class="line">679</span><br><span class="line"><span class="meta">$</span> nvram get boardtype</span><br><span class="line">0x0646</span><br><span class="line"><span class="meta">$</span> nvram get boardrev</span><br><span class="line">0x1110</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardnum</span></span><br><span class="line">679</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardtype</span></span><br><span class="line">0x0646</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardrev</span></span><br><span class="line">0x1110</span><br></pre></td></tr></table></figure>
 
 <p>随后进入<code>192.168.1.1</code>-&gt;<code>administration</code> </p>
 <blockquote>
@@ -3152,6 +3194,82 @@ section 2019-12-12
       </tags>
   </entry>
   <entry>
+    <title>Dcoker 部署 mailserver</title>
+    <url>/2018/04/15/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>查找文章时没找到, 在本地发现了, 重新编辑一下, 供后来者参考。 </p>
+<h1 id="使用Dcoker-部署邮件服务"><a href="#使用Dcoker-部署邮件服务" class="headerlink" title="使用Dcoker 部署邮件服务"></a>使用Dcoker 部署邮件服务</h1><h2 id="DNS-records-设置与-PTR-records"><a href="#DNS-records-设置与-PTR-records" class="headerlink" title="DNS records 设置与  PTR records"></a>DNS records 设置与  PTR records</h2><p>注意把bar.foo换成需要的域名</p>
+<p>|Type|Homename|Value|TTL|<br>|—|—|—|—|—-|<br>|A|bar.foo|000.000.000.000|3600|<br>|A|<em>.bar.foo|000.000.000.000|3600|<br>|AAAA|bar.foo|000.000.000.000|3600|<br>|AAAA|</em>.bar.foo|000.000.000.000|3600|<br>|NS|bar.foo|ns1.bar.foo|1800|<br>|NS|bar.foo|ns2.bar.foo|1800|<br>|NS|bar.foo|ns3.bar.foo|1800|<br>|MX|bar.foo|mail.bar.foo. 【10】|14400|<br>|TXT|bar.foo|v=spf1 mx ~all|3600|<br>|TXT|_dmarc.bar.foo|v=DMARC1; p=none|3600|<br>|TXT|mail._domainkey.bar.foo|v=DKIM1; k=rsa; p=****|3600|</p>
+<p>说明:</p>
+<ul>
+<li>NS 为域名解析服务器</li>
+<li>A 为IPv4 域名绑定</li>
+<li>AAAA 为IPv6 域名绑定</li>
+<li>MX 为 收信服务器</li>
+<li>TXT 为 E-Mail验证与设置</li>
+<li>将主机名改为<code>mail.bar.foo</code>后，可以设置<code>PTR records</code>。</li>
+</ul>
+<p>IPv6使用letsencrypt自动延期证书是会出错要注意下。</p>
+<p><code>p==***********</code>为<code>DKIM key</code>这里隐去了</p>
+<h2 id="docker-mailserver"><a href="#docker-mailserver" class="headerlink" title="docker-mailserver"></a>docker-mailserver</h2><ul>
+<li>注意使用<code>ENABLE_CLAMAV=1</code>时需要<code>RAM≥1G</code></li>
+</ul>
+<p>当网站与邮件服务在同一服务器时，要使用<code>nginx-proxy</code></p>
+<h3 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h3><p><code>mailserver目录下</code>，可以使用docker命令添加多个用户</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch config/postfix-accounts.cf</span><br><span class="line">docker run --rm \</span><br><span class="line">  -e MAIL_USER=bar@bar.foo \</span><br><span class="line">  -e MAIL_PASS=password \</span><br><span class="line">  -ti tvial/docker-mailserver:latest \</span><br><span class="line">  /bin/sh -c &apos;echo &quot;$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)&quot;&apos; &gt;&gt; config/postfix-accounts.cf</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-DKIM-key"><a href="#创建-DKIM-key" class="headerlink" title="创建 DKIM key"></a>创建 DKIM key</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --rm \</span><br><span class="line"> -v &quot;/root/mailserver/config&quot;:/tmp/docker-mailserver \</span><br><span class="line"> -ti tvial/docker-mailserver:latest generate-dkim-config bar.foo</span><br></pre></td></tr></table></figure>
+
+<p>查看</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /root/mailserver/config/opendkim/keys/bar.foo/mail.txt</span><br></pre></td></tr></table></figure>
+
+<p>将DKIM1 调整后添加到域名解析<code>mail._domainkey</code>记录下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">v=DKIM1; k=rsa; p=***********</span><br></pre></td></tr></table></figure>
+
+<p><code>p==***********</code>为<code>DKIM key</code>这里隐去了</p>
+<h3 id="docker-mailserver-启动"><a href="#docker-mailserver-启动" class="headerlink" title="docker-mailserver 启动"></a>docker-mailserver 启动</h3><p>启动 docker-proxy 【反向代理】</p>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 80:80 -p 443:443 \</span></span><br><span class="line"><span class="bash">    --name nginx-proxy \</span></span><br><span class="line"><span class="bash">    -v /path/to/certs:/etc/nginx/certs:ro \</span></span><br><span class="line"><span class="bash">    -v /etc/nginx/vhost.d \</span></span><br><span class="line"><span class="bash">    -v /usr/share/nginx/html \</span></span><br><span class="line"><span class="bash">    -v /var/run/docker.sock:/tmp/docker.sock:ro \</span></span><br><span class="line"><span class="bash">    --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \</span></span><br><span class="line"><span class="bash">    jwilder/nginx-proxy</span></span><br></pre></td></tr></table></figure>
+
+<p>启动 letsencrypt-nginx-proxy-companion 【挂载TLS证书】</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    -v /path/to/certs:/etc/nginx/certs:rw \</span><br><span class="line">    -v /var/run/docker.sock:/var/run/docker.sock:ro \</span><br><span class="line">    --volumes-from nginx-proxy \</span><br><span class="line">    jrcs/letsencrypt-nginx-proxy-companion</span><br></pre></td></tr></table></figure>
+
+<p>启动 library/nginx 【用于获取TLS证书， 验证时，需要<code>port:80</code>】<br>也可以使用下方<code>docker-compose.yml</code></p>
+<ul>
+<li>注意:要将<code>nginx</code>桥接到<code>nginx-proxy</code>的网络，使其可以正常解析,<code>LETSENCRYPT_TEST=true</code>在测试时使用，防止证书频繁申请。<br>Email 必须为有效地址。</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  webmail:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">nginx:latest</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">VIRTUAL_HOST=mail.bar.foo</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">LETSENCRYPT_HOST=mail.bar.foo</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">LETSENCRYPT_EMAIL=k11@bar.foo</span></span><br><span class="line">        <span class="comment"># - LETSENCRYPT_TEST=true</span></span><br><span class="line"><span class="attr">    network_mode:</span> <span class="string">"bridge"</span></span><br><span class="line"><span class="attr">  mailserver:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">tvial/docker-mailserver:latest</span></span><br><span class="line"><span class="attr">    hostname:</span> <span class="string">mail</span></span><br><span class="line"><span class="attr">    domainname:</span> <span class="string">bar.foo</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">mail</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"25:25"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"143:143"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"587:587"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"993:993"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/root/mailserver/mail:/var/mail</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/root/mailserver/mail-state:/var/mail-state</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/root/mailserver/config/:/tmp/docker-mailserver/</span></span><br><span class="line">    <span class="comment"># - /etc/letsencrypt:/etc/letsencrypt</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/path/to/certs/mail.bar.foo:/etc/letsencrypt/live/mail.bar.foo</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">SSL_TYPE=letsencrypt</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ENABLE_SPAMASSASSIN=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ENABLE_CLAMAV=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ENABLE_FAIL2BAN=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ENABLE_POSTGREY=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ONE_DIR=1</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">DMS_DEBUG=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">TLS_LEVEL=intermediate</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>也可以将<code>nginx-proxy</code>与<code>letsencrypt-nginx-proxy-companion</code>写在一起，这样还可以运行其他服务</p>
+<p>具体可以查看<a href="https://keleven.me/living/2018/01/22/blog/">这篇</a></p>
+<p><code>letsencrypt-nginx-proxy-companion</code>可以手动更新</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">手动更新 或 申请证书</span><br><span class="line">docker exec letsencrypt-nginx-proxy-companion /app/force_renew</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">证书状态</span><br><span class="line">docker exec letsencrypt-nginx-proxy-companion /app/cert_status</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试SSL"><a href="#测试SSL" class="headerlink" title="测试SSL"></a>测试SSL</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker exec mailserver openssl s_client -connect 0.0.0.0:587 -starttls smtp -CApath /etc/letsencrypt/</span><br><span class="line">docker exec mailserver openssl s_client -connect 0.0.0.0:993 -starttls imap -CApath /etc/letsencrypt/</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="使用nginx-proxy"><a href="#使用nginx-proxy" class="headerlink" title="使用nginx-proxy"></a>使用<code>nginx-proxy</code></h3><p>一般挂载</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name webblog \</span><br><span class="line">    --expose 80 \</span><br><span class="line">    -e &quot;VIRTUAL_HOST=bar.foo&quot; \</span><br><span class="line">    library/nginx</span><br></pre></td></tr></table></figure>
+
+<p>获取证书</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name web \</span><br><span class="line">    --expose 80 \</span><br><span class="line">    -e &quot;VIRTUAL_HOST=mail.bar.foo&quot; \</span><br><span class="line">    -e &quot;LETSENCRYPT_HOST=mail.bar.foo&quot; \</span><br><span class="line">    -e &quot;LETSENCRYPT_EMAIL=foo@bar.com&quot; \</span><br><span class="line">    library/nginx</span><br></pre></td></tr></table></figure>
+
+<p>查看  域名映射</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -H &quot;Host:bar.foo&quot; localhost</span><br></pre></td></tr></table></figure>
+
+<p>查看 nginx 代理设置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker exec nginx-proxy  cat /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
+
+<p>包管理</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --rm --expose 9000 -e VIRTUAL_HOST=test.bar.foo -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>mail</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>laravel 5.5 升级到 5.6</title>
     <url>/2018/04/15/</url>
     <content><![CDATA[<h1 id="脑子混乱停一下"><a href="#脑子混乱停一下" class="headerlink" title="脑子混乱停一下"></a>脑子混乱停一下</h1><p>前后端分离与游戏部分</p>
@@ -3212,82 +3330,6 @@ section 2019-12-12
         <tag>日记</tag>
         <tag>laravel</tag>
         <tag>swagger</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dcoker 部署 mailserver</title>
-    <url>/2018/04/15/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>查找文章时没找到, 在本地发现了, 重新编辑一下, 供后来者参考。 </p>
-<h1 id="使用Dcoker-部署邮件服务"><a href="#使用Dcoker-部署邮件服务" class="headerlink" title="使用Dcoker 部署邮件服务"></a>使用Dcoker 部署邮件服务</h1><h2 id="DNS-records-设置与-PTR-records"><a href="#DNS-records-设置与-PTR-records" class="headerlink" title="DNS records 设置与  PTR records"></a>DNS records 设置与  PTR records</h2><p>注意把bar.foo换成需要的域名</p>
-<p>|Type|Homename|Value|TTL|<br>|—|—|—|—|—-|<br>|A|bar.foo|000.000.000.000|3600|<br>|A|<em>.bar.foo|000.000.000.000|3600|<br>|AAAA|bar.foo|000.000.000.000|3600|<br>|AAAA|</em>.bar.foo|000.000.000.000|3600|<br>|NS|bar.foo|ns1.bar.foo|1800|<br>|NS|bar.foo|ns2.bar.foo|1800|<br>|NS|bar.foo|ns3.bar.foo|1800|<br>|MX|bar.foo|mail.bar.foo. 【10】|14400|<br>|TXT|bar.foo|v=spf1 mx ~all|3600|<br>|TXT|_dmarc.bar.foo|v=DMARC1; p=none|3600|<br>|TXT|mail._domainkey.bar.foo|v=DKIM1; k=rsa; p=****|3600|</p>
-<p>说明:</p>
-<ul>
-<li>NS 为域名解析服务器</li>
-<li>A 为IPv4 域名绑定</li>
-<li>AAAA 为IPv6 域名绑定</li>
-<li>MX 为 收信服务器</li>
-<li>TXT 为 E-Mail验证与设置</li>
-<li>将主机名改为<code>mail.bar.foo</code>后，可以设置<code>PTR records</code>。</li>
-</ul>
-<p>IPv6使用letsencrypt自动延期证书是会出错要注意下。</p>
-<p><code>p==***********</code>为<code>DKIM key</code>这里隐去了</p>
-<h2 id="docker-mailserver"><a href="#docker-mailserver" class="headerlink" title="docker-mailserver"></a>docker-mailserver</h2><ul>
-<li>注意使用<code>ENABLE_CLAMAV=1</code>时需要<code>RAM≥1G</code></li>
-</ul>
-<p>当网站与邮件服务在同一服务器时，要使用<code>nginx-proxy</code></p>
-<h3 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h3><p><code>mailserver目录下</code>，可以使用docker命令添加多个用户</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch config/postfix-accounts.cf</span><br><span class="line">docker run --rm \</span><br><span class="line">  -e MAIL_USER=bar@bar.foo \</span><br><span class="line">  -e MAIL_PASS=password \</span><br><span class="line">  -ti tvial/docker-mailserver:latest \</span><br><span class="line">  /bin/sh -c &apos;echo &quot;$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)&quot;&apos; &gt;&gt; config/postfix-accounts.cf</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建-DKIM-key"><a href="#创建-DKIM-key" class="headerlink" title="创建 DKIM key"></a>创建 DKIM key</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --rm \</span><br><span class="line"> -v &quot;/root/mailserver/config&quot;:/tmp/docker-mailserver \</span><br><span class="line"> -ti tvial/docker-mailserver:latest generate-dkim-config bar.foo</span><br></pre></td></tr></table></figure>
-
-<p>查看</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat /root/mailserver/config/opendkim/keys/bar.foo/mail.txt</span><br></pre></td></tr></table></figure>
-
-<p>将DKIM1 调整后添加到域名解析<code>mail._domainkey</code>记录下。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">v=DKIM1; k=rsa; p=***********</span><br></pre></td></tr></table></figure>
-
-<p><code>p==***********</code>为<code>DKIM key</code>这里隐去了</p>
-<h3 id="docker-mailserver-启动"><a href="#docker-mailserver-启动" class="headerlink" title="docker-mailserver 启动"></a>docker-mailserver 启动</h3><p>启动 docker-proxy 【反向代理】</p>
-<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -d -p 80:80 -p 443:443 \</span><br><span class="line">    --name nginx-proxy \</span><br><span class="line">    -v /path/to/certs:/etc/nginx/certs:ro \</span><br><span class="line">    -v /etc/nginx/vhost.d \</span><br><span class="line">    -v /usr/share/nginx/html \</span><br><span class="line">    -v /var/run/docker.sock:/tmp/docker.sock:ro \</span><br><span class="line">    --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \</span><br><span class="line">    jwilder/nginx-proxy</span><br></pre></td></tr></table></figure>
-
-<p>启动 letsencrypt-nginx-proxy-companion 【挂载TLS证书】</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    -v /path/to/certs:/etc/nginx/certs:rw \</span><br><span class="line">    -v /var/run/docker.sock:/var/run/docker.sock:ro \</span><br><span class="line">    --volumes-from nginx-proxy \</span><br><span class="line">    jrcs/letsencrypt-nginx-proxy-companion</span><br></pre></td></tr></table></figure>
-
-<p>启动 library/nginx 【用于获取TLS证书， 验证时，需要<code>port:80</code>】<br>也可以使用下方<code>docker-compose.yml</code></p>
-<ul>
-<li>注意:要将<code>nginx</code>桥接到<code>nginx-proxy</code>的网络，使其可以正常解析,<code>LETSENCRYPT_TEST=true</code>在测试时使用，防止证书频繁申请。<br>Email 必须为有效地址。</li>
-</ul>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  webmail:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">nginx:latest</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">VIRTUAL_HOST=mail.bar.foo</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">LETSENCRYPT_HOST=mail.bar.foo</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">LETSENCRYPT_EMAIL=k11@bar.foo</span></span><br><span class="line">        <span class="comment"># - LETSENCRYPT_TEST=true</span></span><br><span class="line"><span class="attr">    network_mode:</span> <span class="string">"bridge"</span></span><br><span class="line"><span class="attr">  mailserver:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">tvial/docker-mailserver:latest</span></span><br><span class="line"><span class="attr">    hostname:</span> <span class="string">mail</span></span><br><span class="line"><span class="attr">    domainname:</span> <span class="string">bar.foo</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">mail</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"25:25"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"143:143"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"587:587"</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">"993:993"</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/root/mailserver/mail:/var/mail</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/root/mailserver/mail-state:/var/mail-state</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/root/mailserver/config/:/tmp/docker-mailserver/</span></span><br><span class="line">    <span class="comment"># - /etc/letsencrypt:/etc/letsencrypt</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">/path/to/certs/mail.bar.foo:/etc/letsencrypt/live/mail.bar.foo</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">SSL_TYPE=letsencrypt</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ENABLE_SPAMASSASSIN=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ENABLE_CLAMAV=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ENABLE_FAIL2BAN=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ENABLE_POSTGREY=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ONE_DIR=1</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">DMS_DEBUG=0</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">TLS_LEVEL=intermediate</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>也可以将<code>nginx-proxy</code>与<code>letsencrypt-nginx-proxy-companion</code>写在一起，这样还可以运行其他服务</p>
-<p>具体可以查看<a href="https://keleven.me/living/2018/01/22/blog/">这篇</a></p>
-<p><code>letsencrypt-nginx-proxy-companion</code>可以手动更新</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">手动更新 或 申请证书</span><br><span class="line">docker exec letsencrypt-nginx-proxy-companion /app/force_renew</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">证书状态</span><br><span class="line">docker exec letsencrypt-nginx-proxy-companion /app/cert_status</span><br></pre></td></tr></table></figure>
-
-<h3 id="测试SSL"><a href="#测试SSL" class="headerlink" title="测试SSL"></a>测试SSL</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker exec mailserver openssl s_client -connect 0.0.0.0:587 -starttls smtp -CApath /etc/letsencrypt/</span><br><span class="line">docker exec mailserver openssl s_client -connect 0.0.0.0:993 -starttls imap -CApath /etc/letsencrypt/</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="使用nginx-proxy"><a href="#使用nginx-proxy" class="headerlink" title="使用nginx-proxy"></a>使用<code>nginx-proxy</code></h3><p>一般挂载</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name webblog \</span><br><span class="line">    --expose 80 \</span><br><span class="line">    -e &quot;VIRTUAL_HOST=bar.foo&quot; \</span><br><span class="line">    library/nginx</span><br></pre></td></tr></table></figure>
-
-<p>获取证书</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name web \</span><br><span class="line">    --expose 80 \</span><br><span class="line">    -e &quot;VIRTUAL_HOST=mail.bar.foo&quot; \</span><br><span class="line">    -e &quot;LETSENCRYPT_HOST=mail.bar.foo&quot; \</span><br><span class="line">    -e &quot;LETSENCRYPT_EMAIL=foo@bar.com&quot; \</span><br><span class="line">    library/nginx</span><br></pre></td></tr></table></figure>
-
-<p>查看  域名映射</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -H &quot;Host:bar.foo&quot; localhost</span><br></pre></td></tr></table></figure>
-
-<p>查看 nginx 代理设置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker exec nginx-proxy  cat /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
-
-<p>包管理</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run --rm --expose 9000 -e VIRTUAL_HOST=test.bar.foo -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>mail</tag>
       </tags>
   </entry>
   <entry>
@@ -4005,6 +4047,54 @@ section 2019-12-12
       </tags>
   </entry>
   <entry>
+    <title>2016年7月19日</title>
+    <url>/2017/12/24/</url>
+    <content><![CDATA[<h2 id="日期：2016年7月19日"><a href="#日期：2016年7月19日" class="headerlink" title="日期：2016年7月19日"></a>日期：2016年7月19日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>完成laravel HTTP组件学习。</p>
+<p>寻找laravel的通信加密方法。</p>
+<ul>
+<li><p>使用dingo设计API</p>
+</li>
+<li><p>使用JWT进行通信加密。</p>
+</li>
+<li><p>JWT与UE4的兼容性有待研究。</p>
+</li>
+</ul>
+<p>路由方法暂定为<code>控制器路由</code>。主要原因是使用缓存访问速度较快。</p>
+<p>前端与后端分离是必然。PC端与App端使用的API也应该不同。</p>
+<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
+<li><input checked disabled type="checkbox"> <ol>
+<li>laravel HTTP组件学习</li>
+</ol>
+</li>
+</ul>
+<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
+<li><input disabled type="checkbox"> <ol>
+<li>学习gulp与sass</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="2">
+<li>学习laravel 框架与数据部分。</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="3">
+<li>学习数据结构</li>
+</ol>
+</li>
+<li><input disabled type="checkbox"> <ol start="4">
+<li>了解HTML5 与 CSS3</li>
+</ol>
+</li>
+</ul>
+<hr>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2016年7月17日</title>
     <url>/2017/12/24/</url>
     <content><![CDATA[<h2 id="日期：2016年7月17日"><a href="#日期：2016年7月17日" class="headerlink" title="日期：2016年7月17日"></a>日期：2016年7月17日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>laravel学习到 控制器</p>
@@ -4068,54 +4158,6 @@ section 2019-12-12
 <li><input disabled type="checkbox"> <p>4. 了解HTML5 与 CSS3</p>
 </li>
 <li><input disabled type="checkbox"> <p>5. bootstrap学习（前端框架）</p>
-</li>
-</ul>
-<hr>
-]]></content>
-      <categories>
-        <category>Living</category>
-      </categories>
-      <tags>
-        <tag>日记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2016年7月19日</title>
-    <url>/2017/12/24/</url>
-    <content><![CDATA[<h2 id="日期：2016年7月19日"><a href="#日期：2016年7月19日" class="headerlink" title="日期：2016年7月19日"></a>日期：2016年7月19日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>完成laravel HTTP组件学习。</p>
-<p>寻找laravel的通信加密方法。</p>
-<ul>
-<li><p>使用dingo设计API</p>
-</li>
-<li><p>使用JWT进行通信加密。</p>
-</li>
-<li><p>JWT与UE4的兼容性有待研究。</p>
-</li>
-</ul>
-<p>路由方法暂定为<code>控制器路由</code>。主要原因是使用缓存访问速度较快。</p>
-<p>前端与后端分离是必然。PC端与App端使用的API也应该不同。</p>
-<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
-<li><input checked disabled type="checkbox"> <ol>
-<li>laravel HTTP组件学习</li>
-</ol>
-</li>
-</ul>
-<h3 id="3日计划"><a href="#3日计划" class="headerlink" title="3日计划"></a>3日计划</h3><ul>
-<li><input disabled type="checkbox"> <ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="2">
-<li>学习laravel 框架与数据部分。</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="3">
-<li>学习数据结构</li>
-</ol>
-</li>
-<li><input disabled type="checkbox"> <ol start="4">
-<li>了解HTML5 与 CSS3</li>
-</ol>
 </li>
 </ul>
 <hr>
@@ -4893,6 +4935,47 @@ autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDT
       </tags>
   </entry>
   <entry>
+    <title>gulp 学习指南</title>
+    <url>/2016/07/12/</url>
+    <content><![CDATA[<h1 id="about-gulp"><a href="#about-gulp" class="headerlink" title="about gulp"></a>about gulp</h1><h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><pre><code>sudo apt install nodejs</code></pre><h2 id="安装-nodejs-legacy"><a href="#安装-nodejs-legacy" class="headerlink" title="安装 nodejs-legacy"></a>安装 nodejs-legacy</h2><pre><code>sudo apt install nodejs-legacy</code></pre><h2 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h2><pre><code>sudo apt install npm</code></pre><h2 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h2><pre><code>sudo npm install -g gulp</code></pre><h2 id="查看node-版本"><a href="#查看node-版本" class="headerlink" title="查看node 版本"></a>查看node 版本</h2><pre><code>node -v</code></pre><h2 id="查看npm-版本"><a href="#查看npm-版本" class="headerlink" title="查看npm 版本"></a>查看npm 版本</h2><pre><code>npm -v</code></pre><h2 id="查看gulp-版本"><a href="#查看gulp-版本" class="headerlink" title="查看gulp 版本"></a>查看gulp 版本</h2><pre><code>gulp -v</code></pre><p>测试gulp时，需要<code>package.json</code>与<code>gulpfile.js</code>文件</p>
+<h2 id="安装gulp-sass"><a href="#安装gulp-sass" class="headerlink" title="安装gulp-sass"></a>安装gulp-sass</h2><pre><code>npm install gulp-sass</code></pre>]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jekyll 学习指南</title>
+    <url>/2016/07/12/</url>
+    <content><![CDATA[<h2 id="1-jekyll"><a href="#1-jekyll" class="headerlink" title="1.jekyll"></a>1.jekyll</h2><p><a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyll官方地址</a></p>
+<p><a href="http://jekyllcn.com/" target="_blank" rel="noopener">jekyll中文</a></p>
+<h3 id="1-1安装jekyll必要组件"><a href="#1-1安装jekyll必要组件" class="headerlink" title="1.1安装jekyll必要组件"></a>1.1安装jekyll必要组件</h3><p>下文是在ubuntu上安装与设置</p>
+<pre><code>$ sudo apt-get install ruby ruby-dev make gcc nodejs</code></pre><h3 id="1-2安装jekyll"><a href="#1-2安装jekyll" class="headerlink" title="1.2安装jekyll"></a>1.2安装jekyll</h3><pre><code>$ sudo gem install jekyll</code></pre><p>之后查看jekyll版本</p>
+<pre><code>$ jekyll -v</code></pre><h3 id="1-3jekyll使用"><a href="#1-3jekyll使用" class="headerlink" title="1.3jekyll使用"></a>1.3jekyll使用</h3><p>首先要设置<code>_config.yml</code>文件</p>
+<p>随后build为site。</p>
+<pre><code>$ jekyll build</code></pre><p>build后网站文件在<code>_site</code></p>
+<p>使用<code>jekyll server</code>运行测试。</p>
+<pre><code>$ jekyll server</code></pre><p>浏览器输入<code>localhost:4000</code>可以查看网站运行情况。</p>
+<p><code>_post</code>文件下位文章列表，可以将文章放入后build。</p>
+<p><em>注意：文件的头部要使用下方格式</em></p>
+<pre><code>---
+layout: post
+title: Blogging Like a Hacker
+---</code></pre><h2 id="2-kramdown-语法说明"><a href="#2-kramdown-语法说明" class="headerlink" title="2. kramdown 语法说明"></a>2. kramdown 语法说明</h2><h3 id="2-1-TOC连接-文章目录"><a href="#2-1-TOC连接-文章目录" class="headerlink" title="2.1 TOC连接[文章目录]"></a>2.1 TOC连接[文章目录]</h3><pre><code>* TOC
+{：toc}</code></pre><p>生成目录带自动锚点</p>
+<h3 id="2-2-删除线"><a href="#2-2-删除线" class="headerlink" title="2.2 删除线"></a>2.2 删除线</h3><pre><code>~~删除线~~</code></pre><h3 id="2-3-数学公式"><a href="#2-3-数学公式" class="headerlink" title="2.3 数学公式"></a>2.3 数学公式</h3><p>需要增加<code>js</code>用于公式解析</p>
+<pre><code>&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre><h2 id="3-disqus"><a href="#3-disqus" class="headerlink" title="3. disqus"></a>3. disqus</h2><p>添加<code>disqus</code>代码到<code>_layouts/post.html</code></p>
+]]></content>
+      <categories>
+        <category>ubuntu</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>zsh指南</title>
     <url>/2016/07/12/</url>
     <content><![CDATA[<h1 id="zsh-plugin"><a href="#zsh-plugin" class="headerlink" title="zsh plugin"></a>zsh plugin</h1><h3 id="zsh-tmux"><a href="#zsh-tmux" class="headerlink" title="zsh tmux"></a>zsh tmux</h3><table>
@@ -5292,47 +5375,6 @@ autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDT
 </tr>
 </tbody></table>
 ]]></content>
-      <categories>
-        <category>ubuntu</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jekyll 学习指南</title>
-    <url>/2016/07/12/</url>
-    <content><![CDATA[<h2 id="1-jekyll"><a href="#1-jekyll" class="headerlink" title="1.jekyll"></a>1.jekyll</h2><p><a href="https://jekyllrb.com/" target="_blank" rel="noopener">jekyll官方地址</a></p>
-<p><a href="http://jekyllcn.com/" target="_blank" rel="noopener">jekyll中文</a></p>
-<h3 id="1-1安装jekyll必要组件"><a href="#1-1安装jekyll必要组件" class="headerlink" title="1.1安装jekyll必要组件"></a>1.1安装jekyll必要组件</h3><p>下文是在ubuntu上安装与设置</p>
-<pre><code>$ sudo apt-get install ruby ruby-dev make gcc nodejs</code></pre><h3 id="1-2安装jekyll"><a href="#1-2安装jekyll" class="headerlink" title="1.2安装jekyll"></a>1.2安装jekyll</h3><pre><code>$ sudo gem install jekyll</code></pre><p>之后查看jekyll版本</p>
-<pre><code>$ jekyll -v</code></pre><h3 id="1-3jekyll使用"><a href="#1-3jekyll使用" class="headerlink" title="1.3jekyll使用"></a>1.3jekyll使用</h3><p>首先要设置<code>_config.yml</code>文件</p>
-<p>随后build为site。</p>
-<pre><code>$ jekyll build</code></pre><p>build后网站文件在<code>_site</code></p>
-<p>使用<code>jekyll server</code>运行测试。</p>
-<pre><code>$ jekyll server</code></pre><p>浏览器输入<code>localhost:4000</code>可以查看网站运行情况。</p>
-<p><code>_post</code>文件下位文章列表，可以将文章放入后build。</p>
-<p><em>注意：文件的头部要使用下方格式</em></p>
-<pre><code>---
-layout: post
-title: Blogging Like a Hacker
----</code></pre><h2 id="2-kramdown-语法说明"><a href="#2-kramdown-语法说明" class="headerlink" title="2. kramdown 语法说明"></a>2. kramdown 语法说明</h2><h3 id="2-1-TOC连接-文章目录"><a href="#2-1-TOC连接-文章目录" class="headerlink" title="2.1 TOC连接[文章目录]"></a>2.1 TOC连接[文章目录]</h3><pre><code>* TOC
-{：toc}</code></pre><p>生成目录带自动锚点</p>
-<h3 id="2-2-删除线"><a href="#2-2-删除线" class="headerlink" title="2.2 删除线"></a>2.2 删除线</h3><pre><code>~~删除线~~</code></pre><h3 id="2-3-数学公式"><a href="#2-3-数学公式" class="headerlink" title="2.3 数学公式"></a>2.3 数学公式</h3><p>需要增加<code>js</code>用于公式解析</p>
-<pre><code>&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre><h2 id="3-disqus"><a href="#3-disqus" class="headerlink" title="3. disqus"></a>3. disqus</h2><p>添加<code>disqus</code>代码到<code>_layouts/post.html</code></p>
-]]></content>
-      <categories>
-        <category>ubuntu</category>
-      </categories>
-      <tags>
-        <tag>ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>gulp 学习指南</title>
-    <url>/2016/07/12/</url>
-    <content><![CDATA[<h1 id="about-gulp"><a href="#about-gulp" class="headerlink" title="about gulp"></a>about gulp</h1><h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><pre><code>sudo apt install nodejs</code></pre><h2 id="安装-nodejs-legacy"><a href="#安装-nodejs-legacy" class="headerlink" title="安装 nodejs-legacy"></a>安装 nodejs-legacy</h2><pre><code>sudo apt install nodejs-legacy</code></pre><h2 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h2><pre><code>sudo apt install npm</code></pre><h2 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h2><pre><code>sudo npm install -g gulp</code></pre><h2 id="查看node-版本"><a href="#查看node-版本" class="headerlink" title="查看node 版本"></a>查看node 版本</h2><pre><code>node -v</code></pre><h2 id="查看npm-版本"><a href="#查看npm-版本" class="headerlink" title="查看npm 版本"></a>查看npm 版本</h2><pre><code>npm -v</code></pre><h2 id="查看gulp-版本"><a href="#查看gulp-版本" class="headerlink" title="查看gulp 版本"></a>查看gulp 版本</h2><pre><code>gulp -v</code></pre><p>测试gulp时，需要<code>package.json</code>与<code>gulpfile.js</code>文件</p>
-<h2 id="安装gulp-sass"><a href="#安装gulp-sass" class="headerlink" title="安装gulp-sass"></a>安装gulp-sass</h2><pre><code>npm install gulp-sass</code></pre>]]></content>
       <categories>
         <category>ubuntu</category>
       </categories>

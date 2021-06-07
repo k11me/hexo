@@ -252,6 +252,112 @@
   
   
   <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/01/10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2020/01/10/" class="post-title-link" itemprop="url">laravel logs</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-01-10 00:00:00 / Modified: 15:51:43" itemprop="dateCreated datePublished" datetime="2020-01-10T00:00:00+08:00">2020-01-10</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2020/01/10/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/01/10/" itemprop="commentCount"></span></a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="为laravel-logs添加自定义格式与处理方法"><a href="#为laravel-logs添加自定义格式与处理方法" class="headerlink" title="为laravel logs添加自定义格式与处理方法"></a>为laravel logs添加自定义格式与处理方法</h1><p><code>Monolog\Formatter\LineFormatter</code> 用来定义<code>log</code>内容。</p>
+<p><code>Monolog\Processor\IntrospectionProcessor</code> 用来获取控制器、方法、行数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Logging</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">LineFormatter</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Processor</span>\<span class="title">IntrospectionProcessor</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接收log</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestLogging</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $logFormat = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">private</span> $dateFormat = <span class="string">'Y/m/d H:i:s'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 设置行内容</span></span><br><span class="line">        $cols = [</span><br><span class="line">            <span class="string">"%datetime%"</span>,</span><br><span class="line">            <span class="string">"[%channel%.%level_name%]"</span>,</span><br><span class="line">            <span class="string">"%extra.class%@%extra.function%(%extra.line%)"</span>, </span><br><span class="line">            <span class="string">"%message%"</span>,</span><br><span class="line">            <span class="string">"%context%"</span>,</span><br><span class="line">        ];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 成表格</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;logFormat = implode(<span class="string">"\t"</span>, $cols) . PHP_EOL;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__invoke</span><span class="params">($monolog)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 定义新的日记样式</span></span><br><span class="line">        $formatter = <span class="keyword">new</span> LineFormatter(<span class="keyword">$this</span>-&gt;logFormat, <span class="keyword">$this</span>-&gt;dateFormat, <span class="keyword">true</span>, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 控制器 内容追加</span></span><br><span class="line">        $ip = <span class="keyword">new</span> IntrospectionProcessor(Logger::DEBUG, [] , <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> ($monolog-&gt;getHandlers() <span class="keyword">as</span> $handler) &#123;</span><br><span class="line">            $handler-&gt;setFormatter($formatter);</span><br><span class="line">            $handler-&gt;pushProcessor($ip);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置logging-php"><a href="#设置logging-php" class="headerlink" title="设置logging.php"></a>设置logging.php</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'daily'</span> =&gt; [</span><br><span class="line">    <span class="string">'driver'</span> =&gt; <span class="string">'daily'</span>,</span><br><span class="line">    <span class="string">'tap'</span> =&gt; [App\Logging\TestLogging::class],</span><br><span class="line">    <span class="string">'path'</span> =&gt; storage_path(<span class="string">'logs/laravel.log'</span>),</span><br><span class="line">    <span class="string">'level'</span> =&gt; <span class="string">'debug'</span>,</span><br><span class="line">    <span class="string">'days'</span> =&gt; <span class="number">14</span>,</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://qiita.com/nuuuuume/items/a6bcf340c50f18cfb71c" target="_blank" rel="noopener">参考1</a><br><a href="https://qiita.com/k_hoso/items/5070873721d48529635f" target="_blank" rel="noopener">参考2</a></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2020/01/03/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1245,109 +1351,6 @@ section 2019-12-12
   </article>
 
     
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/10/23/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2019/10/23/" class="post-title-link" itemprop="url">passport scope</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-10-23 00:00:00 / Modified: 15:55:19" itemprop="dateCreated datePublished" datetime="2019-10-23T00:00:00+08:00">2019-10-23</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/10/23/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/23/" itemprop="commentCount"></span></a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="passport-scope-的作用域"><a href="#passport-scope-的作用域" class="headerlink" title="passport scope 的作用域"></a>passport scope 的作用域</h1><h2 id="使用-client"><a href="#使用-client" class="headerlink" title="使用 client"></a>使用 client</h2><p>使用<code>middleware(&#39;client&#39;)</code>时，<code>token</code>请求的<code>grant_type</code>应为<code>grant_type</code>。</p>
-<p>当使用<code>middleware(&#39;client:admin,user&#39;)</code>这种样式时，检查的是全部列出的<code>scope</code>。</p>
-<h2 id="使用-scope"><a href="#使用-scope" class="headerlink" title="使用 scope"></a>使用 scope</h2><p>可以用于用户请求，列出的<code>scope</code>中有任意对应就可以访问。</p>
-<h2 id="使用-scopes"><a href="#使用-scopes" class="headerlink" title="使用 scopes"></a>使用 scopes</h2><p>同样用于用户请求，列出的<code>scope</code>中全部对应就可以访问。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </div>
 
   
@@ -1400,7 +1403,7 @@ section 2019-12-12
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-count">185</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
