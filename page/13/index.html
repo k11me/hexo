@@ -943,7 +943,7 @@
 <p>完成后进入<code>DD-wrt</code>, 设置用户名，密码，之后会用到</p>
 <p><code>services</code>中开启<code>ssh</code></p>
 <p>进入<code>ssh</code> 账号是<code>root</code>，密码是刚刚设置的，验证设备是否匹配固件，如下方，基本可以刷了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardnum</span></span><br><span class="line">679</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardtype</span></span><br><span class="line">0x0646</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardrev</span></span><br><span class="line">0x1110</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> nvram get boardnum</span><br><span class="line">679</span><br><span class="line"><span class="meta">$</span> nvram get boardtype</span><br><span class="line">0x0646</span><br><span class="line"><span class="meta">$</span> nvram get boardrev</span><br><span class="line">0x1110</span><br></pre></td></tr></table></figure>
 
 <p>随后进入<code>192.168.1.1</code>-&gt;<code>administration</code> </p>
 <blockquote>

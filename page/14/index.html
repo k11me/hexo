@@ -491,7 +491,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/04/15/">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/04/16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="K11">
@@ -505,7 +505,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2018/04/15/" class="post-title-link" itemprop="url">Dcoker 部署 mailserver</a>
+            <a href="/2018/04/16/" class="post-title-link" itemprop="url">Dcoker 部署 mailserver</a>
           
         </h1>
 
@@ -520,7 +520,7 @@
                 
               
 
-              <time title="Created: 2018-04-15 00:01:00" itemprop="dateCreated datePublished" datetime="2018-04-15T00:01:00+08:00">2018-04-15</time>
+              <time title="Created: 2018-04-16 02:00:00" itemprop="dateCreated datePublished" datetime="2018-04-16T02:00:00+08:00">2018-04-16</time>
             </span>
           
             
@@ -531,7 +531,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2018-04-16 03:47:20" itemprop="dateModified" datetime="2018-04-16T03:47:20+08:00">2018-04-16</time>
+                <time title="Modified: 2021-06-07 20:36:31" itemprop="dateModified" datetime="2021-06-07T20:36:31+08:00">2021-06-07</time>
               </span>
             
           
@@ -560,7 +560,7 @@
       
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/2018/04/15/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/15/" itemprop="commentCount"></span></a>
+    <a title="disqus" href="/2018/04/16/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/16/" itemprop="commentCount"></span></a>
   </span>
   
   
@@ -576,7 +576,82 @@
       
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>查找文章时没找到, 在本地发现了, 重新编辑一下, 供后来者参考。 </p>
 <h1 id="使用Dcoker-部署邮件服务"><a href="#使用Dcoker-部署邮件服务" class="headerlink" title="使用Dcoker 部署邮件服务"></a>使用Dcoker 部署邮件服务</h1><h2 id="DNS-records-设置与-PTR-records"><a href="#DNS-records-设置与-PTR-records" class="headerlink" title="DNS records 设置与  PTR records"></a>DNS records 设置与  PTR records</h2><p>注意把bar.foo换成需要的域名</p>
-<p>|Type|Homename|Value|TTL|<br>|—|—|—|—|—-|<br>|A|bar.foo|000.000.000.000|3600|<br>|A|<em>.bar.foo|000.000.000.000|3600|<br>|AAAA|bar.foo|000.000.000.000|3600|<br>|AAAA|</em>.bar.foo|000.000.000.000|3600|<br>|NS|bar.foo|ns1.bar.foo|1800|<br>|NS|bar.foo|ns2.bar.foo|1800|<br>|NS|bar.foo|ns3.bar.foo|1800|<br>|MX|bar.foo|mail.bar.foo. 【10】|14400|<br>|TXT|bar.foo|v=spf1 mx ~all|3600|<br>|TXT|_dmarc.bar.foo|v=DMARC1; p=none|3600|<br>|TXT|mail._domainkey.bar.foo|v=DKIM1; k=rsa; p=****|3600|</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Homename</th>
+<th>Value</th>
+<th>TTL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>bar.foo</td>
+<td>000.000.000.000</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>A</td>
+<td>*.bar.foo</td>
+<td>000.000.000.000</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>AAAA</td>
+<td>bar.foo</td>
+<td>000.000.000.000</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>AAAA</td>
+<td>*.bar.foo</td>
+<td>000.000.000.000</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>bar.foo</td>
+<td>ns1.bar.foo</td>
+<td>1800</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>bar.foo</td>
+<td>ns2.bar.foo</td>
+<td>1800</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>bar.foo</td>
+<td>ns3.bar.foo</td>
+<td>1800</td>
+</tr>
+<tr>
+<td>MX</td>
+<td>bar.foo</td>
+<td>mail.bar.foo. 【10】</td>
+<td>14400</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>bar.foo</td>
+<td>v=spf1 mx ~all</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>_dmarc.bar.foo</td>
+<td>v=DMARC1; p=none</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>mail._domainkey.bar.foo</td>
+<td>v=DKIM1; k=rsa; p=****</td>
+<td>3600</td>
+</tr>
+</tbody></table>
 <p>说明:</p>
 <ul>
 <li>NS 为域名解析服务器</li>
@@ -605,7 +680,7 @@
 
 <p><code>p==***********</code>为<code>DKIM key</code>这里隐去了</p>
 <h3 id="docker-mailserver-启动"><a href="#docker-mailserver-启动" class="headerlink" title="docker-mailserver 启动"></a>docker-mailserver 启动</h3><p>启动 docker-proxy 【反向代理】</p>
-<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 80:80 -p 443:443 \</span></span><br><span class="line"><span class="bash">    --name nginx-proxy \</span></span><br><span class="line"><span class="bash">    -v /path/to/certs:/etc/nginx/certs:ro \</span></span><br><span class="line"><span class="bash">    -v /etc/nginx/vhost.d \</span></span><br><span class="line"><span class="bash">    -v /usr/share/nginx/html \</span></span><br><span class="line"><span class="bash">    -v /var/run/docker.sock:/tmp/docker.sock:ro \</span></span><br><span class="line"><span class="bash">    --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \</span></span><br><span class="line"><span class="bash">    jwilder/nginx-proxy</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -d -p 80:80 -p 443:443 \</span><br><span class="line">    --name nginx-proxy \</span><br><span class="line">    -v /path/to/certs:/etc/nginx/certs:ro \</span><br><span class="line">    -v /etc/nginx/vhost.d \</span><br><span class="line">    -v /usr/share/nginx/html \</span><br><span class="line">    -v /var/run/docker.sock:/tmp/docker.sock:ro \</span><br><span class="line">    --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \</span><br><span class="line">    jwilder/nginx-proxy</span><br></pre></td></tr></table></figure>
 
 <p>启动 letsencrypt-nginx-proxy-companion 【挂载TLS证书】</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    -v /path/to/certs:/etc/nginx/certs:rw \</span><br><span class="line">    -v /var/run/docker.sock:/var/run/docker.sock:ro \</span><br><span class="line">    --volumes-from nginx-proxy \</span><br><span class="line">    jrcs/letsencrypt-nginx-proxy-companion</span><br></pre></td></tr></table></figure>
