@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="o1eiNMhypkcaTCNHyHeoaEJM-2wqU4uSpp7XfdfQglI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="开端是……事情要从备份说起，想着群晖有坏掉的可能，于是试了一下网盘备份。 Hyper Bankup在备份是可以加密不用担心隐私外泄。 接着吧，既然加密了就利用下注册过的网盘，顺便整理下数据。 之后就想到了外网访问的群晖。故事就这样开始了。 家里的网络一般是没有固定IP的，想要访问家里的设备可以用VPN连会家里。 这是第一种方法。速度可以接受，在深圳的时候就是这样用的。 第二种就是使用域名向访问网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个想法引发的大升级！">
+<meta property="og:url" content="http://keleven.me/2021/10/14/cafd079550c4/index.html">
+<meta property="og:site_name" content="Keleven.Me">
+<meta property="og:description" content="开端是……事情要从备份说起，想着群晖有坏掉的可能，于是试了一下网盘备份。 Hyper Bankup在备份是可以加密不用担心隐私外泄。 接着吧，既然加密了就利用下注册过的网盘，顺便整理下数据。 之后就想到了外网访问的群晖。故事就这样开始了。 家里的网络一般是没有固定IP的，想要访问家里的设备可以用VPN连会家里。 这是第一种方法。速度可以接受，在深圳的时候就是这样用的。 第二种就是使用域名向访问网站">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-14T15:46:00.000Z">
+<meta property="article:modified_time" content="2022-01-01T13:55:11.833Z">
+<meta property="article:author" content="K11">
+<meta property="article:tag" content="日记">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="mail">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://keleven.me/2021/10/14/cafd079550c4/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://keleven.me/2021/10/14/cafd079550c4/","path":"2021/10/14/cafd079550c4/","title":"一个想法引发的大升级！"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一个想法引发的大升级！ | Keleven.Me</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-111519029-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Keleven.Me</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BC%80%E7%AB%AF%E6%98%AF%E2%80%A6%E2%80%A6"><span class="nav-number">1.</span> <span class="nav-text">开端是……</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ps"><span class="nav-number">2.</span> <span class="nav-text">Ps:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85frps%E5%BC%95%E5%8F%91%E7%9A%84%E6%95%85%E4%BA%8B"><span class="nav-number">3.</span> <span class="nav-text">安装frps引发的故事</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7%E5%88%B0Nginx-Proxy-Manager"><span class="nav-number">3.1.</span> <span class="nav-text">升级到Nginx Proxy Manager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6-docker-compose-yml"><span class="nav-number">3.1.1.</span> <span class="nav-text">复制 docker-compose.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">3.1.2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E5%BD%95"><span class="nav-number">3.1.3.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">3.1.4.</span> <span class="nav-text">结语</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%9F%BA%E7%A1%80%E7%9A%84web%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.2.</span> <span class="nav-text">最基础的web服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx%E5%9F%BA%E6%9C%AC%E9%95%9C%E5%83%8F"><span class="nav-number">3.2.1.</span> <span class="nav-text">nginx基本镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%9D%91%E5%A6%82%E7%BA%A6%E8%80%8C%E8%87%B3%F0%9F%99%83"><span class="nav-number">3.2.2.</span> <span class="nav-text">第一个坑如约而至🙃</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD-1"><span class="nav-number">3.2.3.</span> <span class="nav-text">结语</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v2fly"><span class="nav-number">3.3.</span> <span class="nav-text">v2fly</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%81%E4%BA%BA%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.4.</span> <span class="nav-text">私人邮件服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%97%B6docker-compose"><span class="nav-number">3.4.1.</span> <span class="nav-text">过时docker-compose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%87%E6%97%B6%E7%9A%84%E6%96%87%E6%A1%A3"><span class="nav-number">3.4.2.</span> <span class="nav-text">过时的文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E9%82%AE%E4%BB%B6%E6%98%AFdns%E4%B8%8D%E8%83%BD%E8%A7%A3%E6%9E%90"><span class="nav-number">3.4.3.</span> <span class="nav-text">发邮件是dns不能解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%82%AE%E4%BB%B6%E4%BD%BF%E7%94%A8tls%E8%AF%81%E4%B9%A6"><span class="nav-number">3.4.4.</span> <span class="nav-text">邮件使用tls证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">3.4.5.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#frp-%E4%BB%96%E4%BA%BA%E7%BB%8F%E9%AA%8C-%E5%9D%91%E4%B8%AD%E4%B9%8B%E7%8E%8B"><span class="nav-number">3.5.</span> <span class="nav-text">frp 他人经验 &#x3D; 坑中之王</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%A4%87%E5%BC%8F"><span class="nav-number">3.5.1.</span> <span class="nav-text">预备式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%B7%E8%B7%B3%E5%BC%8F"><span class="nav-number">3.5.2.</span> <span class="nav-text">起跳式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BA%BA%E5%BC%8F"><span class="nav-number">3.5.3.</span> <span class="nav-text">躺式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E5%85%B3%E9%97%AD-UI"><span class="nav-number">3.6.</span> <span class="nav-text">最后关闭 UI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx-proxy-manager"><span class="nav-number">3.6.1.</span> <span class="nav-text">nginx proxy manager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frps"><span class="nav-number">3.6.2.</span> <span class="nav-text">frps</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">4.</span> <span class="nav-text">最后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="K11"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">K11</p>
+  <div class="site-description" itemprop="description">千变万化的是世界</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/k11me" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;k11me" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:k11@keleven.me" title="E-Mail → mailto:k11@keleven.me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/_y.o_o.y_/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;_y.o_o.y_&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2021/10/14/cafd079550c4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一个想法引发的大升级！
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-14 23:46:00" itemprop="dateCreated datePublished" datetime="2021-10-14T23:46:00+08:00">2021-10-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2021/10/14/cafd079550c4/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/10/14/cafd079550c4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="开端是……"><a href="#开端是……" class="headerlink" title="开端是……"></a>开端是……</h1><p>事情要从备份说起，想着<code>群晖</code>有坏掉的可能，于是试了一下网盘备份。</p>
+<p><code>Hyper Bankup</code>在备份是可以加密不用担心隐私外泄。</p>
+<p>接着吧，既然加密了就利用下注册过的网盘，顺便整理下数据。</p>
+<p>之后就想到了外网访问的群晖。故事就这样开始了。</p>
+<p>家里的网络一般是没有固定IP的，想要访问家里的设备可以用VPN连会家里。</p>
+<p>这是第一种方法。速度可以接受，在深圳的时候就是这样用的。</p>
+<p>第二种就是使用域名向访问网站一样，访问家里的设备，这是就要用工具打一个洞，进行访问。</p>
+<p>打洞的工具 是一个<code>域名</code> ， 一个<code>VPS</code> 和 <code>frps</code> 。</p>
+<p>就是这样引发了之后的全面升级(灬ꈍ ꈍ灬)</p>
+<h1 id="Ps"><a href="#Ps" class="headerlink" title="Ps:"></a>Ps:</h1><p>为啥传一张，删一张，还是显肤色的那张 😭 😭 😭</p>
+<span id="more"></span>
+
+<h1 id="安装frps引发的故事"><a href="#安装frps引发的故事" class="headerlink" title="安装frps引发的故事"></a>安装frps引发的故事</h1><p>使用<code>docker</code>安装frps时，出现了同一个<code>docker-netwrok</code>下不能加载UI的问题。</p>
+<p>端口映射是没有问题，镜像也是没有问题的，在本地环境是可以打开的。</p>
+<p>那么问题就是<code>nginx-proxy</code>！这货让我吃了不少苦 😱 😱 😱 ！看看之前的文章就知道了！</p>
+<p>搜索解决方案的时候，发现了一个新的东西!</p>
+<p><code>Nginx Proxy Manager</code> 一个有UI的<code>nginx-proxy</code> 😇 😇 😇 安装到是也简单。</p>
+<h2 id="升级到Nginx-Proxy-Manager"><a href="#升级到Nginx-Proxy-Manager" class="headerlink" title="升级到Nginx Proxy Manager"></a>升级到Nginx Proxy Manager</h2><h3 id="复制-docker-compose-yml"><a href="#复制-docker-compose-yml" class="headerlink" title="复制 docker-compose.yml"></a>复制 docker-compose.yml</h3><p>安装镜像，就官网，直接复制<code>docker-compose.yml</code>文件</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="symbol">services:</span></span><br><span class="line">  <span class="symbol">app:</span></span><br><span class="line">    <span class="symbol">image:</span> <span class="string">&#x27;jc21/nginx-proxy-manager:latest&#x27;</span></span><br><span class="line">    <span class="symbol">restart:</span> <span class="keyword">unless</span>-stopped</span><br><span class="line">    <span class="symbol">ports:</span></span><br><span class="line">      - <span class="string">&#x27;80:80&#x27;</span></span><br><span class="line">      - <span class="string">&#x27;81:81&#x27;</span></span><br><span class="line">      - <span class="string">&#x27;443:443&#x27;</span></span><br><span class="line">    <span class="symbol">environment:</span></span><br><span class="line">      <span class="symbol">DB_MYSQL_HOST:</span> <span class="string">&quot;db&quot;</span></span><br><span class="line">      <span class="symbol">DB_MYSQL_PORT:</span> <span class="number">3306</span></span><br><span class="line">      <span class="symbol">DB_MYSQL_USER:</span> <span class="string">&quot;npm&quot;</span></span><br><span class="line">      <span class="symbol">DB_MYSQL_PASSWORD:</span> <span class="string">&quot;npm&quot;</span></span><br><span class="line">      <span class="symbol">DB_MYSQL_NAME:</span> <span class="string">&quot;npm&quot;</span></span><br><span class="line">    <span class="symbol">volumes:</span></span><br><span class="line">      - ./<span class="symbol">data:</span>/data</span><br><span class="line">      - ./<span class="symbol">letsencrypt:</span>/etc/letsencrypt</span><br><span class="line">  <span class="symbol">db:</span></span><br><span class="line">    <span class="symbol">image:</span> <span class="string">&#x27;jc21/mariadb-aria:latest&#x27;</span></span><br><span class="line">    <span class="symbol">restart:</span> <span class="keyword">unless</span>-stopped</span><br><span class="line">    <span class="symbol">environment:</span></span><br><span class="line">      <span class="symbol">MYSQL_ROOT_PASSWORD:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line">      <span class="symbol">MYSQL_DATABASE:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line">      <span class="symbol">MYSQL_USER:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line">      <span class="symbol">MYSQL_PASSWORD:</span> <span class="string">&#x27;npm&#x27;</span></span><br><span class="line">    <span class="symbol">volumes:</span></span><br><span class="line">      - ./data/<span class="symbol">mysql:</span>/var/lib/mysql</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p>地址是 <code>http://VPS_IPv4:81</code></p>
+<p>默认账号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Email: admin@example.com</span><br><span class="line">Password: changeme</span><br></pre></td></tr></table></figure>
+
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>跟着<a target="_blank" rel="noopener" href="https://nginxproxymanager.com/guide/#quick-setup">官方文档</a>没事什么大问题。</p>
+<p>之后是就是将其他的镜像启动，并设置了 🤡 🤡 🤡</p>
+<p>很简单是吧~ 做梦征程才刚刚开始！😏 😏 😏</p>
+<h2 id="最基础的web服务"><a href="#最基础的web服务" class="headerlink" title="最基础的web服务"></a>最基础的web服务</h2><p>当然是静态网站了。</p>
+<p>就使用最简单的<code>nginx</code>镜像加载一个位置而且。</p>
+<h3 id="nginx基本镜像"><a href="#nginx基本镜像" class="headerlink" title="nginx基本镜像"></a>nginx基本镜像</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="symbol">services:</span></span><br><span class="line">    <span class="symbol">web:</span></span><br><span class="line">      <span class="symbol">image:</span> <span class="symbol">nginx:</span>latest</span><br><span class="line">      <span class="symbol">restart:</span> <span class="keyword">unless</span>-stopped</span><br><span class="line">      <span class="symbol">container_name:</span> web</span><br><span class="line">      <span class="symbol">volumes:</span></span><br><span class="line">          - ./<span class="symbol">web:</span>/usr/share/nginx/<span class="symbol">html:</span>ro</span><br></pre></td></tr></table></figure>
+
+<h3 id="第一个坑如约而至🙃"><a href="#第一个坑如约而至🙃" class="headerlink" title="第一个坑如约而至🙃"></a>第一个坑如约而至🙃</h3><p>没错在正确设置<code>nginx-proxy</code>的情况下，并不能访问的代理镜像。</p>
+<p>原因是<code>nginx-proxy</code>与<code>web</code>并没有在一个<code>docker network</code>中。</p>
+<p>解决办法每个<code>docker-compose.yml</code>文件中指定网络</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">networks:</span></span><br><span class="line">  <span class="symbol">default:</span></span><br><span class="line">    <span class="symbol">external:</span></span><br><span class="line">      <span class="symbol">name:</span> nginx-proxy-manager-default</span><br></pre></td></tr></table></figure>
+
+<p>之后设置域名对应到镜像端口。</p>
+<p>可以使用镜像<code>IP</code>与可以使用镜像名。</p>
+<p>我用的是<code>&lt;镜像名&gt;:&lt;端口&gt;</code></p>
+<h3 id="结语-1"><a href="#结语-1" class="headerlink" title="结语"></a>结语</h3><p>到这里<code>web</code>可以正常使用了，我放的就是这个站了。</p>
+<h2 id="v2fly"><a href="#v2fly" class="headerlink" title="v2fly"></a>v2fly</h2><p><code>v2fly</code> 是 <code>v2ray</code> 的升级版</p>
+<p>就<a target="_blank" rel="noopener" href="https://www.v2fly.org/#project-v-%E7%94%B1%E8%B0%81%E4%B8%BB%E5%AF%BC%E5%BC%80%E5%8F%91">文档</a></p>
+<p>使用<code>WebSocket + tls + web</code>，请求<code>域名:443</code></p>
+<p>设置的时候开启<code>WebSocket</code>，转发到镜像对应接口。</p>
+<p>没什么难点。想要伪站的可以设置个<code>nginx</code>二次转发<code>WebSocket</code></p>
+<p>怎么设置之前都写过<a href="https://keleven.me/2018/03/01/aaf03e653abb/">传送门</a></p>
+<h2 id="私人邮件服务"><a href="#私人邮件服务" class="headerlink" title="私人邮件服务"></a>私人邮件服务</h2><p>不更改设置的情况下可以直接使用之前是<code>docker-compose.yml</code>文件</p>
+<p>但是请求是不加密的。载入<code>Nginx Proxy Manager</code>请求的<code>tls</code>证书不能正确读取。</p>
+<p>找文档的时候发现<code>tvial/docker-mailserver</code>被弃用了！😳 😳 😳</p>
+<p>新的镜像是<code>docker.io/mailserver/docker-mailserver</code>。</p>
+<p>处处是惊喜，更新吧！</p>
+<h3 id="过时docker-compose"><a href="#过时docker-compose" class="headerlink" title="过时docker-compose"></a>过时<code>docker-compose</code></h3><p>镜像的<code>docker-compose.yml</code>是<code>3.8</code>，老的<code>docker-compose</code>不支持了</p>
+<p>升级之，嗯，算个小石子吧 😏</p>
+<h3 id="过时的文档"><a href="#过时的文档" class="headerlink" title="过时的文档"></a>过时的文档</h3><p>文档是使用 <code>setup.sh</code>文件可以快速设置。</p>
+<p>照做会发现集成到镜像里了，会导致路径错误 😓 </p>
+<p>手动修正</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">volumes:</span></span><br><span class="line">  <span class="comment"># - ./docker-data/dms/config/:/tmp/docker-mailserver/</span></span><br><span class="line">  - ./config/<span class="symbol">:/tmp/docker-mailserver/</span></span><br></pre></td></tr></table></figure>
+
+<p>之后添加账号和<code>dkim</code>，照做<a target="_blank" rel="noopener" href="https://github.com/docker-mailserver/docker-mailserver#included-services">文档</a>就行。</p>
+<p>打印<code>dkim</code>并设置域名的时候，注意段落<code>p=</code>中<code>&quot;</code>要全部去掉。</p>
+<p>这时启动镜就可以使用邮件服务了。</p>
+<p>要注意的是<code>mac</code>的邮件账号要关闭使用<code>tls</code>才可以发邮件。</p>
+<h3 id="发邮件是dns不能解析"><a href="#发邮件是dns不能解析" class="headerlink" title="发邮件是dns不能解析"></a>发邮件是dns不能解析</h3><p>添加<code>dns</code>设置到<code>docker-compose.yml</code></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">dns:</span></span><br><span class="line">  - <span class="number">9.9</span>.<span class="number">9.9</span></span><br><span class="line">  - <span class="number">8.8</span>.<span class="number">8.8</span></span><br><span class="line">  - <span class="number">1.1</span>.<span class="number">1.1</span></span><br><span class="line">  - <span class="number">1.0</span>.<span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="邮件使用tls证书"><a href="#邮件使用tls证书" class="headerlink" title="邮件使用tls证书"></a>邮件使用<code>tls</code>证书</h3><p>添加<code>tls</code>设置到<code>docker-compose.yml</code></p>
+<p><code>&lt;user&gt;</code>改为自己的用户名</p>
+<p><code>&lt;npm-*&gt;</code>改为对应域名的证书</p>
+<p>这里的坑点<code>nginx-proxy-manager/letsencrypt/live/&lt;npm-*&gt;</code>目录的权限不够，</p>
+<p>转而使用<code>nginx-proxy-manager/archive/live/&lt;npm-*&gt;</code>目录中的，</p>
+<p>你可以对之前的目录提权。反正<code>archive</code>就是<code>live</code>复制来的。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">volumes:</span></span><br><span class="line">  - <span class="regexp">/&lt;user&gt;/nginx</span>-proxy-manager/letsencrypt/archive/&lt;npm-*&gt;<span class="symbol">:/tmp/dms/custom-certs/</span><span class="symbol">:ro</span></span><br><span class="line"><span class="symbol">environment:</span></span><br><span class="line">  - SSL_TYPE=manual</span><br><span class="line">  - SSL_CERT_PATH=<span class="regexp">/tmp/dms</span><span class="regexp">/custom-certs/fullchain</span>1.pem</span><br><span class="line">  - SSL_KEY_PATH=<span class="regexp">/tmp/dms</span><span class="regexp">/custom-certs/privkey</span>1.pem</span><br></pre></td></tr></table></figure>
+
+<p>到这里就可以使用<code>tls</code>收发邮件了！👏 👏 👏</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>其他的问题都不大，之后的<a href="http://keleven.me/2018/04/16/5f633ca9b365">文章</a>还是有点作用的。</p>
+<h2 id="frp-他人经验-坑中之王"><a href="#frp-他人经验-坑中之王" class="headerlink" title="frp 他人经验 = 坑中之王"></a>frp 他人经验 = 坑中之王</h2><p>没什么软用的<code>frp</code>，少年现在回头还来的急🤧</p>
+<p>坑点1: 话不说全，装的很大</p>
+<p>坑点2: 速度一般，视频别想</p>
+<p>坑点3: 设置复杂</p>
+<p>最后: OpenVPN真香 🤣 ，有问题一般是设置没对。看<a target="_blank" rel="noopener" href="https://gofrp.org/docs/">文档</a>比搜索有用。</p>
+<h3 id="预备式"><a href="#预备式" class="headerlink" title="预备式"></a>预备式</h3><p>安装<code>frps</code>镜像</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="symbol">services:</span></span><br><span class="line">    <span class="symbol">frps:</span></span><br><span class="line">      <span class="symbol">image:</span> stilleshan/<span class="symbol">frps:</span>latest</span><br><span class="line">      <span class="symbol">container_name:</span> frps</span><br><span class="line">      <span class="symbol">restart:</span> always</span><br><span class="line">      <span class="symbol">expose:</span></span><br><span class="line">          - <span class="string">&quot;7500&quot;</span></span><br><span class="line">      <span class="symbol">ports:</span></span><br><span class="line">         - <span class="number">7000</span><span class="symbol">:</span><span class="number">7000</span></span><br><span class="line">         - <span class="number">7600</span><span class="symbol">:</span><span class="number">7600</span></span><br><span class="line">      <span class="symbol">volumes:</span></span><br><span class="line">          - ./frps.<span class="symbol">ini:</span>/frp/frps.ini</span><br><span class="line"><span class="symbol">networks:</span></span><br><span class="line">  <span class="symbol">default:</span></span><br><span class="line">    <span class="symbol">external:</span></span><br><span class="line">      <span class="symbol">name:</span> nginx-proxy-manager-default</span><br></pre></td></tr></table></figure>
+
+<h3 id="起跳式"><a href="#起跳式" class="headerlink" title="起跳式"></a>起跳式</h3><p>这里要准备两个域名，一个用来连接，一个用来代理。</p>
+<table>
+<thead>
+<tr>
+<th align="left">Type</th>
+<th align="left">Name</th>
+<th align="left">Content</th>
+<th align="left">用处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">A</td>
+<td align="left">frp</td>
+<td align="left">XXX.XXX.XXX.XXX【IPv4】</td>
+<td align="left">连接frp服务</td>
+</tr>
+<tr>
+<td align="left">CNAME</td>
+<td align="left">link</td>
+<td align="left">frp.your.domain【穿透用的域名】</td>
+<td align="left">frp转发的域名</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>重点：如果使用的是<code>cloudflare</code>要关闭<code>frp.your.domain</code>的<code>Proxied</code></p>
+</blockquote>
+<p>填写<code>frps.ini</code>服务器端用，开一个7000就够了，其他流量<code>frps</code>能自动识别。</p>
+<p>按照下面的设置开启的是<code>windows</code>远程桌面与<code>80</code>网站入口</p>
+<p>远程桌面使用<code>link.your.domain:7600</code>访问</p>
+<p>网站使用<code>link.your.domain</code>访问</p>
+<p>其实，这个网站的地址可以是局域网内的任意位置，都可以访问的。</p>
+<p><code>token</code>是密码，<code>subdomain_host</code>是一级域名</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="comment"># bind_udp_port = 7001</span></span><br><span class="line"><span class="comment"># kcp_bind_port = 7000</span></span><br><span class="line"><span class="attr">vhost_http_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="comment"># vhost_https_port = 443</span></span><br><span class="line"><span class="attr">dashboard_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">dashboard_port</span> = <span class="number">7500</span></span><br><span class="line"><span class="attr">dashboard_user</span> = admin</span><br><span class="line"><span class="attr">dashboard_pwd</span> = admin</span><br><span class="line"><span class="attr">log_file</span> = ./frps.log</span><br><span class="line"><span class="attr">log_level</span> = info</span><br><span class="line"><span class="attr">log_max_days</span> = <span class="number">3</span></span><br><span class="line"><span class="attr">disable_log_color</span> = <span class="literal">false</span></span><br><span class="line"><span class="attr">authentication_method</span> = token</span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br><span class="line"><span class="attr">subdomain_host</span> = your.domain</span><br><span class="line"><span class="attr">tcp_mux</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>设置<code>frpc.ini</code>客户端用</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = frp.your.domain</span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">tcp_mux</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">12345678</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">[rdp]</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">3389</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">7600</span></span><br><span class="line"><span class="attr">subdomain</span> = link</span><br><span class="line"><span class="attr">use_encryption</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">use_compression</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">[web]</span></span><br><span class="line"><span class="attr">type</span> = http</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">80</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">80</span></span><br><span class="line"><span class="attr">subdomain</span> = link</span><br><span class="line"><span class="attr">use_encryption</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">use_compression</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="躺式"><a href="#躺式" class="headerlink" title="躺式"></a>躺式</h3><p>frp外网访问很慢，视频是看不了的，没有朝内的VPS，不做评价。</p>
+<p>远程桌面的话，就输入文字还行。</p>
+<p>不是必要的话，还是OpenVPN好用 😘 </p>
+<h2 id="最后关闭-UI"><a href="#最后关闭-UI" class="headerlink" title="最后关闭 UI"></a>最后关闭 UI</h2><h3 id="nginx-proxy-manager"><a href="#nginx-proxy-manager" class="headerlink" title="nginx proxy manager"></a>nginx proxy manager</h3><p>注释掉<code>docker-compose.yml</code>中的<code>81</code>端口。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">ports:</span></span><br><span class="line">  <span class="comment"># - &quot;81:81&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>重启镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="frps"><a href="#frps" class="headerlink" title="frps"></a>frps</h3><p>注释掉<code>docker-compose.yml</code>中</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># expose:</span></span><br><span class="line"><span class="comment">#   - &quot;7500&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>注释<code>frps.ini</code>中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># dashboard_addr = 0.0.0.0</span></span><br><span class="line"><span class="comment"># dashboard_port = 7500</span></span><br><span class="line"><span class="comment"># dashboard_user = admin</span></span><br><span class="line"><span class="comment"># dashboard_pwd = admin</span></span><br></pre></td></tr></table></figure>
+
+<p>重启镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose restart</span><br></pre></td></tr></table></figure>
+
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>群晖在没有公网IP的情况下如何做镜像是个问题。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%97%A5%E8%AE%B0/" rel="tag"># 日记</a>
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
+              <a href="/tags/mail/" rel="tag"># mail</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/06/7997f30a9ad6/" rel="prev" title="日常">
+                  <i class="fa fa-chevron-left"></i> 日常
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/24/703d78868f61/" rel="next" title="所以为什么是两个锅">
+                  所以为什么是两个锅 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">K11</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">233k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">3:32</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.2/dist/mermaid.min.js","integrity":"sha256-UIQPVkGifpwMvDH5yGgORJ9sSTDq38zz6BGU6dNaKhM="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"keleven","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

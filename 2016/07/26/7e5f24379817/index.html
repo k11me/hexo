@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="o1eiNMhypkcaTCNHyHeoaEJM-2wqU4uSpp7XfdfQglI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="TOC{:toc}  7.3 迁移7.3.1 简介迁移就像数据库的版本控制，允许团队简单轻松的编辑并共享应用的数据库表结构，迁移通常搭配 Laravel 结构构建器，可以很容易地构建应用的数据库表结构。 Laravel的Schema门面提供了与数据库系统无关的创建和操纵表的支持，在 Laravel 所支持的所有数据库系统中提供一致的、优雅的、平滑的API。  7.3.2 生成迁移使用 Artis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel 学习指南 第七章 第三节">
+<meta property="og:url" content="http://keleven.me/2016/07/26/7e5f24379817/index.html">
+<meta property="og:site_name" content="Keleven.Me">
+<meta property="og:description" content="TOC{:toc}  7.3 迁移7.3.1 简介迁移就像数据库的版本控制，允许团队简单轻松的编辑并共享应用的数据库表结构，迁移通常搭配 Laravel 结构构建器，可以很容易地构建应用的数据库表结构。 Laravel的Schema门面提供了与数据库系统无关的创建和操纵表的支持，在 Laravel 所支持的所有数据库系统中提供一致的、优雅的、平滑的API。  7.3.2 生成迁移使用 Artis">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-07-26T04:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-01T13:55:11.836Z">
+<meta property="article:author" content="K11">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://keleven.me/2016/07/26/7e5f24379817/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://keleven.me/2016/07/26/7e5f24379817/","path":"2016/07/26/7e5f24379817/","title":"laravel 学习指南 第七章 第三节"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>laravel 学习指南 第七章 第三节 | Keleven.Me</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-111519029-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Keleven.Me</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E8%BF%81%E7%A7%BB"><span class="nav-number">1.</span> <span class="nav-text">7.3 迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">7.3.1 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-%E7%94%9F%E6%88%90%E8%BF%81%E7%A7%BB"><span class="nav-number">1.2.</span> <span class="nav-text">7.3.2 生成迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-3-%E8%BF%81%E7%A7%BB%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">7.3.3 迁移结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-4-%E8%BF%90%E8%A1%8C%E8%BF%81%E7%A7%BB"><span class="nav-number">1.4.</span> <span class="nav-text">7.3.4 运行迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-4-1-%E5%9B%9E%E6%BB%9A%E8%BF%81%E7%A7%BB"><span class="nav-number">1.4.1.</span> <span class="nav-text">7.3.4.1 回滚迁移</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-5-%E7%BC%96%E5%86%99%E8%BF%81%E7%A7%BB"><span class="nav-number">1.5.</span> <span class="nav-text">7.3.5 编写迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-1-%E5%88%9B%E5%BB%BA%E8%A1%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">7.3.5.1 创建表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-2-%E9%87%8D%E5%91%BD%E5%90%8D-%E5%88%A0%E9%99%A4%E8%A1%A8"><span class="nav-number">1.5.2.</span> <span class="nav-text">7.3.5.2 重命名&#x2F;删除表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-3-%E5%88%9B%E5%BB%BA%E5%88%97"><span class="nav-number">1.5.3.</span> <span class="nav-text">7.3.5.3 创建列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-4-%E5%88%97%E4%BF%AE%E6%94%B9%E5%99%A8"><span class="nav-number">1.5.4.</span> <span class="nav-text">7.3.5.4 列修改器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-5-%E4%BF%AE%E6%94%B9%E5%88%97"><span class="nav-number">1.5.5.</span> <span class="nav-text">7.3.5.5 修改列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-6-%E5%88%A0%E9%99%A4%E5%88%97"><span class="nav-number">1.5.6.</span> <span class="nav-text">7.3.5.6 删除列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-7-%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95"><span class="nav-number">1.5.7.</span> <span class="nav-text">7.3.5.7 创建索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-8-%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="nav-number">1.5.8.</span> <span class="nav-text">7.3.5.8 删除索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-5-9-%E5%A4%96%E9%94%AE%E7%BA%A6%E6%9D%9F"><span class="nav-number">1.5.9.</span> <span class="nav-text">7.3.5.9 外键约束</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="K11"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">K11</p>
+  <div class="site-description" itemprop="description">千变万化的是世界</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/k11me" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;k11me" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:k11@keleven.me" title="E-Mail → mailto:k11@keleven.me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/_y.o_o.y_/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;_y.o_o.y_&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/7e5f24379817/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          laravel 学习指南 第七章 第三节
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 12:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T12:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/7e5f24379817/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/7e5f24379817/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="7-3-迁移"><a href="#7-3-迁移" class="headerlink" title="7.3 迁移"></a>7.3 迁移</h2><h3 id="7-3-1-简介"><a href="#7-3-1-简介" class="headerlink" title="7.3.1 简介"></a>7.3.1 简介</h3><p>迁移就像数据库的版本控制，允许团队简单轻松的编辑并共享应用的数据库表结构，迁移通常搭配 Laravel 结构构建器，可以很容易地构建应用的数据库表结构。</p>
+<p>Laravel的<code>Schema门面</code>提供了与数据库系统无关的创建和操纵表的支持，在 Laravel 所支持的所有数据库系统中提供一致的、优雅的、平滑的API。</p>
+<hr>
+<h3 id="7-3-2-生成迁移"><a href="#7-3-2-生成迁移" class="headerlink" title="7.3.2 生成迁移"></a>7.3.2 生成迁移</h3><p>使用 <code>Artisan</code> 命令<code>make:migration</code>来创建一个新的迁移：</p>
+<pre><code>php artisan make:migration create_users_table
+</code></pre>
+<p>新的迁移位于<code>database/migrations</code>目录下，每个迁移文件名都包含时间戳从而允许 Laravel 判断其顺序。</p>
+<p><code>--table</code>和<code>--create</code>选项可以用于指定表名以及该迁移是否要创建一个新的数据表。这些选项只需要简单放在上述迁移命令后面并指定表名：</p>
+<pre><code>php artisan make:migration add_votes_to_users_table --table=users
+php artisan make:migration create_users_table --create=users
+</code></pre>
+<p>如果你想要指定生成迁移的自定义输出路径，在执行<code>make:migration</code>命令时可以使用<code>--path</code>选项，提供的路径应该是相对于应用根目录的。</p>
+<hr>
+<h3 id="7-3-3-迁移结构"><a href="#7-3-3-迁移结构" class="headerlink" title="7.3.3 迁移结构"></a>7.3.3 迁移结构</h3><p>迁移类包含了两个方法：<code>up</code>和<code>down</code>。</p>
+<p><code>up</code>方法用于新增表，列或者索引到数据库，而<code>down</code>方法就是<code>up</code>方法的反操作，和<code>up</code>里的操作相反。</p>
+<p>在这两个方法中你都要用到 Laravel 的表结构构建器来创建和修改表.</p>
+<p>例如:让我们先看看创建<code>flights</code>表的简单示例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Schema</span>\<span class="title">Blueprint</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Migrations</span>\<span class="title">Migration</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateFlightsTable</span> <span class="keyword">extends</span> <span class="title">Migration</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 运行迁移</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Schema::create(<span class="string">&#x27;flights&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Blueprint <span class="variable">$table</span></span>) </span>&#123;</span><br><span class="line">            <span class="variable">$table</span>-&gt;increments(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">            <span class="variable">$table</span>-&gt;string(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">            <span class="variable">$table</span>-&gt;string(<span class="string">&#x27;airline&#x27;</span>);</span><br><span class="line">            <span class="variable">$table</span>-&gt;timestamps();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 撤销迁移</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">down</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Schema::drop(<span class="string">&#x27;flights&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-3-4-运行迁移"><a href="#7-3-4-运行迁移" class="headerlink" title="7.3.4 运行迁移"></a>7.3.4 运行迁移</h3><p>要运行应用中所有未执行的迁移，可以使用 Artisan 命令的<code>migrate</code>方法。</p>
+<p>如果你正在使用Homestead虚拟机，应该在你的虚拟机中运行如下这条命令：</p>
+<pre><code>php artisan migrate
+</code></pre>
+<p>如果再运行时遇到“class not found”的错误提示，尝试运行<code>composer dump-autoload</code>命令然后重新运行迁移命令。</p>
+<ul>
+<li><p><strong>在生产环境中强制运行迁移</strong></p>
+<p>  有些迁移操作是毁灭性的，这意味着它们可能造成数据的丢失，为了避免在生产环境数据库中运行这些命令，你将会在运行这些命令之前被提示并确认。想要强制运行这些命令而不被提示，可以使用<code>--force</code>：</p>
+<pre><code>  php artisan migrate --force
+</code></pre>
+</li>
+</ul>
+<h4 id="7-3-4-1-回滚迁移"><a href="#7-3-4-1-回滚迁移" class="headerlink" title="7.3.4.1 回滚迁移"></a>7.3.4.1 回滚迁移</h4><p>想要回滚最新的一次迁移<code>操作</code>，可以使用<code>rollback</code>命令，注意这将会回滚最后一批运行的迁移，可能包含多个迁移文件：</p>
+<pre><code>php artisan migrate:rollback
+</code></pre>
+<p><code>migrate:reset</code>命令将会回滚所有的应用迁移：</p>
+<pre><code>php artisan migrate:reset
+</code></pre>
+<ul>
+<li><strong>在单个命令中回滚/迁移</strong>  <code>migrate:refresh</code>命令将会先回滚所有数据库迁移，然后运行<code>migrate</code>命令。这个命令可以有效的重建整个数据库：<pre><code>  php artisan migrate:refresh
+  php artisan migrate:refresh --seed
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3 id="7-3-5-编写迁移"><a href="#7-3-5-编写迁移" class="headerlink" title="7.3.5 编写迁移"></a>7.3.5 编写迁移</h3><h4 id="7-3-5-1-创建表"><a href="#7-3-5-1-创建表" class="headerlink" title="7.3.5.1 创建表"></a>7.3.5.1 创建表</h4><p>使用<code>Schema门面</code>上的<code>create</code>方法来创建新的数据表。<code>create</code>方法接收两个参数，第一个是表名，第二个是获取用于定义新表的<code>Blueprint</code>对象的闭包：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::create(<span class="string">&#x27;users&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$table</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$table</span>-&gt;increments(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当然，创建新表的时候，可以使用表结构构建器中的任意列方法来定义数据表的列。</p>
+<ul>
+<li><p><strong>检查表/列是否存在</strong></p>
+<p>  你可以轻松地使用 <code>hasTable</code> 和 <code>hasColumn</code> 方法检查表或列是否存在：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Schema::hasTable(<span class="string">&#x27;users&#x27;</span>)) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (Schema::hasColumn(<span class="string">&#x27;users&#x27;</span>, <span class="string">&#x27;email&#x27;</span>)) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li><p><strong>连接&amp;存储引擎</strong></p>
+<p>  如果你想要在一个数据库连接上执行表结构操作，该数据库连接并不是默认数据库连接，使用<code>connection</code>方法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::connection(&#x27;foo&#x27;)-&gt;create(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;increments(&#x27;id&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>  要设置表的存储引擎，在表结构构建器上设置<code>engine</code>属性：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Schema::create(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;engine = &#x27;InnoDB&#x27;;</span><br><span class="line">    $table-&gt;increments(&#x27;id&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-3-5-2-重命名-删除表"><a href="#7-3-5-2-重命名-删除表" class="headerlink" title="7.3.5.2 重命名/删除表"></a>7.3.5.2 重命名/删除表</h4><p>要重命名一个已存在的数据表，使用<code>rename</code>方法：</p>
+<pre><code>Schema::rename($from, $to);
+</code></pre>
+<p>要删除一个已存在的数据表，可以使用<code>drop</code>或<code>dropIfExists</code>方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Schema::drop(&#x27;users&#x27;);</span><br><span class="line">Schema::dropIfExists(&#x27;users&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-3-5-3-创建列"><a href="#7-3-5-3-创建列" class="headerlink" title="7.3.5.3 创建列"></a>7.3.5.3 创建列</h4><p>要更新一个已存在的表，使用<code>Schema门面</code>上的<code>table</code>方法，和<code>create</code>方法一样，<code>table</code>方法接收两个参数：表名和获取用于添加列到表的<code>Blueprint</code>实例的闭包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;string(&#x27;email&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>可用的列类型</strong></li>
+</ul>
+<p>当然，表结构构建器包含一系列你可以用来构建表的列类型：</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$table-&gt;bigIncrements(‘id’);</td>
+<td align="left">自增ID，类型为bigint</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;bigInteger(‘votes’);</td>
+<td align="left">等同于数据库中的BIGINT类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;binary(‘data’);</td>
+<td align="left">等同于数据库中的BLOB类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;boolean(‘confirmed’);</td>
+<td align="left">等同于数据库中的BOOLEAN类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;char(‘name’, 4);</td>
+<td align="left">等同于数据库中的CHAR类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;date(‘created_at’);</td>
+<td align="left">等同于数据库中的DATE类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;dateTime(‘created_at’);</td>
+<td align="left">等同于数据库中的DATETIME类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;decimal(‘amount’, 5, 2);</td>
+<td align="left">等同于数据库中的DECIMAL类型，带一个精度和范围</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;double(‘column’, 15, 8);</td>
+<td align="left">等同于数据库中的DOUBLE类型，带精度, 总共15位数字，小数点后8位.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;enum(‘choices’, [‘foo’, ‘bar’]);</td>
+<td align="left">等同于数据库中的 ENUM类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;float(‘amount’);</td>
+<td align="left">等同于数据库中的 FLOAT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;increments(‘id’);</td>
+<td align="left">数据库主键自增ID</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;integer(‘votes’);</td>
+<td align="left">等同于数据库中的 INTEGER 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;json(‘options’);</td>
+<td align="left">等同于数据库中的 JSON 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;jsonb(‘options’);</td>
+<td align="left">等同于数据库中的 JSONB 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;longText(‘description’);</td>
+<td align="left">等同于数据库中的 LONGTEXT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;mediumInteger(‘numbers’);</td>
+<td align="left">等同于数据库中的 MEDIUMINT类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;mediumText(‘description’);</td>
+<td align="left">等同于数据库中的 MEDIUMTEXT类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;morphs(‘taggable’);</td>
+<td align="left">添加一个 INTEGER类型的 <code>taggable_id</code> 列和一个 STRING类型的 <code>taggable_type</code>列</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;nullableTimestamps();</td>
+<td align="left">和 <code>timestamps()</code>一样但允许 NULL值.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;rememberToken();</td>
+<td align="left">添加一个 <code>remember_token</code> 列： VARCHAR(100) NULL.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;smallInteger(‘votes’);</td>
+<td align="left">等同于数据库中的 SMALLINT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;softDeletes();</td>
+<td align="left">新增一个 deleted_at 列 用于软删除.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;string(‘email’);</td>
+<td align="left">等同于数据库中的 VARCHAR 列  .</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;string(‘name’, 100);</td>
+<td align="left">等同于数据库中的 VARCHAR，带一个长度</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;text(‘description’);</td>
+<td align="left">等同于数据库中的 TEXT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;time(‘sunrise’);</td>
+<td align="left">等同于数据库中的 TIME类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;tinyInteger(‘numbers’);</td>
+<td align="left">等同于数据库中的 TINYINT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;timestamp(‘added_on’);</td>
+<td align="left">等同于数据库中的 TIMESTAMP 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;timestamps();</td>
+<td align="left">添加 <code>created_at</code> 和 <code>updated_at</code>列.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;uuid(‘id’);</td>
+<td align="left">等同于数据库的UUID</td>
+</tr>
+</tbody></table>
+<h4 id="7-3-5-4-列修改器"><a href="#7-3-5-4-列修改器" class="headerlink" title="7.3.5.4 列修改器"></a>7.3.5.4 列修改器</h4><p>除了上面列出的列类型之外，在添加列的时候还可以使用一些其它列“修改器”。</p>
+<p>例如:要使列默认为<code>null</code>，可以使用<code>nullable</code>方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;string(&#x27;email&#x27;)-&gt;nullable();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>下面是所有可用的列修改器列表，该列表不包含索引修改器：</p>
+<table>
+<thead>
+<tr>
+<th align="left">修改器</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-&gt;first()</td>
+<td align="left">将该列置为表中第一个列 (仅适用于MySQL)</td>
+</tr>
+<tr>
+<td align="left">-&gt;after(‘column’)</td>
+<td align="left">将该列置于另一个列之后 (仅适用于MySQL)</td>
+</tr>
+<tr>
+<td align="left">-&gt;nullable()</td>
+<td align="left">允许该列的值为NULL</td>
+</tr>
+<tr>
+<td align="left">-&gt;default($value)</td>
+<td align="left">指定列的默认值</td>
+</tr>
+<tr>
+<td align="left">-&gt;unsigned()</td>
+<td align="left">设置 <code>integer</code> 列为 <code>UNSIGNED</code></td>
+</tr>
+</tbody></table>
+<h4 id="7-3-5-5-修改列"><a href="#7-3-5-5-修改列" class="headerlink" title="7.3.5.5 修改列"></a>7.3.5.5 修改列</h4><ul>
+<li><p><strong>先决条件</strong></p>
+<p>  在修改列之前，确保已经将<code>doctrine/dbal</code>依赖添加到<code>composer.json</code>文件，Doctrine DBAL 库用于判断列的当前状态并在需要时创建SQL查询来对列进行指定的调整。</p>
+</li>
+<li><p><strong>更新列属性</strong></p>
+<p>  <code>change</code>方法允许你修改已存在的列为新的类型，或者修改列的属性。例如，你可能想要增加 string 类型列的尺寸，让我们将<code>name</code>列的尺寸从 25 增加到 50：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;string(&#x27;name&#x27;, 50)-&gt;change();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>  我们还可以修改该列允许 NULL 值：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;string(&#x27;name&#x27;, 50)-&gt;nullable()-&gt;change();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>重命名列</strong></p>
+</li>
+</ul>
+<p>要重命名一个列，可以使用表结构构建器上的<code>renameColumn</code>方法，在重命名一个列之前，确保<code>doctrine/dbal</code>依赖已经添加到<code>composer.json</code>文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;renameColumn(&#x27;from&#x27;, &#x27;to&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><em>注意：暂不支持 enum类型的列的重命名。</em></p>
+<h4 id="7-3-5-6-删除列"><a href="#7-3-5-6-删除列" class="headerlink" title="7.3.5.6 删除列"></a>7.3.5.6 删除列</h4><p>要删除一个列，使用表结构构建器上的<code>dropColumn</code>方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;dropColumn(&#x27;votes&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>你可以传递列名数组到<code>dropColumn</code>方法从表中删除多个列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;dropColumn([&#x27;votes&#x27;, &#x27;avatar&#x27;, &#x27;location&#x27;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>注意：在从SQLite数据库删除列之前，需要添加<code>doctrine/dbal</code>依赖到<code>composer.json</code>文件并在终端中运行<code>composer update命</code>令来安装该库。此外，SQLite数据库暂不支持在单个迁移中删除或修改多个列。</em></p>
+<h4 id="7-3-5-7-创建索引"><a href="#7-3-5-7-创建索引" class="headerlink" title="7.3.5.7 创建索引"></a>7.3.5.7 创建索引</h4><p>表结构构建器支持多种类型的索引，首先，让我们看一个指定列值为唯一索引的例子。要创建索引，可以使用<code>unique</code>方法：</p>
+<pre><code>$table-&gt;string(&#39;email&#39;)-&gt;unique();
+</code></pre>
+<p>此外，你可以在定义列之后创建索引，例如：</p>
+<pre><code>$table-&gt;unique(&#39;email&#39;);
+</code></pre>
+<p>你甚至可以传递列名数组到索引方法来创建组合索引：</p>
+<pre><code>$table-&gt;index([&#39;account_id&#39;, &#39;created_at&#39;]);
+</code></pre>
+<p>Laravel 会自动生成合理的索引名称，但是你可以传递第二个参数到该方法用于指定索引名称：</p>
+<pre><code>$table-&gt;index(&#39;email&#39;, &#39;my_index_name&#39;);
+</code></pre>
+<ul>
+<li><p><strong>可用索引类型</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$table-&gt;primary(‘id’);</td>
+<td align="left">添加主键索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;primary([‘first’, ‘last’]);</td>
+<td align="left">添加混合索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;unique(‘email’);</td>
+<td align="left">添加唯一索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;unique(‘state’, ‘my_index_name’);</td>
+<td align="left">指定自定义索引名称</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;index(‘state’);</td>
+<td align="left">添加普通索引</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="7-3-5-8-删除索引"><a href="#7-3-5-8-删除索引" class="headerlink" title="7.3.5.8 删除索引"></a>7.3.5.8 删除索引</h4><p>要删除索引，必须指定索引名。默认情况下，Laravel 自动分配适当的名称给索引——简单连接表名、列名和索引类型。下面是一些例子：</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$table-&gt;dropPrimary(‘users_id_primary’);</td>
+<td align="left">从 “users”表中删除主键索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;dropUnique(‘users_email_unique’);</td>
+<td align="left">从 “users”表中删除唯一索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;dropIndex(‘geo_state_index’);</td>
+<td align="left">从 “geo”表中删除普通索引</td>
+</tr>
+</tbody></table>
+<h4 id="7-3-5-9-外键约束"><a href="#7-3-5-9-外键约束" class="headerlink" title="7.3.5.9 外键约束"></a>7.3.5.9 外键约束</h4><p>Laravel 还提供了创建外键约束的支持，用于在数据库层面强制引用完整性。例如，我们在<code>posts</code>表中定义了一个引用<code>users</code>表的<code>id</code>列的<code>user_id</code>列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;posts&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;integer(&#x27;user_id&#x27;)-&gt;unsigned();</span><br><span class="line">    $table-&gt;foreign(&#x27;user_id&#x27;)-&gt;references(&#x27;id&#x27;)-&gt;on(&#x27;users&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>你还可以为约束的<code>on delete</code>和<code>on update</code>属性指定期望的动作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$table-&gt;foreign(&#x27;user_id&#x27;)</span><br><span class="line">      -&gt;references(&#x27;id&#x27;)-&gt;on(&#x27;users&#x27;)</span><br><span class="line">      -&gt;onDelete(&#x27;cascade&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>要删除一个外键，可以使用<code>dropForeign</code>方法。外键约束和索引使用同样的命名规则——连接表名、外键名然后加上<code>_foreign</code>后缀：</p>
+<pre><code>$table-&gt;dropForeign(&#39;posts_user_id_foreign&#39;);
+</code></pre>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/07/26/f1816657eb28/" rel="prev" title="laravel 学习指南 第七章 第二节">
+                  <i class="fa fa-chevron-left"></i> laravel 学习指南 第七章 第二节
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/07/26/f984dd9711e2/" rel="next" title="laravel 学习指南 第七章 第四节">
+                  laravel 学习指南 第七章 第四节 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">K11</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">233k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">3:32</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.2/dist/mermaid.min.js","integrity":"sha256-UIQPVkGifpwMvDH5yGgORJ9sSTDq38zz6BGU6dNaKhM="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"keleven","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

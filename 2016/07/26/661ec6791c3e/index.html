@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="o1eiNMhypkcaTCNHyHeoaEJM-2wqU4uSpp7XfdfQglI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="TOC{:toc}  6 laravel框架6.1 一次请求的生命周期6.1.1 简介当我们使用现实世界中的任何工具时，如果理解了该工具的工作原理，那么用起来就会得心应手，应用开发也是如此。当你理解了开发工具如何工作，用起来就会更加游刃有余。 本文档的目标就是从一个更好、更高层面向你阐述 Laravel 框架的工作原理。通过对框架更全面的了解，一切都不再那么神秘，你将会更加自信的构建应用。 如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel 学习指南 第六章 第一节">
+<meta property="og:url" content="http://keleven.me/2016/07/26/661ec6791c3e/index.html">
+<meta property="og:site_name" content="Keleven.Me">
+<meta property="og:description" content="TOC{:toc}  6 laravel框架6.1 一次请求的生命周期6.1.1 简介当我们使用现实世界中的任何工具时，如果理解了该工具的工作原理，那么用起来就会得心应手，应用开发也是如此。当你理解了开发工具如何工作，用起来就会更加游刃有余。 本文档的目标就是从一个更好、更高层面向你阐述 Laravel 框架的工作原理。通过对框架更全面的了解，一切都不再那么神秘，你将会更加自信的构建应用。 如果">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-07-25T20:00:00.000Z">
+<meta property="article:modified_time" content="2022-01-01T13:55:11.835Z">
+<meta property="article:author" content="K11">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://keleven.me/2016/07/26/661ec6791c3e/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://keleven.me/2016/07/26/661ec6791c3e/","path":"2016/07/26/661ec6791c3e/","title":"laravel 学习指南 第六章 第一节"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>laravel 学习指南 第六章 第一节 | Keleven.Me</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-111519029-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Keleven.Me</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-laravel%E6%A1%86%E6%9E%B6"><span class="nav-number">1.</span> <span class="nav-text">6 laravel框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E4%B8%80%E6%AC%A1%E8%AF%B7%E6%B1%82%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">2.</span> <span class="nav-text">6.1 一次请求的生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-1-%E7%AE%80%E4%BB%8B"><span class="nav-number">2.1.</span> <span class="nav-text">6.1.1 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-2-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%A2%84%E8%A7%88"><span class="nav-number">2.2.</span> <span class="nav-text">6.1.2 生命周期预览</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-2-1-%E7%AC%AC%E4%B8%80%E4%BB%B6%E4%BA%8B"><span class="nav-number">2.2.1.</span> <span class="nav-text">6.1.2.1 第一件事</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-2-2-HTTP-Console%E5%86%85%E6%A0%B8"><span class="nav-number">2.2.2.</span> <span class="nav-text">6.1.2.2 HTTP&#x2F;Console内核</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-3-%E8%81%9A%E9%9B%86%E6%9C%8D%E5%8A%A1%E6%8F%90%E4%BA%A4%E8%80%85"><span class="nav-number">2.3.</span> <span class="nav-text">6.1.3 聚集服务提交者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%85%E8%AF%BB%E6%84%9F%E8%A8%80"><span class="nav-number">2.4.</span> <span class="nav-text">阅读感言</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="K11"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">K11</p>
+  <div class="site-description" itemprop="description">千变万化的是世界</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/k11me" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;k11me" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:k11@keleven.me" title="E-Mail → mailto:k11@keleven.me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/_y.o_o.y_/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;_y.o_o.y_&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/661ec6791c3e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          laravel 学习指南 第六章 第一节
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 04:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T04:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/661ec6791c3e/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/661ec6791c3e/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="6-laravel框架"><a href="#6-laravel框架" class="headerlink" title="6 laravel框架"></a>6 laravel框架</h2><h2 id="6-1-一次请求的生命周期"><a href="#6-1-一次请求的生命周期" class="headerlink" title="6.1 一次请求的生命周期"></a>6.1 一次请求的生命周期</h2><h3 id="6-1-1-简介"><a href="#6-1-1-简介" class="headerlink" title="6.1.1 简介"></a>6.1.1 简介</h3><p>当我们使用现实世界中的任何工具时，如果理解了该工具的工作原理，那么用起来就会得心应手，应用开发也是如此。当你理解了开发工具如何工作，用起来就会更加游刃有余。</p>
+<p>本文档的目标就是从一个更好、更高层面向你阐述 Laravel 框架的工作原理。通过对框架更全面的了解，一切都不再那么神秘，你将会更加自信的构建应用。</p>
+<p>如果你不能马上理解所有这些条款，不要失去信心！先试着掌握一些基本的东西，你的知识将会随着对本文档的探索而不断提高。</p>
+<hr>
+<h3 id="6-1-2-生命周期预览"><a href="#6-1-2-生命周期预览" class="headerlink" title="6.1.2 生命周期预览"></a>6.1.2 生命周期预览</h3><h4 id="6-1-2-1-第一件事"><a href="#6-1-2-1-第一件事" class="headerlink" title="6.1.2.1 第一件事"></a>6.1.2.1 第一件事</h4><p>Laravel应用的所有请求入口都是<code>public/index.php</code>文件，所有请求都会被web服务器(Apache/Nginx)导向这个文件。<code>index.php</code>文件包含的代码并不多，但是，是加载框架其他部分的起点。</p>
+<p><code>index.php</code>文件载入Composer生成的自动加载设置，然后从<code>bootstrap/app.php</code>脚本获取Laravel应用实例，Laravel的第一个动作就是创建服务容器实例。</p>
+<h4 id="6-1-2-2-HTTP-Console内核"><a href="#6-1-2-2-HTTP-Console内核" class="headerlink" title="6.1.2.2 HTTP/Console内核"></a>6.1.2.2 HTTP/Console内核</h4><p>接下来，请求被发送到 HTTP 内核或 Console 内核，这取决于进入应用的请求类型。这两个内核是所有请求都要经过的中央处理器，现在，就让我们聚焦在位于 <code>app/Http/Kernel.php</code> 的 HTTP 内核。</p>
+<p>HTTP 内核继承自 <code>Illuminate\Foundation\Http\Kernel</code> 类，该类定义了一个 <code>bootstrappers</code> 数组，这个数组中的类在请求被执行前运行，这些 <code>bootstrappers</code> 配置了错误处理、日志、检测应用环境以及其它在请求被处理前需要执行的任务。</p>
+<p>HTTP 内核还定义了一系列所有请求在处理前需要经过的 HTTP 中间件，这些中间件处理 HTTP 会话的读写、判断应用是否处于维护模式、验证 CSRF 令牌等等。</p>
+<p>HTTP 内核的标志性方法 handle 处理的逻辑相当简单：获取一个 Request，返回一个 Response，把该内核想象作一个代表整个应用的大黑盒子，输入 HTTP 请求，返回 HTTP 响应。</p>
+<ul>
+<li><p><strong>服务提供者</strong></p>
+<p>  内核启动过程中最重要的动作之一就是为应用载入服务提供者，应用的所有服务提供者都被配置在 <code>config/app.php</code> 配置文件的  <code>providers</code> 数组中。首先，所有提供者的 <code>register</code> 方法被调用，然后，所有提供者被注册之后，<code>boot</code> 方法被调用。</p>
+<p>  服务提供者负责启动框架的所有各种各样的组件，比如数据库、队列、验证器，以及路由组件等，正是因为他们启动并配置了框架提供的所有特性，服务提供者是整个 Laravel 启动过程中最重要的部分。</p>
+</li>
+<li><p><strong>分发请求</strong></p>
+<p>  一旦应用被启动并且所有的服务提供者被注册，Request 将会被交给路由器进行分发，路由器将会分发请求到路由或控制器，同时运行所有路由指定的中间件。</p>
+</li>
+</ul>
+<hr>
+<h3 id="6-1-3-聚集服务提交者"><a href="#6-1-3-聚集服务提交者" class="headerlink" title="6.1.3 聚集服务提交者"></a>6.1.3 聚集服务提交者</h3><p>服务提供者是启动 Laravel 应用中最关键的部分，应用实例被创建后，服务提供者被注册，请求被交给启动后的应用进行处理，整个过程就是这么简单！</p>
+<p>对 Laravel 应用如何通过服务提供者构建和启动有一个牢固的掌握非常有价值，当然，应用默认的服务提供者存放在 <code>app/Providers</code> 目录下。</p>
+<p>默认情况下，<code>AppServiceProvider</code> 是空的，这里是添加自定义启动和服务容器绑定的最佳位置，当然，对大型应用，你可能希望创建多个服务提供者，每一个都有着更加细粒度的启动。</p>
+<h3 id="阅读感言"><a href="#阅读感言" class="headerlink" title="阅读感言"></a>阅读感言</h3><p>上面说了那么多，实际上可以理解为下方的简单流程。</p>
+<ol>
+<li><p><code>public/index.php</code>laravel访问的起点。创建服务容器。</p>
+</li>
+<li><p>请求进入内核(HTTP或Console)。</p>
+</li>
+<li><p>HTTP内核启动，laravel最重要的应用——服务提供者。</p>
+</li>
+<li><p>服务提供者启动各种各样的组件。</p>
+</li>
+<li><p>当所有的服务提供者被注册，路由开始工作。</p>
+</li>
+</ol>
+<p>默认服务提供者存放在<code>app/Providers</code>。</p>
+<hr>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/07/26/afa67e043e16/" rel="prev" title="laravel 学习指南 第五章 第七节">
+                  <i class="fa fa-chevron-left"></i> laravel 学习指南 第五章 第七节
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/07/26/8788d26396c1/" rel="next" title="laravel 学习指南 第六章 第三节">
+                  laravel 学习指南 第六章 第三节 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">K11</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">233k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">3:32</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.2/dist/mermaid.min.js","integrity":"sha256-UIQPVkGifpwMvDH5yGgORJ9sSTDq38zz6BGU6dNaKhM="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"keleven","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

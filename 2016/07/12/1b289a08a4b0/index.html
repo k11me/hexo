@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="o1eiNMhypkcaTCNHyHeoaEJM-2wqU4uSpp7XfdfQglI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="zsh pluginzsh tmux   缩写 命令    ta tmux attach -t   ts tmux new-session -s   tl tmux list-sessions   tksv tmux kill-server   tkss tmux kill-session -t   zsh git   缩写 命令    g git   ga git add   gaa git a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zsh指南">
+<meta property="og:url" content="http://keleven.me/2016/07/12/1b289a08a4b0/index.html">
+<meta property="og:site_name" content="Keleven.Me">
+<meta property="og:description" content="zsh pluginzsh tmux   缩写 命令    ta tmux attach -t   ts tmux new-session -s   tl tmux list-sessions   tksv tmux kill-server   tkss tmux kill-session -t   zsh git   缩写 命令    g git   ga git add   gaa git a">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-07-12T15:30:45.000Z">
+<meta property="article:modified_time" content="2022-01-01T13:55:11.823Z">
+<meta property="article:author" content="K11">
+<meta property="article:tag" content="ubuntu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://keleven.me/2016/07/12/1b289a08a4b0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://keleven.me/2016/07/12/1b289a08a4b0/","path":"2016/07/12/1b289a08a4b0/","title":"zsh指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>zsh指南 | Keleven.Me</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-111519029-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Keleven.Me</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#zsh-plugin"><span class="nav-number">1.</span> <span class="nav-text">zsh plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-tmux"><span class="nav-number">1.0.1.</span> <span class="nav-text">zsh tmux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-git"><span class="nav-number">1.0.2.</span> <span class="nav-text">zsh git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-laravel"><span class="nav-number">1.0.3.</span> <span class="nav-text">zsh laravel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-ubuntu"><span class="nav-number">1.0.4.</span> <span class="nav-text">zsh ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-npm"><span class="nav-number">1.0.5.</span> <span class="nav-text">zsh npm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-ruby"><span class="nav-number">1.0.6.</span> <span class="nav-text">zsh ruby</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-bundler"><span class="nav-number">1.0.7.</span> <span class="nav-text">zsh bundler</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="K11"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">K11</p>
+  <div class="site-description" itemprop="description">千变万化的是世界</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/k11me" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;k11me" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:k11@keleven.me" title="E-Mail → mailto:k11@keleven.me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/_y.o_o.y_/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;_y.o_o.y_&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/12/1b289a08a4b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          zsh指南
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-12 23:30:45" itemprop="dateCreated datePublished" datetime="2016-07-12T23:30:45+08:00">2016-07-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/12/1b289a08a4b0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/1b289a08a4b0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="zsh-plugin"><a href="#zsh-plugin" class="headerlink" title="zsh plugin"></a>zsh plugin</h1><h3 id="zsh-tmux"><a href="#zsh-tmux" class="headerlink" title="zsh tmux"></a>zsh tmux</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ta</td>
+<td align="left">tmux attach -t</td>
+</tr>
+<tr>
+<td align="left">ts</td>
+<td align="left">tmux new-session -s</td>
+</tr>
+<tr>
+<td align="left">tl</td>
+<td align="left">tmux list-sessions</td>
+</tr>
+<tr>
+<td align="left">tksv</td>
+<td align="left">tmux kill-server</td>
+</tr>
+<tr>
+<td align="left">tkss</td>
+<td align="left">tmux kill-session -t</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-git"><a href="#zsh-git" class="headerlink" title="zsh git"></a>zsh git</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">g</td>
+<td align="left">git</td>
+</tr>
+<tr>
+<td align="left">ga</td>
+<td align="left">git add</td>
+</tr>
+<tr>
+<td align="left">gaa</td>
+<td align="left">git add –add</td>
+</tr>
+<tr>
+<td align="left">gapa</td>
+<td align="left">git add –patsh</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gb</td>
+<td align="left">git branch</td>
+</tr>
+<tr>
+<td align="left">gba</td>
+<td align="left">git branch -a</td>
+</tr>
+<tr>
+<td align="left">gbnm</td>
+<td align="left">git branch –no-merged</td>
+</tr>
+<tr>
+<td align="left">gbr</td>
+<td align="left">git branch –remote</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gc</td>
+<td align="left">git commit -v</td>
+</tr>
+<tr>
+<td align="left">gca</td>
+<td align="left">git commit -v -a</td>
+</tr>
+<tr>
+<td align="left">gcam</td>
+<td align="left">git commit -a -m</td>
+</tr>
+<tr>
+<td align="left">gcmsg</td>
+<td align="left">git commit -m</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gco</td>
+<td align="left">git checkout</td>
+</tr>
+<tr>
+<td align="left">gcm</td>
+<td align="left">git checkout master</td>
+</tr>
+<tr>
+<td align="left">gcb</td>
+<td align="left">git checkout -b</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gcl</td>
+<td align="left">git clone –recursive</td>
+</tr>
+<tr>
+<td align="left">gcf</td>
+<td align="left">git config –list</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gd</td>
+<td align="left">git diff</td>
+</tr>
+<tr>
+<td align="left">gf</td>
+<td align="left">git fetch</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gl</td>
+<td align="left">git pull</td>
+</tr>
+<tr>
+<td align="left">gm</td>
+<td align="left">git merge</td>
+</tr>
+<tr>
+<td align="left">gmom</td>
+<td align="left">git merge origin/master</td>
+</tr>
+<tr>
+<td align="left">gp</td>
+<td align="left">git push</td>
+</tr>
+<tr>
+<td align="left">gpd</td>
+<td align="left">git push –dry-run</td>
+</tr>
+<tr>
+<td align="left">gpoat</td>
+<td align="left">git push origin –all &amp;&amp; git push origin –tags</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gr</td>
+<td align="left">git remote</td>
+</tr>
+<tr>
+<td align="left">gra</td>
+<td align="left">git remote add</td>
+</tr>
+<tr>
+<td align="left">grmv</td>
+<td align="left">git remote rename</td>
+</tr>
+<tr>
+<td align="left">grrm</td>
+<td align="left">git remote remove</td>
+</tr>
+<tr>
+<td align="left">grv</td>
+<td align="left">git remote -v</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">grb</td>
+<td align="left">git rebase</td>
+</tr>
+<tr>
+<td align="left">grbm</td>
+<td align="left">git rebase master</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">grh</td>
+<td align="left">git reset HEAD</td>
+</tr>
+<tr>
+<td align="left">grhh</td>
+<td align="left">git reset HEAD –hard</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gsb</td>
+<td align="left">git status -sb</td>
+</tr>
+<tr>
+<td align="left">gss</td>
+<td align="left">git status -s</td>
+</tr>
+<tr>
+<td align="left">gst</td>
+<td align="left">git status</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gts</td>
+<td align="left">git tag -s</td>
+</tr>
+<tr>
+<td align="left">gtv</td>
+<td align="left">git tag</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-laravel"><a href="#zsh-laravel" class="headerlink" title="zsh laravel"></a>zsh laravel</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">la5</td>
+<td align="left">php artisan</td>
+</tr>
+<tr>
+<td align="left">la5cache</td>
+<td align="left">php artisan cache:clear</td>
+</tr>
+<tr>
+<td align="left">la5routes</td>
+<td align="left">php artisan route:list</td>
+</tr>
+<tr>
+<td align="left">la5vendor</td>
+<td align="left">php artisan vendor:publish</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-ubuntu"><a href="#zsh-ubuntu" class="headerlink" title="zsh ubuntu"></a>zsh ubuntu</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ag</td>
+<td align="left">sudo apt-get</td>
+</tr>
+<tr>
+<td align="left">aga</td>
+<td align="left">sudo apt-get autoclean</td>
+</tr>
+<tr>
+<td align="left">agar</td>
+<td align="left">sudo apt-get autoremove</td>
+</tr>
+<tr>
+<td align="left">agb</td>
+<td align="left">sudo apt-get build-dep</td>
+</tr>
+<tr>
+<td align="left">agc</td>
+<td align="left">sudo apt-get clean</td>
+</tr>
+<tr>
+<td align="left">agd</td>
+<td align="left">sudo apt-get dselect-upgrade</td>
+</tr>
+<tr>
+<td align="left">agi</td>
+<td align="left">sudo apt-get install</td>
+</tr>
+<tr>
+<td align="left">agp</td>
+<td align="left">sudo apt-get purge</td>
+</tr>
+<tr>
+<td align="left">agr</td>
+<td align="left">sudo apt-get remove</td>
+</tr>
+<tr>
+<td align="left">agu</td>
+<td align="left">sudo apt-get update</td>
+</tr>
+<tr>
+<td align="left">agud</td>
+<td align="left">sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</td>
+</tr>
+<tr>
+<td align="left">agug</td>
+<td align="left">sudo apt-get upgrade</td>
+</tr>
+<tr>
+<td align="left">aguu</td>
+<td align="left">sudo apt-get update &amp;&amp; sudo apt-get upgrade</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-npm"><a href="#zsh-npm" class="headerlink" title="zsh npm"></a>zsh npm</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">npmg</td>
+<td align="left">npm i -g</td>
+</tr>
+<tr>
+<td align="left">npmS</td>
+<td align="left">npm i -S</td>
+</tr>
+<tr>
+<td align="left">npmD</td>
+<td align="left">npm i -D</td>
+</tr>
+<tr>
+<td align="left">npmO</td>
+<td align="left">npm outdated</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-ruby"><a href="#zsh-ruby" class="headerlink" title="zsh ruby"></a>zsh ruby</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">sgem</td>
+<td align="left">sudo gem</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-bundler"><a href="#zsh-bundler" class="headerlink" title="zsh bundler"></a>zsh bundler</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">be</td>
+<td align="left">bundle exec</td>
+</tr>
+<tr>
+<td align="left">bl</td>
+<td align="left">bundle list</td>
+</tr>
+<tr>
+<td align="left">bp</td>
+<td align="left">bundle package</td>
+</tr>
+<tr>
+<td align="left">bo</td>
+<td align="left">bundle open</td>
+</tr>
+<tr>
+<td align="left">bout</td>
+<td align="left">bundle outdated</td>
+</tr>
+<tr>
+<td align="left">bu</td>
+<td align="left">bundle update</td>
+</tr>
+<tr>
+<td align="left">bi</td>
+<td align="left">bundle install</td>
+</tr>
+<tr>
+<td align="left">bcn</td>
+<td align="left">bundle clean</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/07/11/c694b940233e/" rel="prev" title="2016年7月11日">
+                  <i class="fa fa-chevron-left"></i> 2016年7月11日
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/07/12/23c89f0bf146/" rel="next" title="jekyll 学习指南">
+                  jekyll 学习指南 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">K11</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">233k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">3:32</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@8.13.2/dist/mermaid.min.js","integrity":"sha256-UIQPVkGifpwMvDH5yGgORJ9sSTDq38zz6BGU6dNaKhM="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"keleven","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
