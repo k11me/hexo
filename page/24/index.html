@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">243</span>
+          <span class="site-state-item-count">244</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,163 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/17/348d503381f4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/17/348d503381f4/" class="post-title-link" itemprop="url">laravel 学习指南 第五章 第二节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-17 01:00:00" itemprop="dateCreated datePublished" datetime="2016-07-17T01:00:00+08:00">2016-07-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/17/348d503381f4/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/17/348d503381f4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="5-2-中间件"><a href="#5-2-中间件" class="headerlink" title="5.2 中间件"></a>5.2 中间件</h2><h3 id="5-2-1-简介"><a href="#5-2-1-简介" class="headerlink" title="5.2.1 简介"></a>5.2.1 简介</h3><p>laravel中间件提供一个方便的机制来过滤进入web应用的HTTP请求。</p>
+<p>例如，laravel内置一个中间件来验证用户是否经过授权，如果用户没有经过授权，中间件会将用户重定向到登陆页面，否则如果用户经过授权，中间件就会允许请求继续往前进行下一步操作。</p>
+<p>当然，除了认证之外，中间件还可以用来处理更多任务。</p>
+<p>例如：CORS中间件可以为离开站点的响应添加合适的头，日记中间件可以记录所有进入站点的请求。</p>
+<p>laravel框架自带了一些中间件，包括维护模式、认证、CSRF等等。所有的中间件都位于<code>App/Http/Middleware</code>目录中。</p>
+<hr>
+<h3 id="5-2-2-定义中间件"><a href="#5-2-2-定义中间件" class="headerlink" title="5.2.2 定义中间件"></a>5.2.2 定义中间件</h3><p>可以使用Artisan命令<code>make:middleware</code>创建一个新的中间件</p>
+<pre><code>php artisan make:middleware OldMiddleware
+</code></pre>
+<p>其中的<code>OldMiddleware</code>可以为任意名称。</p>
+<p>命令会下<code>app/Http/Middleware</code>目录下创建一个新的中间件<code>OldMiddlware</code>,在这个中间件中，设定只允许<code>age</code>大于<code>200</code>的才能访问路由，否则，将用户重新定向到主页：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Middleware</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Closure</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OldMiddleware</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回请求过滤器</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> \Illuminate\Http\Request $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> \Closure $next</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"><span class="variable">$request</span>, <span class="built_in">Closure</span> <span class="variable">$next</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$request</span>-&gt;input(<span class="string">&#x27;age&#x27;</span>) &lt;= <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">&#x27;home&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$next</span>(<span class="variable">$request</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果<code>age&lt;=200</code>,中间件会返回一个HTTP重定向到客户端；否则，请求会被传统下去。将请求往下传递可以通过调用回调函数<code>$next</code>并传入<code>$request</code>。</p>
+<p>理解中间件最好的方式是将中间件看做HTTP请求，到达目标动作之前必须经过的<code>层</code>，每一层都会检查请求并且可以完全拒绝它。</p>
+<h4 id="5-2-2-1-中间件之前-之后"><a href="#5-2-2-1-中间件之前-之后" class="headerlink" title="5.2.2.1 中间件之前/之后"></a>5.2.2.1 中间件之前/之后</h4><p>一个中间件，在请求前执行还是请求后执行取决于中间件本身。</p>
+<p>比如，下方中间件会在请求处理前执行一些任务：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Middleware</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Closure</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OldMiddleware</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回请求过滤器</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> \Illuminate\Http\Request $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> \Closure $next</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"><span class="variable">$request</span>, <span class="built_in">Closure</span> <span class="variable">$next</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$request</span>-&gt;input(<span class="string">&#x27;age&#x27;</span>) &lt;= <span class="number">200</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">&#x27;home&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$next</span>(<span class="variable">$request</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下方中间件会在请求处理后执行任务：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Middleware</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Closure</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AfterMiddleware</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"><span class="variable">$request</span>, <span class="built_in">Closure</span> <span class="variable">$next</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$response</span> = <span class="variable">$next</span>(<span class="variable">$request</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 执行动作</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$response</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-2-3-注册中间件"><a href="#5-2-3-注册中间件" class="headerlink" title="5.2.3 注册中间件"></a>5.2.3 注册中间件</h3><h4 id="5-2-3-1-全局中间件"><a href="#5-2-3-1-全局中间件" class="headerlink" title="5.2.3.1 全局中间件"></a>5.2.3.1 全局中间件</h4><p>如果想要中间件放在每个HTTP请求期间被执行，只需要将相应的中间件类，设置到<code>app/Http/Kernel.php</code>的<code>$middleware</code>属性中。</p>
+<h4 id="5-2-3-2-为路由指派中间件"><a href="#5-2-3-2-为路由指派中间件" class="headerlink" title="5.2.3.2 为路由指派中间件"></a>5.2.3.2 为路由指派中间件</h4><p>如果想要分配中间件到指定路由，先要在<code>app/Http/Kernel.php</code>文件中分配给中间件一个简写的<code>key</code>,默认情况下，该类的<code>$routeMiddleware</code>属性包含了laravel内置的入口中间件，添加自己的中间件只需要将其追加到后面并为其分配一个<code>key</code>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 App\Http\Kernel 里中</span></span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$routeMiddleware</span> = [</span><br><span class="line">    <span class="string">&#x27;auth&#x27;</span> =&gt; \App\Http\Middleware\Authenticate::class,</span><br><span class="line">    <span class="string">&#x27;auth.basic&#x27;</span> =&gt; \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,</span><br><span class="line">    <span class="string">&#x27;guest&#x27;</span> =&gt; \App\Http\Middleware\RedirectIfAuthenticated::class,</span><br><span class="line">    <span class="string">&#x27;throttle&#x27;</span> =&gt; \Illuminate\Routing\Middleware\ThrottleRequests::class,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<p>中间件在 HTTP Kernel 中被定义后，可以在路由选项数组中使用 <code>$middleware</code> 键来指定该中间件：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;admin/profile&#x27;</span>, [<span class="string">&#x27;middleware&#x27;</span> =&gt; <span class="string">&#x27;auth&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;]);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用数组分配多个中间件到路由,使用数组方式排列:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, [<span class="string">&#x27;middleware&#x27;</span> =&gt; [<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;second&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>处理使用数组外，还可以使用<code>middleware</code>方法链方式定义路由：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;)-&gt;middleware([<span class="string">&#x27;first&#x27;</span>, <span class="string">&#x27;second&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-2-3-3-中间件群组"><a href="#5-2-3-3-中间件群组" class="headerlink" title="5.2.3.3 中间件群组"></a>5.2.3.3 中间件群组</h4><p>有时你可能想将多个中间件组成单一的键，让它可以简单的指派给路由。</p>
+<p>这可以通过使用HTTP的<code>$middlewareGroups</code>实现。</p>
+<p>laravel自带了<code>web</code>与<code>api</code>两个中间件组，包含可以应用到webUI和API路由的通用中间件：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 应用的路由中间件组</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$middlewareGroups</span> = [</span><br><span class="line">    <span class="string">&#x27;web&#x27;</span> =&gt; [</span><br><span class="line">        \App\Http\Middleware\EncryptCookies::class,</span><br><span class="line">        \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,</span><br><span class="line">        \Illuminate\Session\Middleware\StartSession::class,</span><br><span class="line">        \Illuminate\View\Middleware\ShareErrorsFromSession::class,</span><br><span class="line">        \App\Http\Middleware\VerifyCsrfToken::class,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;api&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;throttle:60,1&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;auth:api&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>中间件组可以被分配给路由和控制器动作，使用方法与单个中间件相同。</p>
+<p><strong>注意：中间件组只是让指派多个中间件变得简单</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">&#x27;middleware&#x27;</span> =&gt; [<span class="string">&#x27;web&#x27;</span>]], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-2-4-中间件参数"><a href="#5-2-4-中间件参数" class="headerlink" title="5.2.4 中间件参数"></a>5.2.4 中间件参数</h3><p>中间件还可以接收额外的自定义参数。</p>
+<p>例如，应用要先检查使用者是否有权限，后执行特定的操作。</p>
+<p>可以建立<code>RoleMiddleware</code>来接收使用者名称作为额外的参数。</p>
+<p>额外的中间件参数会在<code>$next</code>参数之后传入中间件:</p>
+<p><em>注意：下方代价中指<code> Closure $next</code>后</em></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Middleware</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Closure</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RoleMiddleware</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 运行请求过滤器</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> \Illuminate\Http\Request $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> \Closure $next</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> string $role</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">     * translator http://laravelacademy.org</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"><span class="variable">$request</span>, <span class="built_in">Closure</span> <span class="variable">$next</span>, <span class="variable">$role</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (! <span class="variable">$request</span>-&gt;user()-&gt;hasRole(<span class="variable">$role</span>)) &#123;</span><br><span class="line">            <span class="comment">// Redirect...</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$next</span>(<span class="variable">$request</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>中间件参数可以在定义路由时通过<code>:</code>分隔中间件名和参数名来指定，多个中间件参数可以通过<code>,</code>分隔：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::put(<span class="string">&#x27;post/&#123;id&#125;&#x27;</span>, [<span class="string">&#x27;middleware&#x27;</span> =&gt; <span class="string">&#x27;role:editor&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-2-5-可终止的中间件"><a href="#5-2-5-可终止的中间件" class="headerlink" title="5.2.5 可终止的中间件"></a>5.2.5 可终止的中间件</h3><p>有时中间件需要在HTTP响应发送到浏览器后做一些工作。</p>
+<p>例如，让<code>Session</code>中间件在响应发送到浏览器后，将Session中的数据写到存储器中。</p>
+<p>为了实现这个，定义一个终止中间件，并在其中使用<code>terminable</code>方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Illuminate</span>\<span class="title">Session</span>\<span class="title">Middleware</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Closure</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StartSession</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"><span class="variable">$request</span>, <span class="built_in">Closure</span> <span class="variable">$next</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$next</span>(<span class="variable">$request</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">terminate</span>(<span class="params"><span class="variable">$request</span>, <span class="variable">$response</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Store the session data...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个<code>terminate</code>方法要接受<code>$request</code>和<code>$response</code>。一旦使用终止中间，应将其添加到<code>Http Kernel</code>作为全局变量使用。</p>
+<p>当调用中间件中的<code>terminate</code>方法时，laravel将从服务器容器中取出这个中间件的新实例。</p>
+<p>如果想在调用<code>handle</code>和<code>terminate</code>使用同一中间件实例，需要使用<code>container(容器)</code>的<code>singleton</code>方法将中间注入到容器。</p>
+<p>这里<code>实例</code>可以理解为数据包。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1816,495 +1973,6 @@ title: Blogging Like a Hacker
 <pre><code>&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
 </code></pre>
 <h2 id="3-disqus"><a href="#3-disqus" class="headerlink" title="3. disqus"></a>3. disqus</h2><p>添加<code>disqus</code>代码到<code>_layouts/post.html</code></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/12/1b289a08a4b0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/12/1b289a08a4b0/" class="post-title-link" itemprop="url">zsh指南</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-12 23:30:45" itemprop="dateCreated datePublished" datetime="2016-07-12T23:30:45+08:00">2016-07-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/12/1b289a08a4b0/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/1b289a08a4b0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="zsh-plugin"><a href="#zsh-plugin" class="headerlink" title="zsh plugin"></a>zsh plugin</h1><h3 id="zsh-tmux"><a href="#zsh-tmux" class="headerlink" title="zsh tmux"></a>zsh tmux</h3><table>
-<thead>
-<tr>
-<th align="left">缩写</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">ta</td>
-<td align="left">tmux attach -t</td>
-</tr>
-<tr>
-<td align="left">ts</td>
-<td align="left">tmux new-session -s</td>
-</tr>
-<tr>
-<td align="left">tl</td>
-<td align="left">tmux list-sessions</td>
-</tr>
-<tr>
-<td align="left">tksv</td>
-<td align="left">tmux kill-server</td>
-</tr>
-<tr>
-<td align="left">tkss</td>
-<td align="left">tmux kill-session -t</td>
-</tr>
-</tbody></table>
-<h3 id="zsh-git"><a href="#zsh-git" class="headerlink" title="zsh git"></a>zsh git</h3><table>
-<thead>
-<tr>
-<th align="left">缩写</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">g</td>
-<td align="left">git</td>
-</tr>
-<tr>
-<td align="left">ga</td>
-<td align="left">git add</td>
-</tr>
-<tr>
-<td align="left">gaa</td>
-<td align="left">git add –add</td>
-</tr>
-<tr>
-<td align="left">gapa</td>
-<td align="left">git add –patsh</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gb</td>
-<td align="left">git branch</td>
-</tr>
-<tr>
-<td align="left">gba</td>
-<td align="left">git branch -a</td>
-</tr>
-<tr>
-<td align="left">gbnm</td>
-<td align="left">git branch –no-merged</td>
-</tr>
-<tr>
-<td align="left">gbr</td>
-<td align="left">git branch –remote</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gc</td>
-<td align="left">git commit -v</td>
-</tr>
-<tr>
-<td align="left">gca</td>
-<td align="left">git commit -v -a</td>
-</tr>
-<tr>
-<td align="left">gcam</td>
-<td align="left">git commit -a -m</td>
-</tr>
-<tr>
-<td align="left">gcmsg</td>
-<td align="left">git commit -m</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gco</td>
-<td align="left">git checkout</td>
-</tr>
-<tr>
-<td align="left">gcm</td>
-<td align="left">git checkout master</td>
-</tr>
-<tr>
-<td align="left">gcb</td>
-<td align="left">git checkout -b</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gcl</td>
-<td align="left">git clone –recursive</td>
-</tr>
-<tr>
-<td align="left">gcf</td>
-<td align="left">git config –list</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gd</td>
-<td align="left">git diff</td>
-</tr>
-<tr>
-<td align="left">gf</td>
-<td align="left">git fetch</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gl</td>
-<td align="left">git pull</td>
-</tr>
-<tr>
-<td align="left">gm</td>
-<td align="left">git merge</td>
-</tr>
-<tr>
-<td align="left">gmom</td>
-<td align="left">git merge origin/master</td>
-</tr>
-<tr>
-<td align="left">gp</td>
-<td align="left">git push</td>
-</tr>
-<tr>
-<td align="left">gpd</td>
-<td align="left">git push –dry-run</td>
-</tr>
-<tr>
-<td align="left">gpoat</td>
-<td align="left">git push origin –all &amp;&amp; git push origin –tags</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gr</td>
-<td align="left">git remote</td>
-</tr>
-<tr>
-<td align="left">gra</td>
-<td align="left">git remote add</td>
-</tr>
-<tr>
-<td align="left">grmv</td>
-<td align="left">git remote rename</td>
-</tr>
-<tr>
-<td align="left">grrm</td>
-<td align="left">git remote remove</td>
-</tr>
-<tr>
-<td align="left">grv</td>
-<td align="left">git remote -v</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">grb</td>
-<td align="left">git rebase</td>
-</tr>
-<tr>
-<td align="left">grbm</td>
-<td align="left">git rebase master</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">grh</td>
-<td align="left">git reset HEAD</td>
-</tr>
-<tr>
-<td align="left">grhh</td>
-<td align="left">git reset HEAD –hard</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gsb</td>
-<td align="left">git status -sb</td>
-</tr>
-<tr>
-<td align="left">gss</td>
-<td align="left">git status -s</td>
-</tr>
-<tr>
-<td align="left">gst</td>
-<td align="left">git status</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">gts</td>
-<td align="left">git tag -s</td>
-</tr>
-<tr>
-<td align="left">gtv</td>
-<td align="left">git tag</td>
-</tr>
-</tbody></table>
-<h3 id="zsh-laravel"><a href="#zsh-laravel" class="headerlink" title="zsh laravel"></a>zsh laravel</h3><table>
-<thead>
-<tr>
-<th align="left">缩写</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">la5</td>
-<td align="left">php artisan</td>
-</tr>
-<tr>
-<td align="left">la5cache</td>
-<td align="left">php artisan cache:clear</td>
-</tr>
-<tr>
-<td align="left">la5routes</td>
-<td align="left">php artisan route:list</td>
-</tr>
-<tr>
-<td align="left">la5vendor</td>
-<td align="left">php artisan vendor:publish</td>
-</tr>
-</tbody></table>
-<h3 id="zsh-ubuntu"><a href="#zsh-ubuntu" class="headerlink" title="zsh ubuntu"></a>zsh ubuntu</h3><table>
-<thead>
-<tr>
-<th align="left">缩写</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">ag</td>
-<td align="left">sudo apt-get</td>
-</tr>
-<tr>
-<td align="left">aga</td>
-<td align="left">sudo apt-get autoclean</td>
-</tr>
-<tr>
-<td align="left">agar</td>
-<td align="left">sudo apt-get autoremove</td>
-</tr>
-<tr>
-<td align="left">agb</td>
-<td align="left">sudo apt-get build-dep</td>
-</tr>
-<tr>
-<td align="left">agc</td>
-<td align="left">sudo apt-get clean</td>
-</tr>
-<tr>
-<td align="left">agd</td>
-<td align="left">sudo apt-get dselect-upgrade</td>
-</tr>
-<tr>
-<td align="left">agi</td>
-<td align="left">sudo apt-get install</td>
-</tr>
-<tr>
-<td align="left">agp</td>
-<td align="left">sudo apt-get purge</td>
-</tr>
-<tr>
-<td align="left">agr</td>
-<td align="left">sudo apt-get remove</td>
-</tr>
-<tr>
-<td align="left">agu</td>
-<td align="left">sudo apt-get update</td>
-</tr>
-<tr>
-<td align="left">agud</td>
-<td align="left">sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</td>
-</tr>
-<tr>
-<td align="left">agug</td>
-<td align="left">sudo apt-get upgrade</td>
-</tr>
-<tr>
-<td align="left">aguu</td>
-<td align="left">sudo apt-get update &amp;&amp; sudo apt-get upgrade</td>
-</tr>
-</tbody></table>
-<h3 id="zsh-npm"><a href="#zsh-npm" class="headerlink" title="zsh npm"></a>zsh npm</h3><table>
-<thead>
-<tr>
-<th align="left">缩写</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">npmg</td>
-<td align="left">npm i -g</td>
-</tr>
-<tr>
-<td align="left">npmS</td>
-<td align="left">npm i -S</td>
-</tr>
-<tr>
-<td align="left">npmD</td>
-<td align="left">npm i -D</td>
-</tr>
-<tr>
-<td align="left">npmO</td>
-<td align="left">npm outdated</td>
-</tr>
-</tbody></table>
-<h3 id="zsh-ruby"><a href="#zsh-ruby" class="headerlink" title="zsh ruby"></a>zsh ruby</h3><table>
-<thead>
-<tr>
-<th align="left">缩写</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">sgem</td>
-<td align="left">sudo gem</td>
-</tr>
-</tbody></table>
-<h3 id="zsh-bundler"><a href="#zsh-bundler" class="headerlink" title="zsh bundler"></a>zsh bundler</h3><table>
-<thead>
-<tr>
-<th align="left">缩写</th>
-<th align="left">命令</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">be</td>
-<td align="left">bundle exec</td>
-</tr>
-<tr>
-<td align="left">bl</td>
-<td align="left">bundle list</td>
-</tr>
-<tr>
-<td align="left">bp</td>
-<td align="left">bundle package</td>
-</tr>
-<tr>
-<td align="left">bo</td>
-<td align="left">bundle open</td>
-</tr>
-<tr>
-<td align="left">bout</td>
-<td align="left">bundle outdated</td>
-</tr>
-<tr>
-<td align="left">bu</td>
-<td align="left">bundle update</td>
-</tr>
-<tr>
-<td align="left">bi</td>
-<td align="left">bundle install</td>
-</tr>
-<tr>
-<td align="left">bcn</td>
-<td align="left">bundle clean</td>
-</tr>
-</tbody></table>
 
       
     </div>
