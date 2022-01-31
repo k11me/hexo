@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">244</span>
+          <span class="site-state-item-count">245</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,135 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/12/23c89f0bf146/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/12/23c89f0bf146/" class="post-title-link" itemprop="url">jekyll 学习指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-12 23:30:45" itemprop="dateCreated datePublished" datetime="2016-07-12T23:30:45+08:00">2016-07-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/12/23c89f0bf146/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/23c89f0bf146/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-jekyll"><a href="#1-jekyll" class="headerlink" title="1.jekyll"></a>1.jekyll</h2><p><a target="_blank" rel="noopener" href="https://jekyllrb.com/">jekyll官方地址</a></p>
+<p><a target="_blank" rel="noopener" href="http://jekyllcn.com/">jekyll中文</a></p>
+<h3 id="1-1安装jekyll必要组件"><a href="#1-1安装jekyll必要组件" class="headerlink" title="1.1安装jekyll必要组件"></a>1.1安装jekyll必要组件</h3><p>下文是在ubuntu上安装与设置</p>
+<pre><code>$ sudo apt-get install ruby ruby-dev make gcc nodejs
+</code></pre>
+<h3 id="1-2安装jekyll"><a href="#1-2安装jekyll" class="headerlink" title="1.2安装jekyll"></a>1.2安装jekyll</h3><pre><code>$ sudo gem install jekyll
+</code></pre>
+<p>之后查看jekyll版本</p>
+<pre><code>$ jekyll -v
+</code></pre>
+<h3 id="1-3jekyll使用"><a href="#1-3jekyll使用" class="headerlink" title="1.3jekyll使用"></a>1.3jekyll使用</h3><p>首先要设置<code>_config.yml</code>文件</p>
+<p>随后build为site。</p>
+<pre><code>$ jekyll build
+</code></pre>
+<p>build后网站文件在<code>_site</code></p>
+<p>使用<code>jekyll server</code>运行测试。</p>
+<pre><code>$ jekyll server
+</code></pre>
+<p>浏览器输入<code>localhost:4000</code>可以查看网站运行情况。</p>
+<p><code>_post</code>文件下位文章列表，可以将文章放入后build。</p>
+<p><em>注意：文件的头部要使用下方格式</em></p>
+<pre><code>---
+layout: post
+title: Blogging Like a Hacker
+---
+</code></pre>
+<h2 id="2-kramdown-语法说明"><a href="#2-kramdown-语法说明" class="headerlink" title="2. kramdown 语法说明"></a>2. kramdown 语法说明</h2><h3 id="2-1-TOC连接-文章目录"><a href="#2-1-TOC连接-文章目录" class="headerlink" title="2.1 TOC连接[文章目录]"></a>2.1 TOC连接[文章目录]</h3><pre><code>* TOC
+&#123;：toc&#125;
+</code></pre>
+<p>生成目录带自动锚点</p>
+<h3 id="2-2-删除线"><a href="#2-2-删除线" class="headerlink" title="2.2 删除线"></a>2.2 删除线</h3><pre><code>~~删除线~~
+</code></pre>
+<h3 id="2-3-数学公式"><a href="#2-3-数学公式" class="headerlink" title="2.3 数学公式"></a>2.3 数学公式</h3><p>需要增加<code>js</code>用于公式解析</p>
+<pre><code>&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h2 id="3-disqus"><a href="#3-disqus" class="headerlink" title="3. disqus"></a>3. disqus</h2><p>添加<code>disqus</code>代码到<code>_layouts/post.html</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
