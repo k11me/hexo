@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">245</span>
+          <span class="site-state-item-count">246</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,238 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/a3ed63a923fe/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/a3ed63a923fe/" class="post-title-link" itemprop="url">laravel 学习指南 第五章 第四节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T00:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/a3ed63a923fe/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/a3ed63a923fe/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h1 id="5-4-请求"><a href="#5-4-请求" class="headerlink" title="5.4 请求"></a>5.4 请求</h1><h3 id="5-4-1-获取请求"><a href="#5-4-1-获取请求" class="headerlink" title="5.4.1 获取请求"></a>5.4.1 获取请求</h3><p>通过依赖注入获取当前HTTP请求实例，应该在控制器的构造函数或方法中对<code>Illuminate\Http\Request</code>类进行类型提示，当前请求实例会被服务容器自动注入：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Routing</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 存储新用户</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Request $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$name</span>=<span class="variable">$request</span>-&gt;input(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你的控制器方法还期望获取路由参数输入，只需要将路由参数置于其它依赖之后即可，例如，如果你的路由定义如下：</p>
+<pre><code>Route::put(&#39;user/&#123;id&#125;&#39;,&#39;UserController@update&#39;);
+</code></pre>
+<p>依然可以对<code>Illuminate\Http\Request</code>进行类型提示并通过如下方式定义控制器方法来访问路由参数：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Routing</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line">classUser Controller <span class="keyword">extends</span> Controller</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新指定用户</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Request $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int $id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params">Request <span class="variable">$request</span>,<span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-4-1-1-基本请求信息"><a href="#5-4-1-1-基本请求信息" class="headerlink" title="5.4.1.1 基本请求信息"></a>5.4.1.1 基本请求信息</h4><p><code>Illuminate\Http\Request</code>实例提交了多个方法来检查应用的HTTP请求，laravel的<code>Illuminate\Http\Request</code>继承自<code>Symfony\Component\HttpFoundation\Request</code>类，下面演示了一些有用的方法：</p>
+<ul>
+<li><p><strong>获取请求URI</strong></p>
+<p>  path方法将会返回请求的URI（返回的是域名之后的部分），如果进入的请求路径是<code>http://domain.com/foo/bar</code>,则<code>path</code>方法将会返回<code>foo/bar</code>:</p>
+<pre><code>  $uri=$request-&gt;path();
+</code></pre>
+<p>  <code>is</code>方法允许你验证进入的请求是否与给定模式匹配。使用该方法可以使用<code>*</code>通用符：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$request</span>-&gt;is(<span class="string">&#x27;admin/*&#x27;</span>))&#123;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  想要获取完整的URL，而不仅仅是路径信息，可以使用请求实例中的<code>url</code>或<code>fullUrl</code>方法：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$url</span>=<span class="variable">$request</span>-&gt;url();</span><br><span class="line"><span class="variable">$url</span> = <span class="variable">$request</span>-&gt;fullUrl();</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>获取请求方法</strong></p>
+<p>  <code>method</code>方法将会返回请求的HTTP请求方式。你可以使用<code>isMethod</code>方法来验证HTTP请求方式是否匹配给定字符串：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$method</span>=<span class="variable">$request</span>-&gt;method();</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$request</span>-&gt;isMethod(<span class="string">&#x27;post&#x27;</span>))&#123; </span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-4-1-2-PSR-7-请求"><a href="#5-4-1-2-PSR-7-请求" class="headerlink" title="5.4.1.2 PSR-7 请求"></a>5.4.1.2 PSR-7 请求</h4><p>PSR-7标准指定了HTTP信息接口，包括请求和响应。如果想要获取PSR-7请求实例，首先需要安装一些库，laravel使用<code>Symfony HTTP Message Bridge</code>组件，将原的laravel请求和响应转化为PSR-7兼容的请求：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer require symfony/psr-http-message-bridge</span><br><span class="line">composer require zendframework/zend-diactoros</span><br></pre></td></tr></table></figure>
+<p>安装完这些库之后，只需要在路由或控制器中通过，对请求类型进行类型提示就可以获取RSR-7请求：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Psr</span>\<span class="title">Http</span>\<span class="title">Message</span>\<span class="title">ServerRequestInterface</span>;</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">ServerRequestInterface <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>如果从路由或控制器返回的是PSR-7响应实例，则其将会自动转化为laravel响应实例并显示出来。</p>
+<hr>
+<h3 id="5-4-2-获取输入信息"><a href="#5-4-2-获取输入信息" class="headerlink" title="5.4.2 获取输入信息"></a>5.4.2 获取输入信息</h3><ul>
+<li><p><strong>获取特定输入值</strong></p>
+<p>  通过<code>Illuminate\Http\Request </code>实例，使用简单的方法就可以取得所有的使用者输入资料。</p>
+<p>  不需要担心发出请求时使用的HTTP动词，获取输入资料的方式都是相同的。</p>
+<pre><code>  $name = $request-&gt;input(&#39;name&#39;);
+</code></pre>
+<p>  此外，可以使用<code>Illuminate\Http\Request </code>的动态属性存取使用者输入。</p>
+<p>  例如，如果你的应用程序的表单含有一个<code>name</code>字段，可以使用下面的方式提交：</p>
+<pre><code>  $name = $request-&gt;name;
+</code></pre>
+<p>  还可以传统一个默认值作为第二个参数给<code>input</code>方法，如果请求输入值在当前请求未出现时该值将会返回：</p>
+<pre><code>  $name = $request-&gt;input(&#39;name&#39;, &#39;Sally&#39;);
+</code></pre>
+<p>  处理表单数组输入时，可以使用<code>.</code>来访问数组输入：</p>
+<pre><code>  $input = $request-&gt;input(&#39;products.0.name&#39;);
+  $names = $request-&gt;input(&#39;products.*.name&#39;);
+</code></pre>
+</li>
+<li><p><strong>判断输入值是否出现</strong></p>
+<p>  判断值是否在请求中出现，可以使用<code>has</code>方法，如果值出现且不为空，<code>has</code>方法返回<code>true</code>:</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if ($request-&gt;has(&#x27;name&#x27;)) &#123;</span><br><span class="line">    //</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>获取所有输入数据</strong></p>
+<p>  还可以通过<code>all</code>方法获取所有输入数据：</p>
+<pre><code>  $input = $request-&gt;all();
+</code></pre>
+</li>
+<li><p><strong>获取部分输入数据</strong></p>
+<p>  如何需要取出输入数据的子集，可以使用<code>only</code>或<code>except</code>方法，这两个方法都接收一个数组或动态列表作为唯一参数:</p>
+<pre><code>  $input = $request-&gt;only([&#39;username&#39;, &#39;password&#39;]);
+  $input = $request-&gt;only(&#39;username&#39;, &#39;password&#39;);
+  
+  $input = $request-&gt;except([&#39;credit_card&#39;]);
+  $input = $request-&gt;except(&#39;credit_card&#39;);
+</code></pre>
+</li>
+</ul>
+<h4 id="5-4-2-1-上一次请求输入"><a href="#5-4-2-1-上一次请求输入" class="headerlink" title="5.4.2.1 上一次请求输入"></a>5.4.2.1 上一次请求输入</h4><p>laravel 允许你在两次请求之间保存输入数据，这个特性在检测校验数据失败后需要重新填充表单数据时很有用。</p>
+<p>但如果使用的是laravel内置的验证服务，则不需要手动使用这些方法，因为一些laravel内置的校验会自动调用它们。</p>
+<ul>
+<li><p><strong>将输入存储到一次性Session</strong></p>
+<p>  <code>Illuminate\Http\Request</code>实例的<code>flash</code>方法会将当前输入存放到一次性<code>Session</code>中，下次使用者发出请求至应用程序时就可以使用它们：</p>
+<pre><code>  $request-&gt;flash();
+</code></pre>
+<p>  还可以使用<code>flashOnly</code>和<code>flashExcept</code>方法将输入数据子集存储到Session中：</p>
+<pre><code>  $request-&gt;flashOnly(&#39;username&#39;, &#39;email&#39;);
+  $request-&gt;flashExcept(&#39;password&#39;);
+</code></pre>
+</li>
+<li><p><strong>将输入存储到一次性Session然后重定向</strong></p>
+<p>  可能常常需要使用Session中的数据，并重新定向到前一页。可以简单使用<code>withInput</code>方法来将输入数据链接到<code>redirect</code>后面:</p>
+<pre><code>  return redirect(&#39;form&#39;)-&gt;withInput();
+  return redirect(&#39;form&#39;)-&gt;withInput($request-&gt;except(&#39;password&#39;));
+</code></pre>
+</li>
+<li><p><strong>获取上次输入数据</strong></p>
+<p>  要从Session中取出上次请求的输入数据，可以使用Request实例的<code>old</code>方法。<code>old</code>方法提供了便利方式从Session中取出数据：</p>
+<pre><code>  $username = $request-&gt;old(&#39;username&#39;);
+</code></pre>
+<p>  laravel还提供了一个全局的辅助函数<code>old</code>，如果在Blade模板中显示上次输入数据，使用辅助函数<code>old</code>更方便，如果给定参数没有对应输入，返回null：</p>
+<pre><code>  &#123;&#123; old('username') &#125;&#125;
+</code></pre>
+</li>
+</ul>
+<h4 id="5-4-2-2-Cookies"><a href="#5-4-2-2-Cookies" class="headerlink" title="5.4.2.2 Cookies"></a>5.4.2.2 Cookies</h4><ul>
+<li><p><strong>从请求中取出Cookies</strong></p>
+<p>  laravel 框架创建的所有cookies都经过加密并使用一个认证码进行签名，这意味着如果客户端修改了它们则需要对其进行有效性验证。使用<code>Illuminate\Http\Request</code>类中的 <code>cookie</code>方法从请求中获取cookie的值：</p>
+<pre><code>  $value = $request-&gt;cookie(&#39;name&#39;);
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p><strong>新增Cookies到回应</strong></p>
+<p>  laravel 提供一个全局辅助函数<code>cookie</code>作为一个简单工厂来生成新的<code>Symfony\Component\HttpFoundation\Cookie</code>实例，新增的<code>cookie</code>通过<code>withCookie</code>方法被附加到<code>Illuminate\Http\Response</code>实例：</p>
+<pre><code>  $response = new Illuminate\Http\Response(&#39;Hello World&#39;);
+  $response-&gt;withCookie(cookie(&#39;name&#39;, &#39;value&#39;, $minutes));
+  return $response;
+</code></pre>
+<p>  想要创建一个长期有效的cookie，可以使用cookie工厂的<code>forever</code>方法：</p>
+<pre><code>  $response-&gt;withCookie(cookie()-&gt;forever(&#39;name&#39;, &#39;value&#39;));
+</code></pre>
+</li>
+</ul>
+<h4 id="5-4-2-3-文件上传"><a href="#5-4-2-3-文件上传" class="headerlink" title="5.4.2.3 文件上传"></a>5.4.2.3 文件上传</h4><ul>
+<li><p><strong>获取上传的文件</strong></p>
+<p>  使用<code>Illuminate\Http\Request</code>实例的<code>file</code>方法来访问上传文件，该方法返回的对象是<code>Symfony\Component\HttpFoundation\File\UploadedFile</code>类的一个实例，该类继承自PHP标准库中，与文件交互的<code>SplFileInfo</code>类：</p>
+<pre><code>  $file = $request-&gt;file(&#39;photo&#39;);
+</code></pre>
+<p>  可以使用<code>hasFile</code>方法，判断上传文件是否存在：</p>
+<pre><code>  if ($request-&gt;hasFile(&#39;photo&#39;)) &#123;
+      //
+  &#125;
+</code></pre>
+</li>
+<li><p><strong>验证文件是否上传成功</strong></p>
+<p>  使用<code>isValid</code>方法判断文件在上传过程中是否出错：</p>
+<pre><code>  if ($request-&gt;file(&#39;photo&#39;)-&gt;isValid())&#123;
+      //
+  &#125;
+  
+</code></pre>
+</li>
+<li><p><strong>保存上传的文件</strong></p>
+<p>  如果要移动文件到新位置，必须使用<code>move</code>方法。该方法会将文件从暂存位置（根据机器PHP设定来确定）移动到指定的永久保存位置：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$request</span>-&gt;file(<span class="string">&#x27;photo&#x27;</span>)-&gt;move(<span class="variable">$destinationPath</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$request</span>-&gt;file(<span class="string">&#x27;photo&#x27;</span>)-&gt;move(<span class="variable">$destinationPath</span>, <span class="variable">$fileName</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>其它文件方法</strong></p>
+<p>  <code>UploadedFile</code>实例中有很多可用的方法。可以到<a target="_blank" rel="noopener" href="http://api.symfony.com/2.7/Symfony/Component/HttpFoundation/File/UploadedFile.html">该类的API</a>了解。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1955,116 +2187,6 @@ autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDT
 </ol>
 </li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/12/3243f213ce74/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/12/3243f213ce74/" class="post-title-link" itemprop="url">gulp 学习指南</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-12 23:30:45" itemprop="dateCreated datePublished" datetime="2016-07-12T23:30:45+08:00">2016-07-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/12/3243f213ce74/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/3243f213ce74/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="about-gulp"><a href="#about-gulp" class="headerlink" title="about gulp"></a>about gulp</h1><h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><pre><code>sudo apt install nodejs
-</code></pre>
-<h2 id="安装-nodejs-legacy"><a href="#安装-nodejs-legacy" class="headerlink" title="安装 nodejs-legacy"></a>安装 nodejs-legacy</h2><pre><code>sudo apt install nodejs-legacy
-</code></pre>
-<h2 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h2><pre><code>sudo apt install npm
-</code></pre>
-<h2 id="安装gulp"><a href="#安装gulp" class="headerlink" title="安装gulp"></a>安装gulp</h2><pre><code>sudo npm install -g gulp
-</code></pre>
-<h2 id="查看node-版本"><a href="#查看node-版本" class="headerlink" title="查看node 版本"></a>查看node 版本</h2><pre><code>node -v
-</code></pre>
-<h2 id="查看npm-版本"><a href="#查看npm-版本" class="headerlink" title="查看npm 版本"></a>查看npm 版本</h2><pre><code>npm -v
-</code></pre>
-<h2 id="查看gulp-版本"><a href="#查看gulp-版本" class="headerlink" title="查看gulp 版本"></a>查看gulp 版本</h2><pre><code>gulp -v
-</code></pre>
-<p>测试gulp时，需要<code>package.json</code>与<code>gulpfile.js</code>文件</p>
-<h2 id="安装gulp-sass"><a href="#安装gulp-sass" class="headerlink" title="安装gulp-sass"></a>安装gulp-sass</h2><pre><code>npm install gulp-sass
-</code></pre>
 
       
     </div>
