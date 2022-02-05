@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">247</span>
+          <span class="site-state-item-count">248</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,123 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/11/03/7ede88b26335/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/11/03/7ede88b26335/" class="post-title-link" itemprop="url">好想……</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-11-03 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-03T00:00:00+08:00">2018-11-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/11/03/7ede88b26335/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/03/7ede88b26335/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="好想什么呢"><a href="#好想什么呢" class="headerlink" title="好想什么呢"></a>好想什么呢</h1><p>来猜猜吧</p>
+<h2 id="logs-部分"><a href="#logs-部分" class="headerlink" title="logs 部分"></a>logs 部分</h2><p>结合<code>laravel logs</code>重构</p>
+<p>在<code>laravel logs</code>基础上将<code>logs</code>存入数据库</p>
+<p>先下<code>config\logging</code>中添加<code>channels</code></p>
+<p>如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;channels&#x27;</span> =&gt; [</span><br><span class="line">    <span class="string">&#x27;stack&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;driver&#x27;</span> =&gt; <span class="string">&#x27;stack&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;channels&#x27;</span> =&gt; [<span class="string">&#x27;mysql&#x27;</span>],</span><br><span class="line">    ],</span><br><span class="line">	<span class="string">&#x27;mysql&#x27;</span> =&gt; [</span><br><span class="line">	    <span class="string">&#x27;driver&#x27;</span> =&gt; <span class="string">&#x27;custom&#x27;</span>,</span><br><span class="line">	    <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;mysql&#x27;</span>,</span><br><span class="line">	    <span class="string">&#x27;via&#x27;</span> =&gt; App\Logging\MySQLLogger::class,</span><br><span class="line">	    <span class="string">&#x27;level&#x27;</span> =&gt; <span class="string">&#x27;debug&#x27;</span>,</span><br><span class="line">	],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>新建<code>MySQLLogger</code> 这部分可以查看<code>laravel 文档</code></p>
+<p><code>Logger</code> 的 <code>name</code> 不能正常传入，问题暂时没找到根源</p>
+<p>于是进行手动传入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Logging</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Logging</span>\<span class="title">AdminLogsHandler</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQLLogger</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__invoke</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$config</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Logger(</span><br><span class="line">            env(<span class="string">&#x27;APP_NAME&#x27;</span>),</span><br><span class="line">            [</span><br><span class="line">                <span class="keyword">new</span> LogsHandler(</span><br><span class="line">                    <span class="variable">$config</span>[<span class="string">&#x27;level&#x27;</span>],</span><br><span class="line">                    <span class="variable">$config</span>[<span class="string">&#x27;name&#x27;</span>]</span><br><span class="line">                )</span><br><span class="line">            ]</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后是<code>AdminLogsHandler</code> 用于将<code>logs</code>提交到数据库</p>
+<p>这里也可以复写其他方法，可以自行查看<code>Monolog\Logger</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Logging</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">AbstractProcessingHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Models</span>\<span class="title">Logs</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AdminLogsHandler</span> <span class="keyword">extends</span> <span class="title">AbstractProcessingHandler</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$name</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$level</span>, <span class="variable">$name</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="built_in">parent</span>::__construct(<span class="variable">$level</span>);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;name = <span class="variable">$name</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">write</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$record</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Logs::create([</span><br><span class="line">            <span class="string">&#x27;channel&#x27;</span> =&gt; <span class="keyword">$this</span>-&gt;name,</span><br><span class="line">            <span class="string">&#x27;message&#x27;</span> =&gt; <span class="variable">$record</span>[<span class="string">&#x27;message&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;level&#x27;</span>   =&gt; <span class="variable">$record</span>[<span class="string">&#x27;level_name&#x27;</span>],</span><br><span class="line">            <span class="string">&#x27;context&#x27;</span> =&gt; <span class="variable">$record</span>[<span class="string">&#x27;context&#x27;</span>]</span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>App\Models\Logs</code> 注意要添加批量写入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="variable">$fillable</span> = [</span><br><span class="line">    <span class="string">&#x27;channel&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;message&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;level&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;context&#x27;</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$casts</span> = [</span><br><span class="line">    <span class="string">&#x27;context&#x27;</span> =&gt; <span class="string">&#x27;array&#x27;</span>,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>数据迁移如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$table</span>-&gt;increments(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line"><span class="variable">$table</span>-&gt;string(<span class="string">&#x27;channel&#x27;</span>)-&gt;index();</span><br><span class="line"><span class="variable">$table</span>-&gt;enum(<span class="string">&#x27;level&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;DEBUG&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;INFO&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;NOTICE&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;WARNING&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;ERROR&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;CRITICAL&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;ALERT&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;EMERGENCY&#x27;</span></span><br><span class="line">])-&gt;default(<span class="string">&#x27;INFO&#x27;</span>);</span><br><span class="line"><span class="variable">$table</span>-&gt;longText(<span class="string">&#x27;message&#x27;</span>);</span><br><span class="line"><span class="variable">$table</span>-&gt;text(<span class="string">&#x27;context&#x27;</span>);</span><br><span class="line"><span class="variable">$table</span>-&gt;timestamps();</span><br></pre></td></tr></table></figure>
+
+<p>之后可以使用</p>
+<p><code>Log::info(&#39;message&#39; , [&#39;id&#39; =&gt; $id])</code></p>
+<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1214,117 +1331,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/19/f3e6bdb8ea57/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/19/f3e6bdb8ea57/" class="post-title-link" itemprop="url">vuex 提交后清空很重要！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-09-19 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-19T00:00:00+08:00">2018-09-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/09/19/f3e6bdb8ea57/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/19/f3e6bdb8ea57/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="18号的份"><a href="#18号的份" class="headerlink" title="18号的份"></a>18号的份</h1><p>使用<code>vuex</code> 推送信息时 会让之前的消息一起发送变动</p>
-<p>使用<code>vue</code> 工具发现 <code>state</code> 的数据被覆盖</p>
-<p>使用手动输入框 更新 发现<code>state</code>并没有更新只是视图上的变化</p>
-<p>最后发现为 提交<code>active</code>后没有清空数据导致……</p>
-<p>之后需要分离信息提示部分 并使后端返回数据规整化</p>
-<p>并能使用固定数字代码 进行快速返回</p>
-<p><code>admin</code> 安全部分要完工了~~ 撒花~~ </p>
-<h1 id="20号的份"><a href="#20号的份" class="headerlink" title="20号的份"></a>20号的份</h1><p>使<code>code</code>编码换用于信息的快速返回</p>
-<p>当然也可以使用对应信息语句直接返回</p>
-<h2 id="vue-的坑"><a href="#vue-的坑" class="headerlink" title="vue 的坑"></a>vue 的坑</h2><p><code>vue</code> 的<code>v-for</code>一定要定义<code>key</code>不然会出现渲染不正常 数据正常</p>
-<p>重要的是并不会提示错误！！</p>
-<h2 id="laravel-的坑"><a href="#laravel-的坑" class="headerlink" title="laravel 的坑"></a>laravel 的坑</h2><p>使用<code>laravel markdown email</code>时，不能独立定义<code>header</code>与<code>footer</code></p>
-<p>使用<code>@component(&#39;mail::button&#39;)</code>时，前方要清除空白。 否则不能正常渲染</p>
-<p>要支持<code>header</code>与<code>footer</code> ，将<code>@component(&#39;mail::message&#39;)</code> 改为 <code>@component(&#39;mail::layout&#39;)</code></p>
-<p>下方是修改后的例子，也可以直接复制<code>message.blade.php</code>进行修改</p>
-<p>找不到<code>message.blade.php</code>时 运行<code>php artisan vendor:publish --tag=laravel-mail</code></p>
-<p>之后可以在<code>vendor/mail/markdown</code>下找到对应文件。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@component(<span class="string">&#x27;mail::layout&#x27;</span>)</span><br><span class="line"></span><br><span class="line">@slot(<span class="string">&#x27;header&#x27;</span>)</span><br><span class="line">@component(<span class="string">&#x27;mail::header&#x27;</span>, [<span class="string">&#x27;url&#x27;</span> =&gt; config(<span class="string">&#x27;app.url&#x27;</span>)])</span><br><span class="line">header</span><br><span class="line">@endcomponent</span><br><span class="line">@endslot</span><br><span class="line"></span><br><span class="line"><span class="comment"># Introduction</span></span><br><span class="line">The body of your message.</span><br><span class="line"></span><br><span class="line">@component(<span class="string">&#x27;mail::button&#x27;</span>, [<span class="string">&#x27;url&#x27;</span> =&gt; <span class="variable">$url</span>])</span><br><span class="line">button</span><br><span class="line">@endcomponent</span><br><span class="line"></span><br><span class="line">Thanks,&lt;br&gt;</span><br><span class="line"></span><br><span class="line">@slot(<span class="string">&#x27;footer&#x27;</span>)</span><br><span class="line">@component(<span class="string">&#x27;mail::footer&#x27;</span>)</span><br><span class="line">© footer</span><br><span class="line">@endcomponent</span><br><span class="line">@endslot</span><br><span class="line">@endcomponent</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1349,7 +1355,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">234k</span>
+    <span title="Symbols count total">235k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

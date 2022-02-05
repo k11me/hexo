@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">247</span>
+          <span class="site-state-item-count">248</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,435 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/7e5f24379817/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/7e5f24379817/" class="post-title-link" itemprop="url">laravel 学习指南 第七章 第三节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 12:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T12:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/7e5f24379817/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/7e5f24379817/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="7-3-迁移"><a href="#7-3-迁移" class="headerlink" title="7.3 迁移"></a>7.3 迁移</h2><h3 id="7-3-1-简介"><a href="#7-3-1-简介" class="headerlink" title="7.3.1 简介"></a>7.3.1 简介</h3><p>迁移就像数据库的版本控制，允许团队简单轻松的编辑并共享应用的数据库表结构，迁移通常搭配 Laravel 结构构建器，可以很容易地构建应用的数据库表结构。</p>
+<p>Laravel的<code>Schema门面</code>提供了与数据库系统无关的创建和操纵表的支持，在 Laravel 所支持的所有数据库系统中提供一致的、优雅的、平滑的API。</p>
+<hr>
+<h3 id="7-3-2-生成迁移"><a href="#7-3-2-生成迁移" class="headerlink" title="7.3.2 生成迁移"></a>7.3.2 生成迁移</h3><p>使用 <code>Artisan</code> 命令<code>make:migration</code>来创建一个新的迁移：</p>
+<pre><code>php artisan make:migration create_users_table
+</code></pre>
+<p>新的迁移位于<code>database/migrations</code>目录下，每个迁移文件名都包含时间戳从而允许 Laravel 判断其顺序。</p>
+<p><code>--table</code>和<code>--create</code>选项可以用于指定表名以及该迁移是否要创建一个新的数据表。这些选项只需要简单放在上述迁移命令后面并指定表名：</p>
+<pre><code>php artisan make:migration add_votes_to_users_table --table=users
+php artisan make:migration create_users_table --create=users
+</code></pre>
+<p>如果你想要指定生成迁移的自定义输出路径，在执行<code>make:migration</code>命令时可以使用<code>--path</code>选项，提供的路径应该是相对于应用根目录的。</p>
+<hr>
+<h3 id="7-3-3-迁移结构"><a href="#7-3-3-迁移结构" class="headerlink" title="7.3.3 迁移结构"></a>7.3.3 迁移结构</h3><p>迁移类包含了两个方法：<code>up</code>和<code>down</code>。</p>
+<p><code>up</code>方法用于新增表，列或者索引到数据库，而<code>down</code>方法就是<code>up</code>方法的反操作，和<code>up</code>里的操作相反。</p>
+<p>在这两个方法中你都要用到 Laravel 的表结构构建器来创建和修改表.</p>
+<p>例如:让我们先看看创建<code>flights</code>表的简单示例：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Schema</span>\<span class="title">Blueprint</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Migrations</span>\<span class="title">Migration</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateFlightsTable</span> <span class="keyword">extends</span> <span class="title">Migration</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 运行迁移</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Schema::create(<span class="string">&#x27;flights&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Blueprint <span class="variable">$table</span></span>) </span>&#123;</span><br><span class="line">            <span class="variable">$table</span>-&gt;increments(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">            <span class="variable">$table</span>-&gt;string(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">            <span class="variable">$table</span>-&gt;string(<span class="string">&#x27;airline&#x27;</span>);</span><br><span class="line">            <span class="variable">$table</span>-&gt;timestamps();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 撤销迁移</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">down</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Schema::drop(<span class="string">&#x27;flights&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-3-4-运行迁移"><a href="#7-3-4-运行迁移" class="headerlink" title="7.3.4 运行迁移"></a>7.3.4 运行迁移</h3><p>要运行应用中所有未执行的迁移，可以使用 Artisan 命令的<code>migrate</code>方法。</p>
+<p>如果你正在使用Homestead虚拟机，应该在你的虚拟机中运行如下这条命令：</p>
+<pre><code>php artisan migrate
+</code></pre>
+<p>如果再运行时遇到“class not found”的错误提示，尝试运行<code>composer dump-autoload</code>命令然后重新运行迁移命令。</p>
+<ul>
+<li><p><strong>在生产环境中强制运行迁移</strong></p>
+<p>  有些迁移操作是毁灭性的，这意味着它们可能造成数据的丢失，为了避免在生产环境数据库中运行这些命令，你将会在运行这些命令之前被提示并确认。想要强制运行这些命令而不被提示，可以使用<code>--force</code>：</p>
+<pre><code>  php artisan migrate --force
+</code></pre>
+</li>
+</ul>
+<h4 id="7-3-4-1-回滚迁移"><a href="#7-3-4-1-回滚迁移" class="headerlink" title="7.3.4.1 回滚迁移"></a>7.3.4.1 回滚迁移</h4><p>想要回滚最新的一次迁移<code>操作</code>，可以使用<code>rollback</code>命令，注意这将会回滚最后一批运行的迁移，可能包含多个迁移文件：</p>
+<pre><code>php artisan migrate:rollback
+</code></pre>
+<p><code>migrate:reset</code>命令将会回滚所有的应用迁移：</p>
+<pre><code>php artisan migrate:reset
+</code></pre>
+<ul>
+<li><strong>在单个命令中回滚/迁移</strong>  <code>migrate:refresh</code>命令将会先回滚所有数据库迁移，然后运行<code>migrate</code>命令。这个命令可以有效的重建整个数据库：<pre><code>  php artisan migrate:refresh
+  php artisan migrate:refresh --seed
+</code></pre>
+</li>
+</ul>
+<hr>
+<h3 id="7-3-5-编写迁移"><a href="#7-3-5-编写迁移" class="headerlink" title="7.3.5 编写迁移"></a>7.3.5 编写迁移</h3><h4 id="7-3-5-1-创建表"><a href="#7-3-5-1-创建表" class="headerlink" title="7.3.5.1 创建表"></a>7.3.5.1 创建表</h4><p>使用<code>Schema门面</code>上的<code>create</code>方法来创建新的数据表。<code>create</code>方法接收两个参数，第一个是表名，第二个是获取用于定义新表的<code>Blueprint</code>对象的闭包：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::create(<span class="string">&#x27;users&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$table</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$table</span>-&gt;increments(<span class="string">&#x27;id&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当然，创建新表的时候，可以使用表结构构建器中的任意列方法来定义数据表的列。</p>
+<ul>
+<li><p><strong>检查表/列是否存在</strong></p>
+<p>  你可以轻松地使用 <code>hasTable</code> 和 <code>hasColumn</code> 方法检查表或列是否存在：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Schema::hasTable(<span class="string">&#x27;users&#x27;</span>)) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (Schema::hasColumn(<span class="string">&#x27;users&#x27;</span>, <span class="string">&#x27;email&#x27;</span>)) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li><p><strong>连接&amp;存储引擎</strong></p>
+<p>  如果你想要在一个数据库连接上执行表结构操作，该数据库连接并不是默认数据库连接，使用<code>connection</code>方法：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::connection(&#x27;foo&#x27;)-&gt;create(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;increments(&#x27;id&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>  要设置表的存储引擎，在表结构构建器上设置<code>engine</code>属性：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Schema::create(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;engine = &#x27;InnoDB&#x27;;</span><br><span class="line">    $table-&gt;increments(&#x27;id&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-3-5-2-重命名-删除表"><a href="#7-3-5-2-重命名-删除表" class="headerlink" title="7.3.5.2 重命名/删除表"></a>7.3.5.2 重命名/删除表</h4><p>要重命名一个已存在的数据表，使用<code>rename</code>方法：</p>
+<pre><code>Schema::rename($from, $to);
+</code></pre>
+<p>要删除一个已存在的数据表，可以使用<code>drop</code>或<code>dropIfExists</code>方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Schema::drop(&#x27;users&#x27;);</span><br><span class="line">Schema::dropIfExists(&#x27;users&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-3-5-3-创建列"><a href="#7-3-5-3-创建列" class="headerlink" title="7.3.5.3 创建列"></a>7.3.5.3 创建列</h4><p>要更新一个已存在的表，使用<code>Schema门面</code>上的<code>table</code>方法，和<code>create</code>方法一样，<code>table</code>方法接收两个参数：表名和获取用于添加列到表的<code>Blueprint</code>实例的闭包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;string(&#x27;email&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>可用的列类型</strong></li>
+</ul>
+<p>当然，表结构构建器包含一系列你可以用来构建表的列类型：</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$table-&gt;bigIncrements(‘id’);</td>
+<td align="left">自增ID，类型为bigint</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;bigInteger(‘votes’);</td>
+<td align="left">等同于数据库中的BIGINT类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;binary(‘data’);</td>
+<td align="left">等同于数据库中的BLOB类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;boolean(‘confirmed’);</td>
+<td align="left">等同于数据库中的BOOLEAN类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;char(‘name’, 4);</td>
+<td align="left">等同于数据库中的CHAR类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;date(‘created_at’);</td>
+<td align="left">等同于数据库中的DATE类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;dateTime(‘created_at’);</td>
+<td align="left">等同于数据库中的DATETIME类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;decimal(‘amount’, 5, 2);</td>
+<td align="left">等同于数据库中的DECIMAL类型，带一个精度和范围</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;double(‘column’, 15, 8);</td>
+<td align="left">等同于数据库中的DOUBLE类型，带精度, 总共15位数字，小数点后8位.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;enum(‘choices’, [‘foo’, ‘bar’]);</td>
+<td align="left">等同于数据库中的 ENUM类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;float(‘amount’);</td>
+<td align="left">等同于数据库中的 FLOAT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;increments(‘id’);</td>
+<td align="left">数据库主键自增ID</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;integer(‘votes’);</td>
+<td align="left">等同于数据库中的 INTEGER 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;json(‘options’);</td>
+<td align="left">等同于数据库中的 JSON 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;jsonb(‘options’);</td>
+<td align="left">等同于数据库中的 JSONB 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;longText(‘description’);</td>
+<td align="left">等同于数据库中的 LONGTEXT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;mediumInteger(‘numbers’);</td>
+<td align="left">等同于数据库中的 MEDIUMINT类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;mediumText(‘description’);</td>
+<td align="left">等同于数据库中的 MEDIUMTEXT类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;morphs(‘taggable’);</td>
+<td align="left">添加一个 INTEGER类型的 <code>taggable_id</code> 列和一个 STRING类型的 <code>taggable_type</code>列</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;nullableTimestamps();</td>
+<td align="left">和 <code>timestamps()</code>一样但允许 NULL值.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;rememberToken();</td>
+<td align="left">添加一个 <code>remember_token</code> 列： VARCHAR(100) NULL.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;smallInteger(‘votes’);</td>
+<td align="left">等同于数据库中的 SMALLINT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;softDeletes();</td>
+<td align="left">新增一个 deleted_at 列 用于软删除.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;string(‘email’);</td>
+<td align="left">等同于数据库中的 VARCHAR 列  .</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;string(‘name’, 100);</td>
+<td align="left">等同于数据库中的 VARCHAR，带一个长度</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;text(‘description’);</td>
+<td align="left">等同于数据库中的 TEXT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;time(‘sunrise’);</td>
+<td align="left">等同于数据库中的 TIME类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;tinyInteger(‘numbers’);</td>
+<td align="left">等同于数据库中的 TINYINT 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;timestamp(‘added_on’);</td>
+<td align="left">等同于数据库中的 TIMESTAMP 类型</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;timestamps();</td>
+<td align="left">添加 <code>created_at</code> 和 <code>updated_at</code>列.</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;uuid(‘id’);</td>
+<td align="left">等同于数据库的UUID</td>
+</tr>
+</tbody></table>
+<h4 id="7-3-5-4-列修改器"><a href="#7-3-5-4-列修改器" class="headerlink" title="7.3.5.4 列修改器"></a>7.3.5.4 列修改器</h4><p>除了上面列出的列类型之外，在添加列的时候还可以使用一些其它列“修改器”。</p>
+<p>例如:要使列默认为<code>null</code>，可以使用<code>nullable</code>方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;string(&#x27;email&#x27;)-&gt;nullable();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>下面是所有可用的列修改器列表，该列表不包含索引修改器：</p>
+<table>
+<thead>
+<tr>
+<th align="left">修改器</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-&gt;first()</td>
+<td align="left">将该列置为表中第一个列 (仅适用于MySQL)</td>
+</tr>
+<tr>
+<td align="left">-&gt;after(‘column’)</td>
+<td align="left">将该列置于另一个列之后 (仅适用于MySQL)</td>
+</tr>
+<tr>
+<td align="left">-&gt;nullable()</td>
+<td align="left">允许该列的值为NULL</td>
+</tr>
+<tr>
+<td align="left">-&gt;default($value)</td>
+<td align="left">指定列的默认值</td>
+</tr>
+<tr>
+<td align="left">-&gt;unsigned()</td>
+<td align="left">设置 <code>integer</code> 列为 <code>UNSIGNED</code></td>
+</tr>
+</tbody></table>
+<h4 id="7-3-5-5-修改列"><a href="#7-3-5-5-修改列" class="headerlink" title="7.3.5.5 修改列"></a>7.3.5.5 修改列</h4><ul>
+<li><p><strong>先决条件</strong></p>
+<p>  在修改列之前，确保已经将<code>doctrine/dbal</code>依赖添加到<code>composer.json</code>文件，Doctrine DBAL 库用于判断列的当前状态并在需要时创建SQL查询来对列进行指定的调整。</p>
+</li>
+<li><p><strong>更新列属性</strong></p>
+<p>  <code>change</code>方法允许你修改已存在的列为新的类型，或者修改列的属性。例如，你可能想要增加 string 类型列的尺寸，让我们将<code>name</code>列的尺寸从 25 增加到 50：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;string(&#x27;name&#x27;, 50)-&gt;change();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>  我们还可以修改该列允许 NULL 值：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;string(&#x27;name&#x27;, 50)-&gt;nullable()-&gt;change();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>重命名列</strong></p>
+</li>
+</ul>
+<p>要重命名一个列，可以使用表结构构建器上的<code>renameColumn</code>方法，在重命名一个列之前，确保<code>doctrine/dbal</code>依赖已经添加到<code>composer.json</code>文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;renameColumn(&#x27;from&#x27;, &#x27;to&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><em>注意：暂不支持 enum类型的列的重命名。</em></p>
+<h4 id="7-3-5-6-删除列"><a href="#7-3-5-6-删除列" class="headerlink" title="7.3.5.6 删除列"></a>7.3.5.6 删除列</h4><p>要删除一个列，使用表结构构建器上的<code>dropColumn</code>方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;dropColumn(&#x27;votes&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>你可以传递列名数组到<code>dropColumn</code>方法从表中删除多个列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;users&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;dropColumn([&#x27;votes&#x27;, &#x27;avatar&#x27;, &#x27;location&#x27;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>注意：在从SQLite数据库删除列之前，需要添加<code>doctrine/dbal</code>依赖到<code>composer.json</code>文件并在终端中运行<code>composer update命</code>令来安装该库。此外，SQLite数据库暂不支持在单个迁移中删除或修改多个列。</em></p>
+<h4 id="7-3-5-7-创建索引"><a href="#7-3-5-7-创建索引" class="headerlink" title="7.3.5.7 创建索引"></a>7.3.5.7 创建索引</h4><p>表结构构建器支持多种类型的索引，首先，让我们看一个指定列值为唯一索引的例子。要创建索引，可以使用<code>unique</code>方法：</p>
+<pre><code>$table-&gt;string(&#39;email&#39;)-&gt;unique();
+</code></pre>
+<p>此外，你可以在定义列之后创建索引，例如：</p>
+<pre><code>$table-&gt;unique(&#39;email&#39;);
+</code></pre>
+<p>你甚至可以传递列名数组到索引方法来创建组合索引：</p>
+<pre><code>$table-&gt;index([&#39;account_id&#39;, &#39;created_at&#39;]);
+</code></pre>
+<p>Laravel 会自动生成合理的索引名称，但是你可以传递第二个参数到该方法用于指定索引名称：</p>
+<pre><code>$table-&gt;index(&#39;email&#39;, &#39;my_index_name&#39;);
+</code></pre>
+<ul>
+<li><p><strong>可用索引类型</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$table-&gt;primary(‘id’);</td>
+<td align="left">添加主键索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;primary([‘first’, ‘last’]);</td>
+<td align="left">添加混合索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;unique(‘email’);</td>
+<td align="left">添加唯一索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;unique(‘state’, ‘my_index_name’);</td>
+<td align="left">指定自定义索引名称</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;index(‘state’);</td>
+<td align="left">添加普通索引</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h4 id="7-3-5-8-删除索引"><a href="#7-3-5-8-删除索引" class="headerlink" title="7.3.5.8 删除索引"></a>7.3.5.8 删除索引</h4><p>要删除索引，必须指定索引名。默认情况下，Laravel 自动分配适当的名称给索引——简单连接表名、列名和索引类型。下面是一些例子：</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$table-&gt;dropPrimary(‘users_id_primary’);</td>
+<td align="left">从 “users”表中删除主键索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;dropUnique(‘users_email_unique’);</td>
+<td align="left">从 “users”表中删除唯一索引</td>
+</tr>
+<tr>
+<td align="left">$table-&gt;dropIndex(‘geo_state_index’);</td>
+<td align="left">从 “geo”表中删除普通索引</td>
+</tr>
+</tbody></table>
+<h4 id="7-3-5-9-外键约束"><a href="#7-3-5-9-外键约束" class="headerlink" title="7.3.5.9 外键约束"></a>7.3.5.9 外键约束</h4><p>Laravel 还提供了创建外键约束的支持，用于在数据库层面强制引用完整性。例如，我们在<code>posts</code>表中定义了一个引用<code>users</code>表的<code>id</code>列的<code>user_id</code>列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Schema::table(&#x27;posts&#x27;, function ($table) &#123;</span><br><span class="line">    $table-&gt;integer(&#x27;user_id&#x27;)-&gt;unsigned();</span><br><span class="line">    $table-&gt;foreign(&#x27;user_id&#x27;)-&gt;references(&#x27;id&#x27;)-&gt;on(&#x27;users&#x27;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>你还可以为约束的<code>on delete</code>和<code>on update</code>属性指定期望的动作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$table-&gt;foreign(&#x27;user_id&#x27;)</span><br><span class="line">      -&gt;references(&#x27;id&#x27;)-&gt;on(&#x27;users&#x27;)</span><br><span class="line">      -&gt;onDelete(&#x27;cascade&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>要删除一个外键，可以使用<code>dropForeign</code>方法。外键约束和索引使用同样的命名规则——连接表名、外键名然后加上<code>_foreign</code>后缀：</p>
+<pre><code>$table-&gt;dropForeign(&#39;posts_user_id_foreign&#39;);
+</code></pre>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1964,148 +2393,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/e09a3c31d8b4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/26/e09a3c31d8b4/" class="post-title-link" itemprop="url">laravel 学习指南 第五章 第六节</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-26 02:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T02:00:00+08:00">2016-07-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/26/e09a3c31d8b4/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/e09a3c31d8b4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>TOC<br>{:toc}</li>
-</ul>
-<h2 id="5-6-视图"><a href="#5-6-视图" class="headerlink" title="5.6 视图"></a>5.6 视图</h2><h3 id="5-6-1-基本使用"><a href="#5-6-1-基本使用" class="headerlink" title="5.6.1 基本使用"></a>5.6.1 基本使用</h3><p>视图包含的HTML代码并将控制器逻辑和表面逻辑进行分离。视图文件存放在<code>resources/views</code>目录。</p>
-<p>下面是一个简单视图：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 该视图存放 resources/views/greeting.php --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &lt;?php echo $name; ?&gt;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>由于这个视图存放在<code>resources/views/greeting.php</code>,可以在全局的辅助函数<code>view</code>中这样返回它：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">&#x27;greeting&#x27;</span>, [<span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;James&#x27;</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><code>view</code>的第一个参是<code>resources/views</code>目录下相应的视图文件的名字，第二个参数是一个数组，该数组包含了在视图中的有效数据。</p>
-<p>例子中，传递的是一个<code>name</code>变量，在视图中通过执行<code>echo</code>将其显示出来。</p>
-<p>当然，视图还可以嵌套在<code>resources/views</code>的子目录中，用<code>.</code>来引用嵌套视图。</p>
-<p>例如，视图存放路径是<code>resources/views/admin/profile.php</code>,那可以这样应用它：</p>
-<pre><code>return view(&#39;admin.profile&#39;, $data);
-</code></pre>
-<h4 id="5-6-1-1-判断视图是否存在"><a href="#5-6-1-1-判断视图是否存在" class="headerlink" title="5.6.1.1 判断视图是否存在"></a>5.6.1.1 判断视图是否存在</h4><p>如果需要判断视图是否存在，可调用不带参数的<code>view</code>之后，使用<code>exists</code>方法，如果视图存在则返回<code>ture</code>:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (view()-&gt;exists(<span class="string">&#x27;emails.customer&#x27;</span>)) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>调用不带参数的<code>view</code>时，将会返回一个<code>Illuminate\Contracts\View\Factory</code>实例，从而调用该类上所有方法。</p>
-<hr>
-<h3 id="5-6-2-视图数据"><a href="#5-6-2-视图数据" class="headerlink" title="5.6.2 视图数据"></a>5.6.2 视图数据</h3><h4 id="5-6-2-1-传递数据到视图"><a href="#5-6-2-1-传递数据到视图" class="headerlink" title="5.6.2.1 传递数据到视图"></a>5.6.2.1 传递数据到视图</h4><p>在上述例子中可以看到，可以简单通过数组方式将数据传递到视图：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return view(&#x27;greetings&#x27;, [&#x27;name&#x27; =&gt; &#x27;Victoria&#x27;]);</span><br></pre></td></tr></table></figure>
-<p>以这种方式传递数据，<code>$data</code>应该是一个键值对应该数组，在视图中，就可以使用响应的键来访问数组值。</p>
-<p>例如<code>&lt;?php echo $key; ?&gt;</code>。还可以通过<code>with</code>方法添加独立的数据片段到视图：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$view</span> = view(<span class="string">&#x27;greeting&#x27;</span>)-&gt;with(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;Victoria&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-6-2-2-在视图间共享数据"><a href="#5-6-2-2-在视图间共享数据" class="headerlink" title="5.6.2.2 在视图间共享数据"></a>5.6.2.2 在视图间共享数据</h4><p>有时候需要在所有视图之间共享数据片段，这时可以使用视图类的<code>share</code>方法，通常，需要在服务提供者的<code>boot</code>方法中调用<code>share</code>方法，你可以将其添加到<code>AppServiceProvider</code>或生成独立的服务提供者来存放它们：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 启动所有应用服务</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        view()-&gt;share(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注册服务提供者</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="5-6-3-视图Composer"><a href="#5-6-3-视图Composer" class="headerlink" title="5.6.3 视图Composer"></a>5.6.3 视图Composer</h3><p>视图Composer就是在视图被渲染前，会呼叫的闭包或类别方法。</p>
-<p>如果想在每次渲染都绑定一些数据，可以使用视图Composer将这种的程序逻辑放到同一个地方。</p>
-<p>首先在服务提供者中注册视图Composer。</p>
-<p>之后将使用<code>view</code>访问<code>Illuminate\Contracts\View\Factory </code>的底层实现。</p>
-<p>laravel不会包含默认的视图Composer目录，可以随意设置路径。</p>
-<p>例如，创建一个<code>App\Http\ViewComposers</code>目录：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComposerServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在容器中注册绑定.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> http://laravelacademy.org</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 使用基于类的composers...</span></span><br><span class="line">        view()-&gt;composer(</span><br><span class="line">            <span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;App\Http\ViewComposers\ProfileComposer&#x27;</span></span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用基于闭包的composers...</span></span><br><span class="line">        view()-&gt;composer(<span class="string">&#x27;dashboard&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$view</span></span>) </span>&#123;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注册服务提供者.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果创建一个新的服务提供者包含视图Composer注册，需要添加该服务提供者到配置文件<code>config/app.php</code>的<code>providers</code>数组中。</p>
-<p>现在我们已经注册了Composer，每次<code>profile</code>视图被渲染时都会执行<code>PrefileComposer@compose</code>,接下来定义Composer类：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">ViewComposers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">View</span>\<span class="title">View</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Users</span>\<span class="title">Repository</span> <span class="title">as</span> <span class="title">UserRepository</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileComposer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用户仓库实现.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> UserRepository</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$users</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建一个新的属性composer.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> UserRepository $users</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">UserRepository <span class="variable">$users</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Dependencies automatically resolved by service container...</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;users = <span class="variable">$users</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 绑定数据到视图.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> View $view</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">View <span class="variable">$view</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$view</span>-&gt;with(<span class="string">&#x27;count&#x27;</span>, <span class="keyword">$this</span>-&gt;users-&gt;count());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>视图被渲染前，Composer类的composer方法被调用，同时<code>Illuminate\Contracts\View\View</code>被注入该方法，从而可以使用<code>with</code>方法来绑定数据到视图。</p>
-<p><em>注意：所有视图Composer都通过服务容器被解析，所以可以在Composer类的构造函数中声明任何需要的依赖。</em></p>
-<h4 id="5-6-3-1-添加-Composer-到多个视图"><a href="#5-6-3-1-添加-Composer-到多个视图" class="headerlink" title="5.6.3.1 添加 Composer 到多个视图"></a>5.6.3.1 添加 Composer 到多个视图</h4><p>可以传递视图数组作为<code>composer</code>方法的第一个参数，来一次将视图Composer添加到多个视图：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;composer(</span><br><span class="line">    [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;dashboard&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;App\Http\ViewComposers\MyViewComposer&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p><code>composer</code>方法接受<code>*</code>通配符，从而允许将一个Composer添加到所有视图:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;composer(<span class="string">&#x27;*&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$view</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="5-6-4-视图创建器"><a href="#5-6-4-视图创建器" class="headerlink" title="5.6.4 视图创建器"></a>5.6.4 视图创建器</h3><p>视图创造器和视图Composer非常类似。不同在于，前者在视图实例化之后立即失效而不是等到视图即将渲染。</p>
-<p>使用<code>create</code>方法可注册一个视图创建器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;creator(&#x27;profile&#x27;, &#x27;App\Http\ViewCreators\ProfileCreator&#x27;);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -2130,7 +2417,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">234k</span>
+    <span title="Symbols count total">235k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
