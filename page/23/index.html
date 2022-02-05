@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">246</span>
+          <span class="site-state-item-count">247</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,241 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/f1816657eb28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/f1816657eb28/" class="post-title-link" itemprop="url">laravel 学习指南 第七章 第二节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 11:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T11:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/f1816657eb28/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/f1816657eb28/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="7-2-查询构建器"><a href="#7-2-查询构建器" class="headerlink" title="7.2 查询构建器"></a>7.2 查询构建器</h2><h3 id="7-2-1-简介"><a href="#7-2-1-简介" class="headerlink" title="7.2.1 简介"></a>7.2.1 简介</h3><p><code>数据库查询构建器</code>提供了一个方便的、平滑的接口来创建和运行<code>数据库查询</code>。<code>查询构建器</code>可以用于执行应用中大部分数据库操作，并且能够在支持的所有数据库系统上工作。</p>
+<p><em>注意：Laravel 查询构建器使用<code> PDO 参数</code>绑定来避免 SQL 注入攻击，不再需要过滤传递到绑定的字符串。</em></p>
+<hr>
+<h3 id="7-2-2-获取结果集"><a href="#7-2-2-获取结果集" class="headerlink" title="7.2.2 获取结果集"></a>7.2.2 获取结果集</h3><h4 id="7-2-2-1-从一张表中取出所有行"><a href="#7-2-2-1-从一张表中取出所有行" class="headerlink" title="7.2.2.1 从一张表中取出所有行"></a>7.2.2.1 从一张表中取出所有行</h4><p>在查询之前，使用<code>DB门面</code>的<code>table</code>方法，<code>table</code>方法为给定表返回一个查询构建器，允许你在查询上链接更多约束条件并最终返回查询结果。在本例中，我们使用<code>get</code>方法获取表中所有记录：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">DB</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 显示用户列表</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> view(<span class="string">&#x27;user.index&#x27;</span>, [<span class="string">&#x27;users&#x27;</span> =&gt; <span class="variable">$users</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>和原生查询一样，get方法返回结果集的数组，其中每一个结果都是PHP对象的StdClass实例。你可以像访问对象的属性一样访问列的值：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span> (<span class="variable">$users</span> <span class="keyword">as</span> <span class="variable">$user</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$user</span>-&gt;name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-2-2-从一张表中获取一行-一列"><a href="#7-2-2-2-从一张表中获取一行-一列" class="headerlink" title="7.2.2.2 从一张表中获取一行/一列"></a>7.2.2.2 从一张表中获取一行/一列</h4><p>如果你只是想要从数据表中获取一行数据，可以使用<code>first</code>方法，该方法将会返回单个<code>StdClass</code>对象：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$user</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;where(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;John&#x27;</span>)-&gt;first();</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$user</span>-&gt;name;</span><br></pre></td></tr></table></figure>
+<p>如果你不需要完整的一行，可以使用value方法从结果中获取单个值，该方法会直接返回指定列的值：</p>
+<pre><code>$email = DB::table(&#39;users&#39;)-&gt;where(&#39;name&#39;, &#39;John&#39;)-&gt;value(&#39;email&#39;);
+</code></pre>
+<h4 id="7-2-2-3-从一张表中获取组块结果集"><a href="#7-2-2-3-从一张表中获取组块结果集" class="headerlink" title="7.2.2.3 从一张表中获取组块结果集"></a>7.2.2.3 从一张表中获取组块结果集</h4><p>如果你需要处理成千上百条数据库记录，可以考虑使用<code>chunk</code>方法，该方法一次获取结果集的一小块，然后填充每一小块数据到要处理的闭包，该方法在编写处理大量数据库记录的 <code>Artisan 命令</code>的时候非常有用。</p>
+<p>例如：我们可以将处理全部 <code>users</code> 表数据，处理成一次处理 100 条记录的小组块：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;chunk(<span class="number">100</span>, <span class="function"><span class="keyword">function</span>(<span class="params"><span class="variable">$users</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$users</span> <span class="keyword">as</span> <span class="variable">$user</span>) &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>你可以通过从闭包函数中返回false来中止组块的运行：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;chunk(<span class="number">100</span>, <span class="function"><span class="keyword">function</span>(<span class="params"><span class="variable">$users</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 处理结果集...</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-2-4-获取数据列值列表"><a href="#7-2-2-4-获取数据列值列表" class="headerlink" title="7.2.2.4 获取数据列值列表"></a>7.2.2.4 获取数据列值列表</h4><h4 id="7-2-2-5-聚合函数"><a href="#7-2-2-5-聚合函数" class="headerlink" title="7.2.2.5 聚合函数"></a>7.2.2.5 聚合函数</h4><p>队列构建器还提供了很多聚合方法，比如<code>count</code>, <code>max</code>, <code>min</code>, <code>avg</code>, 和 <code>sum</code>，你可以在构造查询之后调用这些方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;count();</span><br><span class="line"><span class="variable">$price</span> = DB::table(<span class="string">&#x27;orders&#x27;</span>)-&gt;max(<span class="string">&#x27;price&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>当然，你可以联合其它查询子句和聚合函数来构建查询：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$price</span> = DB::table(<span class="string">&#x27;orders&#x27;</span>)</span><br><span class="line">                -&gt;where(<span class="string">&#x27;finalized&#x27;</span>, <span class="number">1</span>)</span><br><span class="line">                -&gt;avg(<span class="string">&#x27;price&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-2-3-查询（Select）"><a href="#7-2-3-查询（Select）" class="headerlink" title="7.2.3 查询（Select）"></a>7.2.3 查询（Select）</h3><h4 id="7-2-3-1-指定查询子句"><a href="#7-2-3-1-指定查询子句" class="headerlink" title="7.2.3.1 指定查询子句"></a>7.2.3.1 指定查询子句</h4><p>当然，我们并不总是想要获取数据表的所有列，使用<code>select</code>方法，你可以为查询指定自定义的<code>select</code>子句：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;select(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;email as user_email&#x27;</span>)-&gt;get();</span><br></pre></td></tr></table></figure>
+
+<p><code>distinct</code>方法允许你强制查询返回不重复的结果集：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;distinct()-&gt;get();</span><br></pre></td></tr></table></figure>
+<p>如果你已经有了一个查询构建器实例并且希望添加一个查询列到已存在的<code>select</code>子句，可以使用<code>addSelect</code>方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$query</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;select(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="variable">$users</span> = <span class="variable">$query</span>-&gt;addSelect(<span class="string">&#x27;age&#x27;</span>)-&gt;get();</span><br></pre></td></tr></table></figure>
+<h4 id="7-2-3-2-原生表达式"><a href="#7-2-3-2-原生表达式" class="headerlink" title="7.2.3.2 原生表达式"></a>7.2.3.2 原生表达式</h4><p>有时候你希望在查询中使用原生表达式，这些表达式将会以字符串的形式注入到查询中，所以要格外小心避免被 SQL 注入。想要创建一个原生表达式，可以使用<code>DB::raw</code>方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                     -&gt;select(DB::raw(<span class="string">&#x27;count(*) as user_count, status&#x27;</span>))</span><br><span class="line">                     -&gt;where(<span class="string">&#x27;status&#x27;</span>, <span class="string">&#x27;&lt;&gt;&#x27;</span>, <span class="number">1</span>)</span><br><span class="line">                     -&gt;groupBy(<span class="string">&#x27;status&#x27;</span>)</span><br><span class="line">                     -&gt;get();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-2-4-连接（Join）"><a href="#7-2-4-连接（Join）" class="headerlink" title="7.2.4 连接（Join）"></a>7.2.4 连接（Join）</h3><h4 id="7-2-4-1-内连接（等值连接）"><a href="#7-2-4-1-内连接（等值连接）" class="headerlink" title="7.2.4.1 内连接（等值连接）"></a>7.2.4.1 内连接（等值连接）</h4><p>查询构建器还可以用于编写基本的SQL“内连接”，你可以使用查询构建器实例上的<code>join</code>方法，传递给<code>join</code>方法的第一次参数是你需要连接到的表名，剩余的其它参数则是为连接指定的列约束，当然，正如你所看到的，你可以在单个查询中连接多张表：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">            -&gt;join(<span class="string">&#x27;contacts&#x27;</span>, <span class="string">&#x27;users.id&#x27;</span>, <span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;contacts.user_id&#x27;</span>)</span><br><span class="line">            -&gt;join(<span class="string">&#x27;orders&#x27;</span>, <span class="string">&#x27;users.id&#x27;</span>, <span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;orders.user_id&#x27;</span>)</span><br><span class="line">            -&gt;select(<span class="string">&#x27;users.*&#x27;</span>, <span class="string">&#x27;contacts.phone&#x27;</span>, <span class="string">&#x27;orders.price&#x27;</span>)</span><br><span class="line">            -&gt;get();</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-4-2-左连接"><a href="#7-2-4-2-左连接" class="headerlink" title="7.2.4.2 左连接"></a>7.2.4.2 左连接</h4><p>如果你是想要执行“左连接”而不是“内连接”，可以使用<code>leftJoin</code>方法。该方法和<code>join</code>方法的使用方法一样：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">            -&gt;leftJoin(<span class="string">&#x27;posts&#x27;</span>, <span class="string">&#x27;users.id&#x27;</span>, <span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;posts.user_id&#x27;</span>)</span><br><span class="line">            -&gt;get();</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-4-3-高级连接语句"><a href="#7-2-4-3-高级连接语句" class="headerlink" title="7.2.4.3 高级连接语句"></a>7.2.4.3 高级连接语句</h4><p>你还可以指定更多的高级连接子句，传递一个闭包到<code>join</code>方法作为该方法的第2个参数，该闭包将会返回允许你指定<code>join</code>子句约束的<code>JoinClause</code>对象：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">        -&gt;join(<span class="string">&#x27;contacts&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$join</span></span>) </span>&#123;</span><br><span class="line">            <span class="variable">$join</span>-&gt;on(<span class="string">&#x27;users.id&#x27;</span>, <span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;contacts.user_id&#x27;</span>)-&gt;orOn(...);</span><br><span class="line">        &#125;)</span><br><span class="line">        -&gt;get();</span><br></pre></td></tr></table></figure>
+<p>如果你想要在连接中使用“where”风格的子句，可以在查询中使用<code>where</code>和<code>orWhere</code>方法。这些方法将会将列和值进行比较而不是列和列进行比较：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">        -&gt;join(<span class="string">&#x27;contacts&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$join</span></span>) </span>&#123;</span><br><span class="line">            <span class="variable">$join</span>-&gt;on(<span class="string">&#x27;users.id&#x27;</span>, <span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;contacts.user_id&#x27;</span>)</span><br><span class="line">                 -&gt;where(<span class="string">&#x27;contacts.user_id&#x27;</span>, <span class="string">&#x27;&gt;&#x27;</span>, <span class="number">5</span>);</span><br><span class="line">        &#125;)</span><br><span class="line">        -&gt;get();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-2-5-联合（Union）"><a href="#7-2-5-联合（Union）" class="headerlink" title="7.2.5 联合（Union）"></a>7.2.5 联合（Union）</h3><p>查询构建器还提供了一条“联合”两个查询的快捷方式.</p>
+<p>例如：你要创建一个独立的查询，然后使用<code>union</code>方法将其和第二个查询进行联合：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$first</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">            -&gt;whereNull(<span class="string">&#x27;first_name&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">            -&gt;whereNull(<span class="string">&#x27;last_name&#x27;</span>)</span><br><span class="line">            -&gt;union(<span class="variable">$first</span>)</span><br><span class="line">            -&gt;get();</span><br></pre></td></tr></table></figure>
+<p><code>unionAll</code>方法也是有效的，并且和<code>union</code>有同样的使用方法。</p>
+<hr>
+<h3 id="7-2-6-Where子句"><a href="#7-2-6-Where子句" class="headerlink" title="7.2.6 Where子句"></a>7.2.6 Where子句</h3><h4 id="7-2-6-1-简单where子句"><a href="#7-2-6-1-简单where子句" class="headerlink" title="7.2.6.1 简单where子句"></a>7.2.6.1 简单where子句</h4><p>使用查询构建器上的<code>where</code>方法可以添加<code>where</code>子句到查询中，调用<code>where</code>最基本的方法需要三个参数，第一个参数是列名，第二个参数是一个数据库系统支持的任意操作符，第三个参数是该列要比较的值。</p>
+<p>例如，下面是一个验证<code>votes</code>列的值是否等于100的查询：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;where(<span class="string">&#x27;votes&#x27;</span>, <span class="string">&#x27;=&#x27;</span>, <span class="number">100</span>)-&gt;get();</span><br></pre></td></tr></table></figure>
+<p>为了方便，如果你只是简单比较列值和给定数值是否相等，可以将数值直接作为<code>where</code>方法的第二个参数：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;where(<span class="string">&#x27;votes&#x27;</span>, <span class="number">100</span>)-&gt;get();</span><br></pre></td></tr></table></figure>
+<p>当然，你可以使用其它操作符来编写<code>where</code>子句：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                -&gt;where(<span class="string">&#x27;votes&#x27;</span>, <span class="string">&#x27;&gt;=&#x27;</span>, <span class="number">100</span>)</span><br><span class="line">                -&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                -&gt;where(<span class="string">&#x27;votes&#x27;</span>, <span class="string">&#x27;&lt;&gt;&#x27;</span>, <span class="number">100</span>)</span><br><span class="line">                -&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                -&gt;where(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;like&#x27;</span>, <span class="string">&#x27;T%&#x27;</span>)</span><br><span class="line">                -&gt;get();</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="7-2-6-2-or"><a href="#7-2-6-2-or" class="headerlink" title="7.2.6.2 or"></a>7.2.6.2 or</h4><p>你可以通过方法链将多个<code>where</code>约束链接到一起，也可以添加<code>or</code>子句到查询，<code>orWhere</code>方法和<code>where</code>方法接收参数一样：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                    -&gt;where(<span class="string">&#x27;votes&#x27;</span>, <span class="string">&#x27;&gt;&#x27;</span>, <span class="number">100</span>)</span><br><span class="line">                    -&gt;orWhere(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;John&#x27;</span>)</span><br><span class="line">                    -&gt;get();</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-6-3-更多Where子句"><a href="#7-2-6-3-更多Where子句" class="headerlink" title="7.2.6.3 更多Where子句"></a>7.2.6.3 更多Where子句</h4><ul>
+<li><p><strong>whereBetween</strong></p>
+<p>  <code>whereBetween</code>方法验证列值是否在给定值之间：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                    -&gt;whereBetween(<span class="string">&#x27;votes&#x27;</span>, [<span class="number">1</span>, <span class="number">100</span>])-&gt;get();</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>whereNotBetween</strong></p>
+<p>  <code>whereNotBetween</code>方法验证列值不在给定值之间：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                    -&gt;whereNotBetween(<span class="string">&#x27;votes&#x27;</span>, [<span class="number">1</span>, <span class="number">100</span>])</span><br><span class="line">                    -&gt;get();</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>whereIn/whereNotIn</strong></p>
+<p>  <code>whereIn</code>方法验证给定列的值是否在给定数组中：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                    -&gt;whereIn(<span class="string">&#x27;id&#x27;</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">                    -&gt;get();</span><br></pre></td></tr></table></figure>
+<p>  <code>whereNotIn</code>方法验证给定列的值不在给定数组中：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                    -&gt;whereNotIn(<span class="string">&#x27;id&#x27;</span>, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">                    -&gt;get();</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>whereNull/whereNotNull</strong></p>
+<p>  <code>whereNull</code>方法验证给定列的值为NULL：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                    -&gt;whereNull(<span class="string">&#x27;updated_at&#x27;</span>)</span><br><span class="line">                    -&gt;get();</span><br></pre></td></tr></table></figure>
+<p>  <code>whereNotNull</code>方法验证给定列的值不是NULL：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                    -&gt;whereNotNull(<span class="string">&#x27;updated_at&#x27;</span>)</span><br><span class="line">                    -&gt;get();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-2-6-4-高级Where子句"><a href="#7-2-6-4-高级Where子句" class="headerlink" title="7.2.6.4 高级Where子句"></a>7.2.6.4 高级Where子句</h4><ul>
+<li><p><strong>参数分组</strong></p>
+<p>  有时候你需要创建更加高级的<code>where</code>子句,比如<code>where exists</code>或者嵌套的参数分组。Laravel查询构建器也可以处理这些。作为开始，让我们看一个在括号中进行分组约束的例子：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">            -&gt;where(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;=&#x27;</span>, <span class="string">&#x27;John&#x27;</span>)</span><br><span class="line">            -&gt;orWhere(<span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$query</span></span>) </span>&#123;</span><br><span class="line">                <span class="variable">$query</span>-&gt;where(<span class="string">&#x27;votes&#x27;</span>, <span class="string">&#x27;&gt;&#x27;</span>, <span class="number">100</span>)</span><br><span class="line">                      -&gt;where(<span class="string">&#x27;title&#x27;</span>, <span class="string">&#x27;&lt;&gt;&#x27;</span>, <span class="string">&#x27;Admin&#x27;</span>);</span><br><span class="line">            &#125;)</span><br><span class="line">            -&gt;get();</span><br></pre></td></tr></table></figure>
+<p>  正如你所看到的，传递闭包到<code>orWhere</code>方法构造查询构建器来开始一个约束分组，该闭包将会获取一个用于设置括号中包含的约束的查询构建器实例。上述语句等价于下面的SQL：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * <span class="keyword">from</span> users where name = <span class="string">&#x27;John&#x27;</span> <span class="keyword">or</span> (votes &gt; <span class="number">100</span> <span class="keyword">and</span> title &lt;&gt; <span class="string">&#x27;Admin&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>exists语句</strong></p>
+<p>  <code>whereExists</code>方法允许你编写<code>where exist</code>SQL子句，<code>whereExists</code>方法接收一个闭包参数，该闭包获取一个查询构建器实例从而允许你定义放置在<code>exists</code>子句中的查询：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">            -&gt;whereExists(<span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$query</span></span>) </span>&#123;</span><br><span class="line">                <span class="variable">$query</span>-&gt;select(DB::raw(<span class="number">1</span>))</span><br><span class="line">                      -&gt;from(<span class="string">&#x27;orders&#x27;</span>)</span><br><span class="line">                      -&gt;whereRaw(<span class="string">&#x27;orders.user_id = users.id&#x27;</span>);</span><br><span class="line">            &#125;)</span><br><span class="line">            -&gt;get();</span><br></pre></td></tr></table></figure>
+<p>  上述查询等价于下面的SQL语句：</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select * <span class="keyword">from</span> users</span><br><span class="line">where exists (</span><br><span class="line">    select <span class="number">1</span> <span class="keyword">from</span> orders where orders.user_id = users.id</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h3 id="7-2-7-排序、分组、限定"><a href="#7-2-7-排序、分组、限定" class="headerlink" title="7.2.7 排序、分组、限定"></a>7.2.7 排序、分组、限定</h3><h4 id="7-2-7-1-orderBy"><a href="#7-2-7-1-orderBy" class="headerlink" title="7.2.7.1 orderBy"></a>7.2.7.1 orderBy</h4><p><code>orderBy</code>方法允许你通过给定列对结果集进行排序，orderBy的第一个参数应该是你希望排序的列，第二个参数控制着排序的方向——<code>asc(正序)</code>或<code>desc(倒序)</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                -&gt;orderBy(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;desc&#x27;</span>)</span><br><span class="line">                -&gt;get();</span><br></pre></td></tr></table></figure>
+<h4 id="7-2-7-2-groupBy-having-havingRaw"><a href="#7-2-7-2-groupBy-having-havingRaw" class="headerlink" title="7.2.7.2 groupBy / having / havingRaw"></a>7.2.7.2 groupBy / having / havingRaw</h4><p><code>groupBy</code>和<code>having</code>方法用于对结果集进行分组，<code>having</code>方法和<code>where</code>方法的用法类似：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">                -&gt;groupBy(<span class="string">&#x27;account_id&#x27;</span>)</span><br><span class="line">                -&gt;having(<span class="string">&#x27;account_id&#x27;</span>, <span class="string">&#x27;&gt;&#x27;</span>, <span class="number">100</span>)</span><br><span class="line">                -&gt;get();</span><br></pre></td></tr></table></figure>
+<p><code>havingRaw</code>方法可以用于设置原生字符串作为<code>having</code>子句的值，例如，我们要找到所有售价大于<code>$2500</code>的部分：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;orders&#x27;</span>)</span><br><span class="line">                -&gt;select(<span class="string">&#x27;department&#x27;</span>, DB::raw(<span class="string">&#x27;SUM(price) as total_sales&#x27;</span>))</span><br><span class="line">                -&gt;groupBy(<span class="string">&#x27;department&#x27;</span>)</span><br><span class="line">                -&gt;havingRaw(<span class="string">&#x27;SUM(price) &gt; 2500&#x27;</span>)</span><br><span class="line">                -&gt;get();</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-7-3-skip-take"><a href="#7-2-7-3-skip-take" class="headerlink" title="7.2.7.3 skip / take"></a>7.2.7.3 skip / take</h4><p>想要限定查询返回的结果集的数目，或者在查询中跳过给定数目的结果，可以使用<code>skip</code>和<code>take</code>方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;skip(<span class="number">10</span>)-&gt;take(<span class="number">5</span>)-&gt;get();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-2-8-插入（Insert）"><a href="#7-2-8-插入（Insert）" class="headerlink" title="7.2.8 插入（Insert）"></a>7.2.8 插入（Insert）</h3><p>查询构建器还提供了<code>insert</code>方法来插入记录到数据表。<code>insert</code>方法接收数组形式的列名和值进行插入操作：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;insert(</span><br><span class="line">    [<span class="string">&#x27;email&#x27;</span> =&gt; <span class="string">&#x27;john@example.com&#x27;</span>, <span class="string">&#x27;votes&#x27;</span> =&gt; <span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<p>你甚至可以一次性通过传入多个数组来插入多条记录，每个数组代表要插入数据表的记录：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;insert([</span><br><span class="line">    [<span class="string">&#x27;email&#x27;</span> =&gt; <span class="string">&#x27;taylor@example.com&#x27;</span>, <span class="string">&#x27;votes&#x27;</span> =&gt; <span class="number">0</span>],</span><br><span class="line">    [<span class="string">&#x27;email&#x27;</span> =&gt; <span class="string">&#x27;dayle@example.com&#x27;</span>, <span class="string">&#x27;votes&#x27;</span> =&gt; <span class="number">0</span>]</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-8-1-自增ID"><a href="#7-2-8-1-自增ID" class="headerlink" title="7.2.8.1 自增ID"></a>7.2.8.1 自增ID</h4><p>如果数据表有自增ID，使用<code>insertGetId</code>方法来插入记录将会返回ID值：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$id</span> = DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;insertGetId(</span><br><span class="line">    [<span class="string">&#x27;email&#x27;</span> =&gt; <span class="string">&#x27;john@example.com&#x27;</span>, <span class="string">&#x27;votes&#x27;</span> =&gt; <span class="number">0</span>]</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><em>注意：当使用<code>PostgresSQL</code>时,<code>insertGetId</code>方法默认自增列被命名为<code>id</code>，如果你想要从其他<code>序列</code>获取<code>ID</code>，可以将序列名作为第二个参数传递到<code>insertGetId</code>方法。</em></p>
+<hr>
+<h3 id="7-2-9-更新（Update）"><a href="#7-2-9-更新（Update）" class="headerlink" title="7.2.9 更新（Update）"></a>7.2.9 更新（Update）</h3><p>当然，除了插入记录到数据库，查询构建器还可以通过使用<code>update</code>方法更新已有记录。<code>update</code>方法和<code>insert</code>方法一样，接收列和值的键值对数组包含要更新的列，你可以通过<code>where</code>子句来对<code>update</code>查询进行约束：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)</span><br><span class="line">            -&gt;where(<span class="string">&#x27;id&#x27;</span>, <span class="number">1</span>)</span><br><span class="line">            -&gt;update([<span class="string">&#x27;votes&#x27;</span> =&gt; <span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-2-9-1-增加-减少"><a href="#7-2-9-1-增加-减少" class="headerlink" title="7.2.9.1 增加/减少"></a>7.2.9.1 增加/减少</h4><p>查询构建器还提供了方便增减给定列名数值的方法。相较于编写<code>update</code>语句，这是一条捷径，提供了更好的体验和测试接口。</p>
+<p>这两个方法都至少接收一个参数：需要修改的列。第二个参数是可选的，用于控制列值增加/减少的数目。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;increment(<span class="string">&#x27;votes&#x27;</span>);</span><br><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;increment(<span class="string">&#x27;votes&#x27;</span>, <span class="number">5</span>);</span><br><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;decrement(<span class="string">&#x27;votes&#x27;</span>);</span><br><span class="line">DB::table(<span class="string">&#x27;users&#x27;</span>)-&gt;decrement(<span class="string">&#x27;votes&#x27;</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<p>在操作过程中你还可以指定额外的列进行更新：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#x27;users&#x27;)-&gt;increment(&#x27;votes&#x27;, 1, [&#x27;name&#x27; =&gt; &#x27;John&#x27;]);</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="7-2-10-删除（Delete）"><a href="#7-2-10-删除（Delete）" class="headerlink" title="7.2.10 删除（Delete）"></a>7.2.10 删除（Delete）</h3><p>当然，查询构建器还可以通过<code>delete</code>方法从表中删除记录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#x27;users&#x27;)-&gt;delete();</span><br></pre></td></tr></table></figure>
+<p>在调用<code>delete</code>方法之前可以通过添加<code>where</code>子句对<code>delete</code>语句进行约束：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#x27;users&#x27;)-&gt;where(&#x27;votes&#x27;, &#x27;&lt;&#x27;, 100)-&gt;delete();</span><br></pre></td></tr></table></figure>
+<p>如果你希望清除整张表，也就是删除所有列并将自增ID置为0，可以使用truncate方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#x27;users&#x27;)-&gt;truncate();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-2-11-悲观锁"><a href="#7-2-11-悲观锁" class="headerlink" title="7.2.11 悲观锁"></a>7.2.11 悲观锁</h3><p>查询构建器还包含一些方法帮助你在<code>select</code>语句中实现<code>悲观锁</code>。可以在查询中使用<code>sharedLock</code>方法从而在运行语句时带一把<code>共享锁</code>。共享锁可以避免,被选择的行被修改直到事务提交：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#x27;users&#x27;)-&gt;where(&#x27;votes&#x27;, &#x27;&gt;&#x27;, 100)-&gt;sharedLock()-&gt;get();</span><br></pre></td></tr></table></figure>
+<p>此外你还可以使用<code>lockForUpdate</code>方法。<code>for update</code>锁避免选择行被其它共享锁修改或删除：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DB::table(&#x27;users&#x27;)-&gt;where(&#x27;votes&#x27;, &#x27;&gt;&#x27;, 100)-&gt;lockForUpdate()-&gt;get();</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1854,180 +2089,6 @@
 <h3 id="5-6-4-视图创建器"><a href="#5-6-4-视图创建器" class="headerlink" title="5.6.4 视图创建器"></a>5.6.4 视图创建器</h3><p>视图创造器和视图Composer非常类似。不同在于，前者在视图实例化之后立即失效而不是等到视图即将渲染。</p>
 <p>使用<code>create</code>方法可注册一个视图创建器：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;creator(&#x27;profile&#x27;, &#x27;App\Http\ViewCreators\ProfileCreator&#x27;);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/78a7f2eb97d1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/26/78a7f2eb97d1/" class="post-title-link" itemprop="url">laravel 学习指南 第五章 第五节</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-26 01:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T01:00:00+08:00">2016-07-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/26/78a7f2eb97d1/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/78a7f2eb97d1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>TOC<br>{:toc}</li>
-</ul>
-<h2 id="5-5-响应"><a href="#5-5-响应" class="headerlink" title="5.5 响应"></a>5.5 响应</h2><h3 id="5-5-1-基本响应"><a href="#5-5-1-基本响应" class="headerlink" title="5.5.1 基本响应"></a>5.5.1 基本响应</h3><p>所有路由和控制器都会返回某种被发送到用户浏览器的响应，laravel提供多种不同的方式来返回响应，最基本的响应就是从路由或控制器返回一个简单的字符串：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>给定的字符串会被框架自动转化为HTTP响应。</p>
-<h4 id="5-5-1-1-Response对象"><a href="#5-5-1-1-Response对象" class="headerlink" title="5.5.1.1 Response对象"></a>5.5.1.1 Response对象</h4><p>大多数路由和控制器动作都会返回一个完整的<code>Illuminate\Http\Response</code>实例或视图，返回一个完整的Response实例允许你自定义响应的HTTP状态码和头信息。Responses实例继承自<code>Symfony\Component\HttpFoundation\Response</code>类，该类提供了一系列方法用于创建HTTP响应：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Response</span>;</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">&#x27;home&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> (<span class="keyword">new</span> Response(<span class="variable">$content</span>, <span class="variable">$status</span>))</span><br><span class="line">-&gt;header(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="variable">$value</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>为了方便，还可以使用辅助函数<code>response</code>:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;home&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> response(<span class="variable">$content</span>, <span class="variable">$status</span>)</span><br><span class="line">        -&gt;header(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="variable">$value</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><em>注意：要查看完整的Response方法列表，看可以查看<a target="_blank" rel="noopener" href="https://laravel.com/api/master/Illuminate/Http/Response.html">API文档</a>与<a target="_blank" rel="noopener" href="http://api.symfony.com/2.7/Symfony/Component/HttpFoundation/Response.html">Symfony API 文档</a></em></p>
-<h4 id="5-5-1-2-添加响应头"><a href="#5-5-1-2-添加响应头" class="headerlink" title="5.5.1.2 添加响应头"></a>5.5.1.2 添加响应头</h4><p>大部分响应方法可以用方法链形式调用，从而使得可以建立平滑的响应。</p>
-<p>例如，你可以在响应送出给使用者之前，使用<code>header</code>方法增加一系列的响应头到响应：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> response(<span class="variable">$content</span>)</span><br><span class="line">            -&gt;header(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="variable">$type</span>)</span><br><span class="line">            -&gt;header(<span class="string">&#x27;X-Header-One&#x27;</span>, <span class="string">&#x27;Header Value&#x27;</span>)</span><br><span class="line">            -&gt;header(<span class="string">&#x27;X-Header-Two&#x27;</span>, <span class="string">&#x27;Header Value&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<p>或者，可以使用<code>withHeaders</code>方法指定要增加至回应的响应头数组：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> response(<span class="variable">$content</span>)</span><br><span class="line">    -&gt;withHeaders([</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span> =&gt; <span class="variable">$type</span>,</span><br><span class="line">        <span class="string">&#x27;X-Header-One&#x27;</span> =&gt; <span class="string">&#x27;Header Value&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;X-Header-Two&#x27;</span> =&gt; <span class="string">&#x27;Header Value&#x27;</span>,</span><br><span class="line">    ]);</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-5-1-3-添加Cookie到响应"><a href="#5-5-1-3-添加Cookie到响应" class="headerlink" title="5.5.1.3 添加Cookie到响应"></a>5.5.1.3 添加Cookie到响应</h4><p>透过响应实例的函数<code>cookie</code>可以轻松添加Cookie到响应：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> response(<span class="variable">$content</span>)-&gt;header(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="variable">$type</span>)</span><br><span class="line">    -&gt;cookie(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p><code>cookie</code>方法接收额外的可选参数，使你可以进一步自定cookies的属性：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-&gt;cookie(<span class="variable">$name</span>, <span class="variable">$value</span>, <span class="variable">$minutes</span>, <span class="variable">$path</span>, <span class="variable">$domain</span>, <span class="variable">$secure</span>, <span class="variable">$httpOnly</span>)</span><br></pre></td></tr></table></figure>
-<p>默认情况下，laravel框架生成的Cookie经过了加密和签名，以免在客户端被纂改。</p>
-<p>如果想要让特定的Cookie子集在生成时取消加密，可以使用中间件<code>App\Http\Middleware\EncryptCookies</code>的<code>$except</code>属性来排除这些Cookie：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 不需要被加密的cookies名称</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$except</span> = [</span><br><span class="line">    <span class="string">&#x27;cookie_name&#x27;</span>,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="5-5-2-其他响应类型"><a href="#5-5-2-其他响应类型" class="headerlink" title="5.5.2 其他响应类型"></a>5.5.2 其他响应类型</h3><p>辅助函数<code>response</code>可以很方便地用来生成其他类型的响应实例，当无参数调用<code>response</code>时会返回<code>Illuminate\Contracts\Routing\ResponseFactory</code>的一个实现类实例契约，该契约提供了一些有用的方法来生成响应。</p>
-<h4 id="5-5-2-1-视图"><a href="#5-5-2-1-视图" class="headerlink" title="5.5.2.1 视图"></a>5.5.2.1 视图</h4><p>如果需要控制响应状态和响应头，并还需要返回一个视图作为响应内容，可以使用<code>view</code>方法:</p>
-<pre><code>return response()-&gt;view(&#39;hello&#39;, $data)-&gt;header(&#39;Content-Type&#39;, $type);
-</code></pre>
-<p>当然，如果不需要传递自定义的HTTP状态码和头信息，只需要简单使用全局函数<code>view</code>即可。</p>
-<h4 id="5-5-2-2-JSON"><a href="#5-5-2-2-JSON" class="headerlink" title="5.5.2.2 JSON"></a>5.5.2.2 JSON</h4><p><code>json</code>方法会自动将<code>Content-Type</code>头设置为<code>application/json</code>,并使用PHP函数<code>json_encode</code>方法将给定数组转化为JSON：</p>
-<pre><code>return response()-&gt;json([&#39;name&#39; =&gt; &#39;Abigail&#39;, &#39;state&#39; =&gt; &#39;CA&#39;]);
-</code></pre>
-<p>如果要创建一个JSONP响应，可以在<code>json</code>方法之后调用<code>setCallback</code>方法：</p>
-<pre><code>return response()-&gt;json([&#39;name&#39; =&gt; &#39;Abigail&#39;, &#39;state&#39; =&gt; &#39;CA&#39;])
-    -&gt;setCallback($request-&gt;input(&#39;callback&#39;));
-</code></pre>
-<h4 id="5-5-2-3-文件下载"><a href="#5-5-2-3-文件下载" class="headerlink" title="5.5.2.3 文件下载"></a>5.5.2.3 文件下载</h4><p><code>download</code>方法用于生成强制用户浏览器下载给定路由文件的响应。<code>download</code>文件接受文件名作为第二个参数，该参数决定用户下载文件的显示名称，可以将HTTP头信息作为第三个参数传递到该方法：</p>
-<pre><code>return response()-&gt;download($pathToFile);
-return response()-&gt;download($pathToFile, $name, $headers);
-</code></pre>
-<p><em>注意：管理文件下载的 Symfony HttpFoundation 类要求被下载文件有一个ASCII文件名。</em></p>
-<hr>
-<h3 id="5-5-3-重定向"><a href="#5-5-3-重定向" class="headerlink" title="5.5.3 重定向"></a>5.5.3 重定向</h3><p>重定向响应是<code>Illuminate\Http\RedirectResponse</code>类的实例，其中包含了必须的头信息将用户重定向到另一个 URL，有很多方式来生成 <code>RedirectResponse</code> 实例，最简单的方法就是使用全局辅助函数 <code>redirect</code>：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;dashboard&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;home/dashboard&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>有时候想要将用户重定向到上一个请求的位置。</p>
-<p>例如，表单提交后，验证不通过，就可以使用辅助函数<code>back</code>返回到前一个URL(使用该方法之前确保路由使用了<code>web</code>中间件组或都使用了<code>session </code>中间件)：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">&#x27;user/profile&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 验证请求...</span></span><br><span class="line">    <span class="keyword">return</span> back()-&gt;withInput();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-5-3-1-重定向到命名路由"><a href="#5-5-3-1-重定向到命名路由" class="headerlink" title="5.5.3.1 重定向到命名路由"></a>5.5.3.1 重定向到命名路由</h4><p>如果调用不带参数的<code>redirect</code>方法，会返回一个<code>Illuminate\Routing\Redirector</code>实例，然后可以调用该实例上的任何方法。</p>
-<p>例如:为了生成一个<code>RedirectResponse</code>到命令路由，可以使用<code>route</code>方法：</p>
-<pre><code>return redirect()-&gt;route(&#39;login&#39;);
-</code></pre>
-<p>如果路由中有参数，可以将其作为第二个参数传递到<code>route</code>方法：</p>
-<pre><code>// For a route with the following URI: profile/&#123;id&#125;
-return redirect()-&gt;route(&#39;profile&#39;, [1]);
-</code></pre>
-<p>如果要重定向到带ID参数的路由(Eloquent 模型绑定),可以传递模型本身，ID会被自动解析出来：</p>
-<pre><code>return redirect()-&gt;route(&#39;profile&#39;, [$user]);
-</code></pre>
-<h4 id="5-5-3-2-重定向到控制器动作"><a href="#5-5-3-2-重定向到控制器动作" class="headerlink" title="5.5.3.2 重定向到控制器动作"></a>5.5.3.2 重定向到控制器动作</h4><p>还可以生成重定向到控制器动作，只需传递控制器和动作名到<code>action</code>方法即可。记住，不需要指定控制器的完整命名。laravel的<code>RouteServiceProvider</code>会自动设置默认的控制器命名：</p>
-<pre><code>return redirect()-&gt;action(&#39;HomeController@index&#39;);
-</code></pre>
-<p>当然，如果控制器路由要求参数，可以将参数作为第二个参数传递给<code>action</code>方法：</p>
-<pre><code>return redirect()-&gt;action(&#39;UserController@profile&#39;, [1]);
-</code></pre>
-<h4 id="5-5-3-3-带一次性-Session-数据的重定向"><a href="#5-5-3-3-带一次性-Session-数据的重定向" class="headerlink" title="5.5.3.3 带一次性 Session 数据的重定向"></a>5.5.3.3 带一次性 Session 数据的重定向</h4><p>重定向到一个新的URL并将数据存储到一次性Session中通常是同时完成的，为了方便，可以创建一个<code>RedirectResponse</code>实例然后在同一方法上将数据存储到Session，这种方式在action之后存储状态信息特别方便：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">&#x27;user/profile&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 更新用户属性...</span></span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;dashboard&#x27;</span>)-&gt;with(<span class="string">&#x27;status&#x27;</span>, <span class="string">&#x27;Profile updated!&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>当然，用户重定向到新页面之后，你可以从Session中取出并显示这些一次性信息。</p>
-<p>例如，使用Blade语法实现：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@if (session(&#x27;status&#x27;))</span><br><span class="line">    &lt;div class=&quot;alert alert-success&quot;&gt;</span><br><span class="line">        &#123;&#123; session(&#x27;status&#x27;) &#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">@endif</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="5-5-4-响应宏"><a href="#5-5-4-响应宏" class="headerlink" title="5.5.4 响应宏"></a>5.5.4 响应宏</h3><p>如果想要定义一个自定义的响应并且在多个路由和控制器中复用，可以使用<code>Illuminate\Contracts\Routing\ResponseFactory</code>类，或者<code>Response</code>函数中的<code>macro</code>方法。</p>
-<p>例如：在某个服务提供者的boot方法中编写代码如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Response</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ResponseMacroServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Perform post-registration booting of services.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Response::macro(<span class="string">&#x27;caps&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$value</span></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> Response::make(strtoupper(<span class="variable">$value</span>));</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>macro</code>方法接收响应名称作为第一个参数，闭包函数作为第二个参数，<code>macro</code>的闭包在<code>ResponseFactory</code>类或<code>Response</code>函数中的<code>macro</code>方法时执行：</p>
-<pre><code>return response()-&gt;caps(&#39;foo&#39;);
-</code></pre>
-
       
     </div>
 

@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">246</span>
+          <span class="site-state-item-count">247</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,180 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/78a7f2eb97d1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/78a7f2eb97d1/" class="post-title-link" itemprop="url">laravel 学习指南 第五章 第五节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 01:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T01:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/78a7f2eb97d1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/78a7f2eb97d1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="5-5-响应"><a href="#5-5-响应" class="headerlink" title="5.5 响应"></a>5.5 响应</h2><h3 id="5-5-1-基本响应"><a href="#5-5-1-基本响应" class="headerlink" title="5.5.1 基本响应"></a>5.5.1 基本响应</h3><p>所有路由和控制器都会返回某种被发送到用户浏览器的响应，laravel提供多种不同的方式来返回响应，最基本的响应就是从路由或控制器返回一个简单的字符串：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>给定的字符串会被框架自动转化为HTTP响应。</p>
+<h4 id="5-5-1-1-Response对象"><a href="#5-5-1-1-Response对象" class="headerlink" title="5.5.1.1 Response对象"></a>5.5.1.1 Response对象</h4><p>大多数路由和控制器动作都会返回一个完整的<code>Illuminate\Http\Response</code>实例或视图，返回一个完整的Response实例允许你自定义响应的HTTP状态码和头信息。Responses实例继承自<code>Symfony\Component\HttpFoundation\Response</code>类，该类提供了一系列方法用于创建HTTP响应：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Response</span>;</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">&#x27;home&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> (<span class="keyword">new</span> Response(<span class="variable">$content</span>, <span class="variable">$status</span>))</span><br><span class="line">-&gt;header(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="variable">$value</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>为了方便，还可以使用辅助函数<code>response</code>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;home&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> response(<span class="variable">$content</span>, <span class="variable">$status</span>)</span><br><span class="line">        -&gt;header(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="variable">$value</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><em>注意：要查看完整的Response方法列表，看可以查看<a target="_blank" rel="noopener" href="https://laravel.com/api/master/Illuminate/Http/Response.html">API文档</a>与<a target="_blank" rel="noopener" href="http://api.symfony.com/2.7/Symfony/Component/HttpFoundation/Response.html">Symfony API 文档</a></em></p>
+<h4 id="5-5-1-2-添加响应头"><a href="#5-5-1-2-添加响应头" class="headerlink" title="5.5.1.2 添加响应头"></a>5.5.1.2 添加响应头</h4><p>大部分响应方法可以用方法链形式调用，从而使得可以建立平滑的响应。</p>
+<p>例如，你可以在响应送出给使用者之前，使用<code>header</code>方法增加一系列的响应头到响应：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> response(<span class="variable">$content</span>)</span><br><span class="line">            -&gt;header(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="variable">$type</span>)</span><br><span class="line">            -&gt;header(<span class="string">&#x27;X-Header-One&#x27;</span>, <span class="string">&#x27;Header Value&#x27;</span>)</span><br><span class="line">            -&gt;header(<span class="string">&#x27;X-Header-Two&#x27;</span>, <span class="string">&#x27;Header Value&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>或者，可以使用<code>withHeaders</code>方法指定要增加至回应的响应头数组：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> response(<span class="variable">$content</span>)</span><br><span class="line">    -&gt;withHeaders([</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span> =&gt; <span class="variable">$type</span>,</span><br><span class="line">        <span class="string">&#x27;X-Header-One&#x27;</span> =&gt; <span class="string">&#x27;Header Value&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;X-Header-Two&#x27;</span> =&gt; <span class="string">&#x27;Header Value&#x27;</span>,</span><br><span class="line">    ]);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-5-1-3-添加Cookie到响应"><a href="#5-5-1-3-添加Cookie到响应" class="headerlink" title="5.5.1.3 添加Cookie到响应"></a>5.5.1.3 添加Cookie到响应</h4><p>透过响应实例的函数<code>cookie</code>可以轻松添加Cookie到响应：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> response(<span class="variable">$content</span>)-&gt;header(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="variable">$type</span>)</span><br><span class="line">    -&gt;cookie(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p><code>cookie</code>方法接收额外的可选参数，使你可以进一步自定cookies的属性：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-&gt;cookie(<span class="variable">$name</span>, <span class="variable">$value</span>, <span class="variable">$minutes</span>, <span class="variable">$path</span>, <span class="variable">$domain</span>, <span class="variable">$secure</span>, <span class="variable">$httpOnly</span>)</span><br></pre></td></tr></table></figure>
+<p>默认情况下，laravel框架生成的Cookie经过了加密和签名，以免在客户端被纂改。</p>
+<p>如果想要让特定的Cookie子集在生成时取消加密，可以使用中间件<code>App\Http\Middleware\EncryptCookies</code>的<code>$except</code>属性来排除这些Cookie：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 不需要被加密的cookies名称</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$except</span> = [</span><br><span class="line">    <span class="string">&#x27;cookie_name&#x27;</span>,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-5-2-其他响应类型"><a href="#5-5-2-其他响应类型" class="headerlink" title="5.5.2 其他响应类型"></a>5.5.2 其他响应类型</h3><p>辅助函数<code>response</code>可以很方便地用来生成其他类型的响应实例，当无参数调用<code>response</code>时会返回<code>Illuminate\Contracts\Routing\ResponseFactory</code>的一个实现类实例契约，该契约提供了一些有用的方法来生成响应。</p>
+<h4 id="5-5-2-1-视图"><a href="#5-5-2-1-视图" class="headerlink" title="5.5.2.1 视图"></a>5.5.2.1 视图</h4><p>如果需要控制响应状态和响应头，并还需要返回一个视图作为响应内容，可以使用<code>view</code>方法:</p>
+<pre><code>return response()-&gt;view(&#39;hello&#39;, $data)-&gt;header(&#39;Content-Type&#39;, $type);
+</code></pre>
+<p>当然，如果不需要传递自定义的HTTP状态码和头信息，只需要简单使用全局函数<code>view</code>即可。</p>
+<h4 id="5-5-2-2-JSON"><a href="#5-5-2-2-JSON" class="headerlink" title="5.5.2.2 JSON"></a>5.5.2.2 JSON</h4><p><code>json</code>方法会自动将<code>Content-Type</code>头设置为<code>application/json</code>,并使用PHP函数<code>json_encode</code>方法将给定数组转化为JSON：</p>
+<pre><code>return response()-&gt;json([&#39;name&#39; =&gt; &#39;Abigail&#39;, &#39;state&#39; =&gt; &#39;CA&#39;]);
+</code></pre>
+<p>如果要创建一个JSONP响应，可以在<code>json</code>方法之后调用<code>setCallback</code>方法：</p>
+<pre><code>return response()-&gt;json([&#39;name&#39; =&gt; &#39;Abigail&#39;, &#39;state&#39; =&gt; &#39;CA&#39;])
+    -&gt;setCallback($request-&gt;input(&#39;callback&#39;));
+</code></pre>
+<h4 id="5-5-2-3-文件下载"><a href="#5-5-2-3-文件下载" class="headerlink" title="5.5.2.3 文件下载"></a>5.5.2.3 文件下载</h4><p><code>download</code>方法用于生成强制用户浏览器下载给定路由文件的响应。<code>download</code>文件接受文件名作为第二个参数，该参数决定用户下载文件的显示名称，可以将HTTP头信息作为第三个参数传递到该方法：</p>
+<pre><code>return response()-&gt;download($pathToFile);
+return response()-&gt;download($pathToFile, $name, $headers);
+</code></pre>
+<p><em>注意：管理文件下载的 Symfony HttpFoundation 类要求被下载文件有一个ASCII文件名。</em></p>
+<hr>
+<h3 id="5-5-3-重定向"><a href="#5-5-3-重定向" class="headerlink" title="5.5.3 重定向"></a>5.5.3 重定向</h3><p>重定向响应是<code>Illuminate\Http\RedirectResponse</code>类的实例，其中包含了必须的头信息将用户重定向到另一个 URL，有很多方式来生成 <code>RedirectResponse</code> 实例，最简单的方法就是使用全局辅助函数 <code>redirect</code>：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;dashboard&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;home/dashboard&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>有时候想要将用户重定向到上一个请求的位置。</p>
+<p>例如，表单提交后，验证不通过，就可以使用辅助函数<code>back</code>返回到前一个URL(使用该方法之前确保路由使用了<code>web</code>中间件组或都使用了<code>session </code>中间件)：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">&#x27;user/profile&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 验证请求...</span></span><br><span class="line">    <span class="keyword">return</span> back()-&gt;withInput();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-5-3-1-重定向到命名路由"><a href="#5-5-3-1-重定向到命名路由" class="headerlink" title="5.5.3.1 重定向到命名路由"></a>5.5.3.1 重定向到命名路由</h4><p>如果调用不带参数的<code>redirect</code>方法，会返回一个<code>Illuminate\Routing\Redirector</code>实例，然后可以调用该实例上的任何方法。</p>
+<p>例如:为了生成一个<code>RedirectResponse</code>到命令路由，可以使用<code>route</code>方法：</p>
+<pre><code>return redirect()-&gt;route(&#39;login&#39;);
+</code></pre>
+<p>如果路由中有参数，可以将其作为第二个参数传递到<code>route</code>方法：</p>
+<pre><code>// For a route with the following URI: profile/&#123;id&#125;
+return redirect()-&gt;route(&#39;profile&#39;, [1]);
+</code></pre>
+<p>如果要重定向到带ID参数的路由(Eloquent 模型绑定),可以传递模型本身，ID会被自动解析出来：</p>
+<pre><code>return redirect()-&gt;route(&#39;profile&#39;, [$user]);
+</code></pre>
+<h4 id="5-5-3-2-重定向到控制器动作"><a href="#5-5-3-2-重定向到控制器动作" class="headerlink" title="5.5.3.2 重定向到控制器动作"></a>5.5.3.2 重定向到控制器动作</h4><p>还可以生成重定向到控制器动作，只需传递控制器和动作名到<code>action</code>方法即可。记住，不需要指定控制器的完整命名。laravel的<code>RouteServiceProvider</code>会自动设置默认的控制器命名：</p>
+<pre><code>return redirect()-&gt;action(&#39;HomeController@index&#39;);
+</code></pre>
+<p>当然，如果控制器路由要求参数，可以将参数作为第二个参数传递给<code>action</code>方法：</p>
+<pre><code>return redirect()-&gt;action(&#39;UserController@profile&#39;, [1]);
+</code></pre>
+<h4 id="5-5-3-3-带一次性-Session-数据的重定向"><a href="#5-5-3-3-带一次性-Session-数据的重定向" class="headerlink" title="5.5.3.3 带一次性 Session 数据的重定向"></a>5.5.3.3 带一次性 Session 数据的重定向</h4><p>重定向到一个新的URL并将数据存储到一次性Session中通常是同时完成的，为了方便，可以创建一个<code>RedirectResponse</code>实例然后在同一方法上将数据存储到Session，这种方式在action之后存储状态信息特别方便：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">&#x27;user/profile&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 更新用户属性...</span></span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;dashboard&#x27;</span>)-&gt;with(<span class="string">&#x27;status&#x27;</span>, <span class="string">&#x27;Profile updated!&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>当然，用户重定向到新页面之后，你可以从Session中取出并显示这些一次性信息。</p>
+<p>例如，使用Blade语法实现：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@if (session(&#x27;status&#x27;))</span><br><span class="line">    &lt;div class=&quot;alert alert-success&quot;&gt;</span><br><span class="line">        &#123;&#123; session(&#x27;status&#x27;) &#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">@endif</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-5-4-响应宏"><a href="#5-5-4-响应宏" class="headerlink" title="5.5.4 响应宏"></a>5.5.4 响应宏</h3><p>如果想要定义一个自定义的响应并且在多个路由和控制器中复用，可以使用<code>Illuminate\Contracts\Routing\ResponseFactory</code>类，或者<code>Response</code>函数中的<code>macro</code>方法。</p>
+<p>例如：在某个服务提供者的boot方法中编写代码如下：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Response</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ResponseMacroServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Perform post-registration booting of services.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Response::macro(<span class="string">&#x27;caps&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$value</span></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> Response::make(strtoupper(<span class="variable">$value</span>));</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>macro</code>方法接收响应名称作为第一个参数，闭包函数作为第二个参数，<code>macro</code>的闭包在<code>ResponseFactory</code>类或<code>Response</code>函数中的<code>macro</code>方法时执行：</p>
+<pre><code>return response()-&gt;caps(&#39;foo&#39;);
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2079,114 +2253,6 @@ map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;
 autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif
 </code></pre>
 <hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/12/572a7c4c0c84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/12/572a7c4c0c84/" class="post-title-link" itemprop="url">2016年7月12日</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-12 23:30:45" itemprop="dateCreated datePublished" datetime="2016-07-12T23:30:45+08:00">2016-07-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/12/572a7c4c0c84/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/572a7c4c0c84/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="日期：2016年7月12日"><a href="#日期：2016年7月12日" class="headerlink" title="日期：2016年7月12日"></a>日期：2016年7月12日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>在ubuntu中安装<code>gulp</code>与<code>sass</code>。</p>
-<p>安装nginx+php7.0+mysql。</p>
-<h3 id="明日计划"><a href="#明日计划" class="headerlink" title="明日计划"></a>明日计划</h3><ul>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol start="2">
-<li>定制玩家天赋</li>
-</ol>
-</li>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol start="3">
-<li>laravel 学习</li>
-</ol>
-</li>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol start="4">
-<li>学习数据结构</li>
-</ol>
-</li>
-</ul>
 
       
     </div>
