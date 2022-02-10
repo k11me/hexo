@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">248</span>
+          <span class="site-state-item-count">249</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,144 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/28/8c7a4b964b00/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/09/28/8c7a4b964b00/" class="post-title-link" itemprop="url">记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-28T00:00:00+08:00">2018-09-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/28/8c7a4b964b00/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/28/8c7a4b964b00/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h1><p>工作指南</p>
+<ol>
+<li>Code Message UI 部分处理</li>
+<li>权限手动调整UI</li>
+<li>权限系统的全局化，将权限处理加入列队</li>
+<li>特定返回信息的响应</li>
+<li>二步验证 UI 部分</li>
+<li>语言全面本地化 【vuex-i18n】</li>
+</ol>
+<h2 id="code-message"><a href="#code-message" class="headerlink" title="code message"></a>code message</h2><p>工作详解</p>
+<ol>
+<li>将全局信息显示功能独立</li>
+<li>需要为信息增加分页显示</li>
+<li>搜索结果是否使用通用部分显示</li>
+<li>识别2fa验证信息并相应【全局模组】</li>
+<li>新建信息页面 【需要验证2FA】</li>
+<li>编辑信息页面 【需要验证2FA】</li>
+<li>删除信息页面 【需要验证2FA】</li>
+</ol>
+<p>好在<code>2FA</code>与 <code>code message</code>可以使用代码手动添加，如果没先做后端真是难以想象，估计是灾难或者加班地狱吧</p>
+<p>反而是语言本地化容易的，可以在休息时完成。</p>
+<p>其他 貌似2FA的优先度比较高，但是信息提示也是非常重要</p>
+<p>对功能分组编写非常重要！一人并行写是比较容易混乱 笔记是一定要的</p>
+<p>好处是发现问题可以及时修正，也要考虑之后的多人协作的效率问题</p>
+<p>多是交给组长处理吧</p>
+<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p><code>bootstrap 4.*</code>是没有图标的 需要自己找</p>
+<p>使用<code>fontawesome</code> 解决了</p>
+<h2 id="23号的份"><a href="#23号的份" class="headerlink" title="23号的份"></a>23号的份</h2><p><code>Code Message</code>资源获取、更新、删除部分的UI完成。 调用与测试正常</p>
+<p>想着将<code>laravel</code> 自带的UI 使用 <code>vue</code> 重构 最严重的问题还是在本地化语言上。</p>
+<p>只能将使用的分离，其他的再做打算 😭</p>
+<p>基本上这种感觉</p>
+<p>分页显示也是有做的~</p>
+<p><img src="https://i.loli.net/2018/09/24/5ba7f4b0cbf57.png"></p>
+<h2 id="26号的份"><a href="#26号的份" class="headerlink" title="26号的份"></a>26号的份</h2><p><code>code message</code> 部分基本完成，之后要调整<code>code</code>并修正一些细小的地方。</p>
+<p>感到前端与后端的耦合度很高，这样之后是大麻烦，要不要全部使用<code>vuex</code>呢……</p>
+<p>之后 先处理<code>2fa</code>与验证吧，<code>2fa</code> 比如是全局的…… 不跨域使用<code>oauth</code>的意义不大</p>
+<p>不过使用<code>oauth</code>容易啊~~ 啊啊啊啊啊~~~</p>
+<h2 id="28号的份"><a href="#28号的份" class="headerlink" title="28号的份"></a>28号的份</h2><p>添加<code>2fa ui</code>了，没什么创造性的劳动…… </p>
+<p>使<code>button:hover</code>文字与样式 随鼠标产生变化</p>
+<p>注意定义<code>css</code> 否则效果不会有变化 </p>
+<p>如果使用 <code>vuex-i18n</code> 可以使用语言行替代 对应位置文字</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-outline-success&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">v-on:mouseenter</span>=<span class="string">&quot;button = &#x27;in button&#x27;&quot;</span> </span></span><br><span class="line"><span class="tag"><span class="attr">v-on:mouseleave</span>=<span class="string">&quot;button = &#x27;out button&#x27;&quot;</span>&gt;</span></span><br><span class="line">&#123;&#123; button &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">data</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		<span class="attr">button</span>: <span class="string">&#x27;out button&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.btn-outline-success</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-outline-success</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:disabled</span>)<span class="selector-pseudo">:not</span>(<span class="selector-class">.disabled</span>)<span class="selector-pseudo">:active</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.btn-outline-success</span><span class="selector-pseudo">:not</span>(<span class="selector-pseudo">:disabled</span>)<span class="selector-pseudo">:not</span>(<span class="selector-class">.disabled</span>)<span class="selector-pseudo">:focus</span>&#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1150,114 +1288,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/30/3ede961417ad/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/07/30/3ede961417ad/" class="post-title-link" itemprop="url">i18n 全球化语言</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-07-30 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-30T00:00:00+08:00">2018-07-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/07/30/3ede961417ad/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/30/3ede961417ad/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="i18n-全球化语言"><a href="#i18n-全球化语言" class="headerlink" title="i18n 全球化语言"></a>i18n 全球化语言</h1><p>@lang 与 <code>__(&#39;lange&#39;)</code> 不能在vue中使用</p>
-<p>于是找到<code>martinlindhe/laravel-vue-i18n-generator</code>包</p>
-<p>不过要注意的 README 有错误</p>
-<p>使用<code>vue-i18n</code> 后<code>$t(&#39;lang&#39;)</code> 不能正常渲染 疑似<code>vue</code>的bug</p>
-<p><code>vuex-i18n</code> 则正常</p>
-<p>修改<code> resources/assets/js/app.js</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> vuexI18n <span class="keyword">from</span> <span class="string">&#x27;vuex-i18n&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Locales <span class="keyword">from</span> <span class="string">&#x27;./vue-i18n-locales.generated.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store();</span><br><span class="line">Vue.use(vuexI18n.plugin, store);</span><br><span class="line"></span><br><span class="line">Vue.i18n.add(<span class="string">&#x27;en&#x27;</span>, Locales.en);</span><br><span class="line">Vue.i18n.add(<span class="string">&#x27;zh&#x27;</span>, Locales.zh);</span><br><span class="line"></span><br><span class="line">Vue.i18n.set(<span class="string">&#x27;en&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    store,</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>之后就可以正常的使用<code>$t()</code>了 同时也支持复数形式</p>
-<p><a target="_blank" rel="noopener" href="https://medium.com/@konafets/localization-with-laravel-and-vuejs-e27068e68ee8">参考地址</a></p>
-<p><strong>优点：不用设置后端后再设置前端 使用<code>php artisan vue-i18n:generate</code>可以直接创建或更新<code>vue</code>的语言设置</strong></p>
-<h1 id="天朝上邦"><a href="#天朝上邦" class="headerlink" title="天朝上邦"></a>天朝上邦</h1><p>估计汇率1比20是早晚的事儿了</p>
-<p>某不可描述的两物必须灭亡</p>
-<p>也算死了 账也是要算的 逃不掉的 </p>
-<p>准备被人唾弃到世界终结吧</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/14/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/16/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1288,7 +1318,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:33</span>
+    <span title="Reading time total">3:34</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
