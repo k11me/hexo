@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">250</span>
+          <span class="site-state-item-count">251</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,139 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/8788d26396c1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/8788d26396c1/" class="post-title-link" itemprop="url">laravel 学习指南 第六章 第三节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 05:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T05:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/8788d26396c1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/8788d26396c1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="6-3-服务提交者"><a href="#6-3-服务提交者" class="headerlink" title="6.3 服务提交者"></a>6.3 服务提交者</h2><h3 id="6-3-1-简介"><a href="#6-3-1-简介" class="headerlink" title="6.3.1 简介"></a>6.3.1 简介</h3><p>服务提供者是所有laravel应用启动的中心，你自己的应用以及所有Laravel的核心服务都是通过服务提供者启动。</p>
+<p>但是，我们所谓的<code>启动</code>指的是什么？通常，这意味着注册事物，包括注册服务容器绑定，事件监听器，中间件甚至路由。服务提供者是应用配置的中心。</p>
+<p>如果你打开Laravel自带的<code>config/app.php</code>文件，将会看到一个<code>providers</code>数组，这里就是应用所要加载的所有服务提供者类，当然，其中很多是延迟加载的，也就是说不是每次请求都会被加载，只有真的用到它们的时候才会加载。</p>
+<p>本章里你将会学习如何编写自己的服务提供者并在Laravel应用中注册它们。</p>
+<hr>
+<h3 id="6-3-2-编写服务提供者"><a href="#6-3-2-编写服务提供者" class="headerlink" title="6.3.2 编写服务提供者"></a>6.3.2 编写服务提供者</h3><p>所以得服务提供者继承自<code>Illuminate\Support\ServiceProvider</code>类。继承该抽象类要求至少在服务提供者中定义一个方法：<code>register</code>。在<code>register</code>方法内，你唯一要做的事情就是绑事物到服务容器，不要尝试在其中注册任何时间监听器，路由或者任何其它功能。</p>
+<p>通过Artisan命令<code>make:provider</code>可以简单生成一个新的提供者：</p>
+<pre><code>php artisan make:provider RiakServiceProvider
+</code></pre>
+<p>文件被创建到<code>App/Providers/RiakServiceProvider.php</code></p>
+<h4 id="6-3-2-1-register方法"><a href="#6-3-2-1-register方法" class="headerlink" title="6.3.2.1 register方法"></a>6.3.2.1 register方法</h4><p>正如前面所提到的，在<code>register</code>方法中只绑定事物到服务容器，而不要做其它事情，否则，一不小心就会用到一个尚未被加载的服务提供者提供的服务。</p>
+<p>现在来看看一个基本的服务提供者是什么样：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Riak</span>\<span class="title">Connection</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RiakServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在容器中注册绑定.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;app-&gt;singleton(<span class="string">&#x27;Riak\Contracts\Connection&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$app</span></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Connection(config(<span class="string">&#x27;riak&#x27;</span>));</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编辑的文件为<code>App/Providers/RiakServiceProvider.php</code></p>
+<p>这个服务提供者只定义了一个<code>register</code>方法，并在服务容器中使用此方法定义了一份<code>Riak/connection</code>的实例。如果不清楚它是如何运作的，查看下一章节<code>服务容器</code>。</p>
+<h4 id="6-3-2-2-boot方法"><a href="#6-3-2-2-boot方法" class="headerlink" title="6.3.2.2 boot方法"></a>6.3.2.2 boot方法</h4><p>如果我们想要在服务提供者中注册视图composer该怎么做？这就要用到<code>boot</code>方法，该方法在所有服务提供者被注册以后才会被调用，这就是说我们可以在其中访问框架已注册的所有其他服务：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EventServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Perform post-registration booting of services.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        view()-&gt;composer(<span class="string">&#x27;view&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在容器中注册绑定.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>boot方法的依赖注入</strong></li>
+</ul>
+<p>我们可以在<code>boot</code>方法中类型提升依赖，服务容器会自动注册你需要的依赖：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Routing</span>\<span class="title">ResponseFactory</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params">ResponseFactory <span class="variable">$factory</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$factory</span>-&gt;macro(<span class="string">&#x27;caps&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$value</span></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-3-3-注册服务提供者"><a href="#6-3-3-注册服务提供者" class="headerlink" title="6.3.3 注册服务提供者"></a>6.3.3 注册服务提供者</h3><p>所有服务提供者都是通过配置文件<code>config/app.php</code>中进行注册，该文件包含了一个列出所有服务提供者名字的<code>providers</code>数组，默认情况下，其中列出了所有核心服务提供者，这些服务提供者启动Laravel核心组件，比如邮件、列队、缓存等等。</p>
+<p>要注册你自己的服务提供者，只需要将其追加到该数组中：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;providers&#x27;</span> =&gt; [</span><br><span class="line">     <span class="comment">// 其它服务提供者</span></span><br><span class="line">     App\Providers\AppServiceProvider::class,</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-3-4-延迟加载服务提供者"><a href="#6-3-4-延迟加载服务提供者" class="headerlink" title="6.3.4 延迟加载服务提供者"></a>6.3.4 延迟加载服务提供者</h3><p>如果你的提供者仅仅只是在服务容器中注册绑定，你可以选择在延迟加载该绑，定直到注册绑定真的需要时再加载，延迟加载这样的一个提供者将会提升应用的性能，因为它不会在每次请求时都从文件系统加载。</p>
+<p>想要延迟加载一个提供者，设置defer属性为true并定义一个provides方法，该方法返回该提供者注册的服务容器绑定：</p>
+<p>想要延迟加载一个提供者，设置<code>defer</code>属性为<code>true</code>并定义一个<code>provides</code>方法，该方法返回该提供者注册的服务容器绑定：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Riak</span>\<span class="title">Connection</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RiakServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 服务提供者加是否延迟加载.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> bool</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$defer</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注册服务提供者</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;app-&gt;singleton(<span class="string">&#x27;Riak\Contracts\Connection&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$app</span></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Connection(<span class="variable">$app</span>[<span class="string">&#x27;config&#x27;</span>][<span class="string">&#x27;riak&#x27;</span>]);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取由提供者提供的服务.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">provides</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;Riak\Contracts\Connection&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Laravel编译并保存所有延迟服务者提供的服务以及服务提供者的类名。</p>
+<p>然后，只有当你尝试解析其中某个服务时Laravel才会加载其服务提交者。</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1912,192 +2045,8 @@ public function user()
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/15/ba9e3cb46214/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/15/ba9e3cb46214/" class="post-title-link" itemprop="url">laravel 学习指南 第三章</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-15 01:00:00" itemprop="dateCreated datePublished" datetime="2016-07-15T01:00:00+08:00">2016-07-15</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/15/ba9e3cb46214/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/15/ba9e3cb46214/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>TOC<br>{:toc}</li>
-</ul>
-<h2 id="3-跟随快速入门"><a href="#3-跟随快速入门" class="headerlink" title="3. 跟随快速入门"></a>3. 跟随快速入门</h2><p><a target="_blank" rel="noopener" href="https://laravel.com/docs/5.2/quickstart">官方地址</a></p>
-<p><a target="_blank" rel="noopener" href="http://laravelacademy.org/post/3291.html">中文版地址</a></p>
-<p><a target="_blank" rel="noopener" href="https://laravel.tw/docs/5.2/quickstart">台湾版地址</a></p>
-<p>开始前先创建一个新的数据库，并添加到.<code>env</code>文件中。</p>
-<h3 id="3-1-创建quickstart项目"><a href="#3-1-创建quickstart项目" class="headerlink" title="3.1 创建quickstart项目"></a>3.1 创建quickstart项目</h3><h4 id="3-1-1-使用composer"><a href="#3-1-1-使用composer" class="headerlink" title="3.1.1 使用composer"></a>3.1.1 使用composer</h4><pre><code>$ composer create-project laravel/laravel quickstart --prefer-dist
-</code></pre>
-<h4 id="3-1-2-克隆整个快速入门文档"><a href="#3-1-2-克隆整个快速入门文档" class="headerlink" title="3.1.2 克隆整个快速入门文档"></a>3.1.2 克隆整个快速入门文档</h4><pre><code>$ git clone https://github.com/laravel/quickstart-basic quickstart
-$ cd quickstart
-$ composer install
-$ php artisan migrate
-</code></pre>
-<h3 id="3-2-准备数据库"><a href="#3-2-准备数据库" class="headerlink" title="3.2 准备数据库"></a>3.2 准备数据库</h3><p>laravel有一种简单的定义与修改数据表的方法。</p>
-<p>现在使用<code>make:migration</code>生成<code>tasks</code>新的数据表：</p>
-<pre><code>$ php artisan make:migration create_tasks_table --create=tasks
-</code></pre>
-<p><code>make:migration</code>自动添加了<code>id</code>与<code>时间戳</code>。</p>
-<p>手动增加一个条码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$table</span>-&gt;string(<span class="string">&#x27;name&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>随后使用下方命令将<code>tasks</code>写入数据表。</p>
-<pre><code>$ php artisan migrate
-</code></pre>
-<p><em>注意：如果数据库中以及存在<code>tasks</code>数据表，会报错。</em></p>
-<h3 id="3-3-Eloquent-ORM模型"><a href="#3-3-Eloquent-ORM模型" class="headerlink" title="3.3 Eloquent ORM模型"></a>3.3 Eloquent ORM模型</h3><p>laravel 使用默认ORM是Eloquent，[ORM：物件关联对应]，每一个Eloquent模型都有一个对应的数据表。</p>
-<p>所有创建<code>tasks</code>对应的<code>Task</code>模型，使用<code>Artisan</code>命令来生成模型。</p>
-<pre><code>$ php artisan make:model Task
-</code></pre>
-<p>模型在<code>app</code>目录下，默认情况下，模型类是空的。不需要说明Eloquent模型要对应哪张数据表，它会假设数据表是模型的复数形态。</p>
-<p>这里<code>Task</code>对应的是<code>tasks</code>。</p>
-<h3 id="3-4-路由"><a href="#3-4-路由" class="headerlink" title="3.4 路由"></a>3.4 路由</h3><h4 id="3-4-1-建置路由"><a href="#3-4-1-建置路由" class="headerlink" title="3.4.1 建置路由"></a>3.4.1 建置路由</h4><p>默认情况下，所有的路由都定义在<code>app/Http/routes.php</code></p>
-<p>这个需要至少三个路由：显示所有任务的路由，添加新任务的路由，以及删除己存在任务的路由。</p>
-<p>下面再<code>app/Http/routse.php</code>中创建这三个路由。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Task</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Display All Tasks</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">//</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Add A New Task</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Route::post(<span class="string">&#x27;/task&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Delete An Existing Task</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Route::delete(<span class="string">&#x27;/task/&#123;id&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="3-4-2-显示视图"><a href="#3-4-2-显示视图" class="headerlink" title="3.4.2 显示视图"></a>3.4.2 显示视图</h4><p>laravel的全部，HTML模板都存放在<code>resources/view</code>目录下，使用<code>view</code>函数从路由中返回一个模板。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">&#x27;tasks&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>现在要在创建一个对应的视图模板<code>resources/views/tasks.blade.php</code>作为<code>View</code>对象。</p>
-<h3 id="3-5-创建布局-amp-视图"><a href="#3-5-创建布局-amp-视图" class="headerlink" title="3.5 创建布局&amp;视图"></a>3.5 创建布局&amp;视图</h3><p>下图中使用了<code>Bootstrap CSS</code>样式</p>
-<p><img src="https://raw.githubusercontent.com/422303771/web/master/ubuntu/laravel/img/basic-overview.png"></p>
-<h4 id="3-5-1-定义布局"><a href="#3-5-1-定义布局" class="headerlink" title="3.5.1 定义布局"></a>3.5.1 定义布局</h4><p><strong>几乎所有的web应用都在不同的页面中共享同一个布局。</strong></p>
-<p>例如，这个应用在视图顶部的导航条，这个导航条在每个页面都会出现。</p>
-<p>laravel通过在每个页面中使用Blade布局让共享这些公共特性变得简单。</p>
-<p>在<code>resources/views/layouts/app.blade.php</code>中定义一个新布局，<code>.blade.php</code>表明使用Blade模板引擎来渲染视图。</p>
-<p>也可以使用PHP原生模板然而，Blade提供的标签语法可以编写简洁的模板。</p>
-<p><code>app.blade.php</code>的内容如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// resources/views/layouts/app.blade.php</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Laravel Quickstart - Basic<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- CSS And JavaScript --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">&quot;navbar navbar-default&quot;</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- Navbar Contents --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        @yield(&#x27;content&#x27;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>布局中的<code>@yield(&#39;content&#39;)</code>部分，是一个Blade指令，用于指定继承布局的子页面，在这里可以注入自己的内容。</p>
-<h4 id="3-5-2-定义子视图"><a href="#3-5-2-定义子视图" class="headerlink" title="3.5.2 定义子视图"></a>3.5.2 定义子视图</h4><p>现在定义<code>resources/views/tasks.blade.php</code>视图。<code>Bootstrap CSS</code>的样本文件可以到<a target="_blank" rel="noopener" href="https://github.com/laravel/quickstart-basic">github</a>下载</p>
-<p><code>tasks.blade.php</code>内容如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//resources/views/tasks.blade.php</span><br><span class="line"></span><br><span class="line">@extends(&#x27;layouts.app&#x27;)</span><br><span class="line"></span><br><span class="line">@section(&#x27;content&#x27;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap Boilerplate... --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel-body&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- Display Validation Errors --&gt;</span></span><br><span class="line">        @include(&#x27;common.errors&#x27;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- New Task Form --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/task&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-horizontal&quot;</span>&gt;</span></span><br><span class="line">            &#123;&#123; csrf_field() &#125;&#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- Task Name --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;task&quot;</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-3 control-label&quot;</span>&gt;</span>Task<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">id</span>=<span class="string">&quot;task-name&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- Add Task Button --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-offset-3 col-sm-6&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-default&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-plus&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> Add Task</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- <span class="doctag">TODO:</span> Current Tasks --&gt;</span></span><br><span class="line">@endsection</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：</strong></p>
-<p>使用<code>@extends</code>告诉Blade要使用在<code>resources/views/layouts/app.blade.php</code>的布局。</p>
-<p>在<code>@section(&#39;content&#39;)</code>与<code>@endsection</code>之间的内容会被注入到<code>app.blade.php</code>的<code>@yield(&#39;contents&#39;)</code>位置。</p>
-<p><code> @include(&#39;common.errors&#39;)</code>指令将会加载<code>resources/views/common/errors.blade.php</code>中的内容，目前还没有定义。</p>
-<p>现在可以设置路由：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">&#x27;tasks&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-6-添加任务"><a href="#3-6-添加任务" class="headerlink" title="3.6 添加任务"></a>3.6 添加任务</h3><h4 id="3-6-1-验证"><a href="#3-6-1-验证" class="headerlink" title="3.6.1 验证"></a>3.6.1 验证</h4><p>验证表单，在<code>POST /task</code>路由中编写代码，处理表单请求，我们需要验证表单输入，然后才能创建一个新任务。</p>
-<p>对这个表单而言，将<code>name</code>字段设置为必填项，而长度不超过255个字符。如果表单验证失败，将会跳转到前一个页面，并将错误信息存入一次性的<code>Session</code>中：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">&#x27;/task&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$validator</span> = Validator::make(<span class="variable">$request</span>-&gt;all(), [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;required|max:255&#x27;</span>,</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$validator</span>-&gt;fails()) &#123;</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">            -&gt;withInput()</span><br><span class="line">            -&gt;withErrors(<span class="variable">$validator</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create The Task...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>$errors</strong></p>
-<p><code>-&gt;withErrors($validator)</code>将验证错误信息存放在一次性的session中，以便视图通过<code>$errors</code>访问。</p>
-<p><code>errors.blade.php</code>文件</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// resources/views/common/errors.blade.php</span></span><br><span class="line"></span><br><span class="line">@<span class="keyword">if</span> (count(<span class="variable">$errors</span>) &gt; <span class="number">0</span>)</span><br><span class="line">    &lt;!-- Form <span class="built_in">Error</span> <span class="keyword">List</span> --&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span>=&quot;<span class="title">alert</span> <span class="title">alert</span>-<span class="title">danger</span>&quot;&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">strong</span>&gt;<span class="title">Whoops</span>! <span class="title">Something</span> <span class="title">went</span> <span class="title">wrong</span>!&lt;/<span class="title">strong</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">        &lt;<span class="title">br</span>&gt;&lt;<span class="title">br</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">        &lt;<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="class">            @<span class="title">foreach</span> ($<span class="title">errors</span>-&gt;<span class="title">all</span>() <span class="title">as</span> $<span class="title">error</span>)</span></span><br><span class="line"><span class="class">                &lt;<span class="title">li</span>&gt;</span>&#123;&#123; <span class="variable">$error</span> &#125;&#125;&lt;/li&gt;</span><br><span class="line">            @<span class="keyword">endforeach</span></span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">@<span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：</strong></p>
-<p><code>errors</code>变量可用于每个laravel的视图中。如果没有验证错误信息存在，那么他就是一个空的<code>ViewErroeBag</code>实例。</p>
-<h4 id="3-6-2-创建任务"><a href="#3-6-2-创建任务" class="headerlink" title="3.6.2 创建任务"></a>3.6.2 创建任务</h4><p>接下来开始创建一个新任务。一旦新任务创建成功，页面会跳转到<code>/</code>。要创建任务，可以有<code>Eloquent</code>模式提供的<code>save</code>方法：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">&#x27;/task&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$validator</span> = Validator::make(<span class="variable">$request</span>-&gt;all(), [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;required|max:255&#x27;</span>,</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$validator</span>-&gt;fails()) &#123;</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">            -&gt;withInput()</span><br><span class="line">            -&gt;withErrors(<span class="variable">$validator</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$task</span> = <span class="keyword">new</span> Task;</span><br><span class="line">    <span class="variable">$task</span>-&gt;name = <span class="variable">$request</span>-&gt;name;</span><br><span class="line">    <span class="variable">$task</span>-&gt;save();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-6-3-显示己存在的任务"><a href="#3-6-3-显示己存在的任务" class="headerlink" title="3.6.3 显示己存在的任务"></a>3.6.3 显示己存在的任务</h4><p>添加代码到视图来显示所有任务列表。</p>
-<p>需要编辑/路由传递所有已存在任务到视图，view函数接收一个数组作为第二个参数，我们可以将数据通过该数组传递到视图中：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$tasks</span> = Task::orderBy(<span class="string">&#x27;created_at&#x27;</span>, <span class="string">&#x27;asc&#x27;</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">&#x27;tasks&#x27;</span>, [</span><br><span class="line">        <span class="string">&#x27;tasks&#x27;</span> =&gt; <span class="variable">$tasks</span></span><br><span class="line">    ]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>数据被传递到视图后，我们可以在<code>tasks.blade.php</code>中以表格形式显示所有任务。Blade中使用<code>@foreach</code>处理循环数据：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">extends</span>(<span class="string">&#x27;layouts.app&#x27;</span>)</span><br><span class="line"></span><br><span class="line">@section(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">    &lt;!-- Create Task Form... --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Current Tasks --&gt;</span><br><span class="line">    @<span class="keyword">if</span> (count(<span class="variable">$tasks</span>) &gt; <span class="number">0</span>)</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span>=&quot;<span class="title">panel</span> <span class="title">panel</span>-<span class="title">default</span>&quot;&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">div</span> <span class="title">class</span>=&quot;<span class="title">panel</span>-<span class="title">heading</span>&quot;&gt;</span></span><br><span class="line"><span class="class">                <span class="title">Current</span> <span class="title">Tasks</span></span></span><br><span class="line"><span class="class">            &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">            &lt;<span class="title">div</span> <span class="title">class</span>=&quot;<span class="title">panel</span>-<span class="title">body</span>&quot;&gt;</span></span><br><span class="line"><span class="class">                &lt;<span class="title">table</span> <span class="title">class</span>=&quot;<span class="title">table</span> <span class="title">table</span>-<span class="title">striped</span> <span class="title">task</span>-<span class="title">table</span>&quot;&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">                    &lt;!-- <span class="title">Table</span> <span class="title">Headings</span> --&gt;</span></span><br><span class="line"><span class="class">                    &lt;<span class="title">thead</span>&gt;</span></span><br><span class="line"><span class="class">                        &lt;<span class="title">th</span>&gt;<span class="title">Task</span>&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line"><span class="class">                        &lt;<span class="title">th</span>&gt;&amp;<span class="title">nbsp</span>;&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line"><span class="class">                    &lt;/<span class="title">thead</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">                    &lt;!-- <span class="title">Table</span> <span class="title">Body</span> --&gt;</span></span><br><span class="line"><span class="class">                    &lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line"><span class="class">                    @<span class="title">foreach</span> ($<span class="title">tasks</span> <span class="title">as</span> $<span class="title">task</span>)</span></span><br><span class="line"><span class="class">                        &lt;<span class="title">tr</span>&gt;</span></span><br><span class="line"><span class="class">                            &lt;!-- <span class="title">Task</span> <span class="title">Name</span> --&gt;</span></span><br><span class="line"><span class="class">                            &lt;<span class="title">td</span> <span class="title">class</span>=&quot;<span class="title">table</span>-<span class="title">text</span>&quot;&gt;</span></span><br><span class="line"><span class="class">                                &lt;<span class="title">div</span>&gt;</span>&#123;&#123; <span class="variable">$task</span>-&gt;name &#125;&#125;&lt;/div&gt;</span><br><span class="line">                            &lt;/td&gt;</span><br><span class="line"></span><br><span class="line">                            &lt;td&gt;</span><br><span class="line">                                &lt;!-- TODO: Delete Button --&gt;</span><br><span class="line">                            &lt;/td&gt;</span><br><span class="line">                        &lt;/tr&gt;</span><br><span class="line">                    @<span class="keyword">endforeach</span></span><br><span class="line">                    &lt;/tbody&gt;</span><br><span class="line">                &lt;/table&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    @<span class="keyword">endif</span></span><br><span class="line">@endsection</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-7-删除任务"><a href="#3-7-删除任务" class="headerlink" title="3.7 删除任务"></a>3.7 删除任务</h3><h4 id="3-7-1-添加删除按钮"><a href="#3-7-1-添加删除按钮" class="headerlink" title="3.7.1 添加删除按钮"></a>3.7.1 添加删除按钮</h4><p>我们在<code>tasks.blade.php</code>视图中留了一个“TODO”注释用于放置删除按钮。当删除按钮被点击时，<code>DELETE /task</code>请求被发送到应用后台：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Task Name --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;table-text&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; $task-&gt;name &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Delete Button --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/task/&#123;&#123; $task-&gt;id &#125;&#125;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">            &#123;&#123; csrf_field() &#125;&#125;</span><br><span class="line">            &#123;&#123; method_field(&#x27;DELETE&#x27;) &#125;&#125;</span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Delete Task<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>方法伪造</strong></p>
-<p>尽管我们使用的路由是<code>Route::delete</code>，但我们在删除按钮表单中使用的请求方法为<code>POST</code>，HTML表单只支持<code>GET</code>和<code>POST</code>两种请求方式，因此我们需要使用某种方式来伪造DELETE请求。</p>
-<p>我们可以在表单中通过输出<code>method_field(&#39;DELETE&#39;)</code>来伪造<code>DELETE</code>请求，该函数生成一个隐藏的表单输入框，然后Laravel识别出该输入并使用其值覆盖实际的HTTP请求方法。生成的输入框如下：</p>
-<input type="hidden" name="_method" value="DELETE">
-
-<h4 id="3-7-2-删除任务"><a href="#3-7-2-删除任务" class="headerlink" title="3.7.2 删除任务"></a>3.7.2 删除任务</h4><p>最后，让我们添加业务逻辑到路由中执行删除操作，我们可以使用<code>Eloquent</code>提供的<code>findOrFail</code>方法从数据库通过ID获取模型实例，如果不存在则抛出404异常。获取到模型后，我们使用模型的<code>delete</code>方法删除该模型在数据库中对应的记录。记录被删除后，跳转到<code>/</code>页面:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::delete(<span class="string">&#x27;/task/&#123;id&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">    Task::findOrFail(<span class="variable">$id</span>)-&gt;delete();</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
