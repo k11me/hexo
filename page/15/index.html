@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">252</span>
+          <span class="site-state-item-count">253</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,123 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/10/14/1a3ae4879e9b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/14/1a3ae4879e9b/" class="post-title-link" itemprop="url">11号的份</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-10-14 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-14T00:00:00+08:00">2018-10-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/10/14/1a3ae4879e9b/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/14/1a3ae4879e9b/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="11号的份"><a href="#11号的份" class="headerlink" title="11号的份"></a>11号的份</h1><h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>将特定 信息通知 推送到指定队列</p>
+<p>修改<code>horizon</code> 后</p>
+<p>可以使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$user</span>-&gt;notify((<span class="keyword">new</span> SendEmail(<span class="variable">$Token</span>))-&gt;onQueue(<span class="string">&#x27;mail&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Notification</span>;</span><br><span class="line">Notification::send(<span class="variable">$user</span>, (<span class="keyword">new</span> SendEmail(<span class="variable">$Token</span>))-&gt;onQueue(<span class="string">&#x27;mail&#x27;</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="roles"><a href="#roles" class="headerlink" title="roles"></a>roles</h2><p>需要注意<code>guard</code>对应</p>
+<p><code>view</code>与<code>models</code> 要注意同步</p>
+<p>在<code>blade</code> 中使用时</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@role(<span class="string">&#x27;role&#x27;</span> , <span class="string">&#x27;guard&#x27;</span>)</span><br><span class="line">something</span><br><span class="line">@endrole</span><br></pre></td></tr></table></figure>
+
+<p>在路由中使用时</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">&#x27;middleware&#x27;</span> =&gt; [<span class="string">&#x27;auth:admin&#x27;</span> , <span class="string">&#x27;role:admin&#x27;</span>]], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>也可以在控制器中使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;middleware([<span class="string">&#x27;role:admin&#x27;</span> , <span class="string">&#x27;auth:admin&#x27;</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="14号的份"><a href="#14号的份" class="headerlink" title="14号的份"></a>14号的份</h1><h2 id="find-与-where-的坑"><a href="#find-与-where-的坑" class="headerlink" title="find 与 where 的坑"></a>find 与 where 的坑</h2><p><code>find</code> 不能准确 查找到对应条目</p>
+<p><code>where</code> 则可以，之后只有有意识的替换<code>find</code></p>
+<p><code>register</code>的后端调整完成了~~~</p>
+<p>大概这种感觉</p>
+<p><img src="https://i.loli.net/2018/10/14/5bc33df12e03a.png" alt="屏幕快照 2018-10-14 20.58.44"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1149,109 +1266,6 @@
 
 <h2 id="集中精神干活了"><a href="#集中精神干活了" class="headerlink" title="集中精神干活了"></a>集中精神干活了</h2><p>添加信息提示，将信息反馈的更加直观</p>
 <p>最让人愁的是胜利的判断方式，要最简单不能复杂……</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/01/d62461f9bf54/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/01/d62461f9bf54/" class="post-title-link" itemprop="url">寒冬？不存在的~~</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-09-01 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-01T00:00:00+08:00">2018-09-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/09/01/d62461f9bf54/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/01/d62461f9bf54/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="沸沸扬扬"><a href="#沸沸扬扬" class="headerlink" title="沸沸扬扬"></a>沸沸扬扬</h2><p>我朝文件震惊游戏行业，寒冬已至。</p>
-<p>错估形势，将我朝当主要市场也是必然吧。</p>
-<p>从架起GFW的那天开始，就注定没有未来。</p>
-<p>最糟糕的时，境外公司不能对我朝个人付款。</p>
-<p>看来HK是一定要再去一次了。</p>
-<p>众筹的款项不能入手也是糟糕。</p>
-<p>还有企业税加了到35% 贸易战还加企业税 也是666</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>mac的系统盘满了</p>
-<p>希望可以在坚持几个月~~</p>
-<p>群辉的购入也在计划之中……</p>
 
       
     </div>
