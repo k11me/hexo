@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">251</span>
+          <span class="site-state-item-count">252</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,116 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/68f82f5c469f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/68f82f5c469f/" class="post-title-link" itemprop="url">laravel 学习指南 第八章 第三节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 16:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T16:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/68f82f5c469f/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/68f82f5c469f/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="8-3-集合"><a href="#8-3-集合" class="headerlink" title="8.3 集合"></a>8.3 集合</h2><h3 id="8-3-1-简介"><a href="#8-3-1-简介" class="headerlink" title="8.3.1 简介"></a>8.3.1 简介</h3><p>Eloquent 返回的所有的,包含多条记录的,结果集,都是 <code>Illuminate\Database\Eloquent\Collection </code>对象的实例，包括通过 <code>get</code> 方法或者,通过访问关联关系获取的结果。Eloquent 集合对象继承自<code>Laravel</code>的集合基类，因此很自然的继承了很多处理 Eloquent 模型底层数组的方法。</p>
+<p>当然，所有集合也是迭代器，允许你像数组一样对其进行循环：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = App\User::where(<span class="string">&#x27;active&#x27;</span>, <span class="number">1</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$users</span> <span class="keyword">as</span> <span class="variable">$user</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="variable">$user</span>-&gt;name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而，集合使用直观接口提供各种映射/简化操作，因此比数组更加强大。</p>
+<p>例如，我们可以通过以下方式移除所有无效的模型并聚合还存在的用户的名字</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = App\User::where(<span class="string">&#x27;active&#x27;</span>, <span class="number">1</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="variable">$names</span> = <span class="variable">$users</span>-&gt;reject(<span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$user</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$user</span>-&gt;active === <span class="literal">false</span>;</span><br><span class="line">&#125;)-&gt;map(<span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$user</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$user</span>-&gt;name;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p><em>注意：尽管大多数 Eloquent 集合返回的是一个新的 Eloquent 集合实例，但是<code>pluck</code>、<code>keys</code>、<code>zip</code>、<code>collapse</code>、<code>flatten</code>和<code>flip</code>方法返回的是集合基类实例。</em></p>
+<hr>
+<h3 id="8-3-2-可用方法"><a href="#8-3-2-可用方法" class="headerlink" title="8.3.2 可用方法"></a>8.3.2 可用方法</h3><p>关于服务的可用方法，可用查看<a target="_blank" rel="noopener" href="http://laravelacademy.org/post/178.html#ipt_kb_toc_178_3">服务-合集</a></p>
+<h3 id="8-3-3-自定义集合"><a href="#8-3-3-自定义集合" class="headerlink" title="8.3.3 自定义集合"></a>8.3.3 自定义集合</h3><p>如果你需要在自己扩展的方法中使用自定义的集合对象，可以重写模型上的 <code>newCollection</code> 方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">CustomCollection</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Model</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建一个新的Eloquent集合实例</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  array  $models</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> \Illuminate\Database\Eloquent\Collection</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">newCollection</span>(<span class="params"><span class="keyword">array</span> <span class="variable">$models</span> = []</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CustomCollection(<span class="variable">$models</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义好 <code>newCollection</code> 方法后，无论何时 Eloquent 返回该模型的 <code>Collection</code> 实例你都会获取到自定义的集合。</p>
+<p>如果你想要在应用中的每一个模型中使用自定义集合，需要在模型基类中重写 <code>newCollection</code> 方法。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2506,195 +2616,6 @@ php artisan make:migration create_users_table --create=users
 <h3 id="6-4-4-容器事件"><a href="#6-4-4-容器事件" class="headerlink" title="6.4.4 容器事件"></a>6.4.4 容器事件</h3><p>服务容器在每一次解析对象时都会触发一个事件，可以使用 resolving 方法监听该事件：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;app-&gt;resolving(<span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$object</span>, <span class="variable">$app</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 容器解析所有类型对象时调用</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">$this</span>-&gt;app-&gt;resolving(<span class="function"><span class="keyword">function</span> (<span class="params">FooBar <span class="variable">$fooBar</span>, <span class="variable">$app</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 容器解析“FooBar”对象时调用</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>正如你所看到的，被解析的对象将会传递给回调，从而允许你在对象被传递给消费者之前为其设置额外属性。</p>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/132ebfee2e44/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/26/132ebfee2e44/" class="post-title-link" itemprop="url">laravel 学习指南 第六章 第二节</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-26 05:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T05:00:00+08:00">2016-07-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/26/132ebfee2e44/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/132ebfee2e44/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>TOC<br>{:toc}</li>
-</ul>
-<h2 id="6-2-应用目录结构"><a href="#6-2-应用目录结构" class="headerlink" title="6.2 应用目录结构"></a>6.2 应用目录结构</h2><h3 id="6-2-1-简介"><a href="#6-2-1-简介" class="headerlink" title="6.2.1 简介"></a>6.2.1 简介</h3><p>Laravel 应用默认的目录结构试图为不管是大型应用还是小型应用提供一个好的起点，当然，你可以自己按照喜好重新组织应用目录结构，Laravel 对类在何处被加载没有任何限制——只要 Composer 可以自动载入它们即可。</p>
-<hr>
-<h3 id="6-2-2-根目录"><a href="#6-2-2-根目录" class="headerlink" title="6.2.2 根目录"></a>6.2.2 根目录</h3><p>新安装的 Laravel 应用包含许多文件夹：</p>
-<table>
-<thead>
-<tr>
-<th align="left">目录名称</th>
-<th align="left">目录说</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">app</td>
-<td align="left">目录包含了应用的核心代码</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">bootstrap</td>
-<td align="left">目录包含了少许文件用于框架的启动和自动载入配置</td>
-</tr>
-<tr>
-<td align="left">bootstrap/cache</td>
-<td align="left">用于包含框架生成的启动文件以提高性能</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">config</td>
-<td align="left">目录包含了应用所有的配置文件</td>
-</tr>
-<tr>
-<td align="left">database</td>
-<td align="left">目录包含了数据迁移及填充文件，如果你喜欢的话还可以将其作为 SQLite 数据库存放目录</td>
-</tr>
-<tr>
-<td align="left">public</td>
-<td align="left">目录包含了前端控制器和资源文件（图片、JavaScript、CSS等）</td>
-</tr>
-<tr>
-<td align="left">resources</td>
-<td align="left">目录包含了视图文件及原生资源文件（LESS、SASS、CoffeeScript），以及本地化文件</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">storage</td>
-<td align="left">目录包含了编译过的Blade模板、基于文件的session、文件缓存，以及其它由框架生成的文件</td>
-</tr>
-<tr>
-<td align="left">storage/app</td>
-<td align="left">目录用于存放应用要使用的文件</td>
-</tr>
-<tr>
-<td align="left">storage/framework</td>
-<td align="left">目录用于存放框架生成的文件和缓存</td>
-</tr>
-<tr>
-<td align="left">storage/logs</td>
-<td align="left">目录包含应用的日志文件</td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">tests</td>
-<td align="left">目录包含自动化测试，其中已经提供了一个开箱即用的PHPUnit示例</td>
-</tr>
-<tr>
-<td align="left">vendor</td>
-<td align="left">目录包含Composer依赖</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="6-2-3-App目录"><a href="#6-2-3-App目录" class="headerlink" title="6.2.3 App目录"></a>6.2.3 App目录</h3><p>默认情况下，在项目的<code>App</code>文件夹，并且被 Composer 通过 PSR-4自动载入标准 自动加载。可以通过Artisan命令<code>app:name</code>来修改该命名空间。</p>
-<p><code>App</code>目录下有多个子目录。</p>
-<p><code>Console</code>和<code>Http</code>目录提供了进入应用核心的API。</p>
-<p>它们是两个向应用发布命令的方式。</p>
-<p><code>Console</code>目录包含了所有的<code>Artisan</code>命令。 </p>
-<p><code>Http</code>目录包含了控制器，中间件请求等等。</p>
-<p><code>Jobs</code>目录是放置列队任务的地方，应用中的任务可以被队列化，也可以在当前请求生命周期内同步执行。</p>
-<p><code>Events</code>目录是放置事件类的地方，事件可以同于通知应用其他部分给定的动作已经发生，并提供灵活的解耦的处理。</p>
-<p><code>Listeners</code>目录包含事件的处理器类，处理器接收一个事件并提供对该事件发生后的响应逻辑。</p>
-<p>例如，<code>UserRegstered</code>事件可以被<code>SendWelcomeEmail</code>监听器处理。</p>
-<p><code>Exceptions</code>目录包含应用的异常处理器，同时还是处理应用抛出的异常的好地方。</p>
-<p><em>注意：<code>app</code>目录中的很多类都可以通过Artisan命令生成，要查看所有命令，使用命令：<code>php artisan list make</code></em></p>
 <hr>
 
       
