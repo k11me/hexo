@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">256</span>
+          <span class="site-state-item-count">257</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,121 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/03/04/194ca9a90cc4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/03/04/194ca9a90cc4/" class="post-title-link" itemprop="url">vue 上传</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2019-03-04T00:00:00+08:00">2019-03-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/03/04/194ca9a90cc4/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/04/194ca9a90cc4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="vue-上传文件"><a href="#vue-上传文件" class="headerlink" title="vue 上传文件"></a>vue 上传文件</h1><h2 id="在vue中确认上传的文件"><a href="#在vue中确认上传的文件" class="headerlink" title="在vue中确认上传的文件"></a>在vue中确认上传的文件</h2><p><code>input</code>标签中设置<code>ref</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;FileUp&quot;</span> <span class="attr">class</span>=<span class="string">&quot;custom-file-input&quot;</span> <span class="attr">id</span>=<span class="string">&quot;customFile&quot;</span> @<span class="attr">change</span>=<span class="string">&quot;FileUpload&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;custom-file-label&quot;</span> <span class="attr">for</span>=<span class="string">&quot;customFile&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FileUpload() &#123;</span><br><span class="line">	if (!this.$refs.FileUp.files.length) &#123;</span><br><span class="line">		this.upform.upfile = &#x27;&#x27;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		this.upform.upfile = this.$refs.FileUp.files[0]</span><br><span class="line">		this.upform.name = this.$refs.FileUp.files[0].name</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>随后文件可以正常上传。</p>
+<h2 id="自动获取文件名"><a href="#自动获取文件名" class="headerlink" title="自动获取文件名"></a>自动获取文件名</h2><p><code>bootstrap 4</code>中自动载入文件名需要使用<code>bs-custom-file-input</code>包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install bs-custom-file-input --save</span><br></pre></td></tr></table></figure>
+
+<p>vue 中使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mounted() &#123;</span><br><span class="line">	this.getFileName()</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">	getFileName() &#123;</span><br><span class="line">		$(&#x27;.custom-file-input&#x27;).on(&#x27;change&#x27;, function() &#123;</span><br><span class="line">			let fileName = $(this).val().split(&#x27;\\&#x27;).pop();</span><br><span class="line">			$(this).siblings(&#x27;.custom-file-label&#x27;).addClass(&#x27;selected&#x27;).html(fileName);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>之后再选择文件后，<code>input</code>便签可以自动显示文件名。</p>
+<h2 id="axios-中上传文件方法"><a href="#axios-中上传文件方法" class="headerlink" title="axios 中上传文件方法"></a>axios 中上传文件方法</h2><p>上传文件时，需要<code>headers</code>为<code>multipart/form-data</code>。</p>
+<p>注意请求时使用<code>formData</code>不能使用<code>form</code></p>
+<p><code>formData</code> 中数据使用<code>append()</code>传入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">formData.append(&#x27;file&#x27;, this.upform.upfile)</span><br></pre></td></tr></table></figure>
+
+<p>注意<code>laravel</code>中数据名称对应</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">axios.post(&#x27;/game/json&#x27; , formData ,</span><br><span class="line">&#123;</span><br><span class="line">	headers: &#123;</span><br><span class="line">		&#x27;Content-Type&#x27;: &#x27;multipart/form-data&#x27;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;).then( response =&gt; &#123;</span><br><span class="line">		console.log(response.data)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1220,117 +1335,6 @@
 <hr>
 <h1 id="8号的份"><a href="#8号的份" class="headerlink" title="8号的份"></a>8号的份</h1><h2 id="api-token-自动化进程过半"><a href="#api-token-自动化进程过半" class="headerlink" title="api token 自动化进程过半"></a>api token 自动化进程过半</h2><p>管理员操作部分终于要完成了~~</p>
 <p>安静果然是最重要的！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/01/01/ca1af6666271/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/01/01/ca1af6666271/" class="post-title-link" itemprop="url">新年了~</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-01T00:00:00+08:00">2019-01-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/01/01/ca1af6666271/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/01/ca1af6666271/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="新年快乐！"><a href="#新年快乐！" class="headerlink" title="新年快乐！"></a>新年快乐！</h1><h1 id="这一年学到的东西很多很多"><a href="#这一年学到的东西很多很多" class="headerlink" title="这一年学到的东西很多很多"></a>这一年学到的东西很多很多</h1><p>看到 <code>Blender</code> 还是那么反人类也是安心了</p>
-<p>不过新功能确实引起了兴趣，能使建模速度快不少，姑且是一个好消息。</p>
-<p>多少还是知道经络不通的，偶尔疼一条也是酸爽……</p>
-<p>2018年 有70次更新呢~ </p>
-<p>blog 使用率 还是不错的 :-D</p>
-<h1 id="刺客信条-奥德赛"><a href="#刺客信条-奥德赛" class="headerlink" title="刺客信条:奥德赛"></a>刺客信条:奥德赛</h1><p><code>steam</code> 圣诞活动入手了，<code>bug</code>有点多，游戏体验不错。</p>
-<p>啊啊啊，机器真的要更新了。希望能顺利更新啊~</p>
-<p>试轴器也看好了~</p>
-<p>准备的超级充分啊~~</p>
-<h1 id="数据请求"><a href="#数据请求" class="headerlink" title="数据请求"></a>数据请求</h1><p><code>logs</code> 保存使用列队了，速度上升，在可以接受的范围之内了。 </p>
-<p>使用<code>api</code>对数据操作操作完成了。</p>
-<p>之后麻烦的是数据的显示部分了。</p>
-<p>啊啊啊~ 要做的<code>UI</code> 好多啊~ </p>
-<p>要整理安排下……</p>
-<p>一个部分完成后，总是不知道下面要做什么</p>
-<p>主要是自己操纵的东西有点大……</p>
-<p>批量导入要上线呢……</p>
-<p>使用<code>codemessage</code> 更新权限部分还没有完成先记录下来</p>
 
       
     </div>
