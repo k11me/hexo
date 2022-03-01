@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">258</span>
+          <span class="site-state-item-count">259</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,114 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/30/3ede961417ad/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/07/30/3ede961417ad/" class="post-title-link" itemprop="url">i18n 全球化语言</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-07-30 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-30T00:00:00+08:00">2018-07-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/30/3ede961417ad/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/30/3ede961417ad/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="i18n-全球化语言"><a href="#i18n-全球化语言" class="headerlink" title="i18n 全球化语言"></a>i18n 全球化语言</h1><p>@lang 与 <code>__(&#39;lange&#39;)</code> 不能在vue中使用</p>
+<p>于是找到<code>martinlindhe/laravel-vue-i18n-generator</code>包</p>
+<p>不过要注意的 README 有错误</p>
+<p>使用<code>vue-i18n</code> 后<code>$t(&#39;lang&#39;)</code> 不能正常渲染 疑似<code>vue</code>的bug</p>
+<p><code>vuex-i18n</code> 则正常</p>
+<p>修改<code> resources/assets/js/app.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> vuexI18n <span class="keyword">from</span> <span class="string">&#x27;vuex-i18n&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> Locales <span class="keyword">from</span> <span class="string">&#x27;./vue-i18n-locales.generated.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(Vuex);</span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store();</span><br><span class="line">Vue.use(vuexI18n.plugin, store);</span><br><span class="line"></span><br><span class="line">Vue.i18n.add(<span class="string">&#x27;en&#x27;</span>, Locales.en);</span><br><span class="line">Vue.i18n.add(<span class="string">&#x27;zh&#x27;</span>, Locales.zh);</span><br><span class="line"></span><br><span class="line">Vue.i18n.set(<span class="string">&#x27;en&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    store,</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>之后就可以正常的使用<code>$t()</code>了 同时也支持复数形式</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/@konafets/localization-with-laravel-and-vuejs-e27068e68ee8">参考地址</a></p>
+<p><strong>优点：不用设置后端后再设置前端 使用<code>php artisan vue-i18n:generate</code>可以直接创建或更新<code>vue</code>的语言设置</strong></p>
+<h1 id="天朝上邦"><a href="#天朝上邦" class="headerlink" title="天朝上邦"></a>天朝上邦</h1><p>估计汇率1比20是早晚的事儿了</p>
+<p>某不可描述的两物必须灭亡</p>
+<p>也算死了 账也是要算的 逃不掉的 </p>
+<p>准备被人唾弃到世界终结吧</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1130,124 +1238,6 @@
 <p><img src="https://i.loli.net/2018/06/23/5b2db94412b82.png" alt="00"></p>
 <p>看似无关的事儿 终有一天要降临在身上……</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/06/22/4cad3faa85a6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/06/22/4cad3faa85a6/" class="post-title-link" itemprop="url">时间走慢点！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-06-22 00:00:01" itemprop="dateCreated datePublished" datetime="2018-06-22T00:00:01+08:00">2018-06-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/06/22/4cad3faa85a6/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/22/4cad3faa85a6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h2><h3 id="这是粽子节的份"><a href="#这是粽子节的份" class="headerlink" title="这是粽子节的份"></a>这是粽子节的份</h3><p>粽子节了~</p>
-<p>为什么想到的是僵尸小美😂</p>
-<p>一些事儿突然懂了……</p>
-<h3 id="6月22日的份"><a href="#6月22日的份" class="headerlink" title="6月22日的份"></a>6月22日的份</h3><p>单方面利用率高也是够了</p>
-<p>知识也并不是免费的</p>
-<p>好烦估计就没有下次了</p>
-<p>张开口就朋友，兄弟的…… 超恶心……</p>
-<p>还有一点小事就半夜2点给人打电话的……</p>
-<p>你算老几啊……</p>
-<p>还有没有事先说明就向人家家里带人的</p>
-<p>有点常识和礼貌会死吗……</p>
-<h3 id="梦想的秋叶原"><a href="#梦想的秋叶原" class="headerlink" title="梦想的秋叶原"></a>梦想的秋叶原</h3><p>前几天拆了空气净化器，发现是步进电机的齿轮磨损了</p>
-<p>只能换新</p>
-<p>型号<code>MSBPC20A20</code> 我朝是弄不到了……</p>
-<p><img src="https://i.loli.net/2018/06/22/5b2d08a448e14.jpg" alt="IMG_20180617_184254.png"></p>
-<p>估计只有秋叶原了加入购物列表吧…… </p>
-<p>某种程度上来说，秋叶原是天堂！！</p>
-<h3 id="相机入手考虑"><a href="#相机入手考虑" class="headerlink" title="相机入手考虑"></a>相机入手考虑</h3><p>就易用性来说大法a7r3 比 X1D 好很多…… </p>
-<p>莱卡？ 什么时候到到四千万像素，什么时候在说……</p>
-<p>有消息说<code>ZEISS Batis 40mm</code> 要出了 完美挂机 手动再见了~~</p>
-<p>佳能的17mm移轴 与 <a target="_blank" rel="noopener" href="http://www.metabones.com/products/details/MB-EF-E-BT5">转接环</a> 也是必须入手的 谁让我爱照建筑与风景呢 </p>
-<p>用移轴拍出到长腿太容易了</p>
-<p>三脚架什么的是必须有的吧 HDR 摄像也是非常有趣的</p>
-<p><code>ZEISS Batis 2.8/18</code> 也是必备呢</p>
-<p><code>ZEISS Batis 1.8/85</code> 与 <code>ZEISS Batis 2.8/135</code> 也遇到喜欢人在考虑吧</p>
-<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
       
     </div>
 
