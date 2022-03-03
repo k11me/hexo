@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">259</span>
+          <span class="site-state-item-count">260</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,109 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/10/01/c989278581d5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/01/c989278581d5/" class="post-title-link" itemprop="url">十月的第一天</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-10-01 00:01:00" itemprop="dateCreated datePublished" datetime="2018-10-01T00:01:00+08:00">2018-10-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/10/01/c989278581d5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/01/c989278581d5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="渐渐的上手了"><a href="#渐渐的上手了" class="headerlink" title="渐渐的上手了"></a>渐渐的上手了</h1><p><code>laravel</code> 的错误信息 截取成功 </p>
+<p>标准化信息返回问题不大 方法是使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;something&#x27;</span>;</span><br><span class="line">&#125;<span class="keyword">catch</span>(\<span class="built_in">Exception</span> <span class="variable">$e</span>)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$e</span>-&gt;getMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也可以在<code>App\Exceptions\Handler</code> 的<code>render</code>中做截取</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(<span class="variable">$exception</span>-&gt;getMessage())&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="string">&#x27;someMessage&#x27;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&#x27;someMessage&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再次感受到先做后端的重要性！！</p>
+<h2 id="laravel-model-的一些坑"><a href="#laravel-model-的一些坑" class="headerlink" title="laravel model 的一些坑"></a>laravel model 的一些坑</h2><p>如果直接使用<code>find()</code>后使用<code>delete()</code>有返回<code>null</code>的可能性</p>
+<p>可以使用<code>where(&#39;id&#39; , $id)</code>后使用<code>delete()</code> 就可以避免<code>null</code>的问题</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1173,121 +1276,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/08/08/37a96099f0e4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/08/08/37a96099f0e4/" class="post-title-link" itemprop="url">环保不是说说而已</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-08-08 00:00:00" itemprop="dateCreated datePublished" datetime="2018-08-08T00:00:00+08:00">2018-08-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/08/08/37a96099f0e4/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/08/08/37a96099f0e4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="奥运10年"><a href="#奥运10年" class="headerlink" title="奥运10年"></a>奥运10年</h2><p>场馆荒废了 看着心疼</p>
-<h2 id="表弟回来了"><a href="#表弟回来了" class="headerlink" title="表弟回来了"></a>表弟回来了</h2><p>表弟回来了 嗯 考上的多大~~</p>
-<p>略微的研究了一下公司注册的事儿~~</p>
-<p>明天9号 要久违的出去旅行了~~</p>
-<p>18号回来~~</p>
-<h2 id="来过这里的人"><a href="#来过这里的人" class="headerlink" title="来过这里的人"></a>来过这里的人</h2><p>这是这周的 等的人并没有来</p>
-<p>看到某处亮了一下 还是有些期待的</p>
-<p><img src="https://i.loli.net/2018/08/08/5b6a9085dc603.png" alt="屏幕快照 2018-08-08 14.39.04"></p>
-<p>查了一下真的是我想多了…………</p>
-<h2 id="laravel-中的-vuex"><a href="#laravel-中的-vuex" class="headerlink" title="laravel 中的 vuex"></a>laravel 中的 vuex</h2><p>将<code>vuex-i18n</code>部分从<code>app.js</code>移动到了<code>store\index.js</code></p>
-<p>目的是确保<code>state</code>中可以看到 <code>i18n</code>的设置</p>
-<p>并可以 直接设置<code>locale</code> 变更语言</p>
-<p><img src="https://i.loli.net/2018/08/08/5b6a934f001fe.png" alt="屏幕快照 2018-08-08 14.52.15"></p>
-<p>如果直接写在<code>app.js</code> 中<code>i18n</code> 就会被覆盖掉 </p>
-<p>其他部分就可以按照<code>vuex</code>推荐的结构进行设置</p>
-<p>但愿可以在<code>js</code>路上越来越顺手 内心还是充满恐惧……</p>
-<h3 id="其他vue-打错"><a href="#其他vue-打错" class="headerlink" title="其他vue 打错"></a>其他vue 打错</h3><p>需要安装<code>vue-template-compiler</code>包</p>
-<h2 id="l5-swagger-使用自定义auth登录"><a href="#l5-swagger-使用自定义auth登录" class="headerlink" title="l5-swagger 使用自定义auth登录"></a>l5-swagger 使用自定义auth登录</h2><p>修改<code>config\l5-swagger</code> 中的<code>middleware</code></p>
-<p>将<code>auth</code> 修改为<code>auth:admin</code> </p>
-<p>注意要对应<code>config\auth</code>中的<code>guards</code></p>
-<p>修改后一般用户不能查看<code>api doc</code> </p>
-<p><code>admin</code> 用户 登录后可以正常查看</p>
-<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1318,7 +1306,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:34</span>
+    <span title="Reading time total">3:35</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
