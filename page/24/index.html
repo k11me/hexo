@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">263</span>
+          <span class="site-state-item-count">264</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,132 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/3db1ab34f96e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/3db1ab34f96e/" class="post-title-link" itemprop="url">laravel 学习指南 第八章 第五节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 18:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T18:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/3db1ab34f96e/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/3db1ab34f96e/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="8-5-序列化"><a href="#8-5-序列化" class="headerlink" title="8.5 序列化"></a>8.5 序列化</h2><h3 id="8-5-1-简介"><a href="#8-5-1-简介" class="headerlink" title="8.5.1 简介"></a>8.5.1 简介</h3><p>当构建 <code>JSON API</code> 时，经常需要转化模型和关联关系为<code>数组</code>或<code>JSON</code>。Eloquent 包含便捷方法实现这些转换，以及控制哪些属性被包含到序列化中。</p>
+<hr>
+<h3 id="8-5-2-基本使用"><a href="#8-5-2-基本使用" class="headerlink" title="8.5.2 基本使用"></a>8.5.2 基本使用</h3><h4 id="8-5-2-1-转化模型为数组"><a href="#8-5-2-1-转化模型为数组" class="headerlink" title="8.5.2.1 转化模型为数组"></a>8.5.2.1 转化模型为数组</h4><p>要转化模型及其加载的关联关系为数组，可以使用 <code>toArray</code> 方法。这个方法是递归的，所以所有属性及其关联对象属性（包括关联的关联）都会被转化为数组：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$user</span> = App\User::with(<span class="string">&#x27;roles&#x27;</span>)-&gt;first();</span><br><span class="line"><span class="keyword">return</span> <span class="variable">$user</span>-&gt;toArray();</span><br></pre></td></tr></table></figure>
+<p>还可以转化集合为数组：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$users</span> = App\User::all();</span><br><span class="line"><span class="keyword">return</span> <span class="variable">$users</span>-&gt;toArray();</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-5-2-2-转化模型为-JSON"><a href="#8-5-2-2-转化模型为-JSON" class="headerlink" title="8.5.2.2 转化模型为 JSON"></a>8.5.2.2 转化模型为 JSON</h4><p>要转化模型为 JSON，可以使用 <code>toJson</code> 方法，和 <code>toArray</code>一样，<code>toJson</code> 方法也是递归的，所有属性及其关联属性都会被转化为 JSON：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$user</span> = App\User::find(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="variable">$user</span>-&gt;toJson();</span><br></pre></td></tr></table></figure>
+<p>你还可以转化模型或集合为字符串，这将会自动调用 <code>toJson</code> 方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$user</span> = App\User::find(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">return</span> (<span class="keyword">string</span>) <span class="variable">$user</span>;</span><br></pre></td></tr></table></figure>
+<p>由于模型和集合在转化为字符串的时候会被转化为 JSON，你可以从应用的路由或控制器中直接返回 Eloquent 对象：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;users&#x27;</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> App\User::all();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="8-5-3-在-JSON-中隐藏属性"><a href="#8-5-3-在-JSON-中隐藏属性" class="headerlink" title="8.5.3 在 JSON 中隐藏属性"></a>8.5.3 在 JSON 中隐藏属性</h3><p>有时候你希望在模型数组或 JSON 显示中隐藏某些属性，比如密码，要实现这个，在定义模型的时候设置 <code>$hidden</code> 属性：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Model</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在数组中隐藏的属性</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$hidden</span> = [<span class="string">&#x27;password&#x27;</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>注意：如果要隐藏关联关系，使用关联关系的方法名，而不是动态属性名。</em></p>
+<p>此外，可以使用 <code>visible</code> 属性来定义模型数组和 JSON 显示的属性白名单：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Model</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在数组中显示的属性</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$visible</span> = [<span class="string">&#x27;first_name&#x27;</span>, <span class="string">&#x27;last_name&#x27;</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-5-3-1-临时暴露隐藏属性"><a href="#8-5-3-1-临时暴露隐藏属性" class="headerlink" title="8.5.3.1 临时暴露隐藏属性"></a>8.5.3.1 临时暴露隐藏属性</h4><p>如果你想要在特定模型中临时显示隐藏的属性，可以使用 <code>makeVisible</code> 方法，该方法以方法链的方式返回模型实例：</p>
+<pre><code>return $user-&gt;makeVisible(&#39;attribute&#39;)-&gt;toArray();
+</code></pre>
+<hr>
+<h3 id="8-5-4-追加值到-JSON"><a href="#8-5-4-追加值到-JSON" class="headerlink" title="8.5.4 追加值到 JSON"></a>8.5.4 追加值到 JSON</h3><p>有时候，需要添加数据库中没有的字段到数组中，要实现这个功能，首先要为这个值定义一个访问器：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Model</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 为用户获取管理员标识</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> bool</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getIsAdminAttribute</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;attributes[<span class="string">&#x27;admin&#x27;</span>] == <span class="string">&#x27;yes&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>定义好访问器后，添加字段名到该模型的 <code>appends</code> 属性：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Model</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 追加到模型数组表单的访问器</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$appends</span> = [<span class="string">&#x27;is_admin&#x27;</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>字段被添加到 <code>appends</code> 列表之后，将会被包含到模型数组和 JSON 中，<code>appends</code> 数组中的字段还会遵循模型中配置的 <code>visible</code> 和 <code>hidden</code> 设置。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2300,305 +2426,6 @@ php artisan make:migration create_users_table --create=users
 <p>例如：下面的事件监听器：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Listeners</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">User</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Events</span>\<span class="title">NewUserRegistered</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Redis</span>\<span class="title">Database</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CacheUserInformation</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The Redis database implementation.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$redis</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a new event handler instance.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  Database  $redis</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">Database <span class="variable">$redis</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;redis = <span class="variable">$redis</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Handle the event.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  NewUserRegistered  $event</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">NewUserRegistered <span class="variable">$event</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当事件监听器运行完成，服务容器将读取构造函数的类型提示，并注入相应的值。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/ac4f8e8c42ad/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/26/ac4f8e8c42ad/" class="post-title-link" itemprop="url">laravel 学习指南 第六章 第五节</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-26 08:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T08:00:00+08:00">2016-07-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/26/ac4f8e8c42ad/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/ac4f8e8c42ad/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>TOC<br>{:toc}</li>
-</ul>
-<h2 id="6-5-门面"><a href="#6-5-门面" class="headerlink" title="6.5 门面"></a>6.5 门面</h2><h3 id="6-5-1-简介"><a href="#6-5-1-简介" class="headerlink" title="6.5.1 简介"></a>6.5.1 简介</h3><p>Facades为应用在服务容器中的绑定类，提供一个<code>静态</code>接口。</p>
-<p><code>Laravel</code>附带许多<code>facades</code>，你可以在不知道的情况下正在使用它们。</p>
-<p><code>Laravel</code>的门面作为服务容器中底层类的<code>静态代理</code>，相比于传统静态方法，在维护时能够提供更加易于测试，简明的语法。</p>
-<hr>
-<h3 id="6-5-2-使用门面"><a href="#6-5-2-使用门面" class="headerlink" title="6.5.2 使用门面"></a>6.5.2 使用门面</h3><p>在Laravel应用的上下文中，门面是一个提供访问容器中对象的类。该机制原理由<code>Facade</code>类实现，Laravel自带的门面，以及创建的自定义门面，都会继承自<code>Illuminate\Support\Facades\Facade</code>基类。</p>
-<p>门面类只需要实现一个方法：<code>getFacadeAccessor</code>。<code>getFacadeAccessor</code> 方法定义了从容器中解析什么，然后 <code>Facade</code> 基类使用魔术方法 <code>__callStatic()</code> 从你的门面中调用解析对象。</p>
-<p>下面的例子中，将会调用Laravel的缓存系统，浏览代码后，也许你会觉得我们调用了<code>Cache</code>的静态方法<code>get</code>:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Cache</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 为指定用户显示属性</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  int  $id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">showProfile</span>(<span class="params"><span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$user</span> = Cache::get(<span class="string">&#x27;user:&#x27;</span>.<span class="variable">$id</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> view(<span class="string">&#x27;profile&#x27;</span>, [<span class="string">&#x27;user&#x27;</span> =&gt; <span class="variable">$user</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意我们在顶部位置引入<code>Cache</code>门面。该门面作为代理访问底层<code>Illuminate\Contracts\Cache\Factory</code>接口的实现方法。我们对门面的所有调用都会被传递给Laravel缓存服务的底层实例。</p>
-<p>如果我们查看<code>Illuminate\Support\Facades\Cache</code>类的源码，将会发现其中并没有静态方法<code>get</code>:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cache</span> <span class="keyword">extends</span> <span class="title">Facade</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取组件注册名称</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="built_in">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getFacadeAccessor</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;cache&#x27;</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>Cache</code>门面继承<code>Facade</code>基类并定义了<code>getFacadeAccessor</code>方法，该方法的工作就是返回服务容器绑定类的别名，当用户引用<code>Cache</code>类的任何静态方法时，Laravel从服务容器中解析<code>Cache</code>绑定，然后在解析出的对象上调用所有请求方法(本例中是<code>get</code>)。</p>
-<hr>
-<h3 id="6-5-3-门面类列表"><a href="#6-5-3-门面类列表" class="headerlink" title="6.5.3 门面类列表"></a>6.5.3 门面类列表</h3><p>下面列出了每个门面及其对应的底层类，这对深入给定门面的API文档而言是个很有用的工具。服务容器绑定键也被包含进来：</p>
-<table>
-<thead>
-<tr>
-<th align="left">门面</th>
-<th align="left">类</th>
-<th align="left">服务器绑定别名</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">App</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Foundation/Application.html">Illuminate\Foundation\Application</a></td>
-<td align="left">app</td>
-</tr>
-<tr>
-<td align="left">Artisan</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Contracts/Console/Kernel.html">Illuminate\Console\Application</a></td>
-<td align="left">artisan</td>
-</tr>
-<tr>
-<td align="left">Auth</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Auth/AuthManager.html">Illuminate\Auth\AuthManager</a></td>
-<td align="left">auth</td>
-</tr>
-<tr>
-<td align="left">Blade</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/View/Compilers/BladeCompiler.html">Illuminate\View\Compilers\BladeCompiler</a></td>
-<td align="left">blade.compiler</td>
-</tr>
-<tr>
-<td align="left">Bus</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Contracts/Bus/Dispatcher.html">Illuminate\Contracts\Bus\Dispatcher</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Cache</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Cache/Repository.html">Illuminate\Cache\Repository</a></td>
-<td align="left">cache</td>
-</tr>
-<tr>
-<td align="left">Config</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Config/Repository.html">Illuminate\Config\Repository</a></td>
-<td align="left">config</td>
-</tr>
-<tr>
-<td align="left">Cookie</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Cookie/CookieJar.html">Illuminate\Cookie\CookieJar</a></td>
-<td align="left">cookie</td>
-</tr>
-<tr>
-<td align="left">Crypt</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Encryption/Encrypter.html">Illuminate\Encryption\Encrypter</a></td>
-<td align="left">encrypter</td>
-</tr>
-<tr>
-<td align="left">DB</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Database/DatabaseManager.html">Illuminate\Database\DatabaseManager</a></td>
-<td align="left">db</td>
-</tr>
-<tr>
-<td align="left">DB (Instance)</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Database/Connection.html">Illuminate\Database\Connection</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Event</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Events/Dispatcher.html">Illuminate\Events\Dispatcher</a></td>
-<td align="left">events</td>
-</tr>
-<tr>
-<td align="left">File</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Filesystem/Filesystem.html">Illuminate\Filesystem\Filesystem</a></td>
-<td align="left">files</td>
-</tr>
-<tr>
-<td align="left">Gate</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.1/Illuminate/Contracts/Auth/Access/Gate.html">Illuminate\Contracts\Auth\Access\Gate</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Hash</td>
-<td align="left"><a target="_blank" rel="noopener" href="http://laravel.com/api/5.2/Illuminate/Contracts/Hashing/Hasher.html">Illuminate\Contracts\Hashing\Hasher</a></td>
-<td align="left">hash</td>
-</tr>
-<tr>
-<td align="left">Lang</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Translation/Translator.html">Illuminate\Translation\Translator</a></td>
-<td align="left">translator</td>
-</tr>
-<tr>
-<td align="left">Log</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Log/Writer.html">Illuminate\Log\Writer</a></td>
-<td align="left">log</td>
-</tr>
-<tr>
-<td align="left">Mail</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Mail/Mailer.html">Illuminate\Mail\Mailer</a></td>
-<td align="left">mailer</td>
-</tr>
-<tr>
-<td align="left">Password</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Auth/Passwords/PasswordBroker.html">Illuminate\Auth\Passwords\PasswordBroker</a></td>
-<td align="left">auth.password</td>
-</tr>
-<tr>
-<td align="left">Queue</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Queue/QueueManager.html">Illuminate\Queue\QueueManager</a></td>
-<td align="left">queue</td>
-</tr>
-<tr>
-<td align="left">Queue (Instance)</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Contracts/Queue/Queue.html">Illuminate\Contracts\Queue\Queue</a></td>
-<td align="left">queue</td>
-</tr>
-<tr>
-<td align="left">Queue (Base Class)</td>
-<td align="left"><a target="_blank" rel="noopener" href="http://laravel.com/api/5.2/Illuminate/Queue/Queue.html">Illuminate\Queue\Queue</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Redirect</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Routing/Redirector.html">Illuminate\Routing\Redirector</a></td>
-<td align="left">redirect</td>
-</tr>
-<tr>
-<td align="left">Redis</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Redis/Database.html">Illuminate\Redis\Database</a></td>
-<td align="left">redis</td>
-</tr>
-<tr>
-<td align="left">Request</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Http/Request.html">Illuminate\Http\Request</a></td>
-<td align="left">request</td>
-</tr>
-<tr>
-<td align="left">Response</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Contracts/Routing/ResponseFactory.html">Illuminate\Contracts\Routing\ResponseFactory</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Route</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Routing/Router.html">Illuminate\Routing\Router</a></td>
-<td align="left">router</td>
-</tr>
-<tr>
-<td align="left">Schema</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Database/Schema/Blueprint.html">Illuminate\Database\Schema\Blueprint</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Session</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Session/SessionManager.html">Illuminate\Session\SessionManager</a></td>
-<td align="left">session</td>
-</tr>
-<tr>
-<td align="left">Session (Instance)</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Session/Store.html">Illuminate\Session\Store</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">Storage</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Contracts/Filesystem/Factory.html">Illuminate\Contracts\Filesystem\Factory</a></td>
-<td align="left">filesystem</td>
-</tr>
-<tr>
-<td align="left">URL</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Routing/UrlGenerator.html">Illuminate\Routing\UrlGenerator</a></td>
-<td align="left">url</td>
-</tr>
-<tr>
-<td align="left">Validator</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Validation/Factory.html">Illuminate\Validation\Factory</a></td>
-<td align="left">validator</td>
-</tr>
-<tr>
-<td align="left">Validator (Instance)</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/Validation/Validator.html">Illuminate\Validation\Validator</a></td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">View</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/View/Factory.html">Illuminate\View\Factory</a></td>
-<td align="left">view</td>
-</tr>
-<tr>
-<td align="left">View (Instance)</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://laravel.com/api/5.2/Illuminate/View/View.html">Illuminate\View\View</a></td>
-<td align="left"></td>
-</tr>
-</tbody></table>
 
       
     </div>

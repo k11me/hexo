@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">263</span>
+          <span class="site-state-item-count">264</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,114 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/02/10/53cecc0aae03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/02/10/53cecc0aae03/" class="post-title-link" itemprop="url">一些记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/02/10/53cecc0aae03/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/10/53cecc0aae03/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="2月9日"><a href="#2月9日" class="headerlink" title="2月9日"></a>2月9日</h1><h2 id="一些记录"><a href="#一些记录" class="headerlink" title="一些记录"></a>一些记录</h2><p>控制部分暂时本地化，之后开一个服务器也是必然。</p>
+<p>时间早晚的问题，最重要的是稳定。</p>
+<hr>
+<h1 id="2月10日"><a href="#2月10日" class="headerlink" title="2月10日"></a>2月10日</h1><h2 id="yubikey-otp-修正"><a href="#yubikey-otp-修正" class="headerlink" title="yubikey otp 修正"></a>yubikey otp 修正</h2><p>更新<code>bitbeans/yubikey</code> 到最新，<code>yubikey</code>官方关闭了<code>http</code>访问。</p>
+<p>之后验证功能正常<code>yubikey</code>的验证速度上没有<code>google 2FA</code>快，也并不是墙的问题。</p>
+<p>在<code>php 7.3</code> 版本下 <code>HTTPS_VERIFY</code> 无要求。</p>
+<p>在<code>php 7.2</code> 版本下 <code>HTTPS_VERIFY</code> 需要设置为<code>false</code> 可以正常使用。</p>
+<h2 id="修正Https访问"><a href="#修正Https访问" class="headerlink" title="修正Https访问"></a>修正<code>Https</code>访问</h2><p>修正不能使用<code>https</code>的问题。</p>
+<p><code>php 7.3</code> 版本下 <code>la5 opcache:status</code> 出现 <code>SSL certificate problem: unable to get local issuer certificate</code></p>
+<p>使用<code>php --ini</code> 确认<code>php.ini</code> 位置后添加 </p>
+<p><code>&#123;name&#125;</code>为当前用户 用户名</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl.cainfo = <span class="string">&quot;/Users/&#123;name&#125;/.config/valet/CA/LaravelValetCASelfSigned.pem&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>在<code>php 7.3</code>版本下 会出现<code>cURL error 77</code></p>
+<p>切换到<code>php 7.2</code> 后功能正常。</p>
+<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1191,108 +1299,6 @@
 
 <h1 id="一对多-的坑"><a href="#一对多-的坑" class="headerlink" title="一对多 的坑"></a>一对多 的坑</h1><p><code>laravel</code>一对多写入时 并不如想的容易</p>
 <p>改用多对多轻松解决了</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/12/12/c868aae8238d/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/12/12/c868aae8238d/" class="post-title-link" itemprop="url">自动化的路上</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-12-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-12-12T00:00:00+08:00">2018-12-12</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/12/12/c868aae8238d/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/12/12/c868aae8238d/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="自动化的路上"><a href="#自动化的路上" class="headerlink" title="自动化的路上"></a>自动化的路上</h1><p>现在多写一点，之后使用时就容易一点。</p>
-<p>真正运行起来工作量会是现在的几倍吧，也不知道能不能支撑下去……</p>
-<h1 id="打劫"><a href="#打劫" class="headerlink" title="打劫"></a>打劫</h1><p>4个小鬼 来打劫火花塞上的贵金属 也是醉了……</p>
-<p>求钟馗大神传授驱鬼之法！</p>
-<p>和 小区门口私设停车位收费类似 原始 无规则</p>
-<p>我朝 需要 改变的东西真的太都了</p>
-<h1 id="砖酱"><a href="#砖酱" class="headerlink" title="砖酱"></a>砖酱</h1><p><code>iphone xr</code> 入手 上了<code>UGA</code>的壳</p>
-<p>之后硬度感人，估计超过板砖。</p>
-<p>所以之后爱称<code>砖酱</code></p>
 
       
     </div>
