@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">264</span>
+          <span class="site-state-item-count">265</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,116 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/16/3715e6094b2d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/07/16/3715e6094b2d/" class="post-title-link" itemprop="url">laravel 队列的坑</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-07-16 00:00:01" itemprop="dateCreated datePublished" datetime="2018-07-16T00:00:01+08:00">2018-07-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/07/16/3715e6094b2d/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/16/3715e6094b2d/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="laravel-队列的坑"><a href="#laravel-队列的坑" class="headerlink" title="laravel 队列的坑"></a>laravel 队列的坑</h2><h3 id="正确的入坑姿势"><a href="#正确的入坑姿势" class="headerlink" title="正确的入坑姿势"></a>正确的入坑姿势</h3><p>使用<code>laravel horizon</code>的 <code>php artisan horizon</code> 运行 队列。</p>
+<p>使用<code>-&gt;onQueue(SendMail)</code>方法指定队列时，<code>Job</code>可以正常的载入，<code>Queue</code>不正常……</p>
+<p>判断为<code>Queue</code>问题</p>
+<p>使用<code>php artisan queue:work --queue=SendMail,default</code> 时正常显示</p>
+<p>判断为<code>laravel horizon</code>问题</p>
+<h3 id="一起出坑吧"><a href="#一起出坑吧" class="headerlink" title="一起出坑吧"></a>一起出坑吧</h3><p>在<code>config\horizon</code>中添加<code>Queue</code> 名称就好了~</p>
+<p>要注意在<code>local</code> 与 <code>prodution</code>的区别。</p>
+<p>没有<code>config\horizon</code>文件？</p>
+<p>运行<code>php artisan vendor:publish --provider=&quot;Laravel\Horizon\HorizonServiceProvider&quot;</code></p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="更改redis中存储位置"><a href="#更改redis中存储位置" class="headerlink" title="更改redis中存储位置"></a>更改redis中存储位置</h4><p>当多个web服务一同使用<code>horizon</code>时，</p>
+<p>要在<code>.env</code>中设置 <code>HORIZON_PREFIX=horizon:name</code> 区分 不同应用 否则出错。</p>
+<p>刚要使用不同的<code>redis</code>数据表时，要在设置<code>config\horizon</code>中的<code>use</code>项，</p>
+<p>同时在<code>config\database</code>中<code>redis</code>设置</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;redis&#x27;</span> =&gt; [</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;client&#x27;</span> =&gt; <span class="string">&#x27;predis&#x27;</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;default&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;host&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_HOST&#x27;</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>),</span><br><span class="line">        <span class="string">&#x27;password&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_PASSWORD&#x27;</span>, <span class="literal">null</span>),</span><br><span class="line">        <span class="string">&#x27;port&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_PORT&#x27;</span>, <span class="number">6379</span>),</span><br><span class="line">        <span class="string">&#x27;database&#x27;</span> =&gt; <span class="number">1</span>,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;session&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;host&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_HOST&#x27;</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>),</span><br><span class="line">        <span class="string">&#x27;password&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_PASSWORD&#x27;</span>, <span class="literal">null</span>),</span><br><span class="line">        <span class="string">&#x27;port&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_PORT&#x27;</span>, <span class="number">6379</span>),</span><br><span class="line">        <span class="string">&#x27;database&#x27;</span> =&gt; <span class="number">2</span>,</span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line">    <span class="string">&#x27;queue&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;host&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_HOST&#x27;</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>),</span><br><span class="line">        <span class="string">&#x27;password&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_PASSWORD&#x27;</span>, <span class="literal">null</span>),</span><br><span class="line">        <span class="string">&#x27;port&#x27;</span> =&gt; env(<span class="string">&#x27;REDIS_PORT&#x27;</span>, <span class="number">6379</span>),</span><br><span class="line">        <span class="string">&#x27;database&#x27;</span> =&gt; <span class="number">3</span>,</span><br><span class="line">    ],</span><br></pre></td></tr></table></figure>
+
+<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">运行</span><br><span class="line">php artisan horizon </span><br><span class="line"></span><br><span class="line">彻底关闭</span><br><span class="line">php artisan horizon:terminate</span><br><span class="line"></span><br><span class="line">暂定</span><br><span class="line">php artisan horizon:pause</span><br><span class="line"></span><br><span class="line">恢复</span><br><span class="line">php artisan horizon:continue</span><br></pre></td></tr></table></figure>
+
+<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1126,154 +1236,6 @@
 <p>有它股票的可以抛售了……</p>
 <p>人无远虑必有近忧 最近考虑的太多 要逐一去落实才行 </p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/05/16/0b360bcf5c42/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/05/16/0b360bcf5c42/" class="post-title-link" itemprop="url">霉运驱散</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-05-16 00:01:00" itemprop="dateCreated datePublished" datetime="2018-05-16T00:01:00+08:00">2018-05-16</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/05/16/0b360bcf5c42/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/16/0b360bcf5c42/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="霉运驱散！"><a href="#霉运驱散！" class="headerlink" title="霉运驱散！"></a>霉运驱散！</h2><p>霉运驱散！霉运驱散！霉运驱散！</p>
-<p>一周之内霉运连发。</p>
-<p>先是电动牙刷挂掉，修理之中弄坏主板，彻底变尸体……</p>
-<p>之后，桌子闹钟电源老化…… 替换的在路上了…… </p>
-<p>随后…… 空气净化器的扇叶会自己跳…… 估计是哪里卡住了…… 还没拆…… </p>
-<p>昨天…… 升级路由…… 之后变砖了…… 花费2小时修复了…… </p>
-<h2 id="R6300v2-变砖的修复之路"><a href="#R6300v2-变砖的修复之路" class="headerlink" title="R6300v2 变砖的修复之路"></a>R6300v2 变砖的修复之路</h2><p>需要<a target="_blank" rel="noopener" href="https://github.com/jclehner/nmrpflash">nmrpflash</a></p>
-<p><code>window</code>下还需求<a target="_blank" rel="noopener" href="https://www.winpcap.org/install/default.htm">WinPcap</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.dropbox.com/s/5exqbbm349ihbo1/R6300v2.zip?dl=0">官方原始镜像与工具打包</a></p>
-<p>关闭防火墙，网线连接任意 <code>R6300v2 LAN</code>口，一端连接电脑</p>
-<p><code>nmrpflash</code> 目录下运行下方命令会显示当前网卡</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmrpflash -L</span><br></pre></td></tr></table></figure>
-
-<p>没事设置<code>IPv4</code>的情况下找不到<code>IP</code>的</p>
-<p>设置<code>IPv4</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.1.2</span><br><span class="line">255.255.255.0</span><br><span class="line">192.168.1.1</span><br></pre></td></tr></table></figure>
-<p>再次<code>nmrpflash -L</code> 找到网卡<code>IP</code>了</p>
-<p>随后关闭<code>R6300v2</code></p>
-<p><code>CMD</code>下，保持下方命令可以输入的状态，没错拼手速的时候到了……</p>
-<p>通电的瞬间按回车……</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmrpflash.exe -i net2 -a 192.168.1.1 -f R6300v2-V1.0.4.2_10.0.74.chk</span><br></pre></td></tr></table></figure>
-
-<p>成功时出现下方提升</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Received upload request with empty filename.</span><br><span class="line">Uploading R6300v2-V1.0.4.2_10.0.74.chk ... OK</span><br><span class="line">Waiting for remote to respond.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Received keep-alive request.</span><br><span class="line">Remote finished. Closing connection.</span><br><span class="line">Reboot your device now.</span><br></pre></td></tr></table></figure>
-
-<p>没提升<code>Reboot</code>前，一定别手贱……</p>
-<ul>
-<li>No response after 60 seconds. Bailing out. </li>
-</ul>
-<p>这个是手速慢了…… 少侠请重新来过……</p>
-<h2 id="R6300v2-原版刷梅林"><a href="#R6300v2-原版刷梅林" class="headerlink" title="R6300v2 原版刷梅林"></a>R6300v2 原版刷梅林</h2><p>重启之后，就回到了原厂固件的状态了~ </p>
-<p>Q: 为什么刷梅林？ </p>
-<p>A: 当然是有一些不可描述的服务了~~</p>
-<p>详情可以看<a target="_blank" rel="noopener" href="https://solarhell.com/default/r6300v2.html">这里写的很详细</a></p>
-<p>下面是简单方法备用</p>
-<p>进入<code>192.168.1.1</code></p>
-<p>找到<code>高级</code>-&gt;<code>管理</code>-&gt;<code>路由器升级</code></p>
-<blockquote>
-<p>刷入<code>factory-to-dd-wrt.chk</code>，等完成后重启别手贱……</p>
-</blockquote>
-<p>完成后进入<code>DD-wrt</code>, 设置用户名，密码，之后会用到</p>
-<p><code>services</code>中开启<code>ssh</code></p>
-<p>进入<code>ssh</code> 账号是<code>root</code>，密码是刚刚设置的，验证设备是否匹配固件，如下方，基本可以刷了</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardnum</span></span><br><span class="line">679</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardtype</span></span><br><span class="line">0x0646</span><br><span class="line"><span class="meta">$</span><span class="bash"> nvram get boardrev</span></span><br><span class="line">0x1110</span><br></pre></td></tr></table></figure>
-
-<p>随后进入<code>192.168.1.1</code>-&gt;<code>administration</code> </p>
-<blockquote>
-<p>刷入<code>R6300V2_merlin_1.2.trx</code> 别手贱…… 等完成后自动重启！</p>
-</blockquote>
-<p>重启后就进入梅林了进入<code>系统管理</code>-&gt;<code>固件升级</code></p>
-<blockquote>
-<p>刷入<code>R6300V2_380.70_0-X7.9.trx</code> 最新固件后 恢复下默认设置。</p>
-</blockquote>
-<p>开启<code>JFFS</code>, <code>系统设置</code>-&gt;<code>Persistent JFFS2 Partition</code> -&gt; 都选是 之后点最上边的重启。</p>
-<p>另外设置内网<code>IP</code>后也要重启。</p>
-<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
       
     </div>
 
