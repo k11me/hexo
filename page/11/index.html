@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">265</span>
+          <span class="site-state-item-count">266</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,111 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/08/29/de4fe0425879/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/29/de4fe0425879/" class="post-title-link" itemprop="url">nginx-proxy 多镜像下使用v2ray</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-29T00:00:00+08:00">2019-08-29</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/08/29/de4fe0425879/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/08/29/de4fe0425879/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="nginx-proxy-多镜像下使用v2ray"><a href="#nginx-proxy-多镜像下使用v2ray" class="headerlink" title="nginx-proxy 多镜像下使用v2ray"></a>nginx-proxy 多镜像下使用v2ray</h1><p><a href="https://keleven.me/2018/03/01/">单一 docker-compose.yml 指路</a></p>
+<p>多个<code>docker-compose.yml</code> 时，上面的方法就不在适用了。</p>
+<p>主要原因是<code>nginx-proxy</code>找不到指定的服务器。</p>
+<p>指定服务器名称，并加入到相同网络可破</p>
+<h2 id="nginx-proxy-加-letsencrypt"><a href="#nginx-proxy-加-letsencrypt" class="headerlink" title="nginx-proxy 加 letsencrypt"></a>nginx-proxy 加 letsencrypt</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;2&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">    nginx-proxy:</span><br><span class="line">        image: jwilder/nginx-proxy:latest</span><br><span class="line">        restart: always</span><br><span class="line">        ports:</span><br><span class="line">            - &quot;80:80&quot;</span><br><span class="line">            - &quot;443:443&quot;</span><br><span class="line">        volumes:</span><br><span class="line">            - /path/to/certs:/etc/nginx/certs:ro</span><br><span class="line">            - $PWD/vhost.d:/etc/nginx/vhost.d:rw</span><br><span class="line">            - /usr/share/nginx/html</span><br><span class="line">            - /var/run/docker.sock:/tmp/docker.sock:ro</span><br><span class="line">        labels:</span><br><span class="line">            - &quot;com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy&quot;</span><br><span class="line">        network_mode: &quot;bridge&quot;</span><br><span class="line">    letsencrypt-nginx-proxy-companion:</span><br><span class="line">        image: jrcs/letsencrypt-nginx-proxy-companion:latest</span><br><span class="line">        restart: always</span><br><span class="line">        volumes:</span><br><span class="line">            - /path/to/certs:/etc/nginx/certs:rw</span><br><span class="line">            - /var/run/docker.sock:/var/run/docker.sock:ro</span><br><span class="line">        volumes_from:</span><br><span class="line">            - nginx-proxy</span><br><span class="line">        network_mode: &quot;bridge&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="v2ray-独立"><a href="#v2ray-独立" class="headerlink" title="v2ray 独立"></a>v2ray 独立</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;2&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  v2ray:</span><br><span class="line">    image: v2ray/official</span><br><span class="line">    container_name: v2ray</span><br><span class="line">    restart: always</span><br><span class="line">    expose:</span><br><span class="line">      - &quot;1234&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - $PWD/v2ray:/etc/v2ray</span><br><span class="line">      - $PWD/v2ray/config.json:/etc/v2ray/config.json:ro</span><br><span class="line">    environment:</span><br><span class="line">      - VIRTUAL_HOST=v2ray</span><br><span class="line"></span><br><span class="line">    network_mode: &quot;bridge&quot;</span><br><span class="line"></span><br><span class="line">  web1:</span><br><span class="line">    image: nginx:latest</span><br><span class="line">    restart: always</span><br><span class="line">    expose:</span><br><span class="line">      - &quot;80&quot;</span><br><span class="line">    volumes:</span><br><span class="line">          - $PWD/html:/usr/share/nginx/html:ro</span><br><span class="line">    environment:</span><br><span class="line">      - VIRTUAL_HOST=your.domain.name</span><br><span class="line">      - VIRTUAL_PORT=80</span><br><span class="line">      - LETSENCRYPT_HOST=your.domain.name</span><br><span class="line">      - LETSENCRYPT_EMAIL=your@domain.name</span><br><span class="line">    network_mode: &quot;bridge&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="your-domain-name-location"><a href="#your-domain-name-location" class="headerlink" title="your.domain.name_location"></a>your.domain.name_location</h2><p>直接指定服务器不需端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">proxy_redirect off;</span><br><span class="line">proxy_http_version 1.1;</span><br><span class="line">proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">proxy_set_header Host $http_host;</span><br><span class="line">if ($http_upgrade = &quot;websocket&quot; ) &#123;</span><br><span class="line">    proxy_pass http://v2ray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="重要信息"><a href="#重要信息" class="headerlink" title="重要信息"></a>重要信息</h2><p>别忘了创建<code>config.json</code>文件！😁</p>
+<h2 id="以上-长久的问题解决了"><a href="#以上-长久的问题解决了" class="headerlink" title="以上 长久的问题解决了"></a>以上 长久的问题解决了</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1101,107 +1206,6 @@
 <p>历史账单还查不到！神烦！</p>
 <p>平衡负载时，自动对服务器数量扩充，注销等等，操作没有详细的记录，也是难以接受的！</p>
 <p><code>laravel Scout</code> 拖慢速度元凶！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/07/24/bd8fb47e7932/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/07/24/bd8fb47e7932/" class="post-title-link" itemprop="url">手贱</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-07-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-24T00:00:00+08:00">2019-07-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/07/24/bd8fb47e7932/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/07/24/bd8fb47e7932/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="手贱"><a href="#手贱" class="headerlink" title="手贱"></a>手贱</h1><p>升级了docker 到 <code>19.03</code> 版本，</p>
-<p>因为强制使用<code>TLS</code> 导致 <code>gitlab</code> 镜像不能正常启动……</p>
-<p>各方的解决办法都不怎么样……</p>
-<p>姑且回滚到上个版本吧……</p>
-<p>哎…… 手贱是有代价的…… </p>
-<p>备份太重要了！</p>
-<p>备份太重要了！</p>
-<p>备份太重要了！</p>
 
       
     </div>
