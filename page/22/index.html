@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">267</span>
+          <span class="site-state-item-count">268</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,113 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/01/22/aa6ab27bd91b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/01/22/aa6ab27bd91b/" class="post-title-link" itemprop="url">2018年01月22日</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-01-22 01:00:00" itemprop="dateCreated datePublished" datetime="2018-01-22T01:00:00+08:00">2018-01-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/01/22/aa6ab27bd91b/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/22/aa6ab27bd91b/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="blog-更新"><a href="#blog-更新" class="headerlink" title="blog 更新"></a>blog 更新</h2><p><code>blog</code> 更新到 <code>NexT</code> 样式。</p>
+<p>使用<code>docker</code>挂载，上传到<code>github</code>快速部署。</p>
+<h2 id="nginx-proxy-与-letsencrypt-nginx-proxy-companion"><a href="#nginx-proxy-与-letsencrypt-nginx-proxy-companion" class="headerlink" title="nginx-proxy 与 letsencrypt-nginx-proxy-companion"></a>nginx-proxy 与 letsencrypt-nginx-proxy-companion</h2><p>用处自动反向代理与<code>https</code>证书申请，自动续期，二级域名，多站同机变为可能。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;2&#x27;</span><br><span class="line">services:</span><br><span class="line">    nginx-proxy:</span><br><span class="line">        image: jwilder/nginx-proxy:latest</span><br><span class="line">        restart: always</span><br><span class="line">        ports:</span><br><span class="line">            - &quot;80:80&quot;</span><br><span class="line">            - &quot;443:443&quot;</span><br><span class="line">        volumes:</span><br><span class="line">            - /path/to/certs:/etc/nginx/certs:ro</span><br><span class="line">            - /etc/nginx/vhost.d</span><br><span class="line">            - /usr/share/nginx/html</span><br><span class="line">            - /var/run/docker.sock:/tmp/docker.sock:ro</span><br><span class="line">        labels:</span><br><span class="line">            - &quot;com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy&quot;</span><br><span class="line">        network_mode: &quot;bridge&quot;</span><br><span class="line">    letsencrypt-nginx-proxy-companion:</span><br><span class="line">        image: jrcs/letsencrypt-nginx-proxy-companion:latest</span><br><span class="line">        restart: always</span><br><span class="line">        volumes:</span><br><span class="line">            - /path/to/certs:/etc/nginx/certs:rw</span><br><span class="line">            - /var/run/docker.sock:/var/run/docker.sock:ro</span><br><span class="line">        volumes_from:</span><br><span class="line">            - nginx-proxy</span><br><span class="line">        network_mode: &quot;bridge&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="blog-挂载"><a href="#blog-挂载" class="headerlink" title="blog 挂载"></a>blog 挂载</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;2&#x27;</span><br><span class="line">services:</span><br><span class="line">    web:</span><br><span class="line">      image: nginx:latest</span><br><span class="line">      restart: always</span><br><span class="line">      environment:</span><br><span class="line">          - VIRTUAL_HOST=keleven.me</span><br><span class="line">          - LETSENCRYPT_HOST=keleven.me</span><br><span class="line">          - LETSENCRYPT_EMAIL=k11@keleven.me</span><br><span class="line">      volumes:</span><br><span class="line">          - $PWD/blog2:/usr/share/nginx/html:ro</span><br><span class="line">      network_mode: &quot;bridge&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="https-中的坑"><a href="#https-中的坑" class="headerlink" title="https 中的坑"></a>https 中的坑</h2><p><strong>问题：</strong> 在<code>https</code>页面中使用<code>http</code>链接会导致浏览器默认为不安全。</p>
+<p>解决：全部使用<code>https</code>链接可破解。</p>
+<h2 id="NexT-的坑"><a href="#NexT-的坑" class="headerlink" title="NexT 的坑"></a>NexT 的坑</h2><p><strong>问题：</strong> 部分文章在首页显示部分不能。</p>
+<p>解决：注意切换换行符<code>LF</code>不显示，<code>CRLF</code>显示。</p>
+<blockquote>
+<p>PS：<br><code>LF</code>为<code>Linux</code>与<code>Mac os</code>默认。<br><code>CRLF</code>为<code>windows</code>默认。  </p>
+</blockquote>
+<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1343,132 +1450,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2017/12/24/1328b76df7ad/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/24/1328b76df7ad/" class="post-title-link" itemprop="url">ssh使用公钥 与 yubikey OTP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-12-24 10:00:00" itemprop="dateCreated datePublished" datetime="2017-12-24T10:00:00+08:00">2017-12-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/24/1328b76df7ad/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/24/1328b76df7ad/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="修改ssh-使用公钥-与-yubikey-OTP"><a href="#修改ssh-使用公钥-与-yubikey-OTP" class="headerlink" title="修改ssh 使用公钥 与  yubikey OTP"></a>修改ssh 使用公钥 与  yubikey OTP</h1><h2 id="ssh-部分"><a href="#ssh-部分" class="headerlink" title="ssh 部分"></a>ssh 部分</h2><p>在 <code>~/.ssh/authorized_keys</code>中添加公钥。没有文件则手动创建。</p>
-<p>修改<code>sudo nano /etc/ssh/sshd_config</code>中的</p>
-<ul>
-<li>修改 <code>SSH</code> 登陆端口 <code>Port 22</code></li>
-<li>可选 禁止Root用户密码登陆<br><code>PermitRootLogin without-password</code></li>
-</ul>
-<p>重启<code>SSH</code>服务</p>
-<h2 id="yubikey-部分"><a href="#yubikey-部分" class="headerlink" title="yubikey 部分"></a>yubikey 部分</h2><p>添加<code>yubikey</code>软件源</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:yubico/stable</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install libpam-yubico</span><br></pre></td></tr></table></figure>
-
-<p>在<code>/etc/pam.d/sshd</code> 中添加<code>id</code>,<code>key</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/pam.d/sshd</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auth sufficient pam_yubico.so id=&lt;ID&gt; key=&lt;API_KEY&gt; debug authfile=/etc/yubikey_mappings mode=client</span><br></pre></td></tr></table></figure>
-
-<p>创建<code>/etc/yubikey_mappings</code> 设置用户与对应的<code>yubikey </code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/yubikey_mappings</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;user1&gt;:&lt;cccccyubikey1&gt;:&lt;cccccyubikey2&gt;</span><br><span class="line">&lt;user2&gt;:&lt;cccccyubikey3&gt;</span><br></pre></td></tr></table></figure>
-
-<p>设置<code>ssh</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>ChallengeResponseAuthentication no</code>为<code>yes</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ChallengeResponseAuthentication yes</span><br></pre></td></tr></table></figure>
-
-<p>增加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AuthenticationMethods publickey,keyboard-interactive:pam</span><br></pre></td></tr></table></figure>
-
-<p>重启SSH</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service sshd restart</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://medium.com/@james_poole/yubikey-2fa-on-ubuntu-ssh-e09b4e91bfc8">参考文档 1</a><br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2">参考文档 2</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/21/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><span class="page-number current">22</span><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/23/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -1493,7 +1474,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">236k</span>
+    <span title="Symbols count total">237k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

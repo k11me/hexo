@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">267</span>
+          <span class="site-state-item-count">268</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,148 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/e09a3c31d8b4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/e09a3c31d8b4/" class="post-title-link" itemprop="url">laravel 学习指南 第五章 第六节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 02:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T02:00:00+08:00">2016-07-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/e09a3c31d8b4/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/e09a3c31d8b4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="5-6-视图"><a href="#5-6-视图" class="headerlink" title="5.6 视图"></a>5.6 视图</h2><h3 id="5-6-1-基本使用"><a href="#5-6-1-基本使用" class="headerlink" title="5.6.1 基本使用"></a>5.6.1 基本使用</h3><p>视图包含的HTML代码并将控制器逻辑和表面逻辑进行分离。视图文件存放在<code>resources/views</code>目录。</p>
+<p>下面是一个简单视图：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 该视图存放 resources/views/greeting.php --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello, &lt;?php echo $name; ?&gt;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>由于这个视图存放在<code>resources/views/greeting.php</code>,可以在全局的辅助函数<code>view</code>中这样返回它：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">&#x27;greeting&#x27;</span>, [<span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;James&#x27;</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><code>view</code>的第一个参是<code>resources/views</code>目录下相应的视图文件的名字，第二个参数是一个数组，该数组包含了在视图中的有效数据。</p>
+<p>例子中，传递的是一个<code>name</code>变量，在视图中通过执行<code>echo</code>将其显示出来。</p>
+<p>当然，视图还可以嵌套在<code>resources/views</code>的子目录中，用<code>.</code>来引用嵌套视图。</p>
+<p>例如，视图存放路径是<code>resources/views/admin/profile.php</code>,那可以这样应用它：</p>
+<pre><code>return view(&#39;admin.profile&#39;, $data);
+</code></pre>
+<h4 id="5-6-1-1-判断视图是否存在"><a href="#5-6-1-1-判断视图是否存在" class="headerlink" title="5.6.1.1 判断视图是否存在"></a>5.6.1.1 判断视图是否存在</h4><p>如果需要判断视图是否存在，可调用不带参数的<code>view</code>之后，使用<code>exists</code>方法，如果视图存在则返回<code>ture</code>:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (view()-&gt;exists(<span class="string">&#x27;emails.customer&#x27;</span>)) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用不带参数的<code>view</code>时，将会返回一个<code>Illuminate\Contracts\View\Factory</code>实例，从而调用该类上所有方法。</p>
+<hr>
+<h3 id="5-6-2-视图数据"><a href="#5-6-2-视图数据" class="headerlink" title="5.6.2 视图数据"></a>5.6.2 视图数据</h3><h4 id="5-6-2-1-传递数据到视图"><a href="#5-6-2-1-传递数据到视图" class="headerlink" title="5.6.2.1 传递数据到视图"></a>5.6.2.1 传递数据到视图</h4><p>在上述例子中可以看到，可以简单通过数组方式将数据传递到视图：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return view(&#x27;greetings&#x27;, [&#x27;name&#x27; =&gt; &#x27;Victoria&#x27;]);</span><br></pre></td></tr></table></figure>
+<p>以这种方式传递数据，<code>$data</code>应该是一个键值对应该数组，在视图中，就可以使用响应的键来访问数组值。</p>
+<p>例如<code>&lt;?php echo $key; ?&gt;</code>。还可以通过<code>with</code>方法添加独立的数据片段到视图：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$view</span> = view(<span class="string">&#x27;greeting&#x27;</span>)-&gt;with(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;Victoria&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-6-2-2-在视图间共享数据"><a href="#5-6-2-2-在视图间共享数据" class="headerlink" title="5.6.2.2 在视图间共享数据"></a>5.6.2.2 在视图间共享数据</h4><p>有时候需要在所有视图之间共享数据片段，这时可以使用视图类的<code>share</code>方法，通常，需要在服务提供者的<code>boot</code>方法中调用<code>share</code>方法，你可以将其添加到<code>AppServiceProvider</code>或生成独立的服务提供者来存放它们：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 启动所有应用服务</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        view()-&gt;share(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;value&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注册服务提供者</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-6-3-视图Composer"><a href="#5-6-3-视图Composer" class="headerlink" title="5.6.3 视图Composer"></a>5.6.3 视图Composer</h3><p>视图Composer就是在视图被渲染前，会呼叫的闭包或类别方法。</p>
+<p>如果想在每次渲染都绑定一些数据，可以使用视图Composer将这种的程序逻辑放到同一个地方。</p>
+<p>首先在服务提供者中注册视图Composer。</p>
+<p>之后将使用<code>view</code>访问<code>Illuminate\Contracts\View\Factory </code>的底层实现。</p>
+<p>laravel不会包含默认的视图Composer目录，可以随意设置路径。</p>
+<p>例如，创建一个<code>App\Http\ViewComposers</code>目录：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Providers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">ServiceProvider</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComposerServiceProvider</span> <span class="keyword">extends</span> <span class="title">ServiceProvider</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 在容器中注册绑定.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> http://laravelacademy.org</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 使用基于类的composers...</span></span><br><span class="line">        view()-&gt;composer(</span><br><span class="line">            <span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;App\Http\ViewComposers\ProfileComposer&#x27;</span></span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用基于闭包的composers...</span></span><br><span class="line">        view()-&gt;composer(<span class="string">&#x27;dashboard&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$view</span></span>) </span>&#123;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注册服务提供者.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果创建一个新的服务提供者包含视图Composer注册，需要添加该服务提供者到配置文件<code>config/app.php</code>的<code>providers</code>数组中。</p>
+<p>现在我们已经注册了Composer，每次<code>profile</code>视图被渲染时都会执行<code>PrefileComposer@compose</code>,接下来定义Composer类：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">ViewComposers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">View</span>\<span class="title">View</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Users</span>\<span class="title">Repository</span> <span class="title">as</span> <span class="title">UserRepository</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProfileComposer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 用户仓库实现.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> UserRepository</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$users</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建一个新的属性composer.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> UserRepository $users</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">UserRepository <span class="variable">$users</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Dependencies automatically resolved by service container...</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;users = <span class="variable">$users</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 绑定数据到视图.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> View $view</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">View <span class="variable">$view</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$view</span>-&gt;with(<span class="string">&#x27;count&#x27;</span>, <span class="keyword">$this</span>-&gt;users-&gt;count());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>视图被渲染前，Composer类的composer方法被调用，同时<code>Illuminate\Contracts\View\View</code>被注入该方法，从而可以使用<code>with</code>方法来绑定数据到视图。</p>
+<p><em>注意：所有视图Composer都通过服务容器被解析，所以可以在Composer类的构造函数中声明任何需要的依赖。</em></p>
+<h4 id="5-6-3-1-添加-Composer-到多个视图"><a href="#5-6-3-1-添加-Composer-到多个视图" class="headerlink" title="5.6.3.1 添加 Composer 到多个视图"></a>5.6.3.1 添加 Composer 到多个视图</h4><p>可以传递视图数组作为<code>composer</code>方法的第一个参数，来一次将视图Composer添加到多个视图：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;composer(</span><br><span class="line">    [<span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;dashboard&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;App\Http\ViewComposers\MyViewComposer&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><code>composer</code>方法接受<code>*</code>通配符，从而允许将一个Composer添加到所有视图:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;composer(<span class="string">&#x27;*&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$view</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-6-4-视图创建器"><a href="#5-6-4-视图创建器" class="headerlink" title="5.6.4 视图创建器"></a>5.6.4 视图创建器</h3><p>视图创造器和视图Composer非常类似。不同在于，前者在视图实例化之后立即失效而不是等到视图即将渲染。</p>
+<p>使用<code>create</code>方法可注册一个视图创建器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;creator(&#x27;profile&#x27;, &#x27;App\Http\ViewCreators\ProfileCreator&#x27;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -2095,182 +2237,6 @@ $ export PATH=&quot;~/.config/composer/vendor/bin:$PATH&quot;
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/13/c7d69e97b93f/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/13/c7d69e97b93f/" class="post-title-link" itemprop="url">vim 学习指南</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-13 18:30:45" itemprop="dateCreated datePublished" datetime="2016-07-13T18:30:45+08:00">2016-07-13</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/13/c7d69e97b93f/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/13/c7d69e97b93f/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="vim-使用指南"><a href="#vim-使用指南" class="headerlink" title="vim 使用指南"></a>vim 使用指南</h1><h2 id="1-vim-插件管理器"><a href="#1-vim-插件管理器" class="headerlink" title="1.vim 插件管理器"></a>1.vim 插件管理器</h2><h3 id="1-1-Vundle-git仓库"><a href="#1-1-Vundle-git仓库" class="headerlink" title="1.1 Vundle git仓库"></a>1.1 Vundle <a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim">git仓库</a></h3><p>安装文档有中文指南。</p>
-<h3 id="1-2-第一步"><a href="#1-2-第一步" class="headerlink" title="1.2 第一步"></a>1.2 第一步</h3><pre><code>$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-</code></pre>
-<h3 id="1-3-第二步"><a href="#1-3-第二步" class="headerlink" title="1.3 第二步"></a>1.3 第二步</h3><p>对<code>.vimrc</code>文件进行设置。</p>
-<p><code>begin()</code>和<code>end()</code>之间的为可以添加的插件。</p>
-<p>插件添加支持多种格式。</p>
-<pre><code>set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin &#39;VundleVim/Vundle.vim&#39;
-Plugin &#39;tpope/vim-fugitive&#39;
-Plugin &#39;L9&#39;
-Plugin &#39;wincent/command-t&#39;
-Plugin &#39;godlygeek/tabular&#39;
-Plugin &#39;plasticboy/vim-markdown&#39;
-Plugin &#39;suan/vim-instant-markdown&#39;
-
-call vundle#end()            
-filetype plugin indent on
-</code></pre>
-<h3 id="1-4-第三步"><a href="#1-4-第三步" class="headerlink" title="1.4 第三步"></a>1.4 第三步</h3><p>在vim中输入<code>:PluginInstall</code>来安装插件。</p>
-<hr>
-<h2 id="2-vim-常用插件指南"><a href="#2-vim-常用插件指南" class="headerlink" title="2.vim 常用插件指南"></a>2.vim 常用插件指南</h2><h3 id="2-1-Command-t"><a href="#2-1-Command-t" class="headerlink" title="2.1 Command-t"></a>2.1 Command-t</h3><p>插件<a target="_blank" rel="noopener" href="https://github.com/wincent/command-t">地址</a></p>
-<p>插件需要安装<code>ruby</code>，安装完成后，进入目录<code>~/.vim/bundle/command-t/ruby/command-t</code></p>
-<p>执行下方命令：</p>
-<pre><code>ruby extconf.rb
-make
-</code></pre>
-<p>之后进入Vim，输入命令<code>:CommandT</code>查看效果。</p>
-<p>如果提示vim不支持<code>ruby</code>，则安装<code>vim-nox</code></p>
-<pre><code>$ sudo apt-get install vim-nox
-</code></pre>
-<p>下图，为正常运行图</p>
-<p><img src="https://raw.githubusercontent.com/wincent/command-t/media/command-t.gif"></p>
-<p><strong>简要使用说明</strong></p>
-<p><code>tab</code>为选择切换到文件选择。方向键用了选择文件。<code>enter</code>确认选择。</p>
-<hr>
-<h3 id="2-2-vim中编写markdown与预览"><a href="#2-2-vim中编写markdown与预览" class="headerlink" title="2.2 vim中编写markdown与预览"></a>2.2 vim中编写markdown与预览</h3><p>需要安装的插件有三个。</p>
-<pre><code>Plugin &#39;godlygeek/tabular&#39;
-Plugin &#39;plasticboy/vim-markdown&#39;
-Plugin &#39;suan/vim-instant-markdown&#39;
-</code></pre>
-<p>其中<code>vim-instant-markdown</code>需要安装<code>nodejs</code>、<code>npm</code>、<code>xdg-utils</code>、<code>nodejs-legacy</code>。</p>
-<p>安装<code>instant-markdown-d</code></p>
-<pre><code>$ sudo npm -g install instant-markdown-d
-</code></pre>
-<p>其他需要组件：</p>
-<pre><code>$ sudo apt-get install nodejs
-$ sudo apt-get install npm
-$ sudo apt-get install xdg-utils
-$ sudo apt-get install nodejs-legacy
-</code></pre>
-<p>实现的效果为<code>浏览器预览</code>与<code>markdown语法高亮</code></p>
-<p>安装完成后效果如下图：</p>
-<p><img src="https://dl.dropboxusercontent.com/u/28956267/instant-markdown-demo.gif"></p>
-<hr>
-<h3 id="2-3-nerdTree"><a href="#2-3-nerdTree" class="headerlink" title="2.3 nerdTree"></a>2.3 nerdTree</h3><p>参考<a target="_blank" rel="noopener" href="https://github.com/scrooloose/nerdtree">地址</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Xuyuanp/nerdtree-git-plugin">nerdtree-git-plugin</a> git语法提示</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jistr/vim-nerdtree-tabs">vim-nerdtree-tabs</a> NERDTree tag控制</p>
-<pre><code>Plugin &#39;scrooloose/nerdTree&#39;
-Plugin &#39;Xuyuanp/nerdtree-git-plugin&#39;
-Plugin &#39;jistr/vim-nerdtree-tabs&#39;
-</code></pre>
-<p><code>vim</code>中输入<code>PluginInstall</code>，输入<code>NERDTree</code>检查是否运行</p>
-<p>在<code>.vimrc</code>中添加设置</p>
-<pre><code>&quot; NERDTRee config NERDTree 设置
-
-autocmd vimenter * NERDTree  “ 当指定文件时，自动随VIM启动。
-
-&quot;未指定文件时，加载NERDTree
-
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 &amp;&amp; !exists(&quot;s:std_in&quot;) | NERDTree | endif
-
-&quot;隐藏与显示快捷键[Ctrl+n]
-
-map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;
-
-&quot;左侧只有一个窗口时，随Vim一起关闭
-
-autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif
-</code></pre>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" href="/page/25/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><a class="extend next" rel="next" href="/page/27/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
@@ -2295,7 +2261,7 @@ autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDT
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">236k</span>
+    <span title="Symbols count total">237k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
