@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">269</span>
+          <span class="site-state-item-count">270</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,137 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/01/27/c5cefb058ec1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/01/27/c5cefb058ec1/" class="post-title-link" itemprop="url">系统升级了~ 走过的一些坑!</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-27T00:00:00+08:00">2019-01-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/01/27/c5cefb058ec1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/27/c5cefb058ec1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="黑苹果-部分"><a href="#黑苹果-部分" class="headerlink" title="黑苹果 部分"></a>黑苹果 部分</h1><p>正常安装就好 <code>config.plist </code> 是重点</p>
+<p><code>tonymacx86</code> 带的<code>clover</code> 安装完成后不能正常引导。</p>
+<p>更新到最新的版可以解决。</p>
+<p><code>clover configurator</code> 一定要装很有用。</p>
+<p><code>Acpi</code>中选择 <code>AddDTGP</code> 、 <code>FixDarwin</code> 、 <code>AddMCHC</code> 、 <code>FakeLPC</code> 、<code>FixSBUS</code> 、 <code>FixUSB</code></p>
+<p><code>Boot</code> 中选择<code>dart=0</code> 显卡是<code>gtx 760</code> 驱动自带</p>
+<p><code>Kernel</code> 中</p>
+<ul>
+<li>不要手贱关<code>Apple RTC</code>!</li>
+<li>不要手贱关<code>Apple RTC</code>!</li>
+<li>不要手贱关<code>Apple RTC</code>!</li>
+</ul>
+<p>关闭结果就是 每次开机进入系统时 bios 设置被重置。</p>
+<p>没有其他恢复手段非常可怕！</p>
+<p>声卡使用 <a target="_blank" rel="noopener" href="https://github.com/toleda/audio_CloverALC">audio_CloverALC</a> 自动注入 完全正常</p>
+<h2 id="读取ntfs"><a href="#读取ntfs" class="headerlink" title="读取ntfs"></a>读取ntfs</h2><p>10.13可以使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew cask install osxfuse</span><br><span class="line">brew install ntfs-3g</span><br></pre></td></tr></table></figure>
+
+<p>重启到<code>recovery mode</code> 关闭系统保护</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil disable</span><br></pre></td></tr></table></figure>
+
+<p>重启到正常模式， 使<code>NTFS</code>分区可以自动挂载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original</span><br><span class="line">sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs</span><br></pre></td></tr></table></figure>
+
+<p>重启到<code>recovery mode</code> 开启系统保护</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">csrutil enable</span><br></pre></td></tr></table></figure>
+
+<h2 id="显示全部隐藏文件"><a href="#显示全部隐藏文件" class="headerlink" title="显示全部隐藏文件"></a>显示全部隐藏文件</h2><p>显示隐藏文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder</span><br></pre></td></tr></table></figure>
+
+<p>不显示隐藏文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -boolean false ; killall Finder</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建快捷方式"><a href="#创建快捷方式" class="headerlink" title="创建快捷方式"></a>创建快捷方式</h2><p><kbd>option</kbd> + <kbd>command</kbd></p>
+<h1 id="laravel-部分"><a href="#laravel-部分" class="headerlink" title="laravel 部分"></a>laravel 部分</h1><h2 id="valet-全部网站-it-work"><a href="#valet-全部网站-it-work" class="headerlink" title="valet 全部网站 it work"></a>valet 全部网站 it work</h2><p>新装<code>valet</code>后，访问自定域名网站全部<code>it&#39;s work</code></p>
+<p>原因<code>apachectl</code>占用<code>80</code>端口</p>
+<p>解决方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k stop</span><br><span class="line">sudo apachectl stop</span><br><span class="line">valet restart</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1222,122 +1353,6 @@
 <p>需要说明的是 <code>namespace</code>与<code>autoload</code>超级重要</p>
 <h2 id="2019年10月11日-更新"><a href="#2019年10月11日-更新" class="headerlink" title="2019年10月11日 更新"></a>2019年10月11日 更新</h2><p><code>Ramsey\Uuid\Exception\UnsatisfiedDependencyException</code> 错误。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require &quot;moontoast/math&quot;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/11/20/53e4f08fe391/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/11/20/53e4f08fe391/" class="post-title-link" itemprop="url">快递到了！</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-11-20 00:00:00" itemprop="dateCreated datePublished" datetime="2018-11-20T00:00:00+08:00">2018-11-20</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/11/20/53e4f08fe391/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/11/20/53e4f08fe391/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="14日的份"><a href="#14日的份" class="headerlink" title="14日的份"></a>14日的份</h1><h2 id="双11的快递到了"><a href="#双11的快递到了" class="headerlink" title="双11的快递到了"></a>双11的快递到了</h2><p>小型超声波清洗机，和手动洗眼镜说再见了~~</p>
-<h2 id="code定义中"><a href="#code定义中" class="headerlink" title="code定义中"></a>code定义中</h2><p>定义<code>code</code>将返回标准化，部件代码进行有效简化。</p>
-<h1 id="20日的份"><a href="#20日的份" class="headerlink" title="20日的份"></a>20日的份</h1><p>admin 管理 部分 完成了 </p>
-<p>之后就是玩家部分了</p>
-<p>周末通过 奥德赛 与 暗影</p>
-<p>不不得不说 奥德赛 是历代最优 </p>
-<p>暗影的手柄操作有点奇怪 </p>
-<p>机器果然到时候了 九年了……</p>
-<p>在坚持坚持吧</p>
-<p>HDR 要有对应的显示器才可以 </p>
-<p>目前看 LG 34WK95U-W 不错 </p>
-<p>EIZO 就等到稳定下来再说了 </p>
-<p>wacom 在数绘方面是优秀的 可是不支持HDR </p>
-<p>不过 贴图 还停留在一般RGB时代 </p>
-<p>如果上升一步，想想都可怕，一般用户与使用HDR的用户 </p>
-<p>体验的会是两个不同的世界，当然计算量也巨大的。</p>
-<p>服务端渲染随着带宽的扩大，终究是要到来的。</p>
-<p>头号玩家 描述世界 也只是时间问题</p>
-<p>技术层面上 一定使用的是 服务端渲染</p>
-<p>用户设备就不一定相同了</p>
-<p>随手看了下5G标准，需要更多基站设备…… 稳定性恐怕不高</p>
-<p>大法耳罩老化了 意外发现梁也断了…… </p>
-<p>希望合金梁可以顺利到手！！耳罩的更换倒是有眉目了~</p>
-
       
     </div>
 
