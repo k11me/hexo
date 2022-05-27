@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">272</span>
+          <span class="site-state-item-count">273</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,180 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/03/28/8c9856f016de/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/03/28/8c9856f016de/" class="post-title-link" itemprop="url">swagger-php 快速上手指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-03-28 00:01:00" itemprop="dateCreated datePublished" datetime="2018-03-28T00:01:00+08:00">2018-03-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/03/28/8c9856f016de/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/28/8c9856f016de/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>swagger 学习用时2天，天宫一号预计在2018年03月31日到2018年04月01日坠落地球，碎片坠落地点未知。</p>
+<p>天宫一号的坠落，可以说我朝近年的航天成果全灭。</p>
+<p>报道断章取义…… 陨落只是时间问题。小额外汇貌似限制了，实际未测试。</p>
+<p>使用<code>DarkaOnLine/L5-Swagger</code>可以在代码中以注释形势直接编写<code>API</code>文档非常方便。</p>
+<p>注释中的语法要使用<code>Swagger-php</code>样式，<code>SWAGGER VERSION 3.0</code></p>
+<h2 id="DarkaOnLine-L5-Swagger安装"><a href="#DarkaOnLine-L5-Swagger安装" class="headerlink" title="DarkaOnLine/L5-Swagger安装"></a><a target="_blank" rel="noopener" href="https://github.com/DarkaOnLine/L5-Swagger">DarkaOnLine/L5-Swagger</a>安装</h2><p>项目使用的是<code>laravel 5.5</code> 对应 <code>darkaonline/l5-swagger:5.5.*</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require &quot;darkaonline/l5-swagger:5.5.*&quot;</span><br></pre></td></tr></table></figure>
+
+<p>复制设置与视图文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan vendor:publish --provider &quot;L5Swagger\L5SwaggerServiceProvider&quot;</span><br></pre></td></tr></table></figure>
+
+<p><code>SWAGGER VERSION 3.0</code>支持</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require &quot;zircote/swagger-php:3.x-dev&quot;</span><br></pre></td></tr></table></figure>
+
+<p>设置<code>.env</code>文件</p>
+<p><code>L5_SWAGGER_GENERATE_ALWAYS=true</code>为每次打开页面是都进行重新渲染，设计阶段非常好用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SWAGGER_VERSION=3.0</span><br><span class="line">L5_SWAGGER_GENERATE_ALWAYS=true</span><br></pre></td></tr></table></figure>
+<h2 id="基础文件设置"><a href="#基础文件设置" class="headerlink" title="基础文件设置"></a>基础文件设置</h2><p><a target="_blank" rel="noopener" href="https://github.com/OAI/OpenAPI-Specification/blob/v3.0.2-dev/versions/3.0.2.md">基本用法</a></p>
+<h3 id="swagger-v3-php"><a href="#swagger-v3-php" class="headerlink" title="swagger-v3.php"></a>swagger-v3.php</h3><p>用于设置一些基本API信息，在页面最上方显示。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@OAS</span>\OpenApi(</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\Info(</span></span><br><span class="line"><span class="comment">*         version=&quot;1.0.0&quot;,</span></span><br><span class="line"><span class="comment">*         title=&quot;Test Api&quot;,</span></span><br><span class="line"><span class="comment">*         description=&quot;描述&quot;,</span></span><br><span class="line"><span class="comment">*         termsOfService=&quot;https://Test.dev/terms/&quot;,</span></span><br><span class="line"><span class="comment">*         <span class="doctag">@OAS</span>\contact(</span></span><br><span class="line"><span class="comment">*             email=&quot;test<span class="doctag">@test</span>.dev&quot;,</span></span><br><span class="line"><span class="comment">*             name=&quot;test&quot;,</span></span><br><span class="line"><span class="comment">*             url=&quot;https://test.dev&quot;</span></span><br><span class="line"><span class="comment">*         ),</span></span><br><span class="line"><span class="comment">*         <span class="doctag">@OAS</span>\License(</span></span><br><span class="line"><span class="comment">*             name=&quot;Apache 2.0&quot;,</span></span><br><span class="line"><span class="comment">*             url=&quot;http://www.apache.org/licenses/LICENSE-2.0.html&quot;</span></span><br><span class="line"><span class="comment">*         )</span></span><br><span class="line"><span class="comment">*     ),</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\Server(</span></span><br><span class="line"><span class="comment">*         description=&quot;OpenApi host&quot;,</span></span><br><span class="line"><span class="comment">*         url=&quot;https://test.dev/api&quot;</span></span><br><span class="line"><span class="comment">*     ),</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\Server(</span></span><br><span class="line"><span class="comment">*         description=&quot;OpenApi host&quot;,</span></span><br><span class="line"><span class="comment">*         url=&quot;https://test.dev/api/v2&quot;</span></span><br><span class="line"><span class="comment">*     ),</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\ExternalDocumentation(</span></span><br><span class="line"><span class="comment">*         description=&quot;OpenApi host&quot;,</span></span><br><span class="line"><span class="comment">*         url=&quot;https://test.dev/api/Doc&quot;</span></span><br><span class="line"><span class="comment">*     )</span></span><br><span class="line"><span class="comment">* )</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>@OAS 为使用前缀，用于读取<code>swagger</code>的设置</p>
+<table>
+<thead>
+<tr>
+<th>名头</th>
+<th>解释</th>
+<th>是否必要</th>
+<th>其他说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenApi</td>
+<td>swagger 初始化</td>
+<td>必要</td>
+<td>唯一并位于全部设置最顶端</td>
+</tr>
+<tr>
+<td>Info</td>
+<td>Api说明</td>
+<td>必要</td>
+<td>设置中的<code>title</code>与<code>version</code>为必要项</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>Api 前置路径</td>
+<td>非必要</td>
+<td>多连接时，可以并行设置</td>
+</tr>
+<tr>
+<td>ExternalDocumentation</td>
+<td>扩展文档</td>
+<td>非必要</td>
+<td>只能设置<code>description</code>与<code>url</code></td>
+</tr>
+<tr>
+<td>paths</td>
+<td>连接地址</td>
+<td>必要</td>
+<td>可以在控制器位置设置</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>主标签</td>
+<td>必要</td>
+<td>与<code>laravel</code>一起使用时，独立设置方便管理。可以设置<code>name</code>、<code>description</code>、<code>ExternalDocumentation</code></td>
+</tr>
+</tbody></table>
+<h3 id="tags-php"><a href="#tags-php" class="headerlink" title="tags.php"></a>tags.php</h3><p>用于设置用户标签</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@OAS</span>\Tag(</span></span><br><span class="line"><span class="comment">*     name=&quot;2fa&quot;,</span></span><br><span class="line"><span class="comment">*     description=&quot;Google 2FA&quot;,</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\ExternalDocumentation(</span></span><br><span class="line"><span class="comment">*         description=&quot;more&quot;,</span></span><br><span class="line"><span class="comment">*         url=&quot;https://test.test/docs&quot;</span></span><br><span class="line"><span class="comment">*     )</span></span><br><span class="line"><span class="comment">* )</span></span><br><span class="line"><span class="comment">* <span class="doctag">@OAS</span>\Tag(</span></span><br><span class="line"><span class="comment">*     name=&quot;store&quot;,</span></span><br><span class="line"><span class="comment">*     description=&quot;Access to Petstore orders&quot;</span></span><br><span class="line"><span class="comment">* )</span></span><br><span class="line"><span class="comment">* <span class="doctag">@OAS</span>\Tag(</span></span><br><span class="line"><span class="comment">*     name=&quot;user&quot;,</span></span><br><span class="line"><span class="comment">*     description=&quot;Operations about user&quot;</span></span><br><span class="line"><span class="comment">* )</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="path-部分"><a href="#path-部分" class="headerlink" title="path 部分"></a>path 部分</h3><p>直接使用注释形势写入控制器</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@OAS</span>\Get(</span></span><br><span class="line"><span class="comment">*     path=&quot;/test&quot;,                                 // API 路由地址</span></span><br><span class="line"><span class="comment">*     tags=&#123;&quot;test&quot;&#125;,                                // 对应Tag</span></span><br><span class="line"><span class="comment">*     sumary=&quot;get test doc&quot;,                        // API概要</span></span><br><span class="line"><span class="comment">*     description=&quot;get test doc more ........&quot;,     // API描述</span></span><br><span class="line"><span class="comment">*     operationId=&quot;test&quot;,                           // API请求时ID</span></span><br><span class="line"><span class="comment">*     deprecated=false,                             // API是否有效</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\Server(                                  // 独立API连接设置 可以覆盖全局</span></span><br><span class="line"><span class="comment">*         description=&quot;Server host&quot;,                // 连接描述</span></span><br><span class="line"><span class="comment">*         url=&quot;https://test.dev/api&quot;                // 连接地址</span></span><br><span class="line"><span class="comment">*     ),</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\Parameter(                               // API参数, 非必要</span></span><br><span class="line"><span class="comment">*         name=”id“,                                // 参数名</span></span><br><span class="line"><span class="comment">*         in=&quot;query&quot;,                               // 参数位置 可以设置`query`、`header`、`path`、`cookie`</span></span><br><span class="line"><span class="comment">*         description=&quot;adout this id ......&quot;,       // 描述</span></span><br><span class="line"><span class="comment">*         required=true,                            // 是否必须填写，当in设置为path时，需要设置为true。</span></span><br><span class="line"><span class="comment">*         style=&quot;from&quot;,                             // 设置参数序列化类型，非必要，自动根据in值设置。</span></span><br><span class="line"><span class="comment">*         <span class="doctag">@OAS</span>\Schema(</span></span><br><span class="line"><span class="comment">*             type=&quot;string&quot;,                        // 参数类型</span></span><br><span class="line"><span class="comment">*             example=&quot;test example&quot;,               // 参数例子</span></span><br><span class="line"><span class="comment">*         )</span></span><br><span class="line"><span class="comment">*     ),</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\RequestBody(                             // 请求主体 content-type 下使用 适合传递多个参数</span></span><br><span class="line"><span class="comment">*         description=&quot;adout this id ......&quot;,       // 描述</span></span><br><span class="line"><span class="comment">*         required=false,                           // 是否必须填写,默认为false</span></span><br><span class="line"><span class="comment">*         <span class="doctag">@OAS</span>\MediaType(                           // 请求数据结构</span></span><br><span class="line"><span class="comment">*             mediaType=&quot;application/json&quot;,         // application/json 结构</span></span><br><span class="line"><span class="comment">*             <span class="doctag">@OAS</span>\Schema(</span></span><br><span class="line"><span class="comment">*                 type=&quot;string&quot;</span></span><br><span class="line"><span class="comment">*                 ref=&quot;#/components/schemas/User&quot;   // 可以载入设置完成的参数,区分大小写</span></span><br><span class="line"><span class="comment">*             ),</span></span><br><span class="line"><span class="comment">*             <span class="doctag">@OAS</span>\Schema(</span></span><br><span class="line"><span class="comment">*                 <span class="doctag">@OAS</span>\Property(                    // 多参数设置</span></span><br><span class="line"><span class="comment">*                     property=&quot;otp&quot;,               // 参数名称</span></span><br><span class="line"><span class="comment">*                     description=&quot;yubikey otp&quot;,    // 参数描述</span></span><br><span class="line"><span class="comment">*                     type=&quot;string&quot;,                // 参数类型</span></span><br><span class="line"><span class="comment">*                     example=&quot;cccccccccccccccccccccccccccccccccccccccccccc&quot;</span></span><br><span class="line"><span class="comment">*                                                   // 参数例子</span></span><br><span class="line"><span class="comment">*                 )</span></span><br><span class="line"><span class="comment">*             )</span></span><br><span class="line"><span class="comment">*         ),</span></span><br><span class="line"><span class="comment">*         <span class="doctag">@OAS</span>\MediaType(                           // 请求数据结构</span></span><br><span class="line"><span class="comment">*             mediaType=&quot;application/xml&quot;,          // application/xml 结构</span></span><br><span class="line"><span class="comment">*             <span class="doctag">@OAS</span>\Schema(</span></span><br><span class="line"><span class="comment">*                 type=&quot;string&quot;</span></span><br><span class="line"><span class="comment">*                 ref=&quot;#/components/schemas/User&quot;   // 可以载入设置完成的参数,区分大小写</span></span><br><span class="line"><span class="comment">*             ),</span></span><br><span class="line"><span class="comment">*             <span class="doctag">@OAS</span>\Schema(</span></span><br><span class="line"><span class="comment">*                 <span class="doctag">@OAS</span>\Property(                    // 多参数设置</span></span><br><span class="line"><span class="comment">*                     property=&quot;otp&quot;,               // 参数名称</span></span><br><span class="line"><span class="comment">*                     description=&quot;yubikey otp&quot;,    // 参数描述</span></span><br><span class="line"><span class="comment">*                     type=&quot;string&quot;,                // 参数类型</span></span><br><span class="line"><span class="comment">*                     example=&quot;cccccccccccccccccccccccccccccccccccccccccccc&quot;</span></span><br><span class="line"><span class="comment">*                                                   // 参数例子</span></span><br><span class="line"><span class="comment">*                     )</span></span><br><span class="line"><span class="comment">*             )		</span></span><br><span class="line"><span class="comment">*         )</span></span><br><span class="line"><span class="comment">*     ),</span></span><br><span class="line"><span class="comment">*     <span class="doctag">@OAS</span>\Response(                                // 响应,必须设置</span></span><br><span class="line"><span class="comment">*         response=200,                             // 响应编号</span></span><br><span class="line"><span class="comment">*         description=&quot;successful operation&quot;,       // 响应描述</span></span><br><span class="line"><span class="comment">*         <span class="doctag">@OAS</span>\Header(</span></span><br><span class="line"><span class="comment">*             header=&quot;X-Rate-Limit&quot;,                // 响应头</span></span><br><span class="line"><span class="comment">*             description=&quot;calls per hour allowed by the user&quot;,</span></span><br><span class="line"><span class="comment">*                                                   // 响应头描述</span></span><br><span class="line"><span class="comment">*             <span class="doctag">@OAS</span>\Schema(</span></span><br><span class="line"><span class="comment">*                 type=&quot;integer&quot;,</span></span><br><span class="line"><span class="comment">*                 format=&quot;int32&quot;,</span></span><br><span class="line"><span class="comment">*                 default=&quot;64&quot;,                     // 默认</span></span><br><span class="line"><span class="comment">*                 example=&quot;12&quot;                      // 例子</span></span><br><span class="line"><span class="comment">*             )</span></span><br><span class="line"><span class="comment">*         ),</span></span><br><span class="line"><span class="comment">*         <span class="doctag">@OAS</span>\MediaType(                           // 响应数据结构</span></span><br><span class="line"><span class="comment">*             mediaType=&quot;application/json&quot;,</span></span><br><span class="line"><span class="comment">*             <span class="doctag">@OAS</span>\Schema(</span></span><br><span class="line"><span class="comment">*                 <span class="doctag">@OAS</span>\Property(</span></span><br><span class="line"><span class="comment">*                     property=&quot;message&quot;,           // 响应参数头</span></span><br><span class="line"><span class="comment">*                     description=&quot;Response message&quot;,</span></span><br><span class="line"><span class="comment">*                     type=&quot;string&quot;,                // 响应参数数据类型</span></span><br><span class="line"><span class="comment">*                     example=&quot;true&quot;                // 响应参数例子</span></span><br><span class="line"><span class="comment">*                 )</span></span><br><span class="line"><span class="comment">*             ),</span></span><br><span class="line"><span class="comment">*         )</span></span><br><span class="line"><span class="comment">*     )</span></span><br><span class="line"><span class="comment">* )</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="Model-数据参数"><a href="#Model-数据参数" class="headerlink" title="Model 数据参数"></a>Model 数据参数</h3><p>可以直接设置在class之上，使用<code>ref=&quot;#/components/schemas/ClassName&quot;</code>可以直接引用。</p>
+<p><code>swagger</code>默认载入位置<code>#/components/schemas/</code>。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@OAS</span>\Schema(</span></span><br><span class="line"><span class="comment"> *     title=&quot;yubikey model&quot;,</span></span><br><span class="line"><span class="comment"> *     description=&quot;yubikey model&quot;,</span></span><br><span class="line"><span class="comment"> *     type=&quot;object&quot;,</span></span><br><span class="line"><span class="comment"> *     <span class="doctag">@OAS</span>\Property(</span></span><br><span class="line"><span class="comment"> *         property=&quot;message&quot;,</span></span><br><span class="line"><span class="comment"> *         description=&quot;Response message&quot;,</span></span><br><span class="line"><span class="comment"> *         type=&quot;string&quot;,</span></span><br><span class="line"><span class="comment"> *         default=&quot;true&quot;,  </span></span><br><span class="line"><span class="comment"> *         example=&quot;true&quot;</span></span><br><span class="line"><span class="comment"> *     ),</span></span><br><span class="line"><span class="comment"> *     <span class="doctag">@OAS</span>\Property(</span></span><br><span class="line"><span class="comment"> *         property=&quot;status&quot;,</span></span><br><span class="line"><span class="comment"> *         description=&quot;Updated status&quot;,</span></span><br><span class="line"><span class="comment"> *         type=&quot;string&quot;,</span></span><br><span class="line"><span class="comment"> *         example=&quot;true&quot;</span></span><br><span class="line"><span class="comment"> *     ),</span></span><br><span class="line"><span class="comment"> *     <span class="doctag">@OAS</span>\Property(</span></span><br><span class="line"><span class="comment"> *         property=&quot;age&quot;,</span></span><br><span class="line"><span class="comment"> *         description=&quot;Updated status of the pet&quot;,</span></span><br><span class="line"><span class="comment"> *         type=&quot;integer&quot;,</span></span><br><span class="line"><span class="comment"> *         minimum=&quot;0&quot;</span></span><br><span class="line"><span class="comment"> *     ),</span></span><br><span class="line"><span class="comment"> * )</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<h3 id="bitbeans-yubikey-的坑"><a href="#bitbeans-yubikey-的坑" class="headerlink" title="bitbeans/yubikey 的坑"></a>bitbeans/yubikey 的坑</h3><p>控制器中不能正常获取<code>Exception</code>。所以不能使用下方代码</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">YubiKey</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="variable">$yubikey_auth</span> = Yubikey::verify(Input::get(<span class="string">&#x27;otp&#x27;</span>));</span><br><span class="line">	<span class="variable">$yubikey_params</span> = Yubikey::getParameters();</span><br><span class="line">	<span class="variable">$yubikey_identity</span> = Yubikey::getParameter(<span class="string">&#x27;identity&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (\<span class="built_in">Exception</span> <span class="variable">$exception</span>) &#123;</span><br><span class="line">	<span class="variable">$error</span> = <span class="variable">$exception</span>-&gt;getMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>改写到<code>App\Exceptions\Handler</code>的<code>render</code>方法判断，使用<code>Exception</code>判断的<code>packages</code>不多。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(<span class="variable">$exception</span>-&gt;getMessage()) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;REPLAYED_OTP&#x27;</span>:</span><br><span class="line">    <span class="keyword">return</span> response()-&gt;json([<span class="string">&#x27;message&#x27;</span> =&gt; <span class="variable">$exception</span>-&gt;getMessage()]);</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;Could not parse Yubikey OTP&#x27;</span>:</span><br><span class="line">    <span class="keyword">return</span> response()-&gt;json([<span class="string">&#x27;message&#x27;</span> =&gt; <span class="variable">$exception</span>-&gt;getMessage()]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1159,120 +1333,6 @@
 <p>进ICU插管前留好遗言，遗嘱。</p>
 <p>珍惜当下吧。</p>
 <h2 id="单身狗的情人劫"><a href="#单身狗的情人劫" class="headerlink" title="单身狗的情人劫"></a>单身狗的情人劫</h2><p><code>laravel</code>的<code>logs</code>有点怪，要重写<code>logs</code>并存入数据库了。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/02/11/b3612829c63b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/02/11/b3612829c63b/" class="post-title-link" itemprop="url">2018年02月11日</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-02-11 01:00:00" itemprop="dateCreated datePublished" datetime="2018-02-11T01:00:00+08:00">2018-02-11</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/02/11/b3612829c63b/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/11/b3612829c63b/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="小计"><a href="#小计" class="headerlink" title="小计"></a>小计</h2><p>使用<code>php72-opcache</code>提升响应速度。</p>
-<p><code>DARLING in the FRANXX</code> 超好看，期待第6话。</p>
-<p><code>gitbook</code>生成<code>pdf</code>时，问题有点多。在线倒是没什么问题。</p>
-<h2 id="Mac-安装-php72-opcache"><a href="#Mac-安装-php72-opcache" class="headerlink" title="Mac 安装  php72-opcache"></a>Mac 安装  php72-opcache</h2><p><code>brew</code>搜索包</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search php72</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install homebrew/php/php72-opcache</span><br></pre></td></tr></table></figure>
-
-<p>重启<code>php72</code>服务 注意使用<code>sudo</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo brew services restart php72</span><br></pre></td></tr></table></figure>
-
-<p>修改<code>php72-opcache</code>配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subl /usr/local/etc/php/7.2/conf.d/ext-opcache.ini</span><br></pre></td></tr></table></figure>
-
-<h2 id="appstract-laravel-opcache"><a href="#appstract-laravel-opcache" class="headerlink" title="appstract/laravel-opcache"></a>appstract/laravel-opcache</h2><p><a target="_blank" rel="noopener" href="https://github.com/appstract/laravel-opcache">appstract/laravel-opcache</a></p>
-<p>安装<code>appstract/laravel-opcache</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require appstract/laravel-opcache</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://laravel-china.org/topics/7458/open-php-opcache-and-make-your-laravel-application-fast">参考文档1</a></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><code>phpinfo()</code>命令行查看</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -i &quot;(command-line &#x27;phpinfo()&#x27;)&quot;</span><br></pre></td></tr></table></figure>
 
       
     </div>
