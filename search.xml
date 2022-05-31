@@ -10114,4 +10114,28 @@ gantt
         <tag>日记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>一些补充</title>
+    <url>/2022/05/31/e1faacf07158/</url>
+    <content><![CDATA[<h2 id="ubuntu设置证书登录"><a href="#ubuntu设置证书登录" class="headerlink" title="ubuntu设置证书登录"></a>ubuntu设置证书登录</h2><p><code>~/.ssh/authorized_keys</code>中添加秘钥</p>
+<p>更改ssh设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<p><code>PasswordAuthentication no</code><br><code>AuthorizedKeysFile</code> 取消注释</p>
+<p>重启服务器</p>
+<h2 id="笑死不愧是天朝人"><a href="#笑死不愧是天朝人" class="headerlink" title="笑死不愧是天朝人"></a>笑死不愧是天朝人</h2><p>今天遇到一个服务器</p>
+<p>通过香港中转实际是位置在国内</p>
+<p>我还傻傻的部署翻墙工具呢</p>
+<p>笑死</p>
+<p>标准软件源一个连不上</p>
+<p>默认都是163的</p>
+<p>真爱生命远离国产</p>
+<p>以上</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
 </search>
