@@ -10140,7 +10140,7 @@ gantt
   </entry>
   <entry>
     <title>win11 安装 Android 子系统</title>
-    <url>/2022/06/12/d4691f697e3d/</url>
+    <url>/2022/06/12/635053f76c61/</url>
     <content><![CDATA[<h2 id="写在安装之前"><a href="#写在安装之前" class="headerlink" title="写在安装之前"></a>写在安装之前</h2><p>1.地区需要设置在美国<br>2.windows 中开启 Hyper-V<br>3.安装完成后搜索 <code>适用于Android的Windosw子系统设置</code>调整设置</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://apps.microsoft.com/store/detail/windows-subsystem-for-android%E2%84%A2-with-amazon-appstore/9P3395VX91NR?hl=en-us&gl=US">wsa安装地址</a></p>
 <p>为了能安装任意的akp包需要开启开发者模式，并使用<a href="https://developer.android.com/studio/command-line/adb">adb</a>安装。</p>
