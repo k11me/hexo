@@ -10185,4 +10185,32 @@ gantt
         <tag>日记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>laravel model 时间属性</title>
+    <url>/2022/10/05/9641a7bd61ed/</url>
+    <content><![CDATA[<h2 id="laravel-model-时间属性"><a href="#laravel-model-时间属性" class="headerlink" title="laravel model 时间属性"></a>laravel model 时间属性</h2><p>在laravel model中设置时间属性，随后可以在<code>Resource</code>中使用<code>toDateTimeString()</code>获得方便阅读的时间。</p>
+<p>未使用时返回是这样的<code>2022-10-05T20:24:25.000000Z</code>，使用时返回是这样的<code>2022-10-05 20:24:25</code>。</p>
+<h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><p>model中添加</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="variable">$casts</span> = [</span><br><span class="line">        <span class="string">&#x27;time_1&#x27;</span> =&gt; <span class="string">&#x27;date&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;time_2&#x27;</span> =&gt; <span class="string">&#x27;datetime&#x27;</span></span><br><span class="line">    ];</span><br></pre></td></tr></table></figure>
+
+<p>要注意的是<code>date</code>是没有小时和分钟的。<code>datetime</code>是完成的时间戳。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>每个周末都练练车，快1000公里了。</p>
+<p>到抽箱子了。快到终点了。</p>
+<p>wacom 新的 27 有点心动了。</p>
+<p>AirPods Pro 2 就蛮一般的给老爸了。</p>
+<p>还是喜欢 XM4。</p>
+<p><img src="/images/post/2022-10-05/IMG_2453.png"></p>
+<p>还入手了一个携带样式的T12烙铁。</p>
+<p>想组装穿越机呢~</p>
+<p><img src="/images/post/2022-10-05/IMG_2460.png"></p>
+<p>以上</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
 </search>
