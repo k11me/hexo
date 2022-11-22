@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">277</span>
+          <span class="site-state-item-count">278</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,237 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/04/16/5f633ca9b365/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/04/16/5f633ca9b365/" class="post-title-link" itemprop="url">Dcoker 部署 mailserver</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-04-16 02:00:00" itemprop="dateCreated datePublished" datetime="2018-04-16T02:00:00+08:00">2018-04-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/04/16/5f633ca9b365/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/16/5f633ca9b365/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>查找文章时没找到, 在本地发现了, 重新编辑一下, 供后来者参考。 </p>
+<h1 id="使用Dcoker-部署邮件服务"><a href="#使用Dcoker-部署邮件服务" class="headerlink" title="使用Dcoker 部署邮件服务"></a>使用Dcoker 部署邮件服务</h1><h2 id="DNS-records-设置与-PTR-records"><a href="#DNS-records-设置与-PTR-records" class="headerlink" title="DNS records 设置与  PTR records"></a>DNS records 设置与  PTR records</h2><p>注意把bar.foo换成需要的域名</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Homename</th>
+<th>Value</th>
+<th>TTL</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>bar.foo</td>
+<td>000.000.000.000</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>A</td>
+<td>*.bar.foo</td>
+<td>000.000.000.000</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>AAAA</td>
+<td>bar.foo</td>
+<td>000.000.000.000</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>AAAA</td>
+<td>*.bar.foo</td>
+<td>000.000.000.000</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>bar.foo</td>
+<td>ns1.bar.foo</td>
+<td>1800</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>bar.foo</td>
+<td>ns2.bar.foo</td>
+<td>1800</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>bar.foo</td>
+<td>ns3.bar.foo</td>
+<td>1800</td>
+</tr>
+<tr>
+<td>MX</td>
+<td>bar.foo</td>
+<td>mail.bar.foo. 【10】</td>
+<td>14400</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>bar.foo</td>
+<td>v=spf1 mx ~all</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>_dmarc.bar.foo</td>
+<td>v=DMARC1; p=none</td>
+<td>3600</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>mail._domainkey.bar.foo</td>
+<td>v=DKIM1; k=rsa; p=****</td>
+<td>3600</td>
+</tr>
+</tbody></table>
+<p>说明:</p>
+<ul>
+<li>NS 为域名解析服务器</li>
+<li>A 为IPv4 域名绑定</li>
+<li>AAAA 为IPv6 域名绑定</li>
+<li>MX 为 收信服务器</li>
+<li>TXT 为 E-Mail验证与设置</li>
+<li>将主机名改为<code>mail.bar.foo</code>后，可以设置<code>PTR records</code>。</li>
+</ul>
+<p>IPv6使用letsencrypt自动延期证书是会出错要注意下。</p>
+<p><code>p==***********</code>为<code>DKIM key</code>这里隐去了</p>
+<h2 id="docker-mailserver"><a href="#docker-mailserver" class="headerlink" title="docker-mailserver"></a>docker-mailserver</h2><ul>
+<li>注意使用<code>ENABLE_CLAMAV=1</code>时需要<code>RAM≥1G</code></li>
+</ul>
+<p>当网站与邮件服务在同一服务器时，要使用<code>nginx-proxy</code></p>
+<h3 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h3><p><code>mailserver目录下</code>，可以使用docker命令添加多个用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">touch config/postfix-accounts.cf</span><br><span class="line">docker run --rm \</span><br><span class="line">  -e MAIL_USER=bar@bar.foo \</span><br><span class="line">  -e MAIL_PASS=password \</span><br><span class="line">  -ti tvial/docker-mailserver:latest \</span><br><span class="line">  /bin/sh -c &#x27;echo &quot;$MAIL_USER|$(doveadm pw -s SHA512-CRYPT -u $MAIL_USER -p $MAIL_PASS)&quot;&#x27; &gt;&gt; config/postfix-accounts.cf</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-DKIM-key"><a href="#创建-DKIM-key" class="headerlink" title="创建 DKIM key"></a>创建 DKIM key</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm \</span><br><span class="line"> -v &quot;/root/mailserver/config&quot;:/tmp/docker-mailserver \</span><br><span class="line"> -ti tvial/docker-mailserver:latest generate-dkim-config bar.foo</span><br></pre></td></tr></table></figure>
+
+<p>查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /root/mailserver/config/opendkim/keys/bar.foo/mail.txt</span><br></pre></td></tr></table></figure>
+
+<p>将DKIM1 调整后添加到域名解析<code>mail._domainkey</code>记录下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v=DKIM1; k=rsa; p=***********</span><br></pre></td></tr></table></figure>
+
+<p><code>p==***********</code>为<code>DKIM key</code>这里隐去了</p>
+<h3 id="docker-mailserver-启动"><a href="#docker-mailserver-启动" class="headerlink" title="docker-mailserver 启动"></a>docker-mailserver 启动</h3><p>启动 docker-proxy 【反向代理】</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 80:80 -p 443:443 \</span></span><br><span class="line"><span class="bash">    --name nginx-proxy \</span></span><br><span class="line"><span class="bash">    -v /path/to/certs:/etc/nginx/certs:ro \</span></span><br><span class="line"><span class="bash">    -v /etc/nginx/vhost.d \</span></span><br><span class="line"><span class="bash">    -v /usr/share/nginx/html \</span></span><br><span class="line"><span class="bash">    -v /var/run/docker.sock:/tmp/docker.sock:ro \</span></span><br><span class="line"><span class="bash">    --label com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy \</span></span><br><span class="line"><span class="bash">    jwilder/nginx-proxy</span></span><br></pre></td></tr></table></figure>
+
+<p>启动 letsencrypt-nginx-proxy-companion 【挂载TLS证书】</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    -v /path/to/certs:/etc/nginx/certs:rw \</span><br><span class="line">    -v /var/run/docker.sock:/var/run/docker.sock:ro \</span><br><span class="line">    --volumes-from nginx-proxy \</span><br><span class="line">    jrcs/letsencrypt-nginx-proxy-companion</span><br></pre></td></tr></table></figure>
+
+<p>启动 library/nginx 【用于获取TLS证书， 验证时，需要<code>port:80</code>】<br>也可以使用下方<code>docker-compose.yml</code></p>
+<ul>
+<li>注意:要将<code>nginx</code>桥接到<code>nginx-proxy</code>的网络，使其可以正常解析,<code>LETSENCRYPT_TEST=true</code>在测试时使用，防止证书频繁申请。<br>Email 必须为有效地址。</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;2&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">webmail:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nginx:latest</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">VIRTUAL_HOST=mail.bar.foo</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">LETSENCRYPT_HOST=mail.bar.foo</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">LETSENCRYPT_EMAIL=k11@bar.foo</span></span><br><span class="line">        <span class="comment"># - LETSENCRYPT_TEST=true</span></span><br><span class="line">    <span class="attr">network_mode:</span> <span class="string">&quot;bridge&quot;</span></span><br><span class="line">  <span class="attr">mailserver:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">tvial/docker-mailserver:latest</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">mail</span></span><br><span class="line">    <span class="attr">domainname:</span> <span class="string">bar.foo</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mail</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;25:25&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;143:143&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;587:587&quot;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;993:993&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/root/mailserver/mail:/var/mail</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/root/mailserver/mail-state:/var/mail-state</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/root/mailserver/config/:/tmp/docker-mailserver/</span></span><br><span class="line">    <span class="comment"># - /etc/letsencrypt:/etc/letsencrypt</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/path/to/certs/mail.bar.foo:/etc/letsencrypt/live/mail.bar.foo</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">SSL_TYPE=letsencrypt</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ENABLE_SPAMASSASSIN=0</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ENABLE_CLAMAV=0</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ENABLE_FAIL2BAN=0</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ENABLE_POSTGREY=0</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ONE_DIR=1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">DMS_DEBUG=0</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">TLS_LEVEL=intermediate</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>也可以将<code>nginx-proxy</code>与<code>letsencrypt-nginx-proxy-companion</code>写在一起，这样还可以运行其他服务</p>
+<p>具体可以查看<a href="https://keleven.me/living/2018/01/22/blog/">这篇</a></p>
+<p><code>letsencrypt-nginx-proxy-companion</code>可以手动更新</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">手动更新 或 申请证书</span><br><span class="line">docker exec letsencrypt-nginx-proxy-companion /app/force_renew</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">证书状态</span><br><span class="line">docker exec letsencrypt-nginx-proxy-companion /app/cert_status</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试SSL"><a href="#测试SSL" class="headerlink" title="测试SSL"></a>测试SSL</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec mailserver openssl s_client -connect 0.0.0.0:587 -starttls smtp -CApath /etc/letsencrypt/</span><br><span class="line">docker exec mailserver openssl s_client -connect 0.0.0.0:993 -starttls imap -CApath /etc/letsencrypt/</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="使用nginx-proxy"><a href="#使用nginx-proxy" class="headerlink" title="使用nginx-proxy"></a>使用<code>nginx-proxy</code></h3><p>一般挂载</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name webblog \</span><br><span class="line">    --expose 80 \</span><br><span class="line">    -e &quot;VIRTUAL_HOST=bar.foo&quot; \</span><br><span class="line">    library/nginx</span><br></pre></td></tr></table></figure>
+
+<p>获取证书</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name web \</span><br><span class="line">    --expose 80 \</span><br><span class="line">    -e &quot;VIRTUAL_HOST=mail.bar.foo&quot; \</span><br><span class="line">    -e &quot;LETSENCRYPT_HOST=mail.bar.foo&quot; \</span><br><span class="line">    -e &quot;LETSENCRYPT_EMAIL=foo@bar.com&quot; \</span><br><span class="line">    library/nginx</span><br></pre></td></tr></table></figure>
+
+<p>查看  域名映射</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H &quot;Host:bar.foo&quot; localhost</span><br></pre></td></tr></table></figure>
+
+<p>查看 nginx 代理设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec nginx-proxy  cat /etc/nginx/conf.d/default.conf</span><br></pre></td></tr></table></figure>
+
+<p>包管理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm --expose 9000 -e VIRTUAL_HOST=test.bar.foo -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1273,102 +1504,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="吾皇万岁，万岁，万万岁"><a href="#吾皇万岁，万岁，万万岁" class="headerlink" title="吾皇万岁，万岁，万万岁"></a>吾皇万岁，万岁，万万岁</h1>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/02/25/9048efe83820/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/02/25/9048efe83820/" class="post-title-link" itemprop="url">2018年02月25日</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-02-25 01:00:00" itemprop="dateCreated datePublished" datetime="2018-02-25T01:00:00+08:00">2018-02-25</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/02/25/9048efe83820/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/25/9048efe83820/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h2><p>网络崩溃变成了日常，每天维护网络正常2小时，每次走<code>ufw</code>速度比直连慢一倍。</p>
-<p>天上乌云密布，光又在何处。</p>
-<p>完蛋，很恶心。</p>
-
       
     </div>
 

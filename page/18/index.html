@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">277</span>
+          <span class="site-state-item-count">278</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -213,6 +213,117 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/19/f3e6bdb8ea57/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/09/19/f3e6bdb8ea57/" class="post-title-link" itemprop="url">vuex 提交后清空很重要！</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-09-19 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-19T00:00:00+08:00">2018-09-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/09/19/f3e6bdb8ea57/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/19/f3e6bdb8ea57/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="18号的份"><a href="#18号的份" class="headerlink" title="18号的份"></a>18号的份</h1><p>使用<code>vuex</code> 推送信息时 会让之前的消息一起发送变动</p>
+<p>使用<code>vue</code> 工具发现 <code>state</code> 的数据被覆盖</p>
+<p>使用手动输入框 更新 发现<code>state</code>并没有更新只是视图上的变化</p>
+<p>最后发现为 提交<code>active</code>后没有清空数据导致……</p>
+<p>之后需要分离信息提示部分 并使后端返回数据规整化</p>
+<p>并能使用固定数字代码 进行快速返回</p>
+<p><code>admin</code> 安全部分要完工了~~ 撒花~~ </p>
+<h1 id="20号的份"><a href="#20号的份" class="headerlink" title="20号的份"></a>20号的份</h1><p>使<code>code</code>编码换用于信息的快速返回</p>
+<p>当然也可以使用对应信息语句直接返回</p>
+<h2 id="vue-的坑"><a href="#vue-的坑" class="headerlink" title="vue 的坑"></a>vue 的坑</h2><p><code>vue</code> 的<code>v-for</code>一定要定义<code>key</code>不然会出现渲染不正常 数据正常</p>
+<p>重要的是并不会提示错误！！</p>
+<h2 id="laravel-的坑"><a href="#laravel-的坑" class="headerlink" title="laravel 的坑"></a>laravel 的坑</h2><p>使用<code>laravel markdown email</code>时，不能独立定义<code>header</code>与<code>footer</code></p>
+<p>使用<code>@component(&#39;mail::button&#39;)</code>时，前方要清除空白。 否则不能正常渲染</p>
+<p>要支持<code>header</code>与<code>footer</code> ，将<code>@component(&#39;mail::message&#39;)</code> 改为 <code>@component(&#39;mail::layout&#39;)</code></p>
+<p>下方是修改后的例子，也可以直接复制<code>message.blade.php</code>进行修改</p>
+<p>找不到<code>message.blade.php</code>时 运行<code>php artisan vendor:publish --tag=laravel-mail</code></p>
+<p>之后可以在<code>vendor/mail/markdown</code>下找到对应文件。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@component(<span class="string">&#x27;mail::layout&#x27;</span>)</span><br><span class="line"></span><br><span class="line">@slot(<span class="string">&#x27;header&#x27;</span>)</span><br><span class="line">@component(<span class="string">&#x27;mail::header&#x27;</span>, [<span class="string">&#x27;url&#x27;</span> =&gt; config(<span class="string">&#x27;app.url&#x27;</span>)])</span><br><span class="line">header</span><br><span class="line">@endcomponent</span><br><span class="line">@endslot</span><br><span class="line"></span><br><span class="line"><span class="comment"># Introduction</span></span><br><span class="line">The body of your message.</span><br><span class="line"></span><br><span class="line">@component(<span class="string">&#x27;mail::button&#x27;</span>, [<span class="string">&#x27;url&#x27;</span> =&gt; <span class="variable">$url</span>])</span><br><span class="line">button</span><br><span class="line">@endcomponent</span><br><span class="line"></span><br><span class="line">Thanks,&lt;br&gt;</span><br><span class="line"></span><br><span class="line">@slot(<span class="string">&#x27;footer&#x27;</span>)</span><br><span class="line">@component(<span class="string">&#x27;mail::footer&#x27;</span>)</span><br><span class="line">© footer</span><br><span class="line">@endcomponent</span><br><span class="line">@endslot</span><br><span class="line">@endcomponent</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1129,110 +1240,6 @@
 <p>某不可描述的两物必须灭亡</p>
 <p>也算死了 账也是要算的 逃不掉的 </p>
 <p>准备被人唾弃到世界终结吧</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/07/28/2f0f82c43894/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/07/28/2f0f82c43894/" class="post-title-link" itemprop="url">今天我最大~~</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-07-28 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-28T00:00:00+08:00">2018-07-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/07/28/2f0f82c43894/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/28/2f0f82c43894/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="生日快乐"><a href="#生日快乐" class="headerlink" title="生日快乐"></a>生日快乐</h2><p>还有18分钟就是 本世纪时间就久的<code>月全食</code> 还有<code>火星大冲</code>~~</p>
-<p>嗯 看到了红色的~~</p>
-<p><img src="https://i.loli.net/2018/07/28/5b5b7dcbe445a.png" alt="NASA"></p>
-<p><img src="https://i.loli.net/2018/07/28/5b5b7f5c2289a.png" alt="屏幕快照 2018-07-28 04.23.16"></p>
-<p><a target="_blank" rel="noopener" href="https://www.instagram.com/p/BlvpkApgbHZ/?taken-by=natgeotravel">美景哦~</a></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>不写厂家就 不怀疑了？</p>
-<p>这根本就是不是想解决问题吧</p>
-<p>科技让一些东西越来越透明</p>
-<p>却想用老办法掩盖……</p>
-<p>恐怕是气数将尽</p>
-<p>湾湾不能动哦 会被介入哦</p>
 
       
     </div>
