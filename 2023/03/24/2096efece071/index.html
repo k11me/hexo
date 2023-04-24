@@ -29,7 +29,7 @@
 <meta property="og:description" content="起因：在群晖中不同image直接使用自定义的镜像名称不能正常访问。 比如名为alist镜像，一般直接使用http:&#x2F;&#x2F;alist就可以直接访问。 在群晖中就失效了。因为使用的是bridge网络，外部程序不能识别。 解决方法为使用docker分配的ip进行访问。 获取 docker bridge 模式ip使用下方命令获取当前全部镜像的ip 1docker network inspect bridge">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-24T05:06:00.000Z">
-<meta property="article:modified_time" content="2023-04-24T05:21:06.154Z">
+<meta property="article:modified_time" content="2023-04-24T07:05:08.805Z">
 <meta property="article:author" content="K11">
 <meta property="article:tag" content="日记">
 <meta property="article:tag" content="laravel">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-docker-bridge-%E6%A8%A1%E5%BC%8Fip"><span class="nav-number">1.</span> <span class="nav-text">获取 docker bridge 模式ip</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-docker-bridge-%E6%A8%A1%E5%BC%8Fip"><span class="nav-number">1.</span> <span class="nav-text">获取 docker bridge 模式ip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alist-%E4%B8%8E-aria2-%E5%85%B3%E8%81%94"><span class="nav-number">2.</span> <span class="nav-text">alist 与 aria2 关联</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#aria2%E4%B8%AD"><span class="nav-number">2.1.</span> <span class="nav-text">aria2中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alist%E4%B8%AD"><span class="nav-number">2.2.</span> <span class="nav-text">alist中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -245,7 +245,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-24 13:21:06" itemprop="dateModified" datetime="2023-04-24T13:21:06+08:00">2023-04-24</time>
+      <time title="Modified: 2023-04-24 15:05:08" itemprop="dateModified" datetime="2023-04-24T15:05:08+08:00">2023-04-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -285,10 +285,22 @@
 <p>比如名为<code>alist</code>镜像，一般直接使用<code>http://alist</code>就可以直接访问。</p>
 <p>在群晖中就失效了。因为使用的是<code>bridge</code>网络，外部程序不能识别。</p>
 <p>解决方法为使用<code>docker</code>分配的<code>ip</code>进行访问。</p>
-<h1 id="获取-docker-bridge-模式ip"><a href="#获取-docker-bridge-模式ip" class="headerlink" title="获取 docker bridge 模式ip"></a>获取 docker bridge 模式ip</h1><p>使用下方命令获取当前全部镜像的ip</p>
+<h2 id="获取-docker-bridge-模式ip"><a href="#获取-docker-bridge-模式ip" class="headerlink" title="获取 docker bridge 模式ip"></a>获取 docker bridge 模式ip</h2><p>使用下方命令获取当前全部镜像的ip</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect bridge</span><br></pre></td></tr></table></figure>
 
 <p>随后找到需要的，填入对应的位置，就可以正常访问了。</p>
+<h2 id="alist-与-aria2-关联"><a href="#alist-与-aria2-关联" class="headerlink" title="alist 与 aria2 关联"></a>alist 与 aria2 关联</h2><p>alist官方说有一个打包的镜像，安装后发现没什么效果。</p>
+<p>只能手动设置下关联</p>
+<h3 id="aria2中"><a href="#aria2中" class="headerlink" title="aria2中"></a>aria2中</h3><p>添加的原因：在<code>alist</code>中使用<code>aria2</code>时默认的地址为<code>/opt/alist/data</code>。</p>
+<p>在<code>aria2</code>的docker-compose.yml中添加</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/docker/alist/alist:/opt/alist/data</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="alist中"><a href="#alist中" class="headerlink" title="alist中"></a>alist中</h3><p>与<code>aria2</code>中的设置一致，方面<code>alist</code>读取并进行下载后的操作。</p>
+<p>在<code>alist</code>的docker-compose.yml中添加</p>
+<p><code>/Download:/aria2</code>为了方面挂载的目录</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/docker/alist/alist:/opt/alist/data</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/Download:/aria2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>其他设置参考官方文档就行</p>
 
     </div>
 
@@ -347,7 +359,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">239k</span>
+    <span title="Word count total">240k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
