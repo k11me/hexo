@@ -21,29 +21,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="起因：在群晖中不同image直接使用自定义的镜像名称不能正常访问。 比如名为alist镜像，一般直接使用http:&#x2F;&#x2F;alist就可以直接访问。 在群晖中就失效了。因为使用的是bridge网络，外部程序不能识别。 解决方法为使用docker分配的ip进行访问。 获取 docker bridge 模式ip使用下方命令获取当前全部镜像的ip 1docker network inspect bridge">
-<meta property="og:type" content="article">
-<meta property="og:title" content="docker bridge 获取ip">
-<meta property="og:url" content="http://keleven.me/2023/03/24/2096efece071/index.html">
+    <meta name="description" content="千变万化的是世界">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Keleven.Me">
+<meta property="og:url" content="http://keleven.me/tags/laravel/page/6/index.html">
 <meta property="og:site_name" content="Keleven.Me">
-<meta property="og:description" content="起因：在群晖中不同image直接使用自定义的镜像名称不能正常访问。 比如名为alist镜像，一般直接使用http:&#x2F;&#x2F;alist就可以直接访问。 在群晖中就失效了。因为使用的是bridge网络，外部程序不能识别。 解决方法为使用docker分配的ip进行访问。 获取 docker bridge 模式ip使用下方命令获取当前全部镜像的ip 1docker network inspect bridge">
+<meta property="og:description" content="千变万化的是世界">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-24T05:06:00.000Z">
-<meta property="article:modified_time" content="2023-04-24T07:05:08.805Z">
 <meta property="article:author" content="K11">
-<meta property="article:tag" content="日记">
-<meta property="article:tag" content="laravel">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://keleven.me/2023/03/24/2096efece071/">
+<link rel="canonical" href="http://keleven.me/tags/laravel/page/6/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://keleven.me/2023/03/24/2096efece071/","path":"2023/03/24/2096efece071/","title":"docker bridge 获取ip"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"tags/laravel/page/6/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>docker bridge 获取ip | Keleven.Me</title>
+<title>Tag: laravel | Keleven.Me</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-111519029-1","only_pageview":false}</script>
@@ -132,7 +128,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -145,7 +141,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-docker-bridge-%E6%A8%A1%E5%BC%8Fip"><span class="nav-number">1.</span> <span class="nav-text">获取 docker bridge 模式ip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alist-%E4%B8%8E-aria2-%E5%85%B3%E8%81%94"><span class="nav-number">2.</span> <span class="nav-text">alist 与 aria2 关联</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#aria2%E4%B8%AD"><span class="nav-number">2.1.</span> <span class="nav-text">aria2中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alist%E4%B8%AD"><span class="nav-number">2.2.</span> <span class="nav-text">alist中</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">281</span>
+          <span class="site-state-item-count">282</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -198,147 +193,54 @@
 
     </div>
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner tag posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2023/03/24/2096efece071/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="docker bridge 获取ip | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          docker bridge 获取ip
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h1 class="collection-header">laravel
+          <small>Tag</small>
         </h1>
+      </div>
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-24 13:06:00" itemprop="dateCreated datePublished" datetime="2023-03-24T13:06:00+08:00">2023-03-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-04-24 15:05:08" itemprop="dateModified" datetime="2023-04-24T15:05:08+08:00">2023-04-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2023/03/24/2096efece071/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/03/24/2096efece071/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p>起因：在群晖中不同image直接使用自定义的镜像名称不能正常访问。</p>
-<p>比如名为<code>alist</code>镜像，一般直接使用<code>http://alist</code>就可以直接访问。</p>
-<p>在群晖中就失效了。因为使用的是<code>bridge</code>网络，外部程序不能识别。</p>
-<p>解决方法为使用<code>docker</code>分配的<code>ip</code>进行访问。</p>
-<h2 id="获取-docker-bridge-模式ip"><a href="#获取-docker-bridge-模式ip" class="headerlink" title="获取 docker bridge 模式ip"></a>获取 docker bridge 模式ip</h2><p>使用下方命令获取当前全部镜像的ip</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network inspect bridge</span><br></pre></td></tr></table></figure>
-
-<p>随后找到需要的，填入对应的位置，就可以正常访问了。</p>
-<h2 id="alist-与-aria2-关联"><a href="#alist-与-aria2-关联" class="headerlink" title="alist 与 aria2 关联"></a>alist 与 aria2 关联</h2><p>alist官方说有一个打包的镜像，安装后发现没什么效果。</p>
-<p>只能手动设置下关联</p>
-<h3 id="aria2中"><a href="#aria2中" class="headerlink" title="aria2中"></a>aria2中</h3><p>添加的原因：在<code>alist</code>中使用<code>aria2</code>时默认的地址为<code>/opt/alist/data</code>。</p>
-<p>在<code>aria2</code>的docker-compose.yml中添加</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/docker/alist/alist:/opt/alist/data</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="alist中"><a href="#alist中" class="headerlink" title="alist中"></a>alist中</h3><p>与<code>aria2</code>中的设置一致，方面<code>alist</code>读取并进行下载后的操作。</p>
-<p>在<code>alist</code>的docker-compose.yml中添加</p>
-<p><code>/Download:/aria2</code>为了方面挂载的目录</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/docker/alist/alist:/opt/alist/data</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/Download:/aria2</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>其他设置参考官方文档就行</p>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2018</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2018-02-02T01:00:00+08:00"
+              content="2018-02-02">
+          02-02
+        </time>
+      </div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E6%97%A5%E8%AE%B0/" rel="tag"># 日记</a>
-              <a href="/tags/laravel/" rel="tag"># laravel</a>
-          </div>
+      <div class="post-title">
+          <a class="post-title-link" href="/2018/02/02/84ed2b6a7394/" itemprop="url">
+            <span itemprop="name">2018年02月02日</span>
+          </a>
+      </div>
 
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2023/03/23/f036326059eb/" rel="prev" title="到数据整合了，后端的最后程">
-                  <i class="fa fa-chevron-left"></i> 到数据整合了，后端的最后程
-                </a>
-            </div>
-            <div class="post-nav-item">
-            </div>
-          </div>
-    </footer>
+      
+    </header>
   </article>
-</div>
 
-
-
-
-
-
-    
-  <div class="comments" id="disqus_thread">
-    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
   </div>
   
+  
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/tags/laravel/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/tags/laravel/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/laravel/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
+
 </div>
   </main>
 
@@ -359,13 +261,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">240k</span>
+    <span title="Word count total">244k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:38</span>
+    <span title="Reading time total">3:42</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

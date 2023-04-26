@@ -10290,7 +10290,7 @@ section 2019-12-12
   </entry>
   <entry>
     <title>docker bridge 获取ip</title>
-    <url>/2023/03/24/2096efece071/</url>
+    <url>/2023/04/24/247596fc96b5/</url>
     <content><![CDATA[<p>起因：在群晖中不同image直接使用自定义的镜像名称不能正常访问。</p>
 <p>比如名为<code>alist</code>镜像，一般直接使用<code>http://alist</code>就可以直接访问。</p>
 <p>在群晖中就失效了。因为使用的是<code>bridge</code>网络，外部程序不能识别。</p>
@@ -10311,6 +10311,92 @@ section 2019-12-12
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/docker/alist/alist:/opt/alist/data</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">/Download:/aria2</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>其他设置参考官方文档就行</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>手贱把服务器玩炸了</title>
+    <url>/2023/04/26/7e4ebe40efc0/</url>
+    <content><![CDATA[<h1 id="服务器玩炸了"><a href="#服务器玩炸了" class="headerlink" title="服务器玩炸了"></a>服务器玩炸了</h1><p>知道为什么，重启之后就炸了。数据也都有备份。重新部署也不算办法。索性记录一下。</p>
+<p>内存运行现有的程序有点不足了。也扩容了一下。</p>
+<p>使用nginx-proxy-manager，其他的都容易。</p>
+<p>要注意的是，在群晖中使用，<code>DB_MYSQL_HOST</code>要设置为<code>bridge</code>后的地址，否则找不到数据库。</p>
+<span id="more"></span>
+
+<h2 id="mail-server-的更新"><a href="#mail-server-的更新" class="headerlink" title="mail-server 的更新"></a>mail-server 的更新</h2><p><a href="https://docker-mailserver.github.io/docker-mailserver/latest/config/best-practices/dkim/">mail-server文档</a></p>
+<p>比之前的更加完善了，文档写个的更摆烂了。</p>
+<p>创建时，需要<code>mailserver.env</code>从官方下载就行。</p>
+<p><code>docker</code>挂着去来了后，先创建用户，后创建DKIM。之后对域名进行对应设置。</p>
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><p>创建用户的命令，<code>username@bar.foo</code>与<code>password</code>改自己就就行。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti mailserver setup email add username@bar.foo password</span><br></pre></td></tr></table></figure>
+
+<p>更新密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti mailserver setup email update username@bar.foo New_Password</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建dkim"><a href="#创建dkim" class="headerlink" title="创建dkim"></a>创建dkim</h3><p>之后是创建<code>dkim</code>主用是验证邮件是从你域名发出的，免得被标记为垃圾邮件。</p>
+<p>有其他的选项可用运行<code>docker exec -ti mailserver setup help</code>自己看看就行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti mailserver setup config dkim</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启FAIL2BAN"><a href="#开启FAIL2BAN" class="headerlink" title="开启FAIL2BAN"></a>开启FAIL2BAN</h3><p>主要作用是BAN掉登录密码过多的IP</p>
+<p><code>docker-compose.yml</code>中添加</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">    <span class="string">$PWD/docker-data/dms/config/:/tmp/docker-mailserver/</span></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ENABLE_FAIL2BAN=1</span></span><br><span class="line"><span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span></span><br></pre></td></tr></table></figure>
+
+<p>和我一样被BAN掉接触方法</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti mailserver setup fail2ban unban 00.00.00.00</span><br></pre></td></tr></table></figure>
+
+<p>显示BAN掉的IP</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -ti mailserver setup fail2ban</span><br></pre></td></tr></table></figure>
+
+<p>以上</p>
+<h2 id="MailWebUI"><a href="#MailWebUI" class="headerlink" title="MailWebUI"></a>MailWebUI</h2><p>总是添加邮箱地址有点烦了，找了一个WebUI对接有点小坑</p>
+<h3 id="登录是ssl链接失败报错"><a href="#登录是ssl链接失败报错" class="headerlink" title="登录是ssl链接失败报错"></a>登录是ssl链接失败报错</h3><p>因为走的是<code>docker</code>内部网络，设置中<code>ROUNDCUBEMAIL_DEFAULT_HOST</code>与<code>ROUNDCUBEMAIL_SMTP_SERVER</code>要写为<code>mailserver</code>的容器名</p>
+<p>还要关闭<code>WebUI</code>的ssl的验证</p>
+<p>添加设置文件<code>customcfg.inc.php</code>到<code>data/config/config.inc.php</code></p>
+<p>并在<code>config.inc.php</code>中引入，设置完成后可以使用之前的用户名与密码登录</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="keyword">__DIR__</span> . <span class="string">&#x27;/customcfg.inc.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>customcfg.inc.php</code>文件如下</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;imap_conn_options&#x27;</span>] = [</span><br><span class="line">    <span class="string">&#x27;ssl&#x27;</span>         =&gt; [</span><br><span class="line">        <span class="string">&#x27;verify_peer&#x27;</span>  =&gt; <span class="literal">false</span>,</span><br><span class="line">        <span class="string">&#x27;verify_peer_name&#x27;</span>  =&gt; <span class="literal">false</span>,</span><br><span class="line">        <span class="string">&#x27;allow_self_signed&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;smtp_conn_options&#x27;</span>] = [</span><br><span class="line">    <span class="string">&#x27;ssl&#x27;</span>         =&gt; [</span><br><span class="line">        <span class="string">&#x27;verify_peer&#x27;</span>  =&gt; <span class="literal">false</span>,</span><br><span class="line">        <span class="string">&#x27;verify_peer_name&#x27;</span>  =&gt; <span class="literal">false</span>,</span><br><span class="line">        <span class="string">&#x27;allow_self_signed&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h3><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">roundcube:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">roundcube/roundcubemail:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">roundcube</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/var/www/html</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./db/sqlite:/var/roundcube/db</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config:/var/roundcube/config</span></span><br><span class="line">    <span class="comment"># ports:</span></span><br><span class="line">    <span class="comment">#   - &quot;80&quot;</span></span><br><span class="line">    <span class="comment"># expose:</span></span><br><span class="line">    <span class="comment">#   - &quot;80&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_DB_TYPE=sqlite</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_SKIN=elastic</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_DEFAULT_HOST=ssl://mailserver</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_DEFAULT_PORT=993</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_SMTP_SERVER=ssl://mailserver</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_SMTP_PORT=465</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE=20M</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">default:</span></span><br><span class="line">    <span class="attr">external:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">nginx-proxy-manager-network</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="一些设置"><a href="#一些设置" class="headerlink" title="一些设置"></a>一些设置</h1><h2 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h2><h3 id="Nerd-Font"><a href="#Nerd-Font" class="headerlink" title="Nerd Font"></a>Nerd Font</h3><p><a href="https://github.com/ryanoasis/nerd-fonts">Nerd Font</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew tap homebrew/cask-fonts</span><br><span class="line">brew install font-hack-nerd-font</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置终端颜色"><a href="#设置终端颜色" class="headerlink" title="设置终端颜色"></a>设置终端颜色</h3><p>起因是使用了，亮色背景后，终端背景也变亮色的了</p>
+<p><a href="https://glitchbone.github.io/vscode-base16-term/#/irblack">搭配网站</a></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.fontFamily&quot;</span><span class="punctuation">:</span><span class="string">&quot;Hack Nerd Font&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.colorCustomizations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;terminal.background&quot;</span><span class="punctuation">:</span><span class="string">&quot;#000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.foreground&quot;</span><span class="punctuation">:</span><span class="string">&quot;#B5B3AA&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminalCursor.background&quot;</span><span class="punctuation">:</span><span class="string">&quot;#B5B3AA&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminalCursor.foreground&quot;</span><span class="punctuation">:</span><span class="string">&quot;#B5B3AA&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBlack&quot;</span><span class="punctuation">:</span><span class="string">&quot;#000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBlue&quot;</span><span class="punctuation">:</span><span class="string">&quot;#96CBFE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightBlack&quot;</span><span class="punctuation">:</span><span class="string">&quot;#6C6C66&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightBlue&quot;</span><span class="punctuation">:</span><span class="string">&quot;#96CBFE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightCyan&quot;</span><span class="punctuation">:</span><span class="string">&quot;#C6C5FE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightGreen&quot;</span><span class="punctuation">:</span><span class="string">&quot;#A8FF60&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightMagenta&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FF73FD&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightRed&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FF6C60&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightWhite&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FDFBEE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightYellow&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FFFFB6&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiCyan&quot;</span><span class="punctuation">:</span><span class="string">&quot;#C6C5FE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiGreen&quot;</span><span class="punctuation">:</span><span class="string">&quot;#A8FF60&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiMagenta&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FF73FD&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiRed&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FF6C60&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiWhite&quot;</span><span class="punctuation">:</span><span class="string">&quot;#B5B3AA&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiYellow&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FFFFB6&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Zsh"><a href="#Zsh" class="headerlink" title="Zsh"></a>Zsh</h2><p>安装完<code>powerlevel10k</code>后，使用<code>source</code>引入会有提示，为了避免建议使用<code>plugins</code>安装</p>
+<h3 id="powerlevel10k-样式优化"><a href="#powerlevel10k-样式优化" class="headerlink" title="powerlevel10k 样式优化"></a>powerlevel10k 样式优化</h3><p><a href="https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt">powerlevel10k文档</a></p>
+<p>安装 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install romkatv/powerlevel10k/powerlevel10k</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source <span class="subst">$(brew --prefix)</span>/opt/powerlevel10k/powerlevel10k.zsh-theme&quot;</span> &gt;&gt;~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">p10k configure</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh-autosuggestions-自动补全"><a href="#zsh-autosuggestions-自动补全" class="headerlink" title="zsh-autosuggestions 自动补全"></a>zsh-autosuggestions 自动补全</h3><p><a href="https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md">zsh-autosuggestions文档</a></p>
+<p>安装 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<p>在<code>~./zshrc</code>设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plugins=( </span><br><span class="line">    # other plugins...</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh-syntax-highlighting-错误高亮"><a href="#zsh-syntax-highlighting-错误高亮" class="headerlink" title="zsh-syntax-highlighting 错误高亮"></a>zsh-syntax-highlighting 错误高亮</h3><p><a href="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md">zsh-syntax-highlighting文档</a></p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<p>在<code>~./zshrc</code>设置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">plugins=( </span><br><span class="line">    # other plugins...</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">    zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="z-cd命令记忆"><a href="#z-cd命令记忆" class="headerlink" title="z cd命令记忆"></a>z cd命令记忆</h3><p>直接在<code>~./zshrc</code>中添加</p>
+<p>使用，先手动cd一次，以后使用<code>z 最后的文件夹名称</code>就行</p>
 ]]></content>
       <categories>
         <category>Living</category>

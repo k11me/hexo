@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="o1eiNMhypkcaTCNHyHeoaEJM-2wqU4uSpp7XfdfQglI">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="服务器玩炸了知道为什么，重启之后就炸了。数据也都有备份。重新部署也不算办法。索性记录一下。 内存运行现有的程序有点不足了。也扩容了一下。 使用nginx-proxy-manager，其他的都容易。 要注意的是，在群晖中使用，DB_MYSQL_HOST要设置为bridge后的地址，否则找不到数据库。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手贱把服务器玩炸了">
+<meta property="og:url" content="http://keleven.me/2023/04/26/7e4ebe40efc0/index.html">
+<meta property="og:site_name" content="Keleven.Me">
+<meta property="og:description" content="服务器玩炸了知道为什么，重启之后就炸了。数据也都有备份。重新部署也不算办法。索性记录一下。 内存运行现有的程序有点不足了。也扩容了一下。 使用nginx-proxy-manager，其他的都容易。 要注意的是，在群晖中使用，DB_MYSQL_HOST要设置为bridge后的地址，否则找不到数据库。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-26T12:12:00.000Z">
+<meta property="article:modified_time" content="2023-04-26T13:52:55.025Z">
+<meta property="article:author" content="K11">
+<meta property="article:tag" content="日记">
+<meta property="article:tag" content="laravel">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://keleven.me/2023/04/26/7e4ebe40efc0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://keleven.me/2023/04/26/7e4ebe40efc0/","path":"2023/04/26/7e4ebe40efc0/","title":"手贱把服务器玩炸了"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>手贱把服务器玩炸了 | Keleven.Me</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-111519029-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Keleven.Me</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%A9%E7%82%B8%E4%BA%86"><span class="nav-number">1.</span> <span class="nav-text">服务器玩炸了</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mail-server-%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="nav-number">1.1.</span> <span class="nav-text">mail-server 的更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAdkim"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建dkim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFFAIL2BAN"><span class="nav-number">1.1.3.</span> <span class="nav-text">开启FAIL2BAN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MailWebUI"><span class="nav-number">1.2.</span> <span class="nav-text">MailWebUI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E5%BD%95%E6%98%AFssl%E9%93%BE%E6%8E%A5%E5%A4%B1%E8%B4%A5%E6%8A%A5%E9%94%99"><span class="nav-number">1.2.1.</span> <span class="nav-text">登录是ssl链接失败报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-compose-yml"><span class="nav-number">1.2.2.</span> <span class="nav-text">docker-compose.yml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">一些设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#VS-Code"><span class="nav-number">2.1.</span> <span class="nav-text">VS Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nerd-Font"><span class="nav-number">2.1.1.</span> <span class="nav-text">Nerd Font</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E9%A2%9C%E8%89%B2"><span class="nav-number">2.1.2.</span> <span class="nav-text">设置终端颜色</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Zsh"><span class="nav-number">2.2.</span> <span class="nav-text">Zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#powerlevel10k-%E6%A0%B7%E5%BC%8F%E4%BC%98%E5%8C%96"><span class="nav-number">2.2.1.</span> <span class="nav-text">powerlevel10k 样式优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-autosuggestions-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text">zsh-autosuggestions 自动补全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-syntax-highlighting-%E9%94%99%E8%AF%AF%E9%AB%98%E4%BA%AE"><span class="nav-number">2.2.3.</span> <span class="nav-text">zsh-syntax-highlighting 错误高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-cd%E5%91%BD%E4%BB%A4%E8%AE%B0%E5%BF%86"><span class="nav-number">2.2.4.</span> <span class="nav-text">z cd命令记忆</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="K11"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">K11</p>
+  <div class="site-description" itemprop="description">千变万化的是世界</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">282</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/k11me" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;k11me" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:k11@keleven.me" title="E-Mail → mailto:k11@keleven.me" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/_y.o_o.y_/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;_y.o_o.y_&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2023/04/26/7e4ebe40efc0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="手贱把服务器玩炸了 | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          手贱把服务器玩炸了
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2023-04-26 20:12:00 / Modified: 21:52:55" itemprop="dateCreated datePublished" datetime="2023-04-26T20:12:00+08:00">2023-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2023/04/26/7e4ebe40efc0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/04/26/7e4ebe40efc0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="服务器玩炸了"><a href="#服务器玩炸了" class="headerlink" title="服务器玩炸了"></a>服务器玩炸了</h1><p>知道为什么，重启之后就炸了。数据也都有备份。重新部署也不算办法。索性记录一下。</p>
+<p>内存运行现有的程序有点不足了。也扩容了一下。</p>
+<p>使用nginx-proxy-manager，其他的都容易。</p>
+<p>要注意的是，在群晖中使用，<code>DB_MYSQL_HOST</code>要设置为<code>bridge</code>后的地址，否则找不到数据库。</p>
+<span id="more"></span>
+
+<h2 id="mail-server-的更新"><a href="#mail-server-的更新" class="headerlink" title="mail-server 的更新"></a>mail-server 的更新</h2><p><a target="_blank" rel="noopener" href="https://docker-mailserver.github.io/docker-mailserver/latest/config/best-practices/dkim/">mail-server文档</a></p>
+<p>比之前的更加完善了，文档写个的更摆烂了。</p>
+<p>创建时，需要<code>mailserver.env</code>从官方下载就行。</p>
+<p><code>docker</code>挂着去来了后，先创建用户，后创建DKIM。之后对域名进行对应设置。</p>
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><p>创建用户的命令，<code>username@bar.foo</code>与<code>password</code>改自己就就行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti mailserver setup email add username@bar.foo password</span><br></pre></td></tr></table></figure>
+
+<p>更新密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti mailserver setup email update username@bar.foo New_Password</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建dkim"><a href="#创建dkim" class="headerlink" title="创建dkim"></a>创建dkim</h3><p>之后是创建<code>dkim</code>主用是验证邮件是从你域名发出的，免得被标记为垃圾邮件。</p>
+<p>有其他的选项可用运行<code>docker exec -ti mailserver setup help</code>自己看看就行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti mailserver setup config dkim</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启FAIL2BAN"><a href="#开启FAIL2BAN" class="headerlink" title="开启FAIL2BAN"></a>开启FAIL2BAN</h3><p>主要作用是BAN掉登录密码过多的IP</p>
+<p><code>docker-compose.yml</code>中添加</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">volumes:</span></span><br><span class="line">    <span class="string">$PWD/docker-data/dms/config/:/tmp/docker-mailserver/</span></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">ENABLE_FAIL2BAN=1</span></span><br><span class="line"><span class="attr">cap_add:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">NET_ADMIN</span></span><br></pre></td></tr></table></figure>
+
+<p>和我一样被BAN掉接触方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti mailserver setup fail2ban unban 00.00.00.00</span><br></pre></td></tr></table></figure>
+
+<p>显示BAN掉的IP</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -ti mailserver setup fail2ban</span><br></pre></td></tr></table></figure>
+
+<p>以上</p>
+<h2 id="MailWebUI"><a href="#MailWebUI" class="headerlink" title="MailWebUI"></a>MailWebUI</h2><p>总是添加邮箱地址有点烦了，找了一个WebUI对接有点小坑</p>
+<h3 id="登录是ssl链接失败报错"><a href="#登录是ssl链接失败报错" class="headerlink" title="登录是ssl链接失败报错"></a>登录是ssl链接失败报错</h3><p>因为走的是<code>docker</code>内部网络，设置中<code>ROUNDCUBEMAIL_DEFAULT_HOST</code>与<code>ROUNDCUBEMAIL_SMTP_SERVER</code>要写为<code>mailserver</code>的容器名</p>
+<p>还要关闭<code>WebUI</code>的ssl的验证</p>
+<p>添加设置文件<code>customcfg.inc.php</code>到<code>data/config/config.inc.php</code></p>
+<p>并在<code>config.inc.php</code>中引入，设置完成后可以使用之前的用户名与密码登录</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="keyword">__DIR__</span> . <span class="string">&#x27;/customcfg.inc.php&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>customcfg.inc.php</code>文件如下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;imap_conn_options&#x27;</span>] = [</span><br><span class="line">    <span class="string">&#x27;ssl&#x27;</span>         =&gt; [</span><br><span class="line">        <span class="string">&#x27;verify_peer&#x27;</span>  =&gt; <span class="literal">false</span>,</span><br><span class="line">        <span class="string">&#x27;verify_peer_name&#x27;</span>  =&gt; <span class="literal">false</span>,</span><br><span class="line">        <span class="string">&#x27;allow_self_signed&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">&#x27;smtp_conn_options&#x27;</span>] = [</span><br><span class="line">    <span class="string">&#x27;ssl&#x27;</span>         =&gt; [</span><br><span class="line">        <span class="string">&#x27;verify_peer&#x27;</span>  =&gt; <span class="literal">false</span>,</span><br><span class="line">        <span class="string">&#x27;verify_peer_name&#x27;</span>  =&gt; <span class="literal">false</span>,</span><br><span class="line">        <span class="string">&#x27;allow_self_signed&#x27;</span> =&gt; <span class="literal">true</span>,</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">roundcube:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">roundcube/roundcubemail:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">roundcube</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/var/www/html</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./db/sqlite:/var/roundcube/db</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config:/var/roundcube/config</span></span><br><span class="line">    <span class="comment"># ports:</span></span><br><span class="line">    <span class="comment">#   - &quot;80&quot;</span></span><br><span class="line">    <span class="comment"># expose:</span></span><br><span class="line">    <span class="comment">#   - &quot;80&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_DB_TYPE=sqlite</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_SKIN=elastic</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_DEFAULT_HOST=ssl://mailserver</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_DEFAULT_PORT=993</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_SMTP_SERVER=ssl://mailserver</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_SMTP_PORT=465</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE=20M</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">default:</span></span><br><span class="line">    <span class="attr">external:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">nginx-proxy-manager-network</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="一些设置"><a href="#一些设置" class="headerlink" title="一些设置"></a>一些设置</h1><h2 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h2><h3 id="Nerd-Font"><a href="#Nerd-Font" class="headerlink" title="Nerd Font"></a>Nerd Font</h3><p><a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts">Nerd Font</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew tap homebrew/cask-fonts</span><br><span class="line">brew install font-hack-nerd-font</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置终端颜色"><a href="#设置终端颜色" class="headerlink" title="设置终端颜色"></a>设置终端颜色</h3><p>起因是使用了，亮色背景后，终端背景也变亮色的了</p>
+<p><a target="_blank" rel="noopener" href="https://glitchbone.github.io/vscode-base16-term/#/irblack">搭配网站</a></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;terminal.integrated.fontFamily&quot;</span><span class="punctuation">:</span><span class="string">&quot;Hack Nerd Font&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;workbench.colorCustomizations&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;terminal.background&quot;</span><span class="punctuation">:</span><span class="string">&quot;#000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.foreground&quot;</span><span class="punctuation">:</span><span class="string">&quot;#B5B3AA&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminalCursor.background&quot;</span><span class="punctuation">:</span><span class="string">&quot;#B5B3AA&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminalCursor.foreground&quot;</span><span class="punctuation">:</span><span class="string">&quot;#B5B3AA&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBlack&quot;</span><span class="punctuation">:</span><span class="string">&quot;#000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBlue&quot;</span><span class="punctuation">:</span><span class="string">&quot;#96CBFE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightBlack&quot;</span><span class="punctuation">:</span><span class="string">&quot;#6C6C66&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightBlue&quot;</span><span class="punctuation">:</span><span class="string">&quot;#96CBFE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightCyan&quot;</span><span class="punctuation">:</span><span class="string">&quot;#C6C5FE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightGreen&quot;</span><span class="punctuation">:</span><span class="string">&quot;#A8FF60&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightMagenta&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FF73FD&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightRed&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FF6C60&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightWhite&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FDFBEE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiBrightYellow&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FFFFB6&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiCyan&quot;</span><span class="punctuation">:</span><span class="string">&quot;#C6C5FE&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiGreen&quot;</span><span class="punctuation">:</span><span class="string">&quot;#A8FF60&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiMagenta&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FF73FD&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiRed&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FF6C60&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiWhite&quot;</span><span class="punctuation">:</span><span class="string">&quot;#B5B3AA&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;terminal.ansiYellow&quot;</span><span class="punctuation">:</span><span class="string">&quot;#FFFFB6&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Zsh"><a href="#Zsh" class="headerlink" title="Zsh"></a>Zsh</h2><p>安装完<code>powerlevel10k</code>后，使用<code>source</code>引入会有提示，为了避免建议使用<code>plugins</code>安装</p>
+<h3 id="powerlevel10k-样式优化"><a href="#powerlevel10k-样式优化" class="headerlink" title="powerlevel10k 样式优化"></a>powerlevel10k 样式优化</h3><p><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt">powerlevel10k文档</a></p>
+<p>安装 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install romkatv/powerlevel10k/powerlevel10k</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source <span class="subst">$(brew --prefix)</span>/opt/powerlevel10k/powerlevel10k.zsh-theme&quot;</span> &gt;&gt;~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p10k configure</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh-autosuggestions-自动补全"><a href="#zsh-autosuggestions-自动补全" class="headerlink" title="zsh-autosuggestions 自动补全"></a>zsh-autosuggestions 自动补全</h3><p><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md">zsh-autosuggestions文档</a></p>
+<p>安装 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+<p>在<code>~./zshrc</code>设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plugins=( </span><br><span class="line">    # other plugins...</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh-syntax-highlighting-错误高亮"><a href="#zsh-syntax-highlighting-错误高亮" class="headerlink" title="zsh-syntax-highlighting 错误高亮"></a>zsh-syntax-highlighting 错误高亮</h3><p><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md">zsh-syntax-highlighting文档</a></p>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<p>在<code>~./zshrc</code>设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plugins=( </span><br><span class="line">    # other plugins...</span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">    zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="z-cd命令记忆"><a href="#z-cd命令记忆" class="headerlink" title="z cd命令记忆"></a>z cd命令记忆</h3><p>直接在<code>~./zshrc</code>中添加</p>
+<p>使用，先手动cd一次，以后使用<code>z 最后的文件夹名称</code>就行</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%97%A5%E8%AE%B0/" rel="tag"># 日记</a>
+              <a href="/tags/laravel/" rel="tag"># laravel</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/04/24/247596fc96b5/" rel="prev" title="docker bridge 获取ip">
+                  <i class="fa fa-chevron-left"></i> docker bridge 获取ip
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">K11</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">244k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">3:42</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"keleven","count":true,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
