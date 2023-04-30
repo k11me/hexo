@@ -10406,4 +10406,24 @@ section 2019-12-12
         <tag>laravel</tag>
       </tags>
   </entry>
+  <entry>
+    <title>frps 的一些补充</title>
+    <url>/2023/04/30/1ef88d56cf9a/</url>
+    <content><![CDATA[<h2 id="frps-补充"><a href="#frps-补充" class="headerlink" title="frps 补充"></a>frps 补充</h2><p>AX86U梅林插件中需要使用自定义设置。</p>
+<p>使用了<code>nginx-proxy-manager</code>时，只需要设置的域名的端口到<code>frps</code>的<code>vhost_http_port</code>对应端口。</p>
+<p>无论设置多少个域名都是使用相同的端口，<code>https</code>规则下。需要注意的是<code>本地</code>到服务器之间使用的<code>http</code>未加密。</p>
+<p>服务器到用户使用是<code>https</code>使用域名的证书。</p>
+<p>而且<code>frpc</code>会关闭路由器设置的<code>ddns</code>显示会受到影响。使用其他插件设置没有影响。</p>
+<p>主要使用新域名时设置对应的<code>CNAME</code>条目。</p>
+<p>建议一般情况下不要开。使用<code>OpenVPN</code>连回去更安全。</p>
+<p>以上</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>frps</tag>
+      </tags>
+  </entry>
 </search>
