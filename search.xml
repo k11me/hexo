@@ -10414,7 +10414,7 @@ section 2019-12-12
 <p>无论设置多少个域名都是使用相同的端口，<code>https</code>规则下。需要注意的是<code>本地</code>到服务器之间使用的<code>http</code>未加密。</p>
 <p>服务器到用户使用是<code>https</code>使用域名的证书。</p>
 <p>而且<code>frpc</code>会关闭路由器设置的<code>ddns</code>显示会受到影响。使用其他插件设置没有影响。</p>
-<p>主要使用新域名时设置对应的<code>CNAME</code>条目。</p>
+<p>注意使用新域名时设置对应的<code>CNAME</code>条目。</p>
 <p>建议一般情况下不要开。使用<code>OpenVPN</code>连回去更安全。</p>
 <p>以上</p>
 ]]></content>
