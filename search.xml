@@ -10426,4 +10426,31 @@ section 2019-12-12
         <tag>frps</tag>
       </tags>
   </entry>
+  <entry>
+    <title>eps32c3的玩具</title>
+    <url>/2023/05/27/b189095c612e/</url>
+    <content><![CDATA[<h1 id="esp32"><a href="#esp32" class="headerlink" title="esp32"></a>esp32</h1><p>本着换换脑子的心态入手了，合宙的<code>esp32</code>。</p>
+<p>主要是想有个自动对时的电子钟。</p>
+<p>其他都还好只是配套的<code>LCD</code>屏幕不能调节亮度。</p>
+<p>直插对应的<code>IO11</code>没有反应。</p>
+<p>文档说要手动开下。绕了点路。就记录一下</p>
+<p><img src="/images/post/2023-05-27/IMG_2759.png"></p>
+<span id="more"></span>
+
+<h2 id="开放IO11"><a href="#开放IO11" class="headerlink" title="开放IO11"></a>开放IO11</h2><p>适用于<code>微软商店</code>安装的<code>python</code></p>
+<h3 id="安装-esptool"><a href="#安装-esptool" class="headerlink" title="安装 esptool"></a>安装 esptool</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install esptool</span><br></pre></td></tr></table></figure>
+
+<h3 id="确认通讯端口"><a href="#确认通讯端口" class="headerlink" title="确认通讯端口"></a>确认通讯端口</h3><p>我的是COM3，下面就用的COM3 注意改成自己机器上的</p>
+<h3 id="使用命令开放端口功能-【不可逆】"><a href="#使用命令开放端口功能-【不可逆】" class="headerlink" title="使用命令开放端口功能 【不可逆】"></a>使用命令开放端口功能 【不可逆】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -m espefuse -p COM3 burn_efuse VDD_SPI_AS_GPIO 1</span><br></pre></td></tr></table></figure>
+
+<p>之后就可以使用<code>digitalWrite</code>或<code>analogWrite</code>控制LCD亮度了。</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>esp32</tag>
+      </tags>
+  </entry>
 </search>
