@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">284</span>
+          <span class="site-state-item-count">285</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,280 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/93c105dd03b6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/93c105dd03b6/" class="post-title-link" itemprop="url">laravel 学习指南 第六章 第六节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 09:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T09:00:00+08:00">2016-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/93c105dd03b6/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/93c105dd03b6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="6-6-合约"><a href="#6-6-合约" class="headerlink" title="6.6 合约"></a>6.6 合约</h2><h3 id="6-6-1-简介"><a href="#6-6-1-简介" class="headerlink" title="6.6.1 简介"></a>6.6.1 简介</h3><p>Laravel的合约是一组由框架(framework)提供的核心服务接口。</p>
+<p>例如：</p>
+<p><code>Illuminate\Contracts\Queue\Queue</code>合约规定，列队工作需要的方法。</p>
+<p><code>Illuminate\Contracts\Mail\Mailer</code>合约规定，发送电子邮件的方法。</p>
+<p>每个合约都有框架提供的，相应的实现方法。</p>
+<p>例如：</p>
+<p>Laravel提供一个列队实现方法与各种驱动，和一个由<code>SwiftMailer</code>提供的邮件接收服务。</p>
+<p>所有的Laravel合约都在各自的<code>github</code>仓库中更新。这为所有的合约，提供了一个快速参考点，以及一个单一的分离包，用于包开发。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts">Github参考点</a>。</p>
+<h4 id="6-6-1-1-合约Vs-门面"><a href="#6-6-1-1-合约Vs-门面" class="headerlink" title="6.6.1.1 合约Vs.门面"></a>6.6.1.1 合约Vs.门面</h4><p>Laravel的门面提供一种简单的方法，利用Laravel服务无须输入和提示。这好于使用需要服务容器的合约方法。</p>
+<p>但是，使用合约运行你定义依赖类。多余大多数应用，使用门面就好了。</p>
+<p>但是，如果你真有的需要额外的松耦合，合约就可以提供，阅读下面的了解更多。</p>
+<h3 id="6-6-2-为什么用合约？"><a href="#6-6-2-为什么用合约？" class="headerlink" title="6.6.2 为什么用合约？"></a>6.6.2 为什么用合约？</h3><p>关于合约你可能有几个问题要问。为什么全部使用接口？不使用接口会更复杂？</p>
+<p>下方是使用接口的重要原因：<code>松耦合</code>与<code>简洁性</code></p>
+<h4 id="6-6-2-1-松耦合"><a href="#6-6-2-1-松耦合" class="headerlink" title="6.6.2.1  松耦合"></a>6.6.2.1  松耦合</h4><p>首先，让我们来看一个使用紧耦合缓存实现方法的代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Orders</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Repository</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The cache instance.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$cache</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a new repository instance.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  \SomePackage\Cache\Memcached  $cache</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">\SomePackage\Cache\Memcached <span class="variable">$cache</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;cache = <span class="variable">$cache</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Retrieve an Order by ID.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  int  $id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Order</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params"><span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;cache-&gt;has(<span class="variable">$id</span>))    &#123;</span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这这个类中，代码是使用紧耦合，到给定的缓存实现方法。</p>
+<p>因为是从一个包中取得缓存，所以这是一个紧耦合。</p>
+<p>如果这个包的API发生了改变，我们的代码也要随之改变。</p>
+<p>同样的，如果我们要使用其他技术(例如：redis)，取代正在使用的技术(Memcached),我们还是要修改代码。</p>
+<p>我们的类不应该用这些设定，例如，谁为他们提供数据，它是如何提供的等等。</p>
+<p>使用下方松耦合方法，不需要绑定注入，进而优化代码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Orders</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Cache</span>\<span class="title">Repository</span> <span class="title">as</span> <span class="title">Cache</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Repository</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The cache instance.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$cache</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a new repository instance.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  Cache  $cache</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">Cache <span class="variable">$cache</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;cache = <span class="variable">$cache</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在代码没有连接任何的服务提供者，甚至Laravel。由于合约包中没有实现方法也没有依赖关系，你可以很容易的替换合约，更换缓存技术，而无需修改代码。</p>
+<h4 id="6-6-2-2-简洁性"><a href="#6-6-2-2-简洁性" class="headerlink" title="6.6.2.2 简洁性"></a>6.6.2.2 简洁性</h4><p>当所有的Laravel的服务，在简单接口中整洁的定义，就可以很容易的给定服务提供的功能。</p>
+<p>合约服务为框架功能提了简洁的文档。</p>
+<p>当你使用简单接口时，你的代码更容易理解和维护。</p>
+<h3 id="6-6-3-合约参考"><a href="#6-6-3-合约参考" class="headerlink" title="6.6.3 合约参考"></a>6.6.3 合约参考</h3><table>
+<thead>
+<tr>
+<th align="left">合约</th>
+<th align="left">参考的门面</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Auth/Factory.php">Illuminate\Contracts\Auth\Factory</a></td>
+<td align="left">Auth</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Auth/PasswordBroker.php">Illuminate\Contracts\Auth\PasswordBroker</a></td>
+<td align="left">Password</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Bus/Dispatcher.php">Illuminate\Contracts\Bus\Dispatcher</a></td>
+<td align="left">Bus</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Broadcasting/Broadcaster.php">Illuminate\Contracts\Broadcasting\Broadcaster</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Cache/Repository.php">Illuminate\Contracts\Cache\Repository</a></td>
+<td align="left">Cache</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Cache/Factory.php">Illuminate\Contracts\Cache\Factory</a></td>
+<td align="left">Cache::driver()</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Config/Repository.php">Illuminate\Contracts\Config\Repository</a></td>
+<td align="left">Config</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Container/Container.php">Illuminate\Contracts\Container\Container</a></td>
+<td align="left">App</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Cookie/Factory.php">Illuminate\Contracts\Cookie\Factory</a></td>
+<td align="left">Cookie</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Cookie/QueueingFactory.php">Illuminate\Contracts\Cookie\QueueingFactory</a></td>
+<td align="left">Cookie::queue()</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Encryption/Encrypter.php">Illuminate\Contracts\Encryption\Encrypter</a></td>
+<td align="left">Crypt</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Events/Dispatcher.php">Illuminate\Contracts\Events\Dispatcher</a></td>
+<td align="left">Event</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Filesystem/Cloud.php">Illuminate\Contracts\Filesystem\Cloud</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Filesystem/Factory.php">Illuminate\Contracts\Filesystem\Factory</a></td>
+<td align="left">File</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Filesystem/Filesystem.php">Illuminate\Contracts\Filesystem\Filesystem</a></td>
+<td align="left">File</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Foundation/Application.php">Illuminate\Contracts\Foundation\Application</a></td>
+<td align="left">App</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Hashing/Hasher.php">Illuminate\Contracts\Hashing\Hasher</a></td>
+<td align="left">Hash</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Logging/Log.php">Illuminate\Contracts\Logging\Log</a></td>
+<td align="left">Log</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Mail/MailQueue.php">Illuminate\Contracts\Mail\MailQueue</a></td>
+<td align="left">Mail::queue()</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Mail/Mailer.php">Illuminate\Contracts\Mail\Mailer</a></td>
+<td align="left">Mail</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Queue/Factory.php">Illuminate\Contracts\Queue\Factory</a></td>
+<td align="left">Queue::driver()</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Queue/Queue.php">Illuminate\Contracts\Queue\Queue</a></td>
+<td align="left">Queue</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Redis/Database.php">Illuminate\Contracts\Redis\Database</a></td>
+<td align="left">Redis</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Routing/Registrar.php">Illuminate\Contracts\Routing\Registrar</a></td>
+<td align="left">Route</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Routing/ResponseFactory.php">Illuminate\Contracts\Routing\ResponseFactory</a></td>
+<td align="left">Response</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Routing/UrlGenerator.php">Illuminate\Contracts\Routing\UrlGenerator</a></td>
+<td align="left">URL</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Support/Arrayable.php">Illuminate\Contracts\Support\Arrayable</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Support/Jsonable.php">Illuminate\Contracts\Support\Jsonable</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Support/Renderable.php">Illuminate\Contracts\Support\Renderable</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Validation/Factory.php">Illuminate\Contracts\Validation\Factory</a></td>
+<td align="left">Validator::make()</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/Validation/Validator.php">Illuminate\Contracts\Validation\Validator</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/View/Factory.php">Illuminate\Contracts\View\Factory</a></td>
+<td align="left">View::make()</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://github.com/illuminate/contracts/blob/master/View/View.php">Illuminate\Contracts\View\View</a></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h3 id="6-6-4-如何使用合约"><a href="#6-6-4-如何使用合约" class="headerlink" title="6.6.4 如何使用合约"></a>6.6.4 如何使用合约</h3><p>那么，如果使用一个合约的实现方法？这其实很简单。</p>
+<p>许多类型的Laravel类，是通过服务容器解决的，包括控制器，事件监听，中间件，列队甚至是路由。</p>
+<p>要使用合约，只需要进行类型提示，注册类的接口函数。</p>
+<p>例如：下面的事件监听器：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Listeners</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">User</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Events</span>\<span class="title">NewUserRegistered</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Redis</span>\<span class="title">Database</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CacheUserInformation</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The Redis database implementation.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$redis</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a new event handler instance.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  Database  $redis</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">Database <span class="variable">$redis</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;redis = <span class="variable">$redis</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Handle the event.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  NewUserRegistered  $event</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params">NewUserRegistered <span class="variable">$event</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当事件监听器运行完成，服务容器将读取构造函数的类型提示，并注入相应的值。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1873,232 +2147,6 @@ return redirect()-&gt;route(&#39;profile&#39;, [1]);
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/17/1fe554b80964/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/17/1fe554b80964/" class="post-title-link" itemprop="url">laravel 学习指南 第五章 第三节</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-17 02:00:00" itemprop="dateCreated datePublished" datetime="2016-07-17T02:00:00+08:00">2016-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/17/1fe554b80964/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/17/1fe554b80964/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>TOC<br>{:toc}</li>
-</ul>
-<h2 id="5-3-控制器"><a href="#5-3-控制器" class="headerlink" title="5.3 控制器"></a>5.3 控制器</h2><h3 id="5-3-1-简介"><a href="#5-3-1-简介" class="headerlink" title="5.3.1 简介"></a>5.3.1 简介</h3><p>将所有的请求处理逻辑都放在单个<code>routes.php</code>中显示是不合理的，你也许还希望使用控制器类组织管理这些行为。</p>
-<p>控制器可以将相关的HTTP请求封装到一个类中进行处理。</p>
-<p>通常控制器存放在<code>app/Http/Controllers</code>目录中。</p>
-<hr>
-<h3 id="5-3-2-基本控制器"><a href="#5-3-2-基本控制器" class="headerlink" title="5.3.2 基本控制器"></a>5.3.2 基本控制器</h3><p>下面是一个基本控制器类的例子。所有的laravel控制器应该继承，laravel自带的控制器基类<code>Controller</code>:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">User</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 为指定用户显示详情</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int $id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">showProfile</span>(<span class="params"><span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> view(<span class="string">&#x27;user.profile&#x27;</span>, [<span class="string">&#x27;user&#x27;</span> =&gt; User::findOrFail(<span class="variable">$id</span>)]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们可以像这样定义指向控制器动作的路由：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, <span class="string">&#x27;UserController@showProfile&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>现在，如果一个请求匹配上面的路由URL，<code>UserController</code>的<code>showProfile</code>方法就会被执行。</p>
-<p>当然，路由参数也会被传递给这个方法。</p>
-<h4 id="5-3-2-1-控制器-amp-命名空间"><a href="#5-3-2-1-控制器-amp-命名空间" class="headerlink" title="5.3.2.1 控制器 &amp; 命名空间"></a>5.3.2.1 控制器 &amp; 命名空间</h4><p>在命名时，没有使用完整的控制器命名，而只定义了<code>App\Http\Controllers</code>之后的部分。</p>
-<p>默认<code>RouteServiceProvider</code>会将一个路由群组载入<code>routes.php</code>文件，并且该路由群组指定了，群组中路由控制器所在的命名空间。</p>
-<p>如果在<code>App\Http\Controllers</code>目录下选择使用PHP命名空间 或者 组织控制器，只需要使用相对于<code>App\Http\Controllers</code>命令空间的指定类名即可。因此，如果完整控制器类是<code>App\Http\Controllers\Photos\AdminController</code>,可以像这样注册路由：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;foo&#x27;</span>, <span class="string">&#x27;Photos\AdminController@method&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-3-2-2-命名控制器路由"><a href="#5-3-2-2-命名控制器路由" class="headerlink" title="5.3.2.2 命名控制器路由"></a>5.3.2.2 命名控制器路由</h4><p>和闭包路由一样，可以指定控制器路由的名称：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;foo&#x27;</span>, [<span class="string">&#x27;uses&#x27;</span> =&gt; <span class="string">&#x27;FooController@method&#x27;</span>, <span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;name&#x27;</span>]);</span><br></pre></td></tr></table></figure>
-<p>你可以使用辅助函数<code>route</code>来为己命名的控制器路由生成对应的URL：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$url</span> = route(<span class="string">&#x27;name&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="5-3-3-控制器中间件"><a href="#5-3-3-控制器中间件" class="headerlink" title="5.3.3 控制器中间件"></a>5.3.3 控制器中间件</h3><p>中间件可以分配给控制器路由：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;profile&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;middleware&#x27;</span> =&gt; <span class="string">&#x27;auth&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;uses&#x27;</span> =&gt; <span class="string">&#x27;UserController@showProfile&#x27;</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
-<p>但是，将中间件放在控制器构造函数中更方便，在控制器的构建函数中使用<code>middleware</code>方法可以很轻松的分配中间件给控制器。</p>
-<p>甚至可以限定中间件应用到控制器的指定方法：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实例化一个新的 UserController 实例</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;middleware(<span class="string">&#x27;auth&#x27;</span>);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;middleware(<span class="string">&#x27;log&#x27;</span>, [<span class="string">&#x27;only&#x27;</span> =&gt; [<span class="string">&#x27;fooAction&#x27;</span>, <span class="string">&#x27;barAction&#x27;</span>]]);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;middleware(<span class="string">&#x27;subscribed&#x27;</span>, [<span class="string">&#x27;except&#x27;</span> =&gt; [<span class="string">&#x27;fooAction&#x27;</span>, <span class="string">&#x27;barAction&#x27;</span>]]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<hr>
-<h3 id="5-3-4-RESTful-资源控制器"><a href="#5-3-4-RESTful-资源控制器" class="headerlink" title="5.3.4 RESTful 资源控制器"></a>5.3.4 RESTful 资源控制器</h3><p>laravel的资源控制器使得构建围绕资源的<code>RESTful</code>控制器变得毫无痛苦。</p>
-<p>例如，想要在应用中创建一个控制器，用于处理关于图片存储的HTTP请求，使用Artisan命令<code>make:controller</code>，可以快速创建这样的控制器：</p>
-<pre><code>php artisan make:controller PhotoController --resource
-</code></pre>
-<p>这个Artisan命令将会生成一个控制器文件<code>app/Http/Controllers/PhotoController.php</code>,这个控制器包含了每一个资源操作的方法。</p>
-<p>接下来，可以为该控制器注册一个资源路由：</p>
-<pre><code>Route::resource(&#39;photo&#39;, &#39;PhotoController&#39;);
-</code></pre>
-<p>这个理由声明包含了处理图片资源RESTful 动作的多个路由，相应地，Artisan 生成的控制器也已经为这些动作设置了对应的处理方法。</p>
-<h4 id="5-3-4-1-资源控制器处理的动作"><a href="#5-3-4-1-资源控制器处理的动作" class="headerlink" title="5.3.4.1 资源控制器处理的动作"></a>5.3.4.1 资源控制器处理的动作</h4><table>
-<thead>
-<tr>
-<th align="left">方法</th>
-<th align="left">路径</th>
-<th align="left">动作</th>
-<th align="left">路由名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">GET</td>
-<td align="left">/photo</td>
-<td align="left">index</td>
-<td align="left">photo.index</td>
-</tr>
-<tr>
-<td align="left">GET</td>
-<td align="left">/photo/create</td>
-<td align="left">create</td>
-<td align="left">photo.create</td>
-</tr>
-<tr>
-<td align="left">POST</td>
-<td align="left">/photo</td>
-<td align="left">store</td>
-<td align="left">photo.store</td>
-</tr>
-<tr>
-<td align="left">GET</td>
-<td align="left">/photo/{photo}</td>
-<td align="left">show</td>
-<td align="left">photo.show</td>
-</tr>
-<tr>
-<td align="left">GET</td>
-<td align="left">/photo/{photo}/edit</td>
-<td align="left">edit</td>
-<td align="left">photo.edit</td>
-</tr>
-<tr>
-<td align="left">PUT/PATCH</td>
-<td align="left">/photo/{photo}</td>
-<td align="left">update</td>
-<td align="left">photo.update</td>
-</tr>
-<tr>
-<td align="left">DELETE</td>
-<td align="left">/photo/{photo}</td>
-<td align="left">destroy</td>
-<td align="left">photo.destroy</td>
-</tr>
-</tbody></table>
-<p><em>注意：HTTP表单不支持PUT、PATCH、DELETE请求，需要添加一个隐藏的<code>_method</code>文件来仿照这些动词。</em></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;_method&quot;</span> <span class="attr">value</span>=<span class="string">&quot;PUT&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="5-3-4-2-只定义部分资源路由"><a href="#5-3-4-2-只定义部分资源路由" class="headerlink" title="5.3.4.2 只定义部分资源路由"></a>5.3.4.2 只定义部分资源路由</h4><p>声明资源路由时可以指定该路由处理的动作子集：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Route::resource(<span class="string">&#x27;photo&#x27;</span>, <span class="string">&#x27;PhotoController&#x27;</span>,</span><br><span class="line">[<span class="string">&#x27;only&#x27;</span> =&gt; [<span class="string">&#x27;index&#x27;</span>, <span class="string">&#x27;show&#x27;</span>]]);</span><br><span class="line"></span><br><span class="line">Route::resource(<span class="string">&#x27;photo&#x27;</span>, <span class="string">&#x27;PhotoController&#x27;</span>,</span><br><span class="line">[<span class="string">&#x27;except&#x27;</span> =&gt; [<span class="string">&#x27;create&#x27;</span>, <span class="string">&#x27;store&#x27;</span>, <span class="string">&#x27;update&#x27;</span>, <span class="string">&#x27;destroy&#x27;</span>]]);</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-3-4-3-命名资源路由"><a href="#5-3-4-3-命名资源路由" class="headerlink" title="5.3.4.3 命名资源路由"></a>5.3.4.3 命名资源路由</h4><p>默认情况下，所有资源控制器动作都有一个路由名称，然而，我们可以通过传入<code>names</code>数组来覆盖这些默认的名字：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Route::resource(<span class="string">&#x27;photo&#x27;</span>, <span class="string">&#x27;PhotoController&#x27;</span>,</span><br><span class="line">                [<span class="string">&#x27;names&#x27;</span> =&gt; [<span class="string">&#x27;create&#x27;</span> =&gt; <span class="string">&#x27;photo.build&#x27;</span>]]);</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-3-4-4-补充资源控制器"><a href="#5-3-4-4-补充资源控制器" class="headerlink" title="5.3.4.4 补充资源控制器"></a>5.3.4.4 补充资源控制器</h4><p>如果有必要在默认资源路由之外添加额外的路由到资源控制器，应该在调用<code>Route::resource</code>之前定义这些路由，否则，通过<code>resource</code>方法定义的路由可能无意中优于补充的额外路由：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;photos/popular&#x27;</span>, <span class="string">&#x27;PhotoController@method&#x27;</span>);</span><br><span class="line">Route::resource(<span class="string">&#x27;photos&#x27;</span>, <span class="string">&#x27;PhotoController&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="5-3-5-依赖注入-amp-控制器"><a href="#5-3-5-依赖注入-amp-控制器" class="headerlink" title="5.3.5 依赖注入 &amp; 控制器"></a>5.3.5 依赖注入 &amp; 控制器</h3><h4 id="5-3-5-1-构造函数注入"><a href="#5-3-5-1-构造函数注入" class="headerlink" title="5.3.5.1 构造函数注入"></a>5.3.5.1 构造函数注入</h4><p>laravel使用服务容器解析所有的Laravel控制器，因此，可以在控制器的构造函数中声明任何依赖，这些依赖会被自动解析并注入到控制器实例中：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Routing</span>\<span class="title">Controller</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Repositories</span>\<span class="title">UserRepository</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The user repository instance.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$users</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建新的控制器实例</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> UserRepository $users</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params">UserRepository <span class="variable">$users</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;users = <span class="variable">$users</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然，还可以对任何的<code>laravel contact</code> 使用类别提示。若容器能解析它，就可以使用型别提示。</p>
-<h4 id="5-3-5-2-方法注入"><a href="#5-3-5-2-方法注入" class="headerlink" title="5.3.5.2 方法注入"></a>5.3.5.2 方法注入</h4><p>除了构造函数注入外，还可以在控制器的动作方法中进行依赖的类型提示。</p>
-<p>例如，可以对<code>Illuminate\Http\Request </code>实例，其中的一个方法使用类别提示：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 儲存一個新的使用者。</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  Request  $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Response</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$name</span> = <span class="variable">$request</span>-&gt;input(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果控制器方法期望输入路由参数，只需要将路由参数放到其他依赖之后，例如，如果你的路由定义如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::put(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, <span class="string">&#x27;UserController@update&#x27;</span>);</span><br></pre></td></tr></table></figure>
-<p>你需要通过定义控制器方法如下所示来类型提示 <code>Illuminate\Http\Request</code> 并访问路由参数 <code>id</code>：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Routing</span>\<span class="title">Controller</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新指定用户</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> Request $request</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int $id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Response</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@translator</span> http://laravelacademy.org</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params">Request <span class="variable">$request</span>, <span class="variable">$id</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="5-3-6-路由缓存"><a href="#5-3-6-路由缓存" class="headerlink" title="5.3.6 路由缓存"></a>5.3.6 路由缓存</h3><p><strong>使用控制器路由的重要性</strong></p>
-<p><em>注意：路由缓存不会作用于基于闭包的路由。要使用路由缓存，必须将闭包路由转化为控制器路由。</em></p>
-<p>如果你的应用完全基于控制器路由，可以使用 Laravel 的路由缓存，使用路由缓存将会极大减少注册所有应用路由所花费的时间开销，在某些案例中，路由注册速度甚至能提高100倍！想要生成路由缓存，只需执行 Artisan 命令·<code>route:cache</code>:</p>
-<pre><code>php artisan route:cache
-</code></pre>
-<p>就这么简单！你的缓存路由文件现在取代 <code>app/Http/routes.php</code> 文件被使用，记住，如果你添加新的路由需要重新生成路由缓存。因此，只有在项目部署阶段才需要运行 <code>route:cache</code> 命令。</p>
-<p>想要移除缓存路由文件，使用 <code>route:clear</code> 命令即可：</p>
-<pre><code>php artisan route:clear
-</code></pre>
-<hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/26/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/28/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2129,7 +2177,7 @@ return redirect()-&gt;route(&#39;profile&#39;, [1]);
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:42</span>
+    <span title="Reading time total">3:43</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

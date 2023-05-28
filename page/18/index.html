@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">284</span>
+          <span class="site-state-item-count">285</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,129 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/10/21/ed452465eeac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/10/21/ed452465eeac/" class="post-title-link" itemprop="url">使用 postman 进行 post</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2018-10-21T00:00:00+08:00">2018-10-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/10/21/ed452465eeac/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/21/ed452465eeac/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="使用-postman-进行-post"><a href="#使用-postman-进行-post" class="headerlink" title="使用 postman 进行 post"></a>使用 postman 进行 post</h1><p>使用<code>postman</code> 直接 <code>post</code> 的方法</p>
+<p><code>laravel</code> 本身有<code>CSRF</code> 直接使用<code>post</code> 、 <code>put</code> 等等会被阻断</p>
+<p>找到一个可以解决办法</p>
+<h2 id="postman-chrome-插件版本"><a href="#postman-chrome-插件版本" class="headerlink" title="postman chrome 插件版本"></a>postman chrome 插件版本</h2><p>新建一个<code>environment</code> 并切换到新建，右上⚙位置</p>
+<p>找一个<code>get</code>请求 在<code>Tests</code>标签下输入 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var xsrfCookie = postman.getResponseCookie(&quot;XSRF-TOKEN&quot;);</span><br><span class="line">postman.setEnvironmentVariable(&quot;XSRF-TOKEN&quot;, xsrfCookie.value);</span><br></pre></td></tr></table></figure>
+
+<p><code>&#123;&#123;XSRF-TOKEN&#125;&#125;</code> 对应该的是第二行要注意下。</p>
+<p>用于获取<code>XSRF-TOKEN</code>的值。</p>
+<p>查看<code>environment</code>中 <code>XSRF-TOKEN</code> 是否被正确传入。右上👁位置</p>
+<p>确认后在<code>post</code> 的<code>Headers</code> 中添加</p>
+<p><code>X-XSRF-TOKEN : &#123;&#123;XSRF-TOKEN&#125;&#125;</code> </p>
+<p>之后就可以正常提交<code>post</code>了</p>
+<p><strong>注意：laravel XSRF-TOKEN 有时效性 注意更新</strong></p>
+<p>当<code>XSRF-TOKEN</code> 中有特殊字符，例如<code>%</code>时，<code>laravel X-XSRF-TOKEN</code> 验证会失败</p>
+<p>主要是为<code>postman</code> 对<code>XSRF-TOKEN</code>识别有问题，桌面版本没有这个问题</p>
+<h2 id="postman-桌面版"><a href="#postman-桌面版" class="headerlink" title="postman 桌面版"></a>postman 桌面版</h2><p>同上<code>Tests</code>标签可以写成 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm.environment.set(&quot;xsrf-token&quot;, decodeURIComponent(pm.cookies.get(&quot;XSRF-TOKEN&quot;)))</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>laravel valet</code> 时，<code>postman</code>不能正确访问域名……</p>
+<p>原因<code>valet</code>产生的<code>SSL</code>证书，所以被阻挡，手动关闭后正常使用</p>
+<p>要关闭的位置</p>
+<p><code>settings</code> -&gt; <code>SSL certificate verifcation</code> -&gt; <code>off</code> </p>
+<p>之后就可以正常使用了</p>
+<p>使用<code>valet</code>时 <code>link</code> 与 <code>park</code> 混用会报错！ </p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1221,113 +1344,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/09/04/98b725173d09/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/09/04/98b725173d09/" class="post-title-link" itemprop="url">失败了………………😭</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-09-04 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-04T00:00:00+08:00">2018-09-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/09/04/98b725173d09/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/09/04/98b725173d09/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="套餐有点烦"><a href="#套餐有点烦" class="headerlink" title="套餐有点烦"></a>套餐有点烦</h1><p>办宽带一定要开卡就没人管一管吗……</p>
-<p>无奈更换旧手机的SIM卡槽 没错让我弄坏了…… </p>
-<p>在此之前都不敢卸下SIM卡也神奇……</p>
-<p>元件直接淘宝还是很方便的 </p>
-<p>放在其他国家是难以想象…… 不过人家也没有这样恶心的套餐……</p>
-<h1 id="SIM卡槽更换失败"><a href="#SIM卡槽更换失败" class="headerlink" title="SIM卡槽更换失败"></a>SIM卡槽更换失败</h1><p>SIM 卡槽更换失败 😭 😭 粘上后盖但是没上螺丝…… 心塞……</p>
-<p>果然没有风枪是不行呢…… 找个风枪加入清单好了……</p>
-<p><a target="_blank" rel="noopener" href="http://www.hakko.com/japan/products/hakko_fr702.html">HAKKO FR-702</a></p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>作息时间混乱，啊啊啊 好想正常一点啊……</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/19/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1358,7 +1374,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:42</span>
+    <span title="Reading time total">3:43</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

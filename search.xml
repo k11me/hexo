@@ -10427,7 +10427,7 @@ section 2019-12-12
       </tags>
   </entry>
   <entry>
-    <title>eps32c3的玩具</title>
+    <title>玩具 eps32c3 第一天</title>
     <url>/2023/05/27/b189095c612e/</url>
     <content><![CDATA[<h1 id="esp32"><a href="#esp32" class="headerlink" title="esp32"></a>esp32</h1><p>本着换换脑子的心态入手了，合宙的<code>esp32</code>。</p>
 <p>主要是想有个自动对时的电子钟。</p>
@@ -10444,6 +10444,38 @@ section 2019-12-12
 <h3 id="使用命令开放端口功能-【不可逆】"><a href="#使用命令开放端口功能-【不可逆】" class="headerlink" title="使用命令开放端口功能 【不可逆】"></a>使用命令开放端口功能 【不可逆】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -m espefuse -p COM3 burn_efuse VDD_SPI_AS_GPIO 1</span><br></pre></td></tr></table></figure>
 
 <p>之后就可以使用<code>digitalWrite</code>或<code>analogWrite</code>控制LCD亮度了。</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>esp32</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>玩具 eps32c3 第二天</title>
+    <url>/2023/05/28/1cbf31a3d4a3/</url>
+    <content><![CDATA[<h1 id="Arduino-IDE-编译有点慢"><a href="#Arduino-IDE-编译有点慢" class="headerlink" title="Arduino IDE 编译有点慢"></a>Arduino IDE 编译有点慢</h1><p>更换为vscode+platformio开发，连同目录在内都规整了许多。</p>
+<p>其中遇坑有两个</p>
+<ol>
+<li>platformio.ini设置问题</li>
+<li>引导刷坏的问题</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="platformio-ini-设置问题"><a href="#platformio-ini-设置问题" class="headerlink" title="platformio.ini 设置问题"></a>platformio.ini 设置问题</h2><p>板子是<code>合宙esp32c3</code>简约版，usb直通。</p>
+<p>在支持的板子库中并没有。所以要选择<code>esp32-c3-devkitm-1</code></p>
+<p>还需要添加<code>flash mode</code> 为 <code>dio</code> 这点与 <code>Arduino</code>中一致</p>
+<p>出现<code>Serial.println()</code>不打印的情况。</p>
+<p>添加<code>build_flags</code>标签。<code>-D ARDUINO_USB_MODE = 1</code>与<code>-D ARDUINO_USB_CDC_ON_BOOT=1</code></p>
+<p>完整<code>platformio.ini</code>如下，初始项目可以通用。</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[env:esp32-c3-devkitm-1]</span></span><br><span class="line"><span class="attr">platform</span> = espressif32</span><br><span class="line"><span class="attr">board</span> = esp32-c3-devkitm-<span class="number">1</span></span><br><span class="line"><span class="attr">framework</span> = ardui<span class="literal">no</span></span><br><span class="line"><span class="attr">monitor_speed</span> = <span class="number">115200</span></span><br><span class="line"><span class="attr">board_build.flash_mode</span> = dio</span><br><span class="line"><span class="attr">build_flags</span> =</span><br><span class="line">  -D <span class="attr">ARDUINO_USB_MODE</span>=<span class="number">1</span></span><br><span class="line">  -D <span class="attr">ARDUINO_USB_CDC_ON_BOOT</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="引导坏掉刷坏了"><a href="#引导坏掉刷坏了" class="headerlink" title="引导坏掉刷坏了"></a>引导坏掉刷坏了</h2><p>当出现下方问题时，重刷官方固件就可以解决了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A fatal error occurred: Unable to verify flash chip connection (No serial data received.).</span><br></pre></td></tr></table></figure>
+
+<h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1><p>esp32确实好玩，尤其是联网的情况下。</p>
 ]]></content>
       <categories>
         <category>Living</category>
