@@ -16,10 +16,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="为laravel logs添加自定义格式与处理方法Monolog\Formatter\LineFormatter 用来定义log内容。 Monolog\Processor\IntrospectionProcessor 用来获取控制器、方法、行数。 1234567891011121314151617181920212223242526272829303132333435363738394041424">
 <meta property="og:type" content="article">
@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">286</span>
+          <span class="site-state-item-count">287</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -170,7 +170,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -279,8 +279,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="为laravel-logs添加自定义格式与处理方法"><a href="#为laravel-logs添加自定义格式与处理方法" class="headerlink" title="为laravel logs添加自定义格式与处理方法"></a>为laravel logs添加自定义格式与处理方法</h1><p><code>Monolog\Formatter\LineFormatter</code> 用来定义<code>log</code>内容。</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="为laravel-logs添加自定义格式与处理方法"><a href="#为laravel-logs添加自定义格式与处理方法" class="headerlink" title="为laravel logs添加自定义格式与处理方法"></a>为laravel logs添加自定义格式与处理方法</h1><p><code>Monolog\Formatter\LineFormatter</code> 用来定义<code>log</code>内容。</p>
 <p><code>Monolog\Processor\IntrospectionProcessor</code> 用来获取控制器、方法、行数。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Logging</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">LineFormatter</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Processor</span>\<span class="title">IntrospectionProcessor</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接收log</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestLogging</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$logFormat</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$dateFormat</span> = <span class="string">&#x27;Y/m/d H:i:s&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 设置行内容</span></span><br><span class="line">        <span class="variable">$cols</span> = [</span><br><span class="line">            <span class="string">&quot;%datetime%&quot;</span>,</span><br><span class="line">            <span class="string">&quot;[%channel%.%level_name%]&quot;</span>,</span><br><span class="line">            <span class="string">&quot;%extra.class%@%extra.function%(%extra.line%)&quot;</span>, </span><br><span class="line">            <span class="string">&quot;%message%&quot;</span>,</span><br><span class="line">            <span class="string">&quot;%context%&quot;</span>,</span><br><span class="line">        ];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 成表格</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;logFormat = implode(<span class="string">&quot;\t&quot;</span>, <span class="variable">$cols</span>) . PHP_EOL;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__invoke</span>(<span class="params"><span class="variable">$monolog</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// 定义新的日记样式</span></span><br><span class="line">        <span class="variable">$formatter</span> = <span class="keyword">new</span> LineFormatter(<span class="keyword">$this</span>-&gt;logFormat, <span class="keyword">$this</span>-&gt;dateFormat, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 控制器 内容追加</span></span><br><span class="line">        <span class="variable">$ip</span> = <span class="keyword">new</span> IntrospectionProcessor(Logger::DEBUG, [] , <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$monolog</span>-&gt;getHandlers() <span class="keyword">as</span> <span class="variable">$handler</span>) &#123;</span><br><span class="line">            <span class="variable">$handler</span>-&gt;setFormatter(<span class="variable">$formatter</span>);</span><br><span class="line">            <span class="variable">$handler</span>-&gt;pushProcessor(<span class="variable">$ip</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -304,12 +303,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2020/01/03/8dce33c70dd8/" rel="prev" title="转眼 2020">
-                  <i class="fa fa-chevron-left"></i> 转眼 2020
+                  <i class="fa fa-angle-left"></i> 转眼 2020
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2020/01/11/cad7debc9bfa/" rel="next" title="Clashx">
-                  Clashx <i class="fa fa-chevron-right"></i>
+                  Clashx <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -333,15 +332,14 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">K11</span>
-</div>
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">K11</span>
+  </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
@@ -353,7 +351,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:44</span>
+    <span title="Reading time total">3:45</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
@@ -387,8 +385,10 @@
 <script src="/js/third-party/search/local-search.js"></script>
 
 
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js","integrity":"sha256-K7oJiQlDulzl24ZUFOywuYme1JqBBvQzK6m8qHjt9Gk="}}</script>
   <script src="/js/third-party/tags/mermaid.js"></script>
+
+
 
 
 

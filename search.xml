@@ -10548,4 +10548,33 @@ section 2019-12-12
         <tag>esp8266</tag>
       </tags>
   </entry>
+  <entry>
+    <title>除草啦～～</title>
+    <url>/2023/11/23/5f3d40243eaf/</url>
+    <content><![CDATA[<h1 id="除草啦"><a href="#除草啦" class="headerlink" title="除草啦"></a>除草啦</h1><p>后端功能做完了，一些功能要联合调试的时候再做。</p>
+<p>游戏引擎换为godot了，主要是功能上UE5有点笨重【UE5文档写的很烂】</p>
+<p>最近在做UI，其他的也快做完了。</p>
+<p>昨天下软件包的时候，再次确定了要润出去的想法。</p>
+<p>打算办手续的时候出去转转，房车看到了<code>蜗牛记的TopPlayer</code>B型房车，感觉还不错。</p>
+<p><code>bliss mobil</code>出去了再说吧，订车要1年多，感觉时间赶不上。</p>
+<p>之前下单了一套键盘，长下面的这个样子。按键的声音，蛮喜欢的。</p>
+<p><img src="/images/post/2023-11-23/02.png"></p>
+<p>还做了两个3键位的小键盘，主要是做上面的键盘，轴体有剩就想着利用一下。</p>
+<p>当个解压的小玩具儿蛮好的，也可以改键，有实际功能的。</p>
+<p>外壳是3D打印的，用层纹，精度不是很高。好在费用不高。</p>
+<p>模型需要之后再改一下加几个螺丝的固定口。</p>
+<p><img src="/images/post/2023-11-23/03.png"></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>空闲的时候看到了一种VFD数码管，显示的效果是下面的样子</p>
+<p><img src="/images/post/2023-11-23/01.png"></p>
+<p>想做个小时钟。功能大体上也决定好了。以后慢慢做吧。估计是在旅行的路上。</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>键盘</tag>
+        <tag>VFD</tag>
+      </tags>
+  </entry>
 </search>
