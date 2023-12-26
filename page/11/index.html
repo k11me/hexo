@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">287</span>
+          <span class="site-state-item-count">288</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,134 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/12/24/87d92e7716f7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/12/24/87d92e7716f7/" class="post-title-link" itemprop="url">奇怪的梦</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-12-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-12-24T00:00:00+08:00">2019-12-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/12/24/87d92e7716f7/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/12/24/87d92e7716f7/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="奇怪的梦"><a href="#奇怪的梦" class="headerlink" title="奇怪的梦"></a>奇怪的梦</h1><p>太过美好的梦，以至于不愿意醒来……</p>
+<h1 id="laravel-echo-设置"><a href="#laravel-echo-设置" class="headerlink" title="laravel echo 设置"></a>laravel echo 设置</h1><p><code>laravel echo</code>用于提供<code>socket</code>服务，现代网络服务必备。</p>
+<p>于是使用<code>laravel-echo-server</code></p>
+<p>注意<code>laravel-echo-server</code>是兼容<code>pusher</code>的。</p>
+<p>所以直接安装<code>pusher</code>包 + 设置<code>config/broadcasting.php</code>就可以快速上手。</p>
+<p>网络上没人将详细的设置方法写出来不知道是为什么。</p>
+<h2 id="需要的包"><a href="#需要的包" class="headerlink" title="需要的包"></a>需要的包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">composer require pusher/pusher-php-server</span><br><span class="line">npm install --save laravel-echo socket.io-client</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><h3 id="env"><a href="#env" class="headerlink" title=".env"></a>.env</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BROADCAST_DRIVER=pusher</span><br><span class="line">WEBSOCKET_APPID=your_ID</span><br><span class="line">WEBSOCKET_KEY=your_key</span><br></pre></td></tr></table></figure>
+
+<h3 id="config-broadcasting-php"><a href="#config-broadcasting-php" class="headerlink" title="config/broadcasting.php"></a>config/broadcasting.php</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;pusher&#x27;</span> =&gt; [</span><br><span class="line">	<span class="string">&#x27;driver&#x27;</span> =&gt; <span class="string">&#x27;pusher&#x27;</span>,</span><br><span class="line">	<span class="string">&#x27;key&#x27;</span> =&gt; env(<span class="string">&#x27;WEBSOCKET_KEY&#x27;</span>),</span><br><span class="line">	<span class="string">&#x27;app_id&#x27;</span> =&gt; env(<span class="string">&#x27;WEBSOCKET_APPID&#x27;</span>),</span><br><span class="line">	<span class="string">&#x27;secret&#x27;</span> =&gt; <span class="literal">null</span>,</span><br><span class="line">	<span class="string">&#x27;options&#x27;</span> =&gt; [</span><br><span class="line">		<span class="string">&#x27;host&#x27;</span> =&gt; <span class="string">&#x27;localhost&#x27;</span>,</span><br><span class="line">		<span class="string">&#x27;port&#x27;</span> =&gt; <span class="number">6001</span>,</span><br><span class="line">		<span class="string">&#x27;scheme&#x27;</span> =&gt; <span class="string">&#x27;http&#x27;</span></span><br><span class="line">	],</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动echo-server"><a href="#启动echo-server" class="headerlink" title="启动echo-server"></a>启动echo-server</h3><p><a target="_blank" rel="noopener" href="https://github.com/tlaverdure/laravel-echo-server">laravel-echo-server</a></p>
+<p>官方写的非常清楚了。</p>
+<p>注意：非本地使用的情况下建议开启<code>https</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">laravel-echo-server init</span><br><span class="line">laravel-echo-server client:add APP_ID</span><br><span class="line">laravel-echo-server start</span><br></pre></td></tr></table></figure>
+
+<p>到这里,<code>laravel</code>有可以使用<code>php</code>向频道中推送信息了。</p>
+<h3 id="vue前端设置"><a href="#vue前端设置" class="headerlink" title="vue前端设置"></a>vue前端设置</h3><p><code>bootstrap.js</code>中进行设置</p>
+<p>注意地址的对应。如果需要<code>laravel-echo-server</code>完全可以拆分为独立服务器。也可以使用<code>docker</code>包。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Echo <span class="keyword">from</span> <span class="string">&quot;laravel-echo&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.io = <span class="built_in">require</span>(<span class="string">&#x27;socket.io-client&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.Echo = <span class="keyword">new</span> Echo(&#123;</span><br><span class="line">    <span class="attr">broadcaster</span>: <span class="string">&#x27;socket.io&#x27;</span>,</span><br><span class="line">    <span class="attr">host</span>: <span class="string">&#x27;http://localhost:6001&#x27;</span>,</span><br><span class="line">    <span class="attr">key</span>: <span class="string">&#x27;your_key&#x27;</span>,</span><br><span class="line">    <span class="comment">// forceTLS: true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用echo"><a href="#使用echo" class="headerlink" title="使用echo"></a>使用echo</h2><h3 id="在laravel中"><a href="#在laravel中" class="headerlink" title="在laravel中"></a>在<code>laravel</code>中</h3><p>新建一个事件，<code>laravel</code>中的推送要使用的到队列。</p>
+<p>类要<code>implements ShouldBroadcast</code></p>
+<p><code>__construct</code>的消息为要推送信息。</p>
+<p><code>broadcastOn()</code>用来指定频道。</p>
+<p><code>broadcastAs()</code>用来指定频道名称。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">KThree</span>\<span class="title">Test</span>\<span class="title">Events</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Broadcasting</span>\<span class="title">Channel</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Queue</span>\<span class="title">SerializesModels</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Broadcasting</span>\<span class="title">PrivateChannel</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Broadcasting</span>\<span class="title">PresenceChannel</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Foundation</span>\<span class="title">Events</span>\<span class="title">Dispatchable</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Broadcasting</span>\<span class="title">InteractsWithSockets</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Broadcasting</span>\<span class="title">ShouldBroadcast</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestWebSocket</span> <span class="keyword">implements</span> <span class="title">ShouldBroadcast</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">use</span> <span class="title">Dispatchable</span>, <span class="title">InteractsWithSockets</span>, <span class="title">SerializesModels</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Create a new event instance.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$message</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$message</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;message = <span class="variable">$message</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get the channels the event should broadcast on.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> \Illuminate\Broadcasting\Channel|array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">broadcastOn</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// return new PrivateChannel(&#x27;test&#x27;);</span></span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;your_channel&#x27;</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">broadcastAs</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;your_broadcast_name&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="在vue组件中"><a href="#在vue组件中" class="headerlink" title="在vue组件中"></a>在<code>vue</code>组件中</h3><p>注意<code>listen</code>名字前的<code>.</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> channel = Echo.channel(<span class="string">&#x27;your_channel&#x27;</span>);</span><br><span class="line">channel.listen(<span class="string">&#x27;.your_broadcast_name&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	alert(<span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1143,105 +1271,6 @@ section 2019-12-12
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/10/15/c859f3279dc3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/10/15/c859f3279dc3/" class="post-title-link" itemprop="url">migrations 自动载入</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-10-15 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-15T00:00:00+08:00">2019-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/10/15/c859f3279dc3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/15/c859f3279dc3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="migrations-自动载入"><a href="#migrations-自动载入" class="headerlink" title="migrations 自动载入"></a>migrations 自动载入</h1><p><code>/../database/migrations</code> 为扩展包中路径</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;loadMigrationsFrom(<span class="keyword">__DIR__</span>.<span class="string">&#x27;/../database/migrations&#x27;</span>);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1265,7 +1294,7 @@ section 2019-12-12
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">247k</span>
+    <span title="Word count total">248k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

@@ -10577,4 +10577,34 @@ section 2019-12-12
         <tag>VFD</tag>
       </tags>
   </entry>
+  <entry>
+    <title>esp8266 与 华硕路由联网的问题</title>
+    <url>/2023/12/27/681bcb35e7a1/</url>
+    <content><![CDATA[<h1 id="猜猜这是什么"><a href="#猜猜这是什么" class="headerlink" title="猜猜这是什么"></a>猜猜这是什么</h1><p><img src="/images/post/2023-12-27/IMG_2997.png"></p>
+<span id="more"></span>
+
+<h1 id="esp8266-与-华硕路由联网的问题"><a href="#esp8266-与-华硕路由联网的问题" class="headerlink" title="esp8266 与 华硕路由联网的问题"></a>esp8266 与 华硕路由联网的问题</h1><p>问题在于 路由在大多数情况下不对esp8266设备发放IP</p>
+<p>解决方法为 手动为esp8266设置ip，缺点是拿去其他网络环境下无法使用。</p>
+<p>也有说关闭 2.4GHz 的AX支持的【路由器需要重启没试】</p>
+<p>还有人说388 的固件有问题，换回386就可以的【需要重新设置路由器，没试】</p>
+<p>我是感觉388确实没有386稳定。</p>
+<p>解决方法我选的手动设置ip，在esphome 的设备配置中 添加如下内容</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">manual_ip:</span></span><br><span class="line">    <span class="attr">static_ip:</span> <span class="number">192.168</span><span class="string">.*.*</span></span><br><span class="line">    <span class="attr">gateway:</span> <span class="number">192.168</span><span class="string">.*.*</span></span><br><span class="line">    <span class="attr">subnet:</span> <span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://esphome.io/components/wifi">ESPHome wifi设置</a></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>在godot手搓了一个翻页，比想的容易。</p>
+<p>毕业时候做的变声器，重新做了一个，感谢嘉立创让我白嫖了不少板子。</p>
+<p>之后再做个外观好看点的吧。主控芯片也是之前剩下的，停产了，再也买不到了。</p>
+<p>有个替换的叫做<code>HT8950</code>，也是之前的存货了。</p>
+<p>想要 树莓派5 8G  </p>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p>是没屏幕的温湿度计，数据可以使用<code>HomeKit</code>查看</p>
+<p>成本10块不到，咱要是给人做智能家装，应该能赚不少，毕竟利润很大。</p>
+<h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1>]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>esp8266</tag>
+      </tags>
+  </entry>
 </search>
