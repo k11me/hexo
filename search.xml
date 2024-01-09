@@ -10607,4 +10607,26 @@ section 2019-12-12
         <tag>esp8266</tag>
       </tags>
   </entry>
+  <entry>
+    <title>关于 godot 的一些思考</title>
+    <url>/2024/01/10/d4d7e04628c4/</url>
+    <content><![CDATA[<h1 id="关于-godot-的一些思考"><a href="#关于-godot-的一些思考" class="headerlink" title="关于 godot 的一些思考"></a>关于 godot 的一些思考</h1><h2 id="godot-uid-与-uuid-绑定"><a href="#godot-uid-与-uuid-绑定" class="headerlink" title="godot uid 与 uuid 绑定"></a>godot uid 与 uuid 绑定</h2><p>godot为每一个资源都添加一个唯一的uid，</p>
+<p>而后端的一些基础物品设置，使用的uuid，两者没用任何关联。</p>
+<p>目前想到的办法，是创建一个全局设置文件，将uid与uuid进行绑定。</p>
+<p>通过查找uuid ，获取到godot中对应的资源。</p>
+<h2 id="godot-玩家物品"><a href="#godot-玩家物品" class="headerlink" title="godot 玩家物品"></a>godot 玩家物品</h2><p>当玩家使用，获得物品时，要呈现不同的特性。物品难免有一些通用属性。</p>
+<p>这时，创建通用物品类就很重要，其他属性可以再做更多的拓展。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>ui 色调，想用低饱和度的，小清新风格。</p>
+<p>之后会做多套让玩家随便换的。</p>
+<p>新手机~ 特意选的壳子，还被税了。</p>
+<p><img src="/images/post/2024-01-10/01.jpeg"></p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>godot</tag>
+      </tags>
+  </entry>
 </search>
