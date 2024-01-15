@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">289</span>
+          <span class="site-state-item-count">290</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,7 +166,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">41</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,145 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/26/661ec6791c3e/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/26/661ec6791c3e/" class="post-title-link" itemprop="url">laravel 学习指南 第六章 第一节</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-26 04:00:00" itemprop="dateCreated datePublished" datetime="2016-07-26T04:00:00+08:00">2016-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/26/661ec6791c3e/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/26/661ec6791c3e/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="6-laravel框架"><a href="#6-laravel框架" class="headerlink" title="6 laravel框架"></a>6 laravel框架</h2><h2 id="6-1-一次请求的生命周期"><a href="#6-1-一次请求的生命周期" class="headerlink" title="6.1 一次请求的生命周期"></a>6.1 一次请求的生命周期</h2><h3 id="6-1-1-简介"><a href="#6-1-1-简介" class="headerlink" title="6.1.1 简介"></a>6.1.1 简介</h3><p>当我们使用现实世界中的任何工具时，如果理解了该工具的工作原理，那么用起来就会得心应手，应用开发也是如此。当你理解了开发工具如何工作，用起来就会更加游刃有余。</p>
+<p>本文档的目标就是从一个更好、更高层面向你阐述 Laravel 框架的工作原理。通过对框架更全面的了解，一切都不再那么神秘，你将会更加自信的构建应用。</p>
+<p>如果你不能马上理解所有这些条款，不要失去信心！先试着掌握一些基本的东西，你的知识将会随着对本文档的探索而不断提高。</p>
+<hr>
+<h3 id="6-1-2-生命周期预览"><a href="#6-1-2-生命周期预览" class="headerlink" title="6.1.2 生命周期预览"></a>6.1.2 生命周期预览</h3><h4 id="6-1-2-1-第一件事"><a href="#6-1-2-1-第一件事" class="headerlink" title="6.1.2.1 第一件事"></a>6.1.2.1 第一件事</h4><p>Laravel应用的所有请求入口都是<code>public/index.php</code>文件，所有请求都会被web服务器(Apache/Nginx)导向这个文件。<code>index.php</code>文件包含的代码并不多，但是，是加载框架其他部分的起点。</p>
+<p><code>index.php</code>文件载入Composer生成的自动加载设置，然后从<code>bootstrap/app.php</code>脚本获取Laravel应用实例，Laravel的第一个动作就是创建服务容器实例。</p>
+<h4 id="6-1-2-2-HTTP-Console内核"><a href="#6-1-2-2-HTTP-Console内核" class="headerlink" title="6.1.2.2 HTTP/Console内核"></a>6.1.2.2 HTTP/Console内核</h4><p>接下来，请求被发送到 HTTP 内核或 Console 内核，这取决于进入应用的请求类型。这两个内核是所有请求都要经过的中央处理器，现在，就让我们聚焦在位于 <code>app/Http/Kernel.php</code> 的 HTTP 内核。</p>
+<p>HTTP 内核继承自 <code>Illuminate\Foundation\Http\Kernel</code> 类，该类定义了一个 <code>bootstrappers</code> 数组，这个数组中的类在请求被执行前运行，这些 <code>bootstrappers</code> 配置了错误处理、日志、检测应用环境以及其它在请求被处理前需要执行的任务。</p>
+<p>HTTP 内核还定义了一系列所有请求在处理前需要经过的 HTTP 中间件，这些中间件处理 HTTP 会话的读写、判断应用是否处于维护模式、验证 CSRF 令牌等等。</p>
+<p>HTTP 内核的标志性方法 handle 处理的逻辑相当简单：获取一个 Request，返回一个 Response，把该内核想象作一个代表整个应用的大黑盒子，输入 HTTP 请求，返回 HTTP 响应。</p>
+<ul>
+<li><p><strong>服务提供者</strong></p>
+<p>  内核启动过程中最重要的动作之一就是为应用载入服务提供者，应用的所有服务提供者都被配置在 <code>config/app.php</code> 配置文件的  <code>providers</code> 数组中。首先，所有提供者的 <code>register</code> 方法被调用，然后，所有提供者被注册之后，<code>boot</code> 方法被调用。</p>
+<p>  服务提供者负责启动框架的所有各种各样的组件，比如数据库、队列、验证器，以及路由组件等，正是因为他们启动并配置了框架提供的所有特性，服务提供者是整个 Laravel 启动过程中最重要的部分。</p>
+</li>
+<li><p><strong>分发请求</strong></p>
+<p>  一旦应用被启动并且所有的服务提供者被注册，Request 将会被交给路由器进行分发，路由器将会分发请求到路由或控制器，同时运行所有路由指定的中间件。</p>
+</li>
+</ul>
+<hr>
+<h3 id="6-1-3-聚集服务提交者"><a href="#6-1-3-聚集服务提交者" class="headerlink" title="6.1.3 聚集服务提交者"></a>6.1.3 聚集服务提交者</h3><p>服务提供者是启动 Laravel 应用中最关键的部分，应用实例被创建后，服务提供者被注册，请求被交给启动后的应用进行处理，整个过程就是这么简单！</p>
+<p>对 Laravel 应用如何通过服务提供者构建和启动有一个牢固的掌握非常有价值，当然，应用默认的服务提供者存放在 <code>app/Providers</code> 目录下。</p>
+<p>默认情况下，<code>AppServiceProvider</code> 是空的，这里是添加自定义启动和服务容器绑定的最佳位置，当然，对大型应用，你可能希望创建多个服务提供者，每一个都有着更加细粒度的启动。</p>
+<h3 id="阅读感言"><a href="#阅读感言" class="headerlink" title="阅读感言"></a>阅读感言</h3><p>上面说了那么多，实际上可以理解为下方的简单流程。</p>
+<ol>
+<li><p><code>public/index.php</code>laravel访问的起点。创建服务容器。</p>
+</li>
+<li><p>请求进入内核(HTTP或Console)。</p>
+</li>
+<li><p>HTTP内核启动，laravel最重要的应用——服务提供者。</p>
+</li>
+<li><p>服务提供者启动各种各样的组件。</p>
+</li>
+<li><p>当所有的服务提供者被注册，路由开始工作。</p>
+</li>
+</ol>
+<p>默认服务提供者存放在<code>app/Providers</code>。</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1988,317 +2127,6 @@ $ php artisan migrate
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/15/06783c1f2748/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/15/06783c1f2748/" class="post-title-link" itemprop="url">laravel 学习指南 第一章 & 第二章</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-15 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-15T00:00:00+08:00">2016-07-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/15/06783c1f2748/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/15/06783c1f2748/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>TOC<br>{:toc}</li>
-</ul>
-<h1 id="laravel-5-学习指南"><a href="#laravel-5-学习指南" class="headerlink" title="laravel 5 学习指南"></a>laravel 5 学习指南</h1><h2 id="1-部署Laravel-Homestead"><a href="#1-部署Laravel-Homestead" class="headerlink" title="1.部署Laravel Homestead"></a>1.部署Laravel Homestead</h2><h3 id="1-1-必要软件安装"><a href="#1-1-必要软件安装" class="headerlink" title="1.1. 必要软件安装"></a>1.1. 必要软件安装</h3><table>
-<thead>
-<tr>
-<th align="center">软件</th>
-<th align="center">下载地址</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">vagrant</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://www.vagrantup.com/">地址</a></td>
-</tr>
-<tr>
-<td align="center">virtualbox</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://www.virtualbox.org/">地址</a></td>
-</tr>
-<tr>
-<td align="center">git</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://git-scm.com/">地址</a></td>
-</tr>
-</tbody></table>
-<p>composer 在虚拟机中有提供，但为了能正常安装laravel需要自备<strong>梯子</strong></p>
-<p>Laravel 官方指南<a target="_blank" rel="noopener" href="https://laravel.com/docs/5.2/homestead">地址</a></p>
-<h3 id="1-2-下载Laravel-Homestead虚拟机文件"><a href="#1-2-下载Laravel-Homestead虚拟机文件" class="headerlink" title="1.2.下载Laravel Homestead虚拟机文件"></a>1.2.下载Laravel Homestead虚拟机文件</h3><p>Git Bash中输入命令</p>
-<pre><code>$ vagrant box add laravel/homestead        //安装Laravel Homestead
-</code></pre>
-<p>随后会要求选择使用的虚拟机。virtualbox为1 ，Vmware 为2 。</p>
-<p><em>注意：如果使用VMware需要购买vagrant的插件。</em></p>
-<p>确认后，开始下载。</p>
-<p><em>注意：需要梯子</em></p>
-<h3 id="1-3-安装Laravel-Homestead"><a href="#1-3-安装Laravel-Homestead" class="headerlink" title="1.3. 安装Laravel Homestead"></a>1.3. 安装Laravel Homestead</h3><p>下载完成后，需要使用git，克隆Laravel Homestead的安装设置文件。</p>
-<p>切换到想要建立项目的目录，使用克隆命令。</p>
-<pre><code>$ git clone https://github.com/laravel/homestead.git Homestead
-</code></pre>
-<h3 id="1-4-设置Laravel-Homestead"><a href="#1-4-设置Laravel-Homestead" class="headerlink" title="1.4. 设置Laravel Homestead"></a>1.4. 设置Laravel Homestead</h3><p>首先需要有SSH密钥，如果没有使用下方命令创建</p>
-<pre><code>$ ssh-keygen
-</code></pre>
-<p>克隆完整后，载入Laravel Homestead设置文件。</p>
-<pre><code>$ bash init.sh   //载入 Laravel Homestead 设置文件
-</code></pre>
-<p>之后设置文件映射，</p>
-<p><code>C:\Windows\System32\drivers\etc\hosts</code>  负责DNS的文件</p>
-<p><code>C:\Users\Keleven\.homestead\Homestead.yaml</code>   负责Laravel Homestead设置的文件</p>
-<p>在<code>Homestead.yaml</code>修改</p>
-<pre><code>ip: &quot;192.168.20.10&quot;        //映射的ip地址
-memory: 2048            //虚拟机内存大小
-cpus: 1                    //虚拟机CUP数量
-provider: virtualbox    //虚拟机供应商
-
-authorize: ~/.ssh/id_rsa.pub   //SSH 公钥地址
-
-keys:                            
-    - ~/.ssh/id_rsa                //SSH 私钥地址
-
-folders:                            //项目的主文件夹
-    - map: J:\laravel\web  # pc          //PC端 文件地址
-      to: /home/vagrant/webCode  #vbox    //Vbox端 地址 
-
-sites:
-    - map: web.app                               //网站名称
-      to: /home/vagrant/webCode/web/public       //laravel 入口
-    - map: back.app                                 //网站名称
-      to: /home/vagrant/webCode/back/public      //laravel 入口
-databases:                                       // web数据库名称
-    - webdb
-</code></pre>
-<p>在<code>hosts</code>中添加</p>
-<pre><code>192.168.20.10 web.app
-192.168.20.10 back.app
-</code></pre>
-<p><em>注意：IP：地址用没有使用的IP段</em></p>
-<h3 id="1-5-运行Laravel-Homestead"><a href="#1-5-运行Laravel-Homestead" class="headerlink" title="1.5.运行Laravel Homestead"></a>1.5.运行Laravel Homestead</h3><p>在克隆的的Homestead目录下。启动虚拟机。</p>
-<p><strong>不要再Vbox中启动，不要再Vbox中启动，不要再Vbox中启动。</strong></p>
-<pre><code>$ vagrant up 
-</code></pre>
-<p>加载完成会就可以使用了，使用下方命令与虚拟机建立SSH链接。</p>
-<pre><code>$ vagrant ssh
-</code></pre>
-<p>进去虚拟机的第一件事，解除Composer的xdebug模式，否则严重影响下载包的速度。</p>
-<p>解除方法：</p>
-<p>找到<code>/etc/php/7.0/mods-available/</code>下的<code>xdebug.ini</code>打开后加注释。</p>
-<pre><code>$ sudo nano /etc/php/7.0/mods-available/xdebug.ini  // 使用nano编辑xdebug.ini文件
-</code></pre>
-<p>在<code>zend_extension=xdebug.so</code>前方加<code>;</code></p>
-<p>对<code>sudo nano /etc/php/5.6/mods-available/</code>下的<code>xdebug.ini</code>进行同样操作。</p>
-<pre><code>sudo nano /etc/php/5.6/mods-available/xdebug.ini
-</code></pre>
-<h3 id="1-6-安装laravel到目录"><a href="#1-6-安装laravel到目录" class="headerlink" title="1.6.安装laravel到目录"></a>1.6.安装laravel到目录</h3><p>安装目录在<code>Homestead.yaml</code>设置过，本地目录与虚拟机的目录是共享的。</p>
-<p>即安装完成后，可以直接修改本地目录中的文件。</p>
-<p>使用Git Bash进入项目目录。使用<code>composer</code>安装<code>laravel</code></p>
-<pre><code>$ composer create-project --prefer-dist laravel/laravel [blog]
-</code></pre>
-<p>[blog]可以是任意的项目名称。</p>
-<p><em>注意：项目名称要与<code>Homestead.yaml</code>中设置对应</em></p>
-<p>安装完成后，在浏览器中输入web.app，就可以看到laravel在正常运行了。</p>
-<h3 id="1-7-关机"><a href="#1-7-关机" class="headerlink" title="1.7. 关机"></a>1.7. 关机</h3><p>先使用<code>exit</code>推出SSH链接。</p>
-<p>在关闭虚拟机:</p>
-<pre><code>$ vagrant halt
-</code></pre>
-<hr>
-<h2 id="2-正常安装Laravel"><a href="#2-正常安装Laravel" class="headerlink" title="2. 正常安装Laravel"></a>2. 正常安装Laravel</h2><p>在ubuntu desktop环境下安装。</p>
-<h2 id="安装nginx-php7-mysql-redis"><a href="#安装nginx-php7-mysql-redis" class="headerlink" title="安装nginx + php7 + mysql + redis"></a>安装nginx + php7 + mysql + redis</h2><hr>
-<h3 id="2-1-安装nginx"><a href="#2-1-安装nginx" class="headerlink" title="2.1 安装nginx"></a>2.1 安装nginx</h3><pre><code>$ sudo apt-get update
-$ sudo apt-get install nginx
-</code></pre>
-<p>显示防护墙列表</p>
-<pre><code>$ sudo ufw app list
-</code></pre>
-<p>结果如下</p>
-<pre><code>可用应用程序：
-  CUPS
-  Nginx Full
-  Nginx HTTP
-  Nginx HTTPS
-</code></pre>
-<ul>
-<li>Nginx Full: This profile opens both port 80 (normal, unencrypted web traffic) and port 443 (TLS/SSL encrypted traffic)</li>
-<li>Nginx HTTP: This profile opens only port 80 (normal, unencrypted web traffic)</li>
-<li>Nginx HTTPS: This profile opens only port 443 (TLS/SSL encrypted traffic)</li>
-</ul>
-<p>设置防火墙规则</p>
-<pre><code>$ sudo ufw allow &#39;Nginx Full&#39;
-</code></pre>
-<p>查看防火墙状态</p>
-<pre><code>$ sudo ufw status
-</code></pre>
-<p>网站目录在<code>var/www/html</code></p>
-<p>根据情况修改<code>/etc/nginx/nginx.conf</code>中的<code>keepalive_timeout</code>值。</p>
-<hr>
-<h3 id="2-2-安装php7-0-fpm"><a href="#2-2-安装php7-0-fpm" class="headerlink" title="2.2 安装php7.0-fpm"></a>2.2 安装php7.0-fpm</h3><p><a target="_blank" rel="noopener" href="https://www.howtoforge.com/tutorial/installing-nginx-with-php7-fpm-and-mysql-on-ubuntu-16.04-lts-lemp/">参考地址</a></p>
-<pre><code>$ sudo apt-get install php7.0-fpm
-</code></pre>
-<p>现在还不能访问<code>.php</code>文件，要进行如下设置：</p>
-<pre><code>$ sudo nano /etc/nginx/sites-available/default
-</code></pre>
-<ul>
-<li><p><code>server_name _ </code>服务器名，可以不填。</p>
-</li>
-<li><p><code>root /var/www/html</code> 网站目录地址。可以手动修改。</p>
-<p>  增加<code>index.php</code></p>
-</li>
-<li><p><code>location ~ \.php$</code>php支持，需要解除注释。</p>
-<p>  <code>fastcgi_pass 127.0.0.1:9000;</code>与 <code>fastcgi_pass unix:/run/php/php7.0-fpm.sock;</code>选一个否则冲突。</p>
-</li>
-</ul>
-<p>之后重新读取<code>nginx</code>设置，</p>
-<pre><code>$ sudo service nginx reload
-</code></pre>
-<p>修改<code>/etc/php/7.0/fpm/php.ini</code></p>
-<pre><code>$ sudo nano /etc/php/7.0/fpm/php.ini
-</code></pre>
-<p>设置<code> cgi.fix_pathinfo=1</code></p>
-<p>重启<code>php7.0-fpm</code>服务</p>
-<pre><code>$ sudo service php7.0-fpm reload
-</code></pre>
-<p>网站目录下建立任意<code>.php</code>文件测试。</p>
-<p>文件内容如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>随后输入<code>127.0.0.1/[文件名].php</code></p>
-<p>通过命令定位php7.0的其他包：</p>
-<pre><code>$ sudo apt-cache search php7.0
-</code></pre>
-<p>选择安装的如下：</p>
-<pre><code>$ sudo apt-get install php7.0-cli php7.0-common php7.0 php7.0-mysql php7.0-curl php7.0-gd php7.0-bz2 php7.0-mcrypt php7.0-zip php7.0-mbstring php7.0-xml
-</code></pre>
-<p><em>其他让php7.0使用TCP连接</em></p>
-<p>修改文件<code>/etc/php/7.0/fpm/pool.d/www.conf</code>与<code>/etc/nginx/sites-available/default</code></p>
-<p><code>/etc/php/7.0/fpm/pool.d/www.conf</code>文件</p>
-<pre><code>;listen = /var/run/php5-fpm.sock       //注释掉
-listen = 127.0.0.1:9000                    // 增加
-</code></pre>
-<p><code>/etc/nginx/sites-available/default</code>文件</p>
-<pre><code>[...]
-        location ~ \.php$ &#123;
- include snippets/fastcgi-php.conf;
-
- # With php7.0-cgi alone:
- fastcgi_pass 127.0.0.1:9000;
- # With php7.0-fpm:
- # fastcgi_pass unix:/run/php/php7.0-fpm.sock;
- &#125;
-[...]
-</code></pre>
-<p>重新读取<code>nginx</code></p>
-<pre><code>service nginx reload
-</code></pre>
-<hr>
-<h3 id="2-3-安装MySql"><a href="#2-3-安装MySql" class="headerlink" title="2.3 安装MySql"></a>2.3 安装MySql</h3><pre><code>$ sudo apt-get install mysql-server-5.7 php7.0-mysql
-</code></pre>
-<hr>
-<h3 id="2-4-安装composer"><a href="#2-4-安装composer" class="headerlink" title="2.4 安装composer"></a>2.4 安装composer</h3><p><a target="_blank" rel="noopener" href="https://getcomposer.org/download/">下载地址</a></p>
-<p>随后会得到一个<code>composer.phar</code>文件，可以直接放入任意目录，终端输入<code>composer</code>使用。</p>
-<p>当然为了方便可以设置为全局可以用。</p>
-<pre><code>$ sudo mv composer.phar /usr/local/bin/composer
-$ sudo chmod +x /usr/local/bin/composer
-</code></pre>
-<hr>
-<h3 id="2-5-安装laravel-5"><a href="#2-5-安装laravel-5" class="headerlink" title="2.5 安装laravel 5"></a>2.5 安装laravel 5</h3><p><a target="_blank" rel="noopener" href="https://laravel.com/docs/5.2">文档地址</a></p>
-<h4 id="2-5-1-方法1"><a href="#2-5-1-方法1" class="headerlink" title="2.5.1 方法1"></a>2.5.1 方法1</h4><pre><code>$ composer create-project --prefer-dist laravel/laravel [blog]
-</code></pre>
-<p>[blog]可以为项目名</p>
-<h4 id="2-5-2-方法2"><a href="#2-5-2-方法2" class="headerlink" title="2.5.2 方法2"></a>2.5.2 方法2</h4><p>需要使用<code>bash</code>。<code>zsh</code>测试无效</p>
-<pre><code>$ composer global require &quot;laravel/installer&quot;
-
-$ export PATH=&quot;~/.config/composer/vendor/bin:$PATH&quot;
-</code></pre>
-<p>进入想要创建项目的目录</p>
-<pre><code>$ laravel new [blog]
-</code></pre>
-<p>[blog]可以为项目名</p>
-<p><em>注意：需要梯子！需要梯子！需要梯子！</em></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/27/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/">27</a><span class="page-number current">28</span><a class="page-number" href="/page/29/">29</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/29/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -2328,7 +2156,7 @@ $ export PATH=&quot;~/.config/composer/vendor/bin:$PATH&quot;
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:45</span>
+    <span title="Reading time total">3:46</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

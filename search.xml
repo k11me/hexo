@@ -10629,4 +10629,28 @@ section 2019-12-12
         <tag>godot</tag>
       </tags>
   </entry>
+  <entry>
+    <title>composer的一些坑</title>
+    <url>/2024/01/15/dd4643cdc409/</url>
+    <content><![CDATA[<h1 id="composer-使用-zip-载入的问题"><a href="#composer-使用-zip-载入的问题" class="headerlink" title="composer 使用 zip 载入的问题"></a>composer 使用 zip 载入的问题</h1><h2 id="问题1-no-version-defined"><a href="#问题1-no-version-defined" class="headerlink" title="问题1 no version defined"></a>问题1 no version defined</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Failed loading package in package/xxx-1.1.zip: Package xxx/xxx has no version defined.   </span><br></pre></td></tr></table></figure>
+<p>解决方法为在要载入包的<code>composer.json</code>中添加<code>&quot;version&quot;: &quot;1.0&quot;</code></p>
+<p>之后会进入问题2</p>
+<h2 id="问题2-Could-not-parse-version-constraint-Invalid-version-string-“”"><a href="#问题2-Could-not-parse-version-constraint-Invalid-version-string-“”" class="headerlink" title="问题2  Could not parse version constraint : Invalid version string “”"></a>问题2  Could not parse version constraint : Invalid version string “”</h2><p><code>version</code>需要x.x.x模式，三位版本号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;1.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="docker-不同网络连接的问题"><a href="#docker-不同网络连接的问题" class="headerlink" title="docker 不同网络连接的问题"></a>docker 不同网络连接的问题</h1><p><code>laravel sail</code>使用的网络为<code>sail</code>，与其他的docker容器并不联通。</p>
+<p>这样无法通过内网<code>gitlab</code>获取到私有包。</p>
+<p>解决方法是，将<code>gitlab</code>容器添加到<code>sail</code>网络方便访问。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker network connect sail gitlab</span><br></pre></td></tr></table></figure>
+<p>之后是工具就可以发现<code>gitlab</code>加入了<code>sail</code>网络。</p>
+<p>其他请求可正常使用。记得为<code>sail</code>添加<code>ssh</code>。</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>composer</tag>
+      </tags>
+  </entry>
 </search>
