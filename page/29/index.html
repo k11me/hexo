@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">290</span>
+          <span class="site-state-item-count">291</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -166,7 +166,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,6 +194,195 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/15/ba9e3cb46214/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/15/ba9e3cb46214/" class="post-title-link" itemprop="url">laravel 学习指南 第三章</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-15 01:00:00" itemprop="dateCreated datePublished" datetime="2016-07-15T01:00:00+08:00">2016-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/15/ba9e3cb46214/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/15/ba9e3cb46214/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>TOC<br>{:toc}</li>
+</ul>
+<h2 id="3-跟随快速入门"><a href="#3-跟随快速入门" class="headerlink" title="3. 跟随快速入门"></a>3. 跟随快速入门</h2><p><a target="_blank" rel="noopener" href="https://laravel.com/docs/5.2/quickstart">官方地址</a></p>
+<p><a target="_blank" rel="noopener" href="http://laravelacademy.org/post/3291.html">中文版地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://laravel.tw/docs/5.2/quickstart">台湾版地址</a></p>
+<p>开始前先创建一个新的数据库，并添加到.<code>env</code>文件中。</p>
+<h3 id="3-1-创建quickstart项目"><a href="#3-1-创建quickstart项目" class="headerlink" title="3.1 创建quickstart项目"></a>3.1 创建quickstart项目</h3><h4 id="3-1-1-使用composer"><a href="#3-1-1-使用composer" class="headerlink" title="3.1.1 使用composer"></a>3.1.1 使用composer</h4><pre><code>$ composer create-project laravel/laravel quickstart --prefer-dist
+</code></pre>
+<h4 id="3-1-2-克隆整个快速入门文档"><a href="#3-1-2-克隆整个快速入门文档" class="headerlink" title="3.1.2 克隆整个快速入门文档"></a>3.1.2 克隆整个快速入门文档</h4><pre><code>$ git clone https://github.com/laravel/quickstart-basic quickstart
+$ cd quickstart
+$ composer install
+$ php artisan migrate
+</code></pre>
+<h3 id="3-2-准备数据库"><a href="#3-2-准备数据库" class="headerlink" title="3.2 准备数据库"></a>3.2 准备数据库</h3><p>laravel有一种简单的定义与修改数据表的方法。</p>
+<p>现在使用<code>make:migration</code>生成<code>tasks</code>新的数据表：</p>
+<pre><code>$ php artisan make:migration create_tasks_table --create=tasks
+</code></pre>
+<p><code>make:migration</code>自动添加了<code>id</code>与<code>时间戳</code>。</p>
+<p>手动增加一个条码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$table</span>-&gt;string(<span class="string">&#x27;name&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>随后使用下方命令将<code>tasks</code>写入数据表。</p>
+<pre><code>$ php artisan migrate
+</code></pre>
+<p><em>注意：如果数据库中以及存在<code>tasks</code>数据表，会报错。</em></p>
+<h3 id="3-3-Eloquent-ORM模型"><a href="#3-3-Eloquent-ORM模型" class="headerlink" title="3.3 Eloquent ORM模型"></a>3.3 Eloquent ORM模型</h3><p>laravel 使用默认ORM是Eloquent，[ORM：物件关联对应]，每一个Eloquent模型都有一个对应的数据表。</p>
+<p>所有创建<code>tasks</code>对应的<code>Task</code>模型，使用<code>Artisan</code>命令来生成模型。</p>
+<pre><code>$ php artisan make:model Task
+</code></pre>
+<p>模型在<code>app</code>目录下，默认情况下，模型类是空的。不需要说明Eloquent模型要对应哪张数据表，它会假设数据表是模型的复数形态。</p>
+<p>这里<code>Task</code>对应的是<code>tasks</code>。</p>
+<h3 id="3-4-路由"><a href="#3-4-路由" class="headerlink" title="3.4 路由"></a>3.4 路由</h3><h4 id="3-4-1-建置路由"><a href="#3-4-1-建置路由" class="headerlink" title="3.4.1 建置路由"></a>3.4.1 建置路由</h4><p>默认情况下，所有的路由都定义在<code>app/Http/routes.php</code></p>
+<p>这个需要至少三个路由：显示所有任务的路由，添加新任务的路由，以及删除己存在任务的路由。</p>
+<p>下面再<code>app/Http/routse.php</code>中创建这三个路由。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Task</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Display All Tasks</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="comment">//</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Add A New Task</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Route::post(<span class="string">&#x27;/task&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Delete An Existing Task</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Route::delete(<span class="string">&#x27;/task/&#123;id&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-2-显示视图"><a href="#3-4-2-显示视图" class="headerlink" title="3.4.2 显示视图"></a>3.4.2 显示视图</h4><p>laravel的全部，HTML模板都存放在<code>resources/view</code>目录下，使用<code>view</code>函数从路由中返回一个模板。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">&#x27;tasks&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>现在要在创建一个对应的视图模板<code>resources/views/tasks.blade.php</code>作为<code>View</code>对象。</p>
+<h3 id="3-5-创建布局-amp-视图"><a href="#3-5-创建布局-amp-视图" class="headerlink" title="3.5 创建布局&amp;视图"></a>3.5 创建布局&amp;视图</h3><p>下图中使用了<code>Bootstrap CSS</code>样式</p>
+<p><img src="https://raw.githubusercontent.com/422303771/web/master/ubuntu/laravel/img/basic-overview.png"></p>
+<h4 id="3-5-1-定义布局"><a href="#3-5-1-定义布局" class="headerlink" title="3.5.1 定义布局"></a>3.5.1 定义布局</h4><p><strong>几乎所有的web应用都在不同的页面中共享同一个布局。</strong></p>
+<p>例如，这个应用在视图顶部的导航条，这个导航条在每个页面都会出现。</p>
+<p>laravel通过在每个页面中使用Blade布局让共享这些公共特性变得简单。</p>
+<p>在<code>resources/views/layouts/app.blade.php</code>中定义一个新布局，<code>.blade.php</code>表明使用Blade模板引擎来渲染视图。</p>
+<p>也可以使用PHP原生模板然而，Blade提供的标签语法可以编写简洁的模板。</p>
+<p><code>app.blade.php</code>的内容如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// resources/views/layouts/app.blade.php</span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Laravel Quickstart - Basic<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- CSS And JavaScript --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">&quot;navbar navbar-default&quot;</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- Navbar Contents --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        @yield(&#x27;content&#x27;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>布局中的<code>@yield(&#39;content&#39;)</code>部分，是一个Blade指令，用于指定继承布局的子页面，在这里可以注入自己的内容。</p>
+<h4 id="3-5-2-定义子视图"><a href="#3-5-2-定义子视图" class="headerlink" title="3.5.2 定义子视图"></a>3.5.2 定义子视图</h4><p>现在定义<code>resources/views/tasks.blade.php</code>视图。<code>Bootstrap CSS</code>的样本文件可以到<a target="_blank" rel="noopener" href="https://github.com/laravel/quickstart-basic">github</a>下载</p>
+<p><code>tasks.blade.php</code>内容如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">//resources/views/tasks.blade.php</span><br><span class="line"></span><br><span class="line">@extends(&#x27;layouts.app&#x27;)</span><br><span class="line"></span><br><span class="line">@section(&#x27;content&#x27;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap Boilerplate... --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;panel-body&quot;</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- Display Validation Errors --&gt;</span></span><br><span class="line">        @include(&#x27;common.errors&#x27;)</span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- New Task Form --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/task&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-horizontal&quot;</span>&gt;</span></span><br><span class="line">            &#123;&#123; csrf_field() &#125;&#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- Task Name --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;task&quot;</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-3 control-label&quot;</span>&gt;</span>Task<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-6&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;name&quot;</span> <span class="attr">id</span>=<span class="string">&quot;task-name&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- Add Task Button --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm-offset-3 col-sm-6&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-default&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-plus&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> Add Task</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- <span class="doctag">TODO:</span> Current Tasks --&gt;</span></span><br><span class="line">@endsection</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong></p>
+<p>使用<code>@extends</code>告诉Blade要使用在<code>resources/views/layouts/app.blade.php</code>的布局。</p>
+<p>在<code>@section(&#39;content&#39;)</code>与<code>@endsection</code>之间的内容会被注入到<code>app.blade.php</code>的<code>@yield(&#39;contents&#39;)</code>位置。</p>
+<p><code> @include(&#39;common.errors&#39;)</code>指令将会加载<code>resources/views/common/errors.blade.php</code>中的内容，目前还没有定义。</p>
+<p>现在可以设置路由：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">&#x27;tasks&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-添加任务"><a href="#3-6-添加任务" class="headerlink" title="3.6 添加任务"></a>3.6 添加任务</h3><h4 id="3-6-1-验证"><a href="#3-6-1-验证" class="headerlink" title="3.6.1 验证"></a>3.6.1 验证</h4><p>验证表单，在<code>POST /task</code>路由中编写代码，处理表单请求，我们需要验证表单输入，然后才能创建一个新任务。</p>
+<p>对这个表单而言，将<code>name</code>字段设置为必填项，而长度不超过255个字符。如果表单验证失败，将会跳转到前一个页面，并将错误信息存入一次性的<code>Session</code>中：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">&#x27;/task&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$validator</span> = Validator::make(<span class="variable">$request</span>-&gt;all(), [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;required|max:255&#x27;</span>,</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$validator</span>-&gt;fails()) &#123;</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">            -&gt;withInput()</span><br><span class="line">            -&gt;withErrors(<span class="variable">$validator</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create The Task...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>$errors</strong></p>
+<p><code>-&gt;withErrors($validator)</code>将验证错误信息存放在一次性的session中，以便视图通过<code>$errors</code>访问。</p>
+<p><code>errors.blade.php</code>文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// resources/views/common/errors.blade.php</span></span><br><span class="line"></span><br><span class="line">@<span class="keyword">if</span> (count(<span class="variable">$errors</span>) &gt; <span class="number">0</span>)</span><br><span class="line">    &lt;!-- Form <span class="built_in">Error</span> <span class="keyword">List</span> --&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span>=&quot;<span class="title">alert</span> <span class="title">alert</span>-<span class="title">danger</span>&quot;&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">strong</span>&gt;<span class="title">Whoops</span>! <span class="title">Something</span> <span class="title">went</span> <span class="title">wrong</span>!&lt;/<span class="title">strong</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">        &lt;<span class="title">br</span>&gt;&lt;<span class="title">br</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">        &lt;<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="class">            @<span class="title">foreach</span> ($<span class="title">errors</span>-&gt;<span class="title">all</span>() <span class="title">as</span> $<span class="title">error</span>)</span></span><br><span class="line"><span class="class">                &lt;<span class="title">li</span>&gt;</span>&#123;&#123; <span class="variable">$error</span> &#125;&#125;&lt;/li&gt;</span><br><span class="line">            @<span class="keyword">endforeach</span></span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">@<span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong></p>
+<p><code>errors</code>变量可用于每个laravel的视图中。如果没有验证错误信息存在，那么他就是一个空的<code>ViewErroeBag</code>实例。</p>
+<h4 id="3-6-2-创建任务"><a href="#3-6-2-创建任务" class="headerlink" title="3.6.2 创建任务"></a>3.6.2 创建任务</h4><p>接下来开始创建一个新任务。一旦新任务创建成功，页面会跳转到<code>/</code>。要创建任务，可以有<code>Eloquent</code>模式提供的<code>save</code>方法：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">&#x27;/task&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$validator</span> = Validator::make(<span class="variable">$request</span>-&gt;all(), [</span><br><span class="line">        <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;required|max:255&#x27;</span>,</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$validator</span>-&gt;fails()) &#123;</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">            -&gt;withInput()</span><br><span class="line">            -&gt;withErrors(<span class="variable">$validator</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$task</span> = <span class="keyword">new</span> Task;</span><br><span class="line">    <span class="variable">$task</span>-&gt;name = <span class="variable">$request</span>-&gt;name;</span><br><span class="line">    <span class="variable">$task</span>-&gt;save();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-6-3-显示己存在的任务"><a href="#3-6-3-显示己存在的任务" class="headerlink" title="3.6.3 显示己存在的任务"></a>3.6.3 显示己存在的任务</h4><p>添加代码到视图来显示所有任务列表。</p>
+<p>需要编辑/路由传递所有已存在任务到视图，view函数接收一个数组作为第二个参数，我们可以将数据通过该数组传递到视图中：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$tasks</span> = Task::orderBy(<span class="string">&#x27;created_at&#x27;</span>, <span class="string">&#x27;asc&#x27;</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">&#x27;tasks&#x27;</span>, [</span><br><span class="line">        <span class="string">&#x27;tasks&#x27;</span> =&gt; <span class="variable">$tasks</span></span><br><span class="line">    ]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>数据被传递到视图后，我们可以在<code>tasks.blade.php</code>中以表格形式显示所有任务。Blade中使用<code>@foreach</code>处理循环数据：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">extends</span>(<span class="string">&#x27;layouts.app&#x27;</span>)</span><br><span class="line"></span><br><span class="line">@section(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">    &lt;!-- Create Task Form... --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Current Tasks --&gt;</span><br><span class="line">    @<span class="keyword">if</span> (count(<span class="variable">$tasks</span>) &gt; <span class="number">0</span>)</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span>=&quot;<span class="title">panel</span> <span class="title">panel</span>-<span class="title">default</span>&quot;&gt;</span></span><br><span class="line"><span class="class">            &lt;<span class="title">div</span> <span class="title">class</span>=&quot;<span class="title">panel</span>-<span class="title">heading</span>&quot;&gt;</span></span><br><span class="line"><span class="class">                <span class="title">Current</span> <span class="title">Tasks</span></span></span><br><span class="line"><span class="class">            &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">            &lt;<span class="title">div</span> <span class="title">class</span>=&quot;<span class="title">panel</span>-<span class="title">body</span>&quot;&gt;</span></span><br><span class="line"><span class="class">                &lt;<span class="title">table</span> <span class="title">class</span>=&quot;<span class="title">table</span> <span class="title">table</span>-<span class="title">striped</span> <span class="title">task</span>-<span class="title">table</span>&quot;&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">                    &lt;!-- <span class="title">Table</span> <span class="title">Headings</span> --&gt;</span></span><br><span class="line"><span class="class">                    &lt;<span class="title">thead</span>&gt;</span></span><br><span class="line"><span class="class">                        &lt;<span class="title">th</span>&gt;<span class="title">Task</span>&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line"><span class="class">                        &lt;<span class="title">th</span>&gt;&amp;<span class="title">nbsp</span>;&lt;/<span class="title">th</span>&gt;</span></span><br><span class="line"><span class="class">                    &lt;/<span class="title">thead</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">                    &lt;!-- <span class="title">Table</span> <span class="title">Body</span> --&gt;</span></span><br><span class="line"><span class="class">                    &lt;<span class="title">tbody</span>&gt;</span></span><br><span class="line"><span class="class">                    @<span class="title">foreach</span> ($<span class="title">tasks</span> <span class="title">as</span> $<span class="title">task</span>)</span></span><br><span class="line"><span class="class">                        &lt;<span class="title">tr</span>&gt;</span></span><br><span class="line"><span class="class">                            &lt;!-- <span class="title">Task</span> <span class="title">Name</span> --&gt;</span></span><br><span class="line"><span class="class">                            &lt;<span class="title">td</span> <span class="title">class</span>=&quot;<span class="title">table</span>-<span class="title">text</span>&quot;&gt;</span></span><br><span class="line"><span class="class">                                &lt;<span class="title">div</span>&gt;</span>&#123;&#123; <span class="variable">$task</span>-&gt;name &#125;&#125;&lt;/div&gt;</span><br><span class="line">                            &lt;/td&gt;</span><br><span class="line"></span><br><span class="line">                            &lt;td&gt;</span><br><span class="line">                                &lt;!-- TODO: Delete Button --&gt;</span><br><span class="line">                            &lt;/td&gt;</span><br><span class="line">                        &lt;/tr&gt;</span><br><span class="line">                    @<span class="keyword">endforeach</span></span><br><span class="line">                    &lt;/tbody&gt;</span><br><span class="line">                &lt;/table&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    @<span class="keyword">endif</span></span><br><span class="line">@endsection</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-7-删除任务"><a href="#3-7-删除任务" class="headerlink" title="3.7 删除任务"></a>3.7 删除任务</h3><h4 id="3-7-1-添加删除按钮"><a href="#3-7-1-添加删除按钮" class="headerlink" title="3.7.1 添加删除按钮"></a>3.7.1 添加删除按钮</h4><p>我们在<code>tasks.blade.php</code>视图中留了一个“TODO”注释用于放置删除按钮。当删除按钮被点击时，<code>DELETE /task</code>请求被发送到应用后台：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Task Name --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">&quot;table-text&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123; $task-&gt;name &#125;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Delete Button --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/task/&#123;&#123; $task-&gt;id &#125;&#125;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">            &#123;&#123; csrf_field() &#125;&#125;</span><br><span class="line">            &#123;&#123; method_field(&#x27;DELETE&#x27;) &#125;&#125;</span><br><span class="line"></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span>&gt;</span>Delete Task<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>方法伪造</strong></p>
+<p>尽管我们使用的路由是<code>Route::delete</code>，但我们在删除按钮表单中使用的请求方法为<code>POST</code>，HTML表单只支持<code>GET</code>和<code>POST</code>两种请求方式，因此我们需要使用某种方式来伪造DELETE请求。</p>
+<p>我们可以在表单中通过输出<code>method_field(&#39;DELETE&#39;)</code>来伪造<code>DELETE</code>请求，该函数生成一个隐藏的表单输入框，然后Laravel识别出该输入并使用其值覆盖实际的HTTP请求方法。生成的输入框如下：</p>
+<input type="hidden" name="_method" value="DELETE">
+
+<h4 id="3-7-2-删除任务"><a href="#3-7-2-删除任务" class="headerlink" title="3.7.2 删除任务"></a>3.7.2 删除任务</h4><p>最后，让我们添加业务逻辑到路由中执行删除操作，我们可以使用<code>Eloquent</code>提供的<code>findOrFail</code>方法从数据库通过ID获取模型实例，如果不存在则抛出404异常。获取到模型后，我们使用模型的<code>delete</code>方法删除该模型在数据库中对应的记录。记录被删除后，跳转到<code>/</code>页面:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::delete(<span class="string">&#x27;/task/&#123;id&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">    Task::findOrFail(<span class="variable">$id</span>)-&gt;delete();</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1994,129 +2183,8 @@ title: Blogging Like a Hacker
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/07/a4789fecc6e7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/07/07/a4789fecc6e7/" class="post-title-link" itemprop="url">Arch Linux  安装指南</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2016-07-07 14:30:45" itemprop="dateCreated datePublished" datetime="2016-07-07T14:30:45+08:00">2016-07-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/archlinux/" itemprop="url" rel="index"><span itemprop="name">archlinux</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2016/07/07/a4789fecc6e7/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/07/a4789fecc6e7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="1-基本系统安装"><a href="#1-基本系统安装" class="headerlink" title="1. 基本系统安装"></a>1. 基本系统安装</h2><h3 id="1-1-Arch-Linux镜像下载"><a href="#1-1-Arch-Linux镜像下载" class="headerlink" title="1.1. Arch Linux镜像下载"></a>1.1. Arch Linux镜像<a target="_blank" rel="noopener" href="https://www.archlinux.org/download/">下载</a></h3><h3 id="1-2-安装"><a href="#1-2-安装" class="headerlink" title="1.2. 安装"></a>1.2. 安装</h3><h4 id="1-2-1-VWmare"><a href="#1-2-1-VWmare" class="headerlink" title="1.2.1. VWmare"></a>1.2.1. VWmare</h4><blockquote>
-<p><strong>基本安装设定</strong></p>
-</blockquote>
-<blockquote>
-<ul>
-<li>设定任意 Linux 64位虚拟机</li>
-<li>内存2G，硬盘20G</li>
-<li>挂载镜像光盘</li>
-</ul>
-</blockquote>
-<h4 id="1-2-2-实体机"><a href="#1-2-2-实体机" class="headerlink" title="1.2.2. 实体机"></a>1.2.2. 实体机</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># loadkeys us                                // 设置键盘</span><br><span class="line"># cfdisk                                       // 创建硬盘分区</span><br><span class="line"># mkfs.ext4 /dev/sda1                        // 格式化分区</span><br><span class="line"># mkswap /dev/sda2 &amp;&amp; swapon /dev/sda2       // 挂载swap</span><br><span class="line"># mount /dev/sda1 /mnt                       // 挂载 分区</span><br><span class="line"># vi /etc/pacman.d/mirrorlist                // 添加软件源</span><br><span class="line"># pacman -Syy                                // 更新软件源</span><br><span class="line"># pacstrap /mnt base base-devel net-tools    // 安装基础包</span><br><span class="line"># genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab      // 自动生成引导文件</span><br><span class="line"># arch-chroot /mnt                           // 切入硬盘root</span><br><span class="line"># vi /etc/locale.gen &amp;&amp; locale-gen              // 设置字符</span><br><span class="line"># echo LANG=&quot;zh_CN.UTF-8&quot; &gt;&gt; /etc/locale.conf   // 设置语言</span><br><span class="line"># echo KEYMAP=us &gt;&gt; /etc/vconsole.conf          // 设置键盘</span><br><span class="line"># ln -s /usr/share/zoneinfo/Asia/Chongqing /etc/localtime  // 设置本地时间</span><br><span class="line"># echo vm &gt;&gt; /etc/hostname                                 // 设置主机名称</span><br><span class="line"># mkinitcpio -p linux                                         // 根据配置生成镜像</span><br><span class="line"># passwd                                                   // 修改root密码</span><br><span class="line"># pacman -S grub-bios                                      // 安装grub引导</span><br><span class="line"># grub-install /dev/sda                                    // 安装到硬盘</span><br><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg                     // 自动设置grub</span><br><span class="line"># exit                                                     // 退出root用户</span><br><span class="line"># umount /mnt                                              // 取消挂载硬盘</span><br><span class="line"># reboot                                                   // 重启</span><br></pre></td></tr></table></figure>
-
-<p>备注：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkdir /mnt/home &amp;&amp; mount /dev/sda9 /mnt/home     //创建/home 并挂载硬盘。</span><br></pre></td></tr></table></figure>
-
-<p>在创建硬盘分区后执行，如果有需要。</p>
-<p>要添加的软件源： 参考官方 最新<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Mirrors#China">地址</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http://mirror.bit.edu.cn/archlinux/ - Beijing Institute of Technology</span><br><span class="line">http://mirrors.aliyun.com/archlinux/ - Alibaba</span><br><span class="line"></span><br><span class="line">http://mirrors.sohu.com/archlinux/</span><br><span class="line">http://mirrors.yun-idc.com/archlinux/</span><br></pre></td></tr></table></figure>
-
-<p>以上基本安装完成。</p>
-<h4 id="1-2-3-网站参考"><a href="#1-2-3-网站参考" class="headerlink" title="1.2.3. 网站参考"></a>1.2.3. 网站参考</h4><p><a target="_blank" rel="noopener" href="https://bbs.archlinuxcn.org/viewtopic.php?id=1901">地址1</a></p>
-<p><a target="_blank" rel="noopener" href="https://bbs.archlinuxcn.org/viewtopic.php?id=1037">地址2</a></p>
-<p>自动化安装设置工具<a target="_blank" rel="noopener" href="https://github.com/helmuthdu/aui">Archlinux U Install</a></p>
-<h2 id="2-桌面化安装"><a href="#2-桌面化安装" class="headerlink" title="2. 桌面化安装"></a>2. 桌面化安装</h2><h2 id="3-常用软件补全"><a href="#3-常用软件补全" class="headerlink" title="3. 常用软件补全"></a>3. 常用软件补全</h2><h2 id="4-美化"><a href="#4-美化" class="headerlink" title="4. 美化"></a>4. 美化</h2><h2 id="5-开发环境搭建"><a href="#5-开发环境搭建" class="headerlink" title="5. 开发环境搭建"></a>5. 开发环境搭建</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/28/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/28/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/30/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -2138,7 +2206,7 @@ title: Blogging Like a Hacker
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">248k</span>
+    <span title="Word count total">249k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">

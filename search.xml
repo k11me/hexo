@@ -10653,4 +10653,31 @@ section 2019-12-12
         <tag>composer</tag>
       </tags>
   </entry>
+  <entry>
+    <title>做了下4.2寸墨水屏小玩具 效果不怎么样</title>
+    <url>/2024/02/05/7abfefc656e4/</url>
+    <content><![CDATA[<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>可以确认的是，屏幕本身没有问题，分别使用对应的驱动进行了测试。都可以正常的显示。</p>
+<p>主要问题是对应的固件不开源，还有找作者申请激活码，也是天朝特色。</p>
+<p>好在硬件的电路是公开的，已经做自己重写UI的打算了。</p>
+<p>还好另一种4.2寸的设计，也下单了，元件使用上没有太大变化。总之先试试。</p>
+<p>做好的这两个固件重构大概是没跑了。</p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="板子洗干净的方法"><a href="#板子洗干净的方法" class="headerlink" title="板子洗干净的方法"></a>板子洗干净的方法</h2><p>终于学会了把板子洗干净的方法了</p>
+<p>牙刷 + 无纺布 + 洗板水（或者无水乙醇）</p>
+<p>先用牙刷，刷一下，之后在垫着无纺布刷，几下就干净了。</p>
+<h2 id="幻兽帕鲁"><a href="#幻兽帕鲁" class="headerlink" title="幻兽帕鲁"></a>幻兽帕鲁</h2><p>确实有意思，还容易上头。</p>
+<p>用NAS搭建立了一个小服务器，结果还是只有自己在玩，何苦呢。内存占用确实大，限制了一下。</p>
+<p>下方是docker镜像的地址</p>
+<p><a href="https://github.com/thijsvanloef/palworld-server-docker">docker palworld server</a></p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">resources:</span></span><br><span class="line">      <span class="attr">limits:</span></span><br><span class="line">        <span class="attr">memory:</span> <span class="string">8G</span></span><br></pre></td></tr></table></figure>
+<p>还发现机箱的散热不怎么样，下次装机选个好点的，或者直接水冷算了。</p>
+<h1 id="半成品图如下"><a href="#半成品图如下" class="headerlink" title="半成品图如下"></a>半成品图如下</h1><p><img src="/images/post/2024-02-05/IMG_3108.png"><br><img src="/images/post/2024-02-05/IMG_3115.png"></p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>墨水屏</tag>
+      </tags>
+  </entry>
 </search>
