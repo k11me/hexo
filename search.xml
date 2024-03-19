@@ -10705,6 +10705,12 @@ section 2019-12-12
 <p>成品是下面的样子。</p>
 <p><img src="/images/post/2024-03-19/IMG_3170.png"></p>
 <h3 id="制作来源-1"><a href="#制作来源-1" class="headerlink" title="制作来源"></a>制作来源</h3><p><a href="https://oshwhub.com/jie326513988/mo-shui-ping-1-54v1-1">甘草酸不酸 1.54寸墨水屏</a></p>
+<h2 id="gpg"><a href="#gpg" class="headerlink" title="gpg"></a>gpg</h2><p>gpg 提交时报错</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">error: gpg failed to sign the data:</span><br></pre></td></tr></table></figure>
+<p>解决办法</p>
+<p>在<code>.zshrc</code>中添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> GPG_TTY=<span class="variable">$TTY</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p>asus 路由器 不给esp8266发放IP的问题依然存在。</p>
 <p>目前的解决方法是使用esp32s3，先请求到IP，esp8266再请求，有概率成功获取到IP。</p>
 <p>原因未知。因为固件都不开源，没办法手动设置IP。目前只能每小时，重启一次。</p>
