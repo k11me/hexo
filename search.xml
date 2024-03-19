@@ -10680,4 +10680,41 @@ section 2019-12-12
         <tag>墨水屏</tag>
       </tags>
   </entry>
+  <entry>
+    <title>日常更新下</title>
+    <url>/2024/03/19/112609e862bf/</url>
+    <content><![CDATA[<h1 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h1><h2 id="USB小灯"><a href="#USB小灯" class="headerlink" title="USB小灯"></a>USB小灯</h2><p>发现了一个很可爱的小夜灯，有点像麦麦的logo。做了几个。</p>
+<p>要是红色的PCB板就更像了，可惜没有。</p>
+<p>手动喷一下倒是可以考虑。</p>
+<p><img src="/images/post/2024-03-19/IMG_3163.png"></p>
+<p><a href="https://oshwhub.com/alexz2004/2022-xin-ban-chu-mo-xiao-deng">制作来源：小夜灯</a></p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>果然还是光固化打印的效果最满意。通过这几次付费打印确信了。</p>
+<p>打印完的下一步就是打磨、喷漆或者电镀才行。</p>
+<p>向着方面努力吧，房子太小这些东西都放不下。</p>
+<p>godot 比想象的简单，稳步加速中。</p>
+<span id="more"></span>
+
+<h1 id="墨水屏"><a href="#墨水屏" class="headerlink" title="墨水屏"></a>墨水屏</h1><h2 id="4-2-寸墨水屏"><a href="#4-2-寸墨水屏" class="headerlink" title="4.2 寸墨水屏"></a>4.2 寸墨水屏</h2><p>因为屏幕的关系，做了另外一种的墨水屏效果不错</p>
+<p>屏幕使用的是<code>A03-A1</code><br><img src="/images/post/2024-03-19/IMG_3151M.png"></p>
+<p>之后有下单了<code>WFH0420CZ35</code>，<code>HINK-E04A13-A0</code></p>
+<p>结论是第一种的PCB用<code>HINK-E04A13-A0</code>效果很好。成品是下面的样子。</p>
+<p><img src="/images/post/2024-03-19/IMG_3168.png"></p>
+<h3 id="制作来源"><a href="#制作来源" class="headerlink" title="制作来源"></a>制作来源</h3><p><a href="https://oshwhub.com/HalfSweet/ThreeColorEPaper">半糖4.2寸墨水屏</a><br><a href="https://oshwhub.com/hjh70526/4-2-cun-mo-shui-ping-yue-du-qi">甘草酸不酸 4.2寸墨水瓶</a></p>
+<h2 id="1-54-寸小玩具"><a href="#1-54-寸小玩具" class="headerlink" title="1.54 寸小玩具"></a>1.54 寸小玩具</h2><p>做这个契机是因为第二种的墨水屏的元件通用性很强顺手就做了。</p>
+<p>才不是ESP8266，性能不行导致4.2寸墨水瓶没有天气功能呢！</p>
+<p>成品是下面的样子。</p>
+<p><img src="/images/post/2024-03-19/IMG_3170.png"></p>
+<h3 id="制作来源-1"><a href="#制作来源-1" class="headerlink" title="制作来源"></a>制作来源</h3><p><a href="https://oshwhub.com/jie326513988/mo-shui-ping-1-54v1-1">甘草酸不酸 1.54寸墨水屏</a></p>
+<h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><p>asus 路由器 不给esp8266发放IP的问题依然存在。</p>
+<p>目前的解决方法是使用esp32s3，先请求到IP，esp8266再请求，有概率成功获取到IP。</p>
+<p>原因未知。因为固件都不开源，没办法手动设置IP。目前只能每小时，重启一次。</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>墨水屏</tag>
+      </tags>
+  </entry>
 </search>
