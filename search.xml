@@ -10723,4 +10723,35 @@ section 2019-12-12
         <tag>墨水屏</tag>
       </tags>
   </entry>
+  <entry>
+    <title>sail 使用 ssh</title>
+    <url>/2024/04/07/8d807053a7fe/</url>
+    <content><![CDATA[<h1 id="日常"><a href="#日常" class="headerlink" title="日常"></a>日常</h1><p>2次新冠了，现在还有点咳怕凉。一家都是如此。</p>
+<p>天气太冷，我爸还不多穿，冻成急性胆囊炎了。吃药见好转，无发热。问题不大。</p>
+<p>其实去年12月就发生过一次，去了急诊，当时比较轻就没在意。</p>
+<p>怎么说呢。也好，免得退休出去玩的时候，不知道自己身体状况，乱折腾。</p>
+<p>我妈一个人估计是照顾不了他。</p>
+<span id="more"></span>
+
+<h1 id="sail-添加ssh"><a href="#sail-添加ssh" class="headerlink" title="sail 添加ssh"></a>sail 添加ssh</h1><p>起因是在<code>sail</code>中更新私有库。需要使用ssh验证。</p>
+<p>方法是在<code>docker-compose.yml</code>中添加如下代码，</p>
+<p>记得在<code>docker-compose.yml</code>同目录下创建<code>ssh</code>文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- &#x27;.:/var/www/html&#x27;</span><br><span class="line">- &#x27;./ssh:/home/sail/.ssh&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>随后进入sail 命令行，并创建ssh-key</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">./vendor/bin/sail shell</span><br><span class="line">cd /home/sail/.ssh</span><br><span class="line">ssh-keygen -t rsa -b 4096</span><br></pre></td></tr></table></figure>
+
+<p>这时直接使用会触发权限777错误</p>
+<p><img src="/images/post/2024-04-07/01.png"></p>
+<p>解决方法是降低私钥权限</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 只读</span><br><span class="line">chmod 400 /home/sail/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># 读写</span><br><span class="line">chmod 600 /home/sail/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+
+<h1 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h1>]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+      </tags>
+  </entry>
 </search>

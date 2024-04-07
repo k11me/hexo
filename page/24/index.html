@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">292</span>
+          <span class="site-state-item-count">293</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,125 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/02/11/b3612829c63b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/02/11/b3612829c63b/" class="post-title-link" itemprop="url">2018年02月11日</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-02-11 01:00:00" itemprop="dateCreated datePublished" datetime="2018-02-11T01:00:00+08:00">2018-02-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/02/11/b3612829c63b/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/02/11/b3612829c63b/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="小计"><a href="#小计" class="headerlink" title="小计"></a>小计</h2><p>使用<code>php72-opcache</code>提升响应速度。</p>
+<p><code>DARLING in the FRANXX</code> 超好看，期待第6话。</p>
+<p><code>gitbook</code>生成<code>pdf</code>时，问题有点多。在线倒是没什么问题。</p>
+<h2 id="Mac-安装-php72-opcache"><a href="#Mac-安装-php72-opcache" class="headerlink" title="Mac 安装  php72-opcache"></a>Mac 安装  php72-opcache</h2><p><code>brew</code>搜索包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search php72</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install homebrew/php/php72-opcache</span><br></pre></td></tr></table></figure>
+
+<p>重启<code>php72</code>服务 注意使用<code>sudo</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo brew services restart php72</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>php72-opcache</code>配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">subl /usr/local/etc/php/7.2/conf.d/ext-opcache.ini</span><br></pre></td></tr></table></figure>
+
+<h2 id="appstract-laravel-opcache"><a href="#appstract-laravel-opcache" class="headerlink" title="appstract/laravel-opcache"></a>appstract/laravel-opcache</h2><p><a target="_blank" rel="noopener" href="https://github.com/appstract/laravel-opcache">appstract/laravel-opcache</a></p>
+<p>安装<code>appstract/laravel-opcache</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer require appstract/laravel-opcache</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://laravel-china.org/topics/7458/open-php-opcache-and-make-your-laravel-application-fast">参考文档1</a></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p><code>phpinfo()</code>命令行查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -i &quot;(command-line &#x27;phpinfo()&#x27;)&quot;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1258,150 +1377,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2017/12/24/493bc66a74b1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/12/24/493bc66a74b1/" class="post-title-link" itemprop="url">2016年7月14日</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2017-12-24 23:30:45" itemprop="dateCreated datePublished" datetime="2017-12-24T23:30:45+08:00">2017-12-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2017/12/24/493bc66a74b1/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/24/493bc66a74b1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="日期：2016年7月14日"><a href="#日期：2016年7月14日" class="headerlink" title="日期：2016年7月14日"></a>日期：2016年7月14日</h2><h3 id="今日记录"><a href="#今日记录" class="headerlink" title="今日记录"></a>今日记录</h3><p>学习完成laravel入门，完成学习笔记。</p>
-<p>定制玩家天赋</p>
-<h3 id="今日计划完成度"><a href="#今日计划完成度" class="headerlink" title="今日计划完成度"></a>今日计划完成度</h3><ul>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><p><input checked="" disabled="" type="checkbox"> </p>
-<ol start="2">
-<li>定制玩家天赋</li>
-</ol>
-</li>
-<li><p><input checked="" disabled="" type="checkbox"> </p>
-<ol start="3">
-<li>laravel 快速入门学习</li>
-</ol>
-</li>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol start="4">
-<li>学习数据结构</li>
-</ol>
-</li>
-</ul>
-<h3 id="明日计划"><a href="#明日计划" class="headerlink" title="明日计划"></a>明日计划</h3><ul>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol>
-<li>学习gulp与sass</li>
-</ol>
-</li>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol start="2">
-<li>laravel 学习</li>
-</ol>
-</li>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol start="3">
-<li>学习数据结构</li>
-</ol>
-</li>
-<li><p><input disabled="" type="checkbox"> </p>
-<ol start="4">
-<li>了解HTML5 与 CSS3</li>
-</ol>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/23/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/25/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1425,7 +1400,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">249k</span>
+    <span title="Word count total">250k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
