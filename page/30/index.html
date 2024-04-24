@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">293</span>
+          <span class="site-state-item-count">294</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,500 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/12/1b289a08a4b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/12/1b289a08a4b0/" class="post-title-link" itemprop="url">zsh指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-12 23:30:45" itemprop="dateCreated datePublished" datetime="2016-07-12T23:30:45+08:00">2016-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/12/1b289a08a4b0/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/1b289a08a4b0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="zsh-plugin"><a href="#zsh-plugin" class="headerlink" title="zsh plugin"></a>zsh plugin</h1><h3 id="zsh-tmux"><a href="#zsh-tmux" class="headerlink" title="zsh tmux"></a>zsh tmux</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ta</td>
+<td align="left">tmux attach -t</td>
+</tr>
+<tr>
+<td align="left">ts</td>
+<td align="left">tmux new-session -s</td>
+</tr>
+<tr>
+<td align="left">tl</td>
+<td align="left">tmux list-sessions</td>
+</tr>
+<tr>
+<td align="left">tksv</td>
+<td align="left">tmux kill-server</td>
+</tr>
+<tr>
+<td align="left">tkss</td>
+<td align="left">tmux kill-session -t</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-git"><a href="#zsh-git" class="headerlink" title="zsh git"></a>zsh git</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">g</td>
+<td align="left">git</td>
+</tr>
+<tr>
+<td align="left">ga</td>
+<td align="left">git add</td>
+</tr>
+<tr>
+<td align="left">gaa</td>
+<td align="left">git add –add</td>
+</tr>
+<tr>
+<td align="left">gapa</td>
+<td align="left">git add –patsh</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gb</td>
+<td align="left">git branch</td>
+</tr>
+<tr>
+<td align="left">gba</td>
+<td align="left">git branch -a</td>
+</tr>
+<tr>
+<td align="left">gbnm</td>
+<td align="left">git branch –no-merged</td>
+</tr>
+<tr>
+<td align="left">gbr</td>
+<td align="left">git branch –remote</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gc</td>
+<td align="left">git commit -v</td>
+</tr>
+<tr>
+<td align="left">gca</td>
+<td align="left">git commit -v -a</td>
+</tr>
+<tr>
+<td align="left">gcam</td>
+<td align="left">git commit -a -m</td>
+</tr>
+<tr>
+<td align="left">gcmsg</td>
+<td align="left">git commit -m</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gco</td>
+<td align="left">git checkout</td>
+</tr>
+<tr>
+<td align="left">gcm</td>
+<td align="left">git checkout master</td>
+</tr>
+<tr>
+<td align="left">gcb</td>
+<td align="left">git checkout -b</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gcl</td>
+<td align="left">git clone –recursive</td>
+</tr>
+<tr>
+<td align="left">gcf</td>
+<td align="left">git config –list</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gd</td>
+<td align="left">git diff</td>
+</tr>
+<tr>
+<td align="left">gf</td>
+<td align="left">git fetch</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gl</td>
+<td align="left">git pull</td>
+</tr>
+<tr>
+<td align="left">gm</td>
+<td align="left">git merge</td>
+</tr>
+<tr>
+<td align="left">gmom</td>
+<td align="left">git merge origin/master</td>
+</tr>
+<tr>
+<td align="left">gp</td>
+<td align="left">git push</td>
+</tr>
+<tr>
+<td align="left">gpd</td>
+<td align="left">git push –dry-run</td>
+</tr>
+<tr>
+<td align="left">gpoat</td>
+<td align="left">git push origin –all &amp;&amp; git push origin –tags</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gr</td>
+<td align="left">git remote</td>
+</tr>
+<tr>
+<td align="left">gra</td>
+<td align="left">git remote add</td>
+</tr>
+<tr>
+<td align="left">grmv</td>
+<td align="left">git remote rename</td>
+</tr>
+<tr>
+<td align="left">grrm</td>
+<td align="left">git remote remove</td>
+</tr>
+<tr>
+<td align="left">grv</td>
+<td align="left">git remote -v</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">grb</td>
+<td align="left">git rebase</td>
+</tr>
+<tr>
+<td align="left">grbm</td>
+<td align="left">git rebase master</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">grh</td>
+<td align="left">git reset HEAD</td>
+</tr>
+<tr>
+<td align="left">grhh</td>
+<td align="left">git reset HEAD –hard</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gsb</td>
+<td align="left">git status -sb</td>
+</tr>
+<tr>
+<td align="left">gss</td>
+<td align="left">git status -s</td>
+</tr>
+<tr>
+<td align="left">gst</td>
+<td align="left">git status</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">gts</td>
+<td align="left">git tag -s</td>
+</tr>
+<tr>
+<td align="left">gtv</td>
+<td align="left">git tag</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-laravel"><a href="#zsh-laravel" class="headerlink" title="zsh laravel"></a>zsh laravel</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">la5</td>
+<td align="left">php artisan</td>
+</tr>
+<tr>
+<td align="left">la5cache</td>
+<td align="left">php artisan cache:clear</td>
+</tr>
+<tr>
+<td align="left">la5routes</td>
+<td align="left">php artisan route:list</td>
+</tr>
+<tr>
+<td align="left">la5vendor</td>
+<td align="left">php artisan vendor:publish</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-ubuntu"><a href="#zsh-ubuntu" class="headerlink" title="zsh ubuntu"></a>zsh ubuntu</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ag</td>
+<td align="left">sudo apt-get</td>
+</tr>
+<tr>
+<td align="left">aga</td>
+<td align="left">sudo apt-get autoclean</td>
+</tr>
+<tr>
+<td align="left">agar</td>
+<td align="left">sudo apt-get autoremove</td>
+</tr>
+<tr>
+<td align="left">agb</td>
+<td align="left">sudo apt-get build-dep</td>
+</tr>
+<tr>
+<td align="left">agc</td>
+<td align="left">sudo apt-get clean</td>
+</tr>
+<tr>
+<td align="left">agd</td>
+<td align="left">sudo apt-get dselect-upgrade</td>
+</tr>
+<tr>
+<td align="left">agi</td>
+<td align="left">sudo apt-get install</td>
+</tr>
+<tr>
+<td align="left">agp</td>
+<td align="left">sudo apt-get purge</td>
+</tr>
+<tr>
+<td align="left">agr</td>
+<td align="left">sudo apt-get remove</td>
+</tr>
+<tr>
+<td align="left">agu</td>
+<td align="left">sudo apt-get update</td>
+</tr>
+<tr>
+<td align="left">agud</td>
+<td align="left">sudo apt-get update &amp;&amp; sudo apt-get dist-upgrade</td>
+</tr>
+<tr>
+<td align="left">agug</td>
+<td align="left">sudo apt-get upgrade</td>
+</tr>
+<tr>
+<td align="left">aguu</td>
+<td align="left">sudo apt-get update &amp;&amp; sudo apt-get upgrade</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-npm"><a href="#zsh-npm" class="headerlink" title="zsh npm"></a>zsh npm</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">npmg</td>
+<td align="left">npm i -g</td>
+</tr>
+<tr>
+<td align="left">npmS</td>
+<td align="left">npm i -S</td>
+</tr>
+<tr>
+<td align="left">npmD</td>
+<td align="left">npm i -D</td>
+</tr>
+<tr>
+<td align="left">npmO</td>
+<td align="left">npm outdated</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-ruby"><a href="#zsh-ruby" class="headerlink" title="zsh ruby"></a>zsh ruby</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">sgem</td>
+<td align="left">sudo gem</td>
+</tr>
+</tbody></table>
+<h3 id="zsh-bundler"><a href="#zsh-bundler" class="headerlink" title="zsh bundler"></a>zsh bundler</h3><table>
+<thead>
+<tr>
+<th align="left">缩写</th>
+<th align="left">命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">be</td>
+<td align="left">bundle exec</td>
+</tr>
+<tr>
+<td align="left">bl</td>
+<td align="left">bundle list</td>
+</tr>
+<tr>
+<td align="left">bp</td>
+<td align="left">bundle package</td>
+</tr>
+<tr>
+<td align="left">bo</td>
+<td align="left">bundle open</td>
+</tr>
+<tr>
+<td align="left">bout</td>
+<td align="left">bundle outdated</td>
+</tr>
+<tr>
+<td align="left">bu</td>
+<td align="left">bundle update</td>
+</tr>
+<tr>
+<td align="left">bi</td>
+<td align="left">bundle install</td>
+</tr>
+<tr>
+<td align="left">bcn</td>
+<td align="left">bundle clean</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
