@@ -10782,4 +10782,23 @@ section 2019-12-12
         <tag>日记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>godot的图片载入</title>
+    <url>/2024/06/15/f1b1b15c70b2/</url>
+    <content><![CDATA[<h1 id="godot的图片载入的坑"><a href="#godot的图片载入的坑" class="headerlink" title="godot的图片载入的坑"></a>godot的图片载入的坑</h1><h2 id="图片载入"><a href="#图片载入" class="headerlink" title="图片载入"></a>图片载入</h2><p>事情是这的使用<code>load()</code>载入<code>res://00.png</code>图片的时候，能正常加载。</p>
+<p>换成<code>user://</code>就不行了。会有下面的报错</p>
+<p><img src="/images/post/2024-06-15/01.png"></p>
+<p>解决方法呢就是将图片使用<code>ImageTexture</code>资源的形式引入就能正常加载了。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">func <span class="title function_">load_texture</span>(file_name : <span class="title class_">String</span>):</span><br><span class="line">	<span class="keyword">var</span> img = <span class="title class_">Image</span>.<span class="title function_">new</span>()</span><br><span class="line">	img.<span class="title function_">load</span>(<span class="string">&quot;user://images/&quot;</span> + file_name + <span class="string">&quot;.png&quot;</span> )</span><br><span class="line">	<span class="keyword">return</span> <span class="title class_">ImageTexture</span>.<span class="title function_">create_from_image</span>(img)</span><br></pre></td></tr></table></figure>
+
+<p>使用的时候，直接使用<code>load_texture(file_name)</code>就可以了。</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>godot</tag>
+      </tags>
+  </entry>
 </search>
