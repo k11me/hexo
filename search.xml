@@ -10817,4 +10817,36 @@ section 2019-12-12
         <tag>日记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>sail ssh 的位置变了</title>
+    <url>/2024/08/19/7fd99df88202/</url>
+    <content><![CDATA[<h1 id="sail-ssh-位置"><a href="#sail-ssh-位置" class="headerlink" title="sail ssh 位置"></a>sail ssh 位置</h1><p>使用sail 拉取 包时，被拒绝了</p>
+<p>后来发现是ssh的位置变了记录一下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#x27;./ssh:/root/.ssh&#x27;</span><br></pre></td></tr></table></figure>
+<p>下次重启的时候会切过来。</p>
+<span id="more"></span>
+
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>图片的载入完成了。</p>
+<p>因为开箱子部分的UI卡了几天。</p>
+<p>怎么说呢。看着不多东西，展开了都很麻烦。</p>
+<p>不过熟悉之后就好很多。</p>
+<p>总之先让各个功能正常的跑起来吧。</p>
+<p>还有一件事，游戏上架后，这个站会关掉。</p>
+<p>现在测试用的使用库，备份后有1.72G。这是我没想到的，服务器好贵！</p>
+<p>sail 在群晖上测试起来有点慢，之后要处理模型什么的要用window，也是没办法的事儿。</p>
+<p><img src="/images/post/2024-08-19/01.png"></p>
+<p>还有就是虽然知道后端写了很多，今天移植的时候还是有被惊到。</p>
+<p>还好有git。这要是以前，等吧。</p>
+<p>感觉上吧，之前是在迷雾，前面有个光点，一直再跑，就是到不了。</p>
+<p>现在呢，是看到出去大门了。还是有点开心的。</p>
+<p>虽然上架了，不会是结束。但是咱还是想吃个大餐，庆祝一下。</p>
+]]></content>
+      <categories>
+        <category>Living</category>
+      </categories>
+      <tags>
+        <tag>日记</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
 </search>
