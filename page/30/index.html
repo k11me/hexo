@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">297</span>
+          <span class="site-state-item-count">298</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,187 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/13/c7d69e97b93f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/07/13/c7d69e97b93f/" class="post-title-link" itemprop="url">vim 学习指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2016-07-13 18:30:45" itemprop="dateCreated datePublished" datetime="2016-07-13T18:30:45+08:00">2016-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/ubuntu/" itemprop="url" rel="index"><span itemprop="name">ubuntu</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2016/07/13/c7d69e97b93f/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/13/c7d69e97b93f/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="vim-使用指南"><a href="#vim-使用指南" class="headerlink" title="vim 使用指南"></a>vim 使用指南</h1><h2 id="1-vim-插件管理器"><a href="#1-vim-插件管理器" class="headerlink" title="1.vim 插件管理器"></a>1.vim 插件管理器</h2><h3 id="1-1-Vundle-git仓库"><a href="#1-1-Vundle-git仓库" class="headerlink" title="1.1 Vundle git仓库"></a>1.1 Vundle <a target="_blank" rel="noopener" href="https://github.com/VundleVim/Vundle.vim">git仓库</a></h3><p>安装文档有中文指南。</p>
+<h3 id="1-2-第一步"><a href="#1-2-第一步" class="headerlink" title="1.2 第一步"></a>1.2 第一步</h3><pre><code>$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+</code></pre>
+<h3 id="1-3-第二步"><a href="#1-3-第二步" class="headerlink" title="1.3 第二步"></a>1.3 第二步</h3><p>对<code>.vimrc</code>文件进行设置。</p>
+<p><code>begin()</code>和<code>end()</code>之间的为可以添加的插件。</p>
+<p>插件添加支持多种格式。</p>
+<pre><code>set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin &#39;VundleVim/Vundle.vim&#39;
+Plugin &#39;tpope/vim-fugitive&#39;
+Plugin &#39;L9&#39;
+Plugin &#39;wincent/command-t&#39;
+Plugin &#39;godlygeek/tabular&#39;
+Plugin &#39;plasticboy/vim-markdown&#39;
+Plugin &#39;suan/vim-instant-markdown&#39;
+
+call vundle#end()            
+filetype plugin indent on
+</code></pre>
+<h3 id="1-4-第三步"><a href="#1-4-第三步" class="headerlink" title="1.4 第三步"></a>1.4 第三步</h3><p>在vim中输入<code>:PluginInstall</code>来安装插件。</p>
+<hr>
+<h2 id="2-vim-常用插件指南"><a href="#2-vim-常用插件指南" class="headerlink" title="2.vim 常用插件指南"></a>2.vim 常用插件指南</h2><h3 id="2-1-Command-t"><a href="#2-1-Command-t" class="headerlink" title="2.1 Command-t"></a>2.1 Command-t</h3><p>插件<a target="_blank" rel="noopener" href="https://github.com/wincent/command-t">地址</a></p>
+<p>插件需要安装<code>ruby</code>，安装完成后，进入目录<code>~/.vim/bundle/command-t/ruby/command-t</code></p>
+<p>执行下方命令：</p>
+<pre><code>ruby extconf.rb
+make
+</code></pre>
+<p>之后进入Vim，输入命令<code>:CommandT</code>查看效果。</p>
+<p>如果提示vim不支持<code>ruby</code>，则安装<code>vim-nox</code></p>
+<pre><code>$ sudo apt-get install vim-nox
+</code></pre>
+<p>下图，为正常运行图</p>
+<p><img src="https://raw.githubusercontent.com/wincent/command-t/media/command-t.gif"></p>
+<p><strong>简要使用说明</strong></p>
+<p><code>tab</code>为选择切换到文件选择。方向键用了选择文件。<code>enter</code>确认选择。</p>
+<hr>
+<h3 id="2-2-vim中编写markdown与预览"><a href="#2-2-vim中编写markdown与预览" class="headerlink" title="2.2 vim中编写markdown与预览"></a>2.2 vim中编写markdown与预览</h3><p>需要安装的插件有三个。</p>
+<pre><code>Plugin &#39;godlygeek/tabular&#39;
+Plugin &#39;plasticboy/vim-markdown&#39;
+Plugin &#39;suan/vim-instant-markdown&#39;
+</code></pre>
+<p>其中<code>vim-instant-markdown</code>需要安装<code>nodejs</code>、<code>npm</code>、<code>xdg-utils</code>、<code>nodejs-legacy</code>。</p>
+<p>安装<code>instant-markdown-d</code></p>
+<pre><code>$ sudo npm -g install instant-markdown-d
+</code></pre>
+<p>其他需要组件：</p>
+<pre><code>$ sudo apt-get install nodejs
+$ sudo apt-get install npm
+$ sudo apt-get install xdg-utils
+$ sudo apt-get install nodejs-legacy
+</code></pre>
+<p>实现的效果为<code>浏览器预览</code>与<code>markdown语法高亮</code></p>
+<p>安装完成后效果如下图：</p>
+<p><img src="https://dl.dropboxusercontent.com/u/28956267/instant-markdown-demo.gif"></p>
+<hr>
+<h3 id="2-3-nerdTree"><a href="#2-3-nerdTree" class="headerlink" title="2.3 nerdTree"></a>2.3 nerdTree</h3><p>参考<a target="_blank" rel="noopener" href="https://github.com/scrooloose/nerdtree">地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Xuyuanp/nerdtree-git-plugin">nerdtree-git-plugin</a> git语法提示</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jistr/vim-nerdtree-tabs">vim-nerdtree-tabs</a> NERDTree tag控制</p>
+<pre><code>Plugin &#39;scrooloose/nerdTree&#39;
+Plugin &#39;Xuyuanp/nerdtree-git-plugin&#39;
+Plugin &#39;jistr/vim-nerdtree-tabs&#39;
+</code></pre>
+<p><code>vim</code>中输入<code>PluginInstall</code>，输入<code>NERDTree</code>检查是否运行</p>
+<p>在<code>.vimrc</code>中添加设置</p>
+<pre><code>&quot; NERDTRee config NERDTree 设置
+
+autocmd vimenter * NERDTree  “ 当指定文件时，自动随VIM启动。
+
+&quot;未指定文件时，加载NERDTree
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 &amp;&amp; !exists(&quot;s:std_in&quot;) | NERDTree | endif
+
+&quot;隐藏与显示快捷键[Ctrl+n]
+
+map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;
+
+&quot;左侧只有一个窗口时，随Vim一起关闭
+
+autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif
+</code></pre>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
