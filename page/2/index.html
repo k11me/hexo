@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">299</span>
+          <span class="site-state-item-count">300</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,110 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2024/01/15/dd4643cdc409/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/15/dd4643cdc409/" class="post-title-link" itemprop="url">composer的一些坑</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-01-15 20:30:00 / Modified: 22:45:12" itemprop="dateCreated datePublished" datetime="2024-01-15T20:30:00+08:00">2024-01-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2024/01/15/dd4643cdc409/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/01/15/dd4643cdc409/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="composer-使用-zip-载入的问题"><a href="#composer-使用-zip-载入的问题" class="headerlink" title="composer 使用 zip 载入的问题"></a>composer 使用 zip 载入的问题</h1><h2 id="问题1-no-version-defined"><a href="#问题1-no-version-defined" class="headerlink" title="问题1 no version defined"></a>问题1 no version defined</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Failed loading package in package/xxx-1.1.zip: Package xxx/xxx has no version defined.   </span><br></pre></td></tr></table></figure>
+<p>解决方法为在要载入包的<code>composer.json</code>中添加<code>&quot;version&quot;: &quot;1.0&quot;</code></p>
+<p>之后会进入问题2</p>
+<h2 id="问题2-Could-not-parse-version-constraint-Invalid-version-string-“”"><a href="#问题2-Could-not-parse-version-constraint-Invalid-version-string-“”" class="headerlink" title="问题2  Could not parse version constraint : Invalid version string “”"></a>问题2  Could not parse version constraint : Invalid version string “”</h2><p><code>version</code>需要x.x.x模式，三位版本号。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;1.0.0&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="docker-不同网络连接的问题"><a href="#docker-不同网络连接的问题" class="headerlink" title="docker 不同网络连接的问题"></a>docker 不同网络连接的问题</h1><p><code>laravel sail</code>使用的网络为<code>sail</code>，与其他的docker容器并不联通。</p>
+<p>这样无法通过内网<code>gitlab</code>获取到私有包。</p>
+<p>解决方法是，将<code>gitlab</code>容器添加到<code>sail</code>网络方便访问。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network connect sail gitlab</span><br></pre></td></tr></table></figure>
+<p>之后是工具就可以发现<code>gitlab</code>加入了<code>sail</code>网络。</p>
+<p>其他请求可正常使用。记得为<code>sail</code>添加<code>ssh</code>。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1164,110 +1268,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2023/03/23/f036326059eb/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/23/f036326059eb/" class="post-title-link" itemprop="url">到数据整合了，后端的最后程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2023-03-23 22:39:00 / Modified: 22:54:31" itemprop="dateCreated datePublished" datetime="2023-03-23T22:39:00+08:00">2023-03-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2023/03/23/f036326059eb/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/03/23/f036326059eb/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="要对数据整合了"><a href="#要对数据整合了" class="headerlink" title="要对数据整合了"></a>要对数据整合了</h1><p>地图随机部分使用内存加预先生成了，否则速度太慢了。</p>
-<p>上线那天开心不会很多吧。担心性能和体验倒是真的。</p>
-<p>也不知道为啥，一点都不担心游戏端。</p>
-<p>明明也是一堆坑要填。大概比起构建整个后端容易吧。</p>
-<p>好想有钱把重复的工作都发包出去。</p>
-<p>只做创造，设计，整合。这样比较有效率。</p>
-<p>之后事儿，有想过大方向。</p>
-<p>感觉有点远。</p>
-<h1 id="短期目标"><a href="#短期目标" class="headerlink" title="短期目标"></a>短期目标</h1><p>夏天前赚够买房车的钱吧</p>
-<p>过了10万用户数，就要考虑开公司了。</p>
-<p>自己绝对搞不定的。</p>
-<p>希望顺利吧。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1291,13 +1291,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">251k</span>
+    <span title="Word count total">252k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:48</span>
+    <span title="Reading time total">3:49</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>

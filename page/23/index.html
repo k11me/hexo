@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">299</span>
+          <span class="site-state-item-count">300</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,119 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/04/27/9f01c1ee69c2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/04/27/9f01c1ee69c2/" class="post-title-link" itemprop="url">宫墙又高了</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-04-27 00:01:00" itemprop="dateCreated datePublished" datetime="2018-04-27T00:01:00+08:00">2018-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2018/04/27/9f01c1ee69c2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/27/9f01c1ee69c2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="US线路丢包越发严重了……-心塞……"><a href="#US线路丢包越发严重了……-心塞……" class="headerlink" title="US线路丢包越发严重了…… 心塞……"></a>US线路丢包越发严重了…… 心塞……</h1><p>自家web访问缓慢…… 于是使用cloudflare转发</p>
+<p>需要注意 更改域名解析，更改后速度提高了好多~~</p>
+<p>不过<code>iTerm2</code>使用<code>SSH</code>依然缓慢。</p>
+<p>解决方案让<code>SSH</code>可以使用<code>Socks5</code></p>
+<h2 id="SSH使用Socks5"><a href="#SSH使用Socks5" class="headerlink" title="SSH使用Socks5"></a>SSH使用Socks5</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -o ProxyCommand=&#x27;nc -x 127.0.0.1:8083 %h %p&#x27; -p 22 &lt;user&gt;@&lt;000.000.000.000&gt;</span><br></pre></td></tr></table></figure>
+
+<p>绕一圈的速度都比直连快……我也是……醉了……</p>
+<p><a target="_blank" rel="noopener" href="https://ieevee.com/tech/2017/10/19/ssh-over-socks5.html">参考地址</a></p>
+<h2 id="iTerm2使用proxy-的方法"><a href="#iTerm2使用proxy-的方法" class="headerlink" title="iTerm2使用proxy 的方法"></a>iTerm2使用proxy 的方法</h2><p>在<code>.zshrc</code>中添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alias goproxy=&#x27;export http_proxy=&quot;http://127.0.0.1:8003&quot;; export HTTP_PROXY=&quot;http://127.0.0.1:8003&quot;; export https_proxy=&quot;http://127.0.0.1:8003&quot;; export HTTPS_PROXY=&quot;http://127.0.0.1:8003&quot;&#x27;</span><br><span class="line">alias disproxy=&#x27;unset http_proxy HTTP_PROXY https_proxy HTTPS_PROXY&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>开启时使用<code>goproxy</code></p>
+<p>关闭时使用<code>disproxy</code></p>
+<p>从此<code>brew</code>、<code>composer</code>、<code>npm</code>,可以免去漫长的等待了。</p>
+<p>验证是否有效<code>curl ifconfig.me</code>返回的就是当前IP。</p>
+<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1410,166 +1523,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2018/03/01/aaf03e653abb/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/03/01/aaf03e653abb/" class="post-title-link" itemprop="url">2018年03月01日</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-03-01 01:00:00" itemprop="dateCreated datePublished" datetime="2018-03-01T01:00:00+08:00">2018-03-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2018/03/01/aaf03e653abb/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/01/aaf03e653abb/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h1><p><code>ssr</code>的<code>tls</code>被爆，大规模封禁来袭，转<code>v2ray</code></p>
-<p>直接部署非常容易，使用<code>docker</code>快速部署是正解，</p>
-<p>实现<code>websocket+tls+V2ray+Nginx+CDN</code></p>
-<p>起因，2018年2月15日开始梯子出现故障，换之。</p>
-<p>2018年2月25日 <code>戊戌复辟</code>，可笑至极，诸多词变为禁语。包括<code>张勋</code>、<code>袁世凯</code>等等。微博、微信，禁止修改头像，签名。<code>反对</code>等不能发表。</p>
-<p>马前课 第十一课 开始了…… </p>
-<p>2月26日开始研究部署<code>v2ray</code>相关，其中遇坑，记录如下，供后人参考。</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>v2ray 使用<code>websocket</code>连接到<code>CDN</code>，对抗<code>DNS</code>污染，保护真实<code>IP</code></p>
-<p><code>CDN</code>连接在到<code>服务器</code>，全程通讯使用<code>tls</code>加密。【不是仿造，是真正的TLS】，服务器内部转发到<code>v2ray</code>容器。</p>
-<blockquote>
-<p>Q:为什么使用<code>docker</code>而不是直接部署？<br>A:不方便转移到其他服务器。同时不容易弄乱服务器环境<br>Q:<code>docker</code>好处是什么<br>A：不需要手动更新证书，可以使用二级域名部署其他服务。比如<code>web</code>、<code>mail</code>等等。可以随时添加。</p>
-</blockquote>
-<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><p>大多数供应商都支持<code>docker</code>快速构建，直接选择即可。服务器多为<code>ubuntu</code>。</p>
-<p>更新各种包后，准备开始工作。</p>
-<p>更新命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ apt update</span><br><span class="line">$ apt upgrade</span><br></pre></td></tr></table></figure>
-
-<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|-- docker-compose.yml</span><br><span class="line">|-- v2ray</span><br><span class="line">|   `-- config.json</span><br><span class="line">`-- vhost.d</span><br><span class="line">    `-- ******_location</span><br></pre></td></tr></table></figure>
-
-<h2 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h2><p>说明:</p>
-<p><code>v2ray</code>下的<code>VIRTUAL_HOST</code>注意填写为二级域名，也可以去掉不填。    </p>
-<p>同样<code>v2ray</code>下的<code>expose</code>与<code>VIRTUAL_PORT</code>为端口号，应该与<code>*****_location</code>中端口一致。</p>
-<hr>
-<p><code>web1</code>为一般web服务器，开放端口<code>80</code>。<br><code>You_Domain_Name</code> 改为你的域名<br><code>You_Email</code> 为邮箱，必填    </p>
-<ul>
-<li>VIRTUAL_HOST=<code>You_Domain_Name</code></li>
-<li>VIRTUAL_PORT=<code>80</code></li>
-<li>LETSENCRYPT_HOST=<code>You_Domain_Name</code></li>
-<li>LETSENCRYPT_EMAIL=<code>You_Email</code></li>
-</ul>
-<hr>
-<p><code>nginx-proxy</code>如名字,详情自行<code>google</code><br><code>letsencrypt-nginx-proxy-companion</code>如名字,详情自行<code>google</code></p>
-<hr>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;2&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">v2ray:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">v2ray/official</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">v2ray</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">expose:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;****&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">$PWD/v2ray:/etc/v2ray</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">$PWD/v2ray/config.json:/etc/v2ray/config.json:ro</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_HOST=****</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_PORT=****</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">web1:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">nginx:latest</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">expose:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_HOST=*****</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_PORT=80</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LETSENCRYPT_HOST=*****.***</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LETSENCRYPT_EMAIL=*****@*****.***</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">nginx-proxy:</span></span><br><span class="line">      <span class="attr">image:</span> <span class="string">jwilder/nginx-proxy:latest</span></span><br><span class="line">      <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">      <span class="attr">ports:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">&quot;80:80&quot;</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">&quot;443:443&quot;</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">/path/to/certs:/etc/nginx/certs:ro</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">$PWD/vhost.d:/etc/nginx/vhost.d:ro</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">/usr/share/nginx/html</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/tmp/docker.sock:ro</span></span><br><span class="line">      <span class="attr">labels:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">&quot;com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">letsencrypt-nginx-proxy-companion:</span></span><br><span class="line">      <span class="attr">image:</span> <span class="string">jrcs/letsencrypt-nginx-proxy-companion:latest</span></span><br><span class="line">      <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">      <span class="attr">volumes:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">/path/to/certs:/etc/nginx/certs:rw</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">$PWD/vhost.d:/etc/nginx/vhost.d:ro</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/var/run/docker.sock:ro</span></span><br><span class="line">      <span class="attr">volumes_from:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="string">nginx-proxy</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="TLS转发"><a href="#TLS转发" class="headerlink" title="TLS转发"></a>TLS转发</h2><p>在<code>dockec-compose.yml</code>下创建<code>vhost.d</code>文件件，</p>
-<p>新建文件<code>You_Domain_Name_location</code></p>
-<p>使用你的域名替换<code>You_Domain_Name</code>，要与<code>web1</code>设置的一致。</p>
-<p>注意<code>proxy_pass</code>后的端口与<code>v2ray</code>设置的一致。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">proxy_redirect off;</span><br><span class="line">proxy_http_version 1.1;</span><br><span class="line">proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">proxy_set_header Host $http_host;</span><br><span class="line">if ($http_upgrade = &quot;websocket&quot; ) &#123;</span><br><span class="line">    proxy_pass http://v2ray:****;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="v2ray-设置文件config-json"><a href="#v2ray-设置文件config-json" class="headerlink" title="v2ray 设置文件config.json"></a>v2ray 设置文件<code>config.json</code></h2><p>在<code>dockec-compose.yml</code>下创建<code>v2ray</code>文件件，</p>
-<p>新建文件<code>config.json</code></p>
-<p><code>port</code>注意与<code>v2ray</code>设置一致</p>
-<p><code>id</code>改为<code>你的id</code>，可以使用<a target="_blank" rel="noopener" href="https://www.uuidgenerator.net/">uuidgenerator</a>生成一个。</p>
-<p><code>json</code>写完之后，注意校对格式哦</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;inbound&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;port&quot;</span>: <span class="string">&quot;****&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;vmess&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;settings&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;clients&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;***********&quot;</span>,</span><br><span class="line">          <span class="attr">&quot;alterId&quot;</span>: <span class="number">64</span></span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;streamSettings&quot;</span>: &#123;</span><br><span class="line">      <span class="attr">&quot;network&quot;</span>: <span class="string">&quot;ws&quot;</span>,</span><br><span class="line">      <span class="attr">&quot;wsSettings&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;path&quot;</span>: <span class="string">&quot;/&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;outbound&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;protocol&quot;</span>: <span class="string">&quot;freedom&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;settings&quot;</span>: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="之后"><a href="#之后" class="headerlink" title="之后"></a>之后</h2><p>去用户端里面设置吧。地址<code>You_Domain_Name</code>端口<code>443</code>，记得使用<code>websocket</code>与<code>TLS</code>。</p>
-<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p><code>CloudFlare</code></p>
-<p><code>DNS</code>中开启<code>websocket</code></p>
-<p><code>Crypto</code> 中<code>Require Modern TLS</code>关闭</p>
-<p><code>Crypto</code> 中<code>Authenticated Origin Pulls</code>关闭</p>
-<p><code>Crypto</code> 中<code>Opportunistic Encryption</code>关闭</p>
-<h2 id="nginx-proxy-的坑"><a href="#nginx-proxy-的坑" class="headerlink" title="nginx-proxy 的坑"></a>nginx-proxy 的坑</h2><p><code>nginx-proxy</code>中，设置转发时<code>www.www.com/path</code>无法正常解析，这个问题3年没有修复过了……     </p>
-<p>错误重现:<code>vhost.d</code>下，新建<code>www.www.com</code>设置    </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">location /v2ray/ &#123;</span><br><span class="line">  proxy_redirect off;</span><br><span class="line">  proxy_http_version 1.1;</span><br><span class="line">  proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">  proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">  proxy_set_header Host $http_host;</span><br><span class="line">  if ($http_upgrade = &quot;websocket&quot; ) &#123;</span><br><span class="line">      proxy_pass http://v2ray:****;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>于是只能使用<code>www.www.com_location</code>进行转发。</p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a target="_blank" rel="noopener" href="https://www.v2ray.com/">v2ray</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.starryvoid.com/archives/267.html">参考1</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.birkhoff.me/use-docker-to-deploy-vmess-and-ss-using-docker/">参考2</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/22/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/24/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1593,13 +1546,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">251k</span>
+    <span title="Word count total">252k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:48</span>
+    <span title="Reading time total">3:49</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
