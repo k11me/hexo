@@ -155,7 +155,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">303</span>
+          <span class="site-state-item-count">304</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -194,6 +194,171 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/04/20/60206e2064a8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="K11">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Keleven.Me">
+      <meta itemprop="description" content="千变万化的是世界">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Keleven.Me">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/04/20/60206e2064a8/" class="post-title-link" itemprop="url">gitlab 调整</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2019-04-20T00:00:00+08:00">2019-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/2019/04/20/60206e2064a8/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/20/60206e2064a8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Ubuntu-分区小了"><a href="#Ubuntu-分区小了" class="headerlink" title="Ubuntu 分区小了"></a>Ubuntu 分区小了</h1><p><code>gitlab</code> 镜像越来越大了，终于空间不够用了……</p>
+<h2 id="gitlab-备份"><a href="#gitlab-备份" class="headerlink" title="gitlab 备份"></a>gitlab 备份</h2><h3 id="备份项目"><a href="#备份项目" class="headerlink" title="备份项目"></a>备份项目</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -t &lt;container name&gt; gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure>
+
+<p>注意备份<code>docker-compose.yml</code> 文件</p>
+<h3 id="备份设置文件"><a href="#备份设置文件" class="headerlink" title="备份设置文件"></a>备份设置文件</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -t &lt;your container name&gt; /bin/sh -c &#x27;umask 0077; tar cfz /secret/gitlab/backups/$(date &quot;+etc-gitlab-\%s.tgz&quot;) -C / etc/gitlab&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>注意 <code>/secret/gitlab/backups/</code> 在本地的文件挂载。</p>
+<p>备份文件在<code>/var/opt/gitlab/backups</code> 中 注意导出。</p>
+<p>还原是注意 <code>镜像版本</code> 的一致性。 不一致时有错误提示。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/omnibus/settings/backups.html">参考文档 1</a></p>
+<p>准备工作完成</p>
+<h2 id="重新安装-ubuntu"><a href="#重新安装-ubuntu" class="headerlink" title="重新安装 ubuntu"></a>重新安装 ubuntu</h2><p>下载最新<code>ubuntu</code>镜像安装。</p>
+<p><code>UI</code> 比之前强点…… </p>
+<p>注意开启<code>openssh</code></p>
+<h2 id="设置-ssh"><a href="#设置-ssh" class="headerlink" title="设置 ssh"></a>设置 ssh</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>修改端口<code>Port 22</code></p>
+<h3 id="添加-公钥"><a href="#添加-公钥" class="headerlink" title="添加 公钥"></a>添加 公钥</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir .ssh</span><br><span class="line">nano authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>复制公钥到<code>authorized_keys</code></p>
+<h3 id="重启-ssh-服务"><a href="#重启-ssh-服务" class="headerlink" title="重启 ssh 服务"></a>重启 ssh 服务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service sshd restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-zsh"><a href="#安装-zsh" class="headerlink" title="安装 zsh"></a>安装 zsh</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zsh</span><br><span class="line"></span><br><span class="line">chsh -s $(which zsh)</span><br></pre></td></tr></table></figure>
+
+<p>重新登录后检测</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh my zsh"></a>安装 oh my zsh</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置-zshrc"><a href="#设置-zshrc" class="headerlink" title="设置~/.zshrc"></a>设置<code>~/.zshrc</code></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;agnoster&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装powerline-fonts"><a href="#安装powerline-fonts" class="headerlink" title="安装powerline fonts"></a>安装powerline fonts</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fonts-powerline</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h2><p><a target="_blank" rel="noopener" href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">参考</a></p>
+<h3 id="更新包资源"><a href="#更新包资源" class="headerlink" title="更新包资源"></a>更新包资源</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装必要包"><a href="#安装必要包" class="headerlink" title="安装必要包"></a>安装必要包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install \</span><br><span class="line">    apt-transport-https \</span><br><span class="line">    ca-certificates \</span><br><span class="line">    curl \</span><br><span class="line">    gnupg-agent \</span><br><span class="line">    software-properties-common</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装公钥"><a href="#安装公钥" class="headerlink" title="安装公钥"></a>安装公钥</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</span><br></pre></td></tr></table></figure>
+
+<h3 id="验证公钥"><a href="#验证公钥" class="headerlink" title="验证公钥"></a>验证公钥</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-key fingerprint 0EBFCD88</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定版本"><a href="#指定版本" class="headerlink" title="指定版本"></a>指定版本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository \</span><br><span class="line">   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \</span><br><span class="line">   $(lsb_release -cs) \</span><br><span class="line">   stable&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io</span><br></pre></td></tr></table></figure>
+
+<h3 id="免去sudo"><a href="#免去sudo" class="headerlink" title="免去sudo"></a>免去sudo</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h4 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建链接"><a href="#创建链接" class="headerlink" title="创建链接"></a>创建链接</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
+<h2 id="还原-gitlab-备份"><a href="#还原-gitlab-备份" class="headerlink" title="还原 gitlab 备份"></a>还原 gitlab 备份</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it &lt;container name&gt; gitlab-rake gitlab:backup:restore</span><br></pre></td></tr></table></figure>
+
+<p>注意将文件挂载到<code>/var/opt/gitlab/backups</code></p>
+<h2 id="修改ip"><a href="#修改ip" class="headerlink" title="修改ip"></a>修改ip</h2><h3 id="ip设置文件位置"><a href="#ip设置文件位置" class="headerlink" title="ip设置文件位置"></a>ip设置文件位置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ls /etc/netplan/</span><br><span class="line">cd /etc/netplan/</span><br><span class="line">sudo nano 50-cloud-init.yaml</span><br><span class="line"></span><br><span class="line">sudo nano /etc/netplan/50-cloud-init.yaml</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改内容"><a href="#修改内容" class="headerlink" title="修改内容"></a>修改内容</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">enp0s3:</span><br><span class="line">    addresses: [192.168.13.131/24]</span><br><span class="line">    gateway4: 192.168.13.1</span><br><span class="line">    dhcp4: no</span><br><span class="line">    nameservers:</span><br><span class="line">      addresses: [1.1.1.1]</span><br><span class="line">    optional: true</span><br><span class="line"></span><br><span class="line">docker0: </span><br><span class="line">    addresses: [172.17.0.1/16]</span><br></pre></td></tr></table></figure>
+
+<p>原本内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enp0s3:</span><br><span class="line">    dhcp4: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="确认更改"><a href="#确认更改" class="headerlink" title="确认更改"></a>确认更改</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netplan apply</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>确认正在使用的ip</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1216,119 +1381,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://keleven.me/2019/02/10/53cecc0aae03/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="K11">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Keleven.Me">
-      <meta itemprop="description" content="千变万化的是世界">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Keleven.Me">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2019/02/10/53cecc0aae03/" class="post-title-link" itemprop="url">一些记录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-02-10 00:00:00" itemprop="dateCreated datePublished" datetime="2019-02-10T00:00:00+08:00">2019-02-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Living/" itemprop="url" rel="index"><span itemprop="name">Living</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/2019/02/10/53cecc0aae03/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/10/53cecc0aae03/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="2月9日"><a href="#2月9日" class="headerlink" title="2月9日"></a>2月9日</h1><h2 id="一些记录"><a href="#一些记录" class="headerlink" title="一些记录"></a>一些记录</h2><p>控制部分暂时本地化，之后开一个服务器也是必然。</p>
-<p>时间早晚的问题，最重要的是稳定。</p>
-<hr>
-<h1 id="2月10日"><a href="#2月10日" class="headerlink" title="2月10日"></a>2月10日</h1><h2 id="yubikey-otp-修正"><a href="#yubikey-otp-修正" class="headerlink" title="yubikey otp 修正"></a>yubikey otp 修正</h2><p>更新<code>bitbeans/yubikey</code> 到最新，<code>yubikey</code>官方关闭了<code>http</code>访问。</p>
-<p>之后验证功能正常<code>yubikey</code>的验证速度上没有<code>google 2FA</code>快，也并不是墙的问题。</p>
-<p>在<code>php 7.3</code> 版本下 <code>HTTPS_VERIFY</code> 无要求。</p>
-<p>在<code>php 7.2</code> 版本下 <code>HTTPS_VERIFY</code> 需要设置为<code>false</code> 可以正常使用。</p>
-<h2 id="修正Https访问"><a href="#修正Https访问" class="headerlink" title="修正Https访问"></a>修正<code>Https</code>访问</h2><p>修正不能使用<code>https</code>的问题。</p>
-<p><code>php 7.3</code> 版本下 <code>la5 opcache:status</code> 出现 <code>SSL certificate problem: unable to get local issuer certificate</code></p>
-<p>使用<code>php --ini</code> 确认<code>php.ini</code> 位置后添加 </p>
-<p><code>&#123;name&#125;</code>为当前用户 用户名</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl.cainfo = <span class="string">&quot;/Users/&#123;name&#125;/.config/valet/CA/LaravelValetCASelfSigned.pem&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>在<code>php 7.3</code>版本下 会出现<code>cURL error 77</code></p>
-<p>切换到<code>php 7.2</code> 后功能正常。</p>
-<h2 id="以上"><a href="#以上" class="headerlink" title="以上"></a>以上</h2>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/16/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/31/">31</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/18/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1352,7 +1404,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">252k</span>
+    <span title="Word count total">253k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
