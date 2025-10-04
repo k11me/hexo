@@ -11077,7 +11077,8 @@ gantt
   <entry>
     <title>日常</title>
     <url>/2025/10/04/cb09e16d02c5/</url>
-    <content><![CDATA[<h1 id="更新下"><a href="#更新下" class="headerlink" title="更新下"></a>更新下</h1><p>建模中，好累_(:з」∠)_</p>
+    <content><![CDATA[<h1 id="更新下"><a href="#更新下" class="headerlink" title="更新下"></a>更新下</h1><p>hexo 本地生成与上传后内容显示不一致不知道什么原因<br>疑似bug</p>
+<p>建模中，好累_(:з」∠)_</p>
 <p>山寨个罗森<br><img src="/images/post/2025-10-04/2025-10-03-145556.png"></p>
 <h2 id="更新hexo版本"><a href="#更新hexo版本" class="headerlink" title="更新hexo版本"></a>更新hexo版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//以下指令均在Hexo目录下操作，先定位到Hexo目录</span><br><span class="line">//查看当前版本，判断是否需要升级</span><br><span class="line">&gt; hexo version</span><br><span class="line"></span><br><span class="line">//全局升级hexo-cli</span><br><span class="line">&gt; npm i hexo-cli -g</span><br><span class="line"></span><br><span class="line">//再次查看版本，看hexo-cli是否升级成功</span><br><span class="line">&gt; hexo version</span><br><span class="line"></span><br><span class="line">//安装npm-check，若已安装可以跳过</span><br><span class="line">&gt; npm install -g npm-check</span><br><span class="line"></span><br><span class="line">//检查系统插件是否需要升级</span><br><span class="line">&gt; npm-check</span><br><span class="line"></span><br><span class="line">//安装npm-upgrade，若已安装可以跳过</span><br><span class="line">&gt; npm install -g npm-upgrade</span><br><span class="line"></span><br><span class="line">//更新package.json</span><br><span class="line">&gt; npm-upgrade</span><br><span class="line"></span><br><span class="line">//更新全局插件</span><br><span class="line">&gt; npm update -g</span><br><span class="line"></span><br><span class="line">//更新系统插件</span><br><span class="line">&gt; npm update --save</span><br><span class="line"></span><br><span class="line">//再次查看版本，判断是否升级成功</span><br><span class="line">&gt; hexo version</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -11085,6 +11086,7 @@ gantt
       </categories>
       <tags>
         <tag>日记</tag>
+        <tag>bug</tag>
       </tags>
   </entry>
 </search>
