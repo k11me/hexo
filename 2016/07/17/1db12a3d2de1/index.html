@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -16,18 +16,18 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"keleven.me","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"tomorrow-night-blue"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="TOC{:toc}  5 基本功能5.1 路由5.1.1 基本路由laravel所有的路由都可以定义在App&#x2F;Http&#x2F;routes.php文件，它会被App&#x2F;Providers&#x2F;RouteServiceProvider类载入。 下方是一个最基本的get与post。get接收URL，post为一个闭包。 1234567Route::get(&amp;#x27;foo&amp;#x27;, function ()">
+    <meta name="description" content="TOC{:toc}  5 基本功能5.1 路由5.1.1 基本路由laravel所有的路由都可以定义在App&#x2F;Http&#x2F;routes.php文件，它会被App&#x2F;Providers&#x2F;RouteServiceProvider类载入。 下方是一个最基本的get与post。get接收URL，post为一个闭包。 1234567Route::get(&#x27;foo&#x27;, function ()">
 <meta property="og:type" content="article">
 <meta property="og:title" content="laravel 学习指南 第五章 第一节">
 <meta property="og:url" content="http://keleven.me/2016/07/17/1db12a3d2de1/index.html">
 <meta property="og:site_name" content="Keleven.Me">
-<meta property="og:description" content="TOC{:toc}  5 基本功能5.1 路由5.1.1 基本路由laravel所有的路由都可以定义在App&#x2F;Http&#x2F;routes.php文件，它会被App&#x2F;Providers&#x2F;RouteServiceProvider类载入。 下方是一个最基本的get与post。get接收URL，post为一个闭包。 1234567Route::get(&amp;#x27;foo&amp;#x27;, function ()">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="TOC{:toc}  5 基本功能5.1 路由5.1.1 基本路由laravel所有的路由都可以定义在App&#x2F;Http&#x2F;routes.php文件，它会被App&#x2F;Providers&#x2F;RouteServiceProvider类载入。 下方是一个最基本的get与post。get接收URL，post为一个闭包。 1234567Route::get(&#x27;foo&#x27;, function ()">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/422303771/web/master/ubuntu/laravel/img/laravel_1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/422303771/web/master/ubuntu/laravel/img/laravel_2.png">
 <meta property="article:published_time" content="2016-07-16T16:00:00.000Z">
@@ -40,18 +40,38 @@
 <link rel="canonical" href="http://keleven.me/2016/07/17/1db12a3d2de1/">
 
 
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://keleven.me/2016/07/17/1db12a3d2de1/","path":"2016/07/17/1db12a3d2de1/","title":"laravel 学习指南 第五章 第一节"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://keleven.me/2016/07/17/1db12a3d2de1/","path":"2016/07/17/1db12a3d2de1/","title":"laravel 学习指南 第五章 第一节"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>laravel 学习指南 第五章 第一节 | Keleven.Me</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111519029-1"></script>
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-111519029-1","only_pageview":false}</script>
-  <script src="/js/third-party/analytics/google-analytics.js"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-111519029-1","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
 
 
 
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.5.0/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@11.10.1/dist/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
 
 
 
@@ -69,7 +89,7 @@
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -86,7 +106,7 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -95,9 +115,9 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
       </li>
   </ul>
@@ -106,25 +126,25 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="Searching..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
-
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -136,17 +156,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">5 基本功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E8%B7%AF%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">5.1 路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1"><span class="nav-number">2.1.</span> <span class="nav-text">5.1.1 基本路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-1-%E6%9C%89%E6%95%88%E7%9A%84%E8%B7%AF%E7%94%B1%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">5.1.1.1 有效的路由方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">5.1.2 路由参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-1-%E5%9F%BA%E7%A1%80%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.1.</span> <span class="nav-text">5.1.2.1 基础路由参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-2-%E9%80%89%E6%8B%A9%E6%80%A7%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.2.</span> <span class="nav-text">5.1.2.2 选择性路由参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-3-%E6%AD%A3%E5%88%99%E7%BA%A6%E6%9D%9F"><span class="nav-number">2.2.3.</span> <span class="nav-text">5.1.2.3 正则约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-4-%E5%85%A8%E5%B1%80%E7%BA%A6%E6%9D%9F"><span class="nav-number">2.2.4.</span> <span class="nav-text">5.1.2.4 全局约束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-3-%E5%91%BD%E4%BB%A4%E8%B7%AF%E7%94%B1"><span class="nav-number">2.3.</span> <span class="nav-text">5.1.3 命令路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-1-%E8%B7%AF%E7%94%B1%E7%BE%A4%E7%BB%84-amp-%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="nav-number">2.3.1.</span> <span class="nav-text">5.1.3.1 路由群组 &amp; 命名路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-2-%E4%B8%BA%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1%E7%94%9F%E6%88%90URL"><span class="nav-number">2.3.2.</span> <span class="nav-text">5.1.3.2 为命名路由生成URL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-4-%E8%B7%AF%E7%94%B1%E7%BE%A4%E7%BB%84"><span class="nav-number">2.4.</span> <span class="nav-text">5.1.4 路由群组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-1-%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.4.1.</span> <span class="nav-text">5.1.4.1 中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-2-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">2.4.2.</span> <span class="nav-text">5.1.4.2 命名空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-3-%E5%AD%90%E5%9F%9F%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="nav-number">2.4.3.</span> <span class="nav-text">5.1.4.3 子域名路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-4-%E8%B7%AF%E7%94%B1%E5%89%8D%E7%BC%80"><span class="nav-number">2.4.4.</span> <span class="nav-text">5.1.4.4 路由前缀</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-5-CSRF%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.5.</span> <span class="nav-text">5.1.5 CSRF保护</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-5-1-%E7%AE%80%E4%BB%8B"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1.5.1 简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-5-2-%E4%B8%8D%E5%8F%97-CSRF-%E4%BF%9D%E6%8A%A4%E7%9A%84-URIs"><span class="nav-number">2.6.</span> <span class="nav-text">5.1.5.2 不受 CSRF 保护的 URIs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-5-3-X-CSRF-Token"><span class="nav-number">2.6.1.</span> <span class="nav-text">5.1.5.3 X-CSRF-Token</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-5-4-X-XSRF-Token"><span class="nav-number">2.6.2.</span> <span class="nav-text">5.1.5.4 X-XSRF-Token</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-6-%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%9E%8B%E7%BB%91%E5%AE%9A"><span class="nav-number">2.7.</span> <span class="nav-text">5.1.6 路由模型绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-6-1-%E9%9A%90%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="nav-number">2.7.1.</span> <span class="nav-text">5.1.6.1 隐式绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-6-2-%E6%98%BE%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="nav-number">2.7.2.</span> <span class="nav-text">5.1.6.2 显式绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-7-%E8%A1%A8%E5%8D%95%E6%96%B9%E6%B3%95%E4%BC%AA%E9%80%A0"><span class="nav-number">2.8.</span> <span class="nav-text">5.1.7 表单方法伪造</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">5 基本功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E8%B7%AF%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">5.1 路由</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1"><span class="nav-number">2.1.</span> <span class="nav-text">5.1.1 基本路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-1-%E6%9C%89%E6%95%88%E7%9A%84%E8%B7%AF%E7%94%B1%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.1.</span> <span class="nav-text">5.1.1.1 有效的路由方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.</span> <span class="nav-text">5.1.2 路由参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-1-%E5%9F%BA%E7%A1%80%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.1.</span> <span class="nav-text">5.1.2.1 基础路由参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-2-%E9%80%89%E6%8B%A9%E6%80%A7%E8%B7%AF%E7%94%B1%E5%8F%82%E6%95%B0"><span class="nav-number">2.2.2.</span> <span class="nav-text">5.1.2.2 选择性路由参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-3-%E6%AD%A3%E5%88%99%E7%BA%A6%E6%9D%9F"><span class="nav-number">2.2.3.</span> <span class="nav-text">5.1.2.3 正则约束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-2-4-%E5%85%A8%E5%B1%80%E7%BA%A6%E6%9D%9F"><span class="nav-number">2.2.4.</span> <span class="nav-text">5.1.2.4 全局约束</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-3-%E5%91%BD%E4%BB%A4%E8%B7%AF%E7%94%B1"><span class="nav-number">2.3.</span> <span class="nav-text">5.1.3 命令路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-1-%E8%B7%AF%E7%94%B1%E7%BE%A4%E7%BB%84-%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="nav-number">2.3.1.</span> <span class="nav-text">5.1.3.1 路由群组 &amp; 命名路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-3-2-%E4%B8%BA%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1%E7%94%9F%E6%88%90URL"><span class="nav-number">2.3.2.</span> <span class="nav-text">5.1.3.2 为命名路由生成URL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-4-%E8%B7%AF%E7%94%B1%E7%BE%A4%E7%BB%84"><span class="nav-number">2.4.</span> <span class="nav-text">5.1.4 路由群组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-1-%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="nav-number">2.4.1.</span> <span class="nav-text">5.1.4.1 中间件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-2-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="nav-number">2.4.2.</span> <span class="nav-text">5.1.4.2 命名空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-3-%E5%AD%90%E5%9F%9F%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="nav-number">2.4.3.</span> <span class="nav-text">5.1.4.3 子域名路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-4-4-%E8%B7%AF%E7%94%B1%E5%89%8D%E7%BC%80"><span class="nav-number">2.4.4.</span> <span class="nav-text">5.1.4.4 路由前缀</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-5-CSRF%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.5.</span> <span class="nav-text">5.1.5 CSRF保护</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-5-1-%E7%AE%80%E4%BB%8B"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1.5.1 简介</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-5-2-%E4%B8%8D%E5%8F%97-CSRF-%E4%BF%9D%E6%8A%A4%E7%9A%84-URIs"><span class="nav-number">2.6.</span> <span class="nav-text">5.1.5.2 不受 CSRF 保护的 URIs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-5-3-X-CSRF-Token"><span class="nav-number">2.6.1.</span> <span class="nav-text">5.1.5.3 X-CSRF-Token</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-5-4-X-XSRF-Token"><span class="nav-number">2.6.2.</span> <span class="nav-text">5.1.5.4 X-XSRF-Token</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-6-%E8%B7%AF%E7%94%B1%E6%A8%A1%E5%9E%8B%E7%BB%91%E5%AE%9A"><span class="nav-number">2.7.</span> <span class="nav-text">5.1.6 路由模型绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-6-1-%E9%9A%90%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="nav-number">2.7.1.</span> <span class="nav-text">5.1.6.1 隐式绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-6-2-%E6%98%BE%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="nav-number">2.7.2.</span> <span class="nav-text">5.1.6.2 显式绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-7-%E8%A1%A8%E5%8D%95%E6%96%B9%E6%B3%95%E4%BC%AA%E9%80%A0"><span class="nav-number">2.8.</span> <span class="nav-text">5.1.7 表单方法伪造</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -161,19 +181,19 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">304</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-count">305</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
         <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">categories</span></a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
         <span class="site-state-item-count">43</span>
-        <span class="site-state-item-name">tags</span></a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -187,6 +207,9 @@
       <span class="links-of-author-item">
         <a href="https://www.instagram.com/_y.o_o.y_/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;_y.o_o.y_&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
       </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
         </div>
@@ -209,7 +232,7 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://keleven.me/2016/07/17/1db12a3d2de1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -237,22 +260,22 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">Posted on</span>
+      <span class="post-meta-item-text">发表于</span>
 
-      <time title="Created: 2016-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-17T00:00:00+08:00">2016-07-17</time>
+      <time title="创建时间：2016-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-17T00:00:00+08:00">2016-07-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-01-01 21:55:11" itemprop="dateModified" datetime="2022-01-01T21:55:11+08:00">2022-01-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">In</span>
+      <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/laravel/" itemprop="url" rel="index"><span itemprop="name">laravel</span></a>
         </span>
@@ -265,7 +288,7 @@
       <span class="post-meta-item-icon">
         <i class="far fa-comment"></i>
       </span>
-      <span class="post-meta-item-text">Disqus: </span>
+      <span class="post-meta-item-text">Disqus：</span>
     
     <a title="disqus" href="/2016/07/17/1db12a3d2de1/#disqus_thread" itemprop="discussionUrl">
       <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/17/1db12a3d2de1/" itemprop="commentCount"></span>
@@ -286,79 +309,79 @@
 </ul>
 <h2 id="5-基本功能"><a href="#5-基本功能" class="headerlink" title="5 基本功能"></a>5 基本功能</h2><h2 id="5-1-路由"><a href="#5-1-路由" class="headerlink" title="5.1 路由"></a>5.1 路由</h2><h3 id="5-1-1-基本路由"><a href="#5-1-1-基本路由" class="headerlink" title="5.1.1 基本路由"></a>5.1.1 基本路由</h3><p>laravel所有的路由都可以定义在<code>App/Http/routes.php</code>文件，它会被<code>App/Providers/RouteServiceProvider</code>类载入。</p>
 <p>下方是一个最基本的<code>get</code>与<code>post</code>。<code>get</code>接收URL，<code>post</code>为一个闭包。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;foo&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Route::post(<span class="string">&#x27;foo&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;foo&#x27;</span>, function () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">post</span>(<span class="string">&#x27;foo&#x27;</span>, function () &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>默认情况下，<code>routes.php</code>文件包含单个路由和一个套用<code>web</code>中间件的路由组。</p>
 <p>这个中间件路由组提供了<code>session</code>状态以及<code>CSRF</code>保护。</p>
 <p>一般情况下，会将全部路由放置在这个路由组。</p>
 <h4 id="5-1-1-1-有效的路由方法"><a href="#5-1-1-1-有效的路由方法" class="headerlink" title="5.1.1.1 有效的路由方法"></a>5.1.1.1 有效的路由方法</h4><p>注册路由来响应任何HTTP请求：</p>
 <p>下方是HTTP请求方法：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line">Route::post(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line">Route::put(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line">Route::patch(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line">Route::delete(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line">Route::options(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">post</span>(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">put</span>(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">patch</span>(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">delete</span>(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">options</span>(<span class="variable">$uri</span>, <span class="variable">$callback</span>);</span><br></pre></td></tr></table></figure>
 <p>有时候还需要注册路由响应多个HTTP请求，这时可以使用<code>match</code>方法来实现。甚至可以使用<code>any</code>方法注册一个路由来响应所有HTTP请求：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::match([<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;post&#x27;</span>], <span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Route::any(<span class="string">&#x27;foo&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="keyword">match</span>([<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;post&#x27;</span>], <span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">any</span>(<span class="string">&#x27;foo&#x27;</span>, function () &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>当路由过多时，使用<code>控制器</code>是个好方法。</p>
 </blockquote>
 <hr>
 <h3 id="5-1-2-路由参数"><a href="#5-1-2-路由参数" class="headerlink" title="5.1.2 路由参数"></a>5.1.2 路由参数</h3><h4 id="5-1-2-1-基础路由参数"><a href="#5-1-2-1-基础路由参数" class="headerlink" title="5.1.2.1 基础路由参数"></a>5.1.2.1 基础路由参数</h4><p>有时可能需要在路由中捕获URL片段。比如，要从URL中捕获用户ID，需要通过下方代码定义路由参数：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;User &#x27;</span>.<span class="variable">$id</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, function (<span class="variable">$id</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;User &#x27;</span>.<span class="variable">$id</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>可以按照需要在路由中定义多个路由参数：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;posts/&#123;post&#125;/comments/&#123;comment&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$postId</span>, <span class="variable">$commentId</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>路由参数总是通过<code>&#123; &#125;</code>进行包裹，这些参数在路由被执行时会被传递到路由的闭包。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;posts/&#123;post&#125;/comments/&#123;comment&#125;&#x27;</span>, function (<span class="variable">$postId</span>, <span class="variable">$commentId</span>) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>路由参数总是通过<code>{ }</code>进行包裹，这些参数在路由被执行时会被传递到路由的闭包。</p>
 <p><em>注意：路由参数不能包含<code>-</code>,要使用<code>_</code>替换。</em></p>
 <h4 id="5-1-2-2-选择性路由参数"><a href="#5-1-2-2-选择性路由参数" class="headerlink" title="5.1.2.2 选择性路由参数"></a>5.1.2.2 选择性路由参数</h4><p>有时候可能需要指定可选的路由参数，这可以通过在参数后加<code>?</code>标记来实现，这种情况下需要指定变量的默认值：</p>
 <p>下方代码先设定<code>name可以为空</code>，再设定默认<code>name为John</code>。 </p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/&#123;name?&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$name</span> = <span class="literal">null</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$name</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">&#x27;user/&#123;name?&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$name</span> = <span class="string">&#x27;John&#x27;</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$name</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;name?&#125;&#x27;</span>, function (<span class="variable">$name</span> = <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$name</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;name?&#125;&#x27;</span>, function (<span class="variable">$name</span> = <span class="string">&#x27;John&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$name</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 
 <h4 id="5-1-2-3-正则约束"><a href="#5-1-2-3-正则约束" class="headerlink" title="5.1.2.3 正则约束"></a>5.1.2.3 正则约束</h4><p>路由设置中可以使用<code>where</code>方法来约束路由参数。<code>where</code>方法接收参数名和一个正则表达式来定义参数如何被约束：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/&#123;name&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$name</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;)-&gt;where(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;[A-Za-z]+&#x27;</span>);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;)-&gt;where(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;[0-9]+&#x27;</span>);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">&#x27;user/&#123;id&#125;/&#123;name&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span>, <span class="variable">$name</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;)-&gt;where([<span class="string">&#x27;id&#x27;</span> =&gt; <span class="string">&#x27;[0-9]+&#x27;</span>, <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;[a-z]+&#x27;</span>]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;name&#125;&#x27;</span>, function (<span class="variable">$name</span>) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;[A-Za-z]+&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, function (<span class="variable">$id</span>) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;[0-9]+&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;id&#125;/&#123;name&#125;&#x27;</span>, function (<span class="variable">$id</span>, <span class="variable">$name</span>) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">where</span>([<span class="string">&#x27;id&#x27;</span> =&gt; <span class="string">&#x27;[0-9]+&#x27;</span>, <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;[a-z]+&#x27;</span>]);</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-1-2-4-全局约束"><a href="#5-1-2-4-全局约束" class="headerlink" title="5.1.2.4 全局约束"></a>5.1.2.4 全局约束</h4><p>如果想要全局约束，可以使用<code>pattern</code>方法。在<code>RouteServiceProvider</code>类的<code>boot</code>方式中定义约束：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义路由模型绑定，模式过滤器等</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  \Illuminate\Routing\Router  $router</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@translator</span>  http://laravelacademy.org</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params">Router <span class="variable">$router</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$router</span>-&gt;pattern(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;[0-9]+&#x27;</span>);</span><br><span class="line">    <span class="built_in">parent</span>::boot(<span class="variable">$router</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义路由模型绑定，模式过滤器等</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span>  \Illuminate\Routing\Router  $router</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@translator</span>  http://laravelacademy.org</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params">Router <span class="variable">$router</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">pattern</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;[0-9]+&#x27;</span>);</span><br><span class="line">    <span class="built_in">parent</span>::<span class="title function_ invoke__">boot</span>(<span class="variable">$router</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一旦模式被定义，将会自动应用到所有包含参数名的路由中：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 只有当 &#123;id&#125; 是数字时才会被调用</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, function (<span class="variable">$id</span>) &#123;</span><br><span class="line">    <span class="comment">// 只有当 &#123;id&#125; 是数字时才会被调用</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>上方例子中限定<code>id</code>只能是数字。</p>
 <hr>
 <h3 id="5-1-3-命令路由"><a href="#5-1-3-命令路由" class="headerlink" title="5.1.3 命令路由"></a>5.1.3 命令路由</h3><p>命令路由为生成URL或重新定向提供方便。在定义路由是使用<code>as</code>指定路由名称：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/profile&#x27;</span>, [<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;profile&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/profile&#x27;</span>, [<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;profile&#x27;</span>, function () &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
 <p>此外，还可以为控制器动作指定路由名称：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/profile&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;uses&#x27;</span> =&gt; <span class="string">&#x27;UserController@showProfile&#x27;</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/profile&#x27;</span>, [</span><br><span class="line">    <span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;profile&#x27;</span>, <span class="string">&#x27;uses&#x27;</span> =&gt; <span class="string">&#x27;UserController@showProfile&#x27;</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 <p>还有另一种，路由命名的方法，比如使用<code>name</code>方式来实现：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/profile&#x27;</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">&#125;)-&gt;name(<span class="string">&#x27;profile&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/profile&#x27;</span>,function () &#123;</span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">name</span>(<span class="string">&#x27;profile&#x27;</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/422303771/web/master/ubuntu/laravel/img/laravel_1.png"></p>
-<h4 id="5-1-3-1-路由群组-amp-命名路由"><a href="#5-1-3-1-路由群组-amp-命名路由" class="headerlink" title="5.1.3.1 路由群组 &amp; 命名路由"></a>5.1.3.1 路由群组 &amp; 命名路由</h4><p>如果你在使用路由群组，可以通过在路由群组的属性数组中指定<code>as</code>关键字来为群组的路由设置一个共用的路由名前缀：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;admin::&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    Route::get(<span class="string">&#x27;dashboard&#x27;</span>, [<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;dashboard&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 路由被命名为 &quot;admin::dashboard&quot;</span></span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="5-1-3-1-路由群组-命名路由"><a href="#5-1-3-1-路由群组-命名路由" class="headerlink" title="5.1.3.1 路由群组 &amp; 命名路由"></a>5.1.3.1 路由群组 &amp; 命名路由</h4><p>如果你在使用路由群组，可以通过在路由群组的属性数组中指定<code>as</code>关键字来为群组的路由设置一个共用的路由名前缀：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;admin::&#x27;</span>], function () &#123;</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;dashboard&#x27;</span>, [<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;dashboard&#x27;</span>, function () &#123;</span><br><span class="line">        <span class="comment">// 路由被命名为 &quot;admin::dashboard&quot;</span></span><br><span class="line">    &#125;]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/422303771/web/master/ubuntu/laravel/img/laravel_2.png"></p>
 <h4 id="5-1-3-2-为命名路由生成URL"><a href="#5-1-3-2-为命名路由生成URL" class="headerlink" title="5.1.3.2 为命名路由生成URL"></a>5.1.3.2 为命名路由生成URL</h4><p>如果为给定路由进行了命名，就可以通过全局<code>route</code>函数为该命名路由生成对应URL，或者重新定向：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$url</span> = route(<span class="string">&#x27;profile&#x27;</span>);		<span class="comment">//产生URL</span></span><br><span class="line"><span class="variable">$redirect</span> = redirect()-&gt;route(<span class="string">&#x27;profile&#x27;</span>);		<span class="comment">//重新定向</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$url</span> = <span class="title function_ invoke__">route</span>(<span class="string">&#x27;profile&#x27;</span>);		<span class="comment">//产生URL</span></span><br><span class="line"><span class="variable">$redirect</span> = <span class="title function_ invoke__">redirect</span>()-&gt;<span class="title function_ invoke__">route</span>(<span class="string">&#x27;profile&#x27;</span>);		<span class="comment">//重新定向</span></span><br></pre></td></tr></table></figure>
 <p>如果命名路由定义了参数，可以将该参数作为第二个参数穿传递给<code>route</code>函数。路由参数会自动插入URL中。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;user/&#123;id&#125;/profile&#x27;</span>, [<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;profile&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">     <span class="comment">//</span></span><br><span class="line">&#125;]);</span><br><span class="line"><span class="variable">$url</span> = route(<span class="string">&#x27;profile&#x27;</span>, [<span class="string">&#x27;id&#x27;</span> =&gt; <span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;id&#125;/profile&#x27;</span>, [<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;profile&#x27;</span>, function (<span class="variable">$id</span>) &#123;</span><br><span class="line">     <span class="comment">//</span></span><br><span class="line">&#125;]);</span><br><span class="line"><span class="variable">$url</span> = <span class="title function_ invoke__">route</span>(<span class="string">&#x27;profile&#x27;</span>, [<span class="string">&#x27;id&#x27;</span> =&gt; <span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h3 id="5-1-4-路由群组"><a href="#5-1-4-路由群组" class="headerlink" title="5.1.4 路由群组"></a>5.1.4 路由群组</h3><p>路由组允许共享路由属性，比如中间件与命名空间等。这样利用路由群组套用这些属性到多个路由，而不需要在每个路由都设定一次。</p>
 <p>共享属性被要求为数组格式。共享属性作为第一个参数被传递给<code>Route::group</code>方法。</p>
 <h4 id="5-1-4-1-中间件"><a href="#5-1-4-1-中间件" class="headerlink" title="5.1.4.1 中间件"></a>5.1.4.1 中间件</h4><p>要给路由组中所有路由分配中间件，可以在群组属性中使用<code>middleware</code>。中间件将会按照数组中定义的顺序依次执行：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">&#x27;middleware&#x27;</span> =&gt; <span class="string">&#x27;auth&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 使用 Auth 中间件</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    Route::get(<span class="string">&#x27;user/profile&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 使用 Auth 中间件</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;middleware&#x27;</span> =&gt; <span class="string">&#x27;auth&#x27;</span>], function () &#123;</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;/&#x27;</span>, function () &#123;</span><br><span class="line">        <span class="comment">// 使用 Auth 中间件</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/profile&#x27;</span>, function () &#123;</span><br><span class="line">        <span class="comment">// 使用 Auth 中间件</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-1-4-2-命名空间"><a href="#5-1-4-2-命名空间" class="headerlink" title="5.1.4.2 命名空间"></a>5.1.4.2 命名空间</h4><p>另一个例子，指定相同的PHP命名空间下多个控制器，可以在分组属性数组中使用<code>namespace</code>来指定群组中所有控制器的公共命名空间：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">&#x27;namespace&#x27;</span> =&gt; <span class="string">&#x27;Admin&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 控制器在 &quot;App\Http\Controllers\Admin&quot; 命名空间下</span></span><br><span class="line"></span><br><span class="line">    Route::group([<span class="string">&#x27;namespace&#x27;</span> =&gt; <span class="string">&#x27;User&#x27;</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 控制器在 &quot;App\Http\Controllers\Admin\User&quot; 命名空间下</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;namespace&#x27;</span> =&gt; <span class="string">&#x27;Admin&#x27;</span>], function()&#123;</span><br><span class="line">    <span class="comment">// 控制器在 &quot;App\Http\Controllers\Admin&quot; 命名空间下</span></span><br><span class="line"></span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;namespace&#x27;</span> =&gt; <span class="string">&#x27;User&#x27;</span>], function()&#123;</span><br><span class="line">        <span class="comment">// 控制器在 &quot;App\Http\Controllers\Admin\User&quot; 命名空间下</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>默认情况下，<code>RouteServiceProvider</code>会在命名空间群组内导入<code>routes.php</code>文件，让你不用指定完整<code>App/Http/Controllers</code>命令空间，就能注册控制器。所有，只需要指定在<code>App/Http/Controllers</code>之后的命名。</p>
 <h4 id="5-1-4-3-子域名路由"><a href="#5-1-4-3-子域名路由" class="headerlink" title="5.1.4.3 子域名路由"></a>5.1.4.3 子域名路由</h4><p>子域名可以像URL一样被分配给路由参数，从而允许捕获子域名的部分用于路由或者控制器，子域名可以通过群组属性中的<code>domani</code>来指定：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">&#x27;domain&#x27;</span> =&gt; <span class="string">&#x27;&#123;account&#125;.myapp.com&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    Route::get(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$account</span>, <span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;domain&#x27;</span> =&gt; <span class="string">&#x27;&#123;account&#125;.myapp.com&#x27;</span>], function () &#123;</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, function (<span class="variable">$account</span>, <span class="variable">$id</span>) &#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><em>注意：其中的{account}可以随意修改的。{id}也是可以随意更改的。</em></p>
 <h4 id="5-1-4-4-路由前缀"><a href="#5-1-4-4-路由前缀" class="headerlink" title="5.1.4.4 路由前缀"></a>5.1.4.4 路由前缀</h4><p><code>prefix</code>群组属性，用来为群组中每个路由添加一个给定URL前缀。</p>
 <p>例如，你可以为所有路由URL添加<code>admin</code>前缀：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">&#x27;prefix&#x27;</span> =&gt; <span class="string">&#x27;admin&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    Route::get(<span class="string">&#x27;users&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 匹配 &quot;/admin/users&quot; URL</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;prefix&#x27;</span> =&gt; <span class="string">&#x27;admin&#x27;</span>], function () &#123;</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;users&#x27;</span>, function () &#123;</span><br><span class="line">        <span class="comment">// 匹配 &quot;/admin/users&quot; URL</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>还可以使用<code>prefix</code>参数为路由组指定公共路由参数：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">&#x27;prefix&#x27;</span> =&gt; <span class="string">&#x27;accounts/&#123;account_id&#125;&#x27;</span>], <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    Route::get(<span class="string">&#x27;detail&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$account_id</span></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 匹配 accounts/&#123;account_id&#125;/detail URL</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;prefix&#x27;</span> =&gt; <span class="string">&#x27;accounts/&#123;account_id&#125;&#x27;</span>], function () &#123;</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;detail&#x27;</span>, function (<span class="variable">$account_id</span>) &#123;</span><br><span class="line">        <span class="comment">// 匹配 accounts/&#123;account_id&#125;/detail URL</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h3 id="5-1-5-CSRF保护"><a href="#5-1-5-CSRF保护" class="headerlink" title="5.1.5 CSRF保护"></a>5.1.5 CSRF保护</h3><h4 id="5-1-5-1-简介"><a href="#5-1-5-1-简介" class="headerlink" title="5.1.5.1 简介"></a>5.1.5.1 简介</h4><p>CSRF指跨网站请求伪造。跨网站请求伪伪造是一种恶意攻击，透过经身份验证的使用者身份执行未经授权的命令。</p>
 <p>laravel会自动产生一个CSRF令牌给每个被应用管理的有效的用户，该令牌用于验证授权用户和发起请求者是否为同一个人。</p>
 <p>想要生成包含CSRF令牌的隐藏输入字段，可以使用<code>csrf_field</code>函数来实现：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> csrf_field(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="title function_ invoke__">csrf_field</span>(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p><code>csrf_field</code>函数会生成如下HTML：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;_token&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&lt;?php echo csrf_token(); ?&gt;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>当然推荐使用<code>Blade</code>引擎模板提供的方式：</p>
@@ -367,14 +390,14 @@
 <p>只要将请求中的输入<code>token</code>和Session中存储的<code>token</code>作对比来进行验证。</p>
 <h3 id="5-1-5-2-不受-CSRF-保护的-URIs"><a href="#5-1-5-2-不受-CSRF-保护的-URIs" class="headerlink" title="5.1.5.2 不受 CSRF 保护的 URIs"></a>5.1.5.2 不受 CSRF 保护的 URIs</h3><p>有时需要从CSRF保护中排除一些URL。比如，如果使用<code>Stripe</code>来处理支付并用到他们的webhook系统，这时就需要从laravel的CSRF保护中排除webhook处理路由。</p>
 <p>要实现这一目的，需要在<code>VerifyCsrfToken</code>中间件中将要排除的URL添加到<code>$except</code>属性：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Middleware</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Foundation</span>\<span class="title">Http</span>\<span class="title">Middleware</span>\<span class="title">VerifyCsrfToken</span> <span class="title">as</span> <span class="title">BaseVerifier</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VerifyCsrfToken</span> <span class="keyword">extends</span> <span class="title">BaseVerifier</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *从CSRF验证中排除的URL</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$except</span> = [</span><br><span class="line">        <span class="string">&#x27;stripe/*&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Middleware</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Foundation</span>\<span class="title">Http</span>\<span class="title">Middleware</span>\<span class="title">VerifyCsrfToken</span> <span class="keyword">as</span> <span class="title">BaseVerifier</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VerifyCsrfToken</span> <span class="keyword">extends</span> <span class="title">BaseVerifier</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *从CSRF验证中排除的URL</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$except</span> = [</span><br><span class="line">        <span class="string">&#x27;stripe/*&#x27;</span>,</span><br><span class="line">    ];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-1-5-3-X-CSRF-Token"><a href="#5-1-5-3-X-CSRF-Token" class="headerlink" title="5.1.5.3 X-CSRF-Token"></a>5.1.5.3 X-CSRF-Token</h4><p>除了检查当前POST参数的CDSRF令牌外，在laravel的<code>VerifyCsrfToken</code>中介层也会确认请求头部中的<code>X-CSRF-Token</code>。</p>
 <p>例如，可以将其存储在meta标签中：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;csrf-token&quot;</span> <span class="attr">content</span>=<span class="string">&quot;&#123;&#123; csrf_token() &#125;&#125;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>一旦建立了<code>meta</code>标签，就可以使用jQuery之类的函数库，将<code>令牌</code>加入到所有请求头部。</p>
 <p>这为基于AJAX的应用提供了简单、方便的方式来避免CSRF攻击。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.ajaxSetup(&#123;</span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;X-CSRF-TOKEN&#x27;</span>: $(<span class="string">&#x27;meta[name=&quot;csrf-token&quot;]&#x27;</span>).attr(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajaxSetup</span>(&#123;</span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;X-CSRF-TOKEN&#x27;</span>: $(<span class="string">&#x27;meta[name=&quot;csrf-token&quot;]&#x27;</span>).<span class="title function_">attr</span>(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-1-5-4-X-XSRF-Token"><a href="#5-1-5-4-X-XSRF-Token" class="headerlink" title="5.1.5.4 X-XSRF-Token"></a>5.1.5.4 X-XSRF-Token</h4><p>laravel还会将CSRF令牌保存到名为<code>XSRF-TOKEN</code>的Cookie中，可以使用该Cookie值来设置<code>X-XSRF-TOKEN</code>请求头。</p>
 <p>一些javascript框架，比如Angular，会为你自动进行设置，基本上不太需要手动设置这个值。</p>
@@ -382,7 +405,7 @@
 <h3 id="5-1-6-路由模型绑定"><a href="#5-1-6-路由模型绑定" class="headerlink" title="5.1.6 路由模型绑定"></a>5.1.6 路由模型绑定</h3><p>laravel路由模型绑定提供了一个方便的方式来注入类至路由中。</p>
 <p>例如，可以将匹配到<code>ID</code>的整个User类注入到路由中，而不是直接注入用户ID。</p>
 <h4 id="5-1-6-1-隐式绑定"><a href="#5-1-6-1-隐式绑定" class="headerlink" title="5.1.6.1 隐式绑定"></a>5.1.6.1 隐式绑定</h4><p>laravel会自动解析定义在路由或控制器动作（变量名匹配路由片段）中的Eloquent模型类型声明，例如：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;api/users/&#123;user&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">App\User <span class="variable">$user</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$user</span>-&gt;email;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;api/users/&#123;user&#125;&#x27;</span>, function (App\User <span class="variable">$user</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$user</span>-&gt;email;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>这个例子中，路由URL的<code>user</code>符合<code>$user</code>实例的ELoquent模型，所以laravel会自动注入与请求URL的ID对应的模型实例。</p>
 <p>如果找不到对应的模型实例，会自动生成HTTP404响应。</p>
@@ -397,26 +420,26 @@
 <p>必须在<code>RouteServiceProvider::boot</code>方法中定义模型绑定。</p>
 <ul>
 <li><p><strong>绑定参数到模型</strong></p>
-  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params">Router <span class="variable">$router</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">parent</span>::boot(<span class="variable">$router</span>);</span><br><span class="line">    <span class="variable">$router</span>-&gt;model(<span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;App\User&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span>(<span class="params">Router <span class="variable">$router</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">parent</span>::<span class="title function_ invoke__">boot</span>(<span class="variable">$router</span>);</span><br><span class="line">    <span class="variable">$router</span>-&gt;<span class="title function_ invoke__">model</span>(<span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;App\User&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  接下来，定义一个包含<code>user</code>参数的路由：</p>
-  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$router</span>-&gt;get(<span class="string">&#x27;profile/&#123;user&#125;&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">App\User <span class="variable">$user</span></span>) </span>&#123;</span><br><span class="line">     <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>  由于已经绑定<code>&#123;user&#125;</code>参数到<code>App\User</code>模型，User实例会被注入到该路由。因此，如果请求URL是<code>profile/1</code>,就会注入一个用户ID为1的User实例。</p>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$router</span>-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;profile/&#123;user&#125;&#x27;</span>, function(App\User <span class="variable">$user</span>) &#123;</span><br><span class="line">     <span class="comment">//</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>  由于已经绑定<code>{user}</code>参数到<code>App\User</code>模型，User实例会被注入到该路由。因此，如果请求URL是<code>profile/1</code>,就会注入一个用户ID为1的User实例。</p>
 <p>  如果匹配的模型实例在数据库不存在，会自动生成并返回HTTP404响应。</p>
 </li>
-<li><p><strong>自定义解析逻辑</strong>    </p>
+<li><p><strong>自定义解析逻辑</strong>	</p>
 <p>  如果想要使用自定义的解析逻辑需要使用<code>Route::bind</code>方法，传递到<code>bind</code>方法的闭关会获取到URL请求的参数中的值，并返回你想要在该路由中注入的类实例：</p>
-  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$router</span>-&gt;bind(<span class="string">&#x27;user&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"><span class="variable">$value</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> App\User::where(<span class="string">&#x27;name&#x27;</span>, <span class="variable">$value</span>)-&gt;first();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$router</span>-&gt;<span class="title function_ invoke__">bind</span>(<span class="string">&#x27;user&#x27;</span>, function(<span class="variable">$value</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">App\User</span>::<span class="title function_ invoke__">where</span>(<span class="string">&#x27;name&#x27;</span>, <span class="variable">$value</span>)-&gt;<span class="title function_ invoke__">first</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>自定义”Not Found”</strong></p>
 <p>  如果想要指定自己的<code>Not Found</code>行为，将封装该行为的闭包作为第三个参数传递给<code>model</code>方法</p>
-  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$router</span>-&gt;model(<span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;App\User&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> NotFoundHttpException;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$router</span>-&gt;<span class="title function_ invoke__">model</span>(<span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;App\User&#x27;</span>, function() &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NotFoundHttpException</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
 </ul>
 <hr>
 <h3 id="5-1-7-表单方法伪造"><a href="#5-1-7-表单方法伪造" class="headerlink" title="5.1.7 表单方法伪造"></a>5.1.7 表单方法伪造</h3><p>HTML表单不支持PUT、PATCH或者DELETE请求方法。当使用这些路由时，需要添加一个隐藏的<code>_method</code>字段到表单中，其值被用作该表单的HTTP请求方法：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/foo/bar&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;_method&quot;</span> <span class="attr">value</span>=<span class="string">&quot;PUT&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;_token&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123; csrf_token() &#125;&#125;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>还可以使用辅助函数<code>method_field</code>来实现这一目的：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> method_field(<span class="string">&#x27;PUT&#x27;</span>); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> <span class="title function_ invoke__">method_field</span>(<span class="string">&#x27;PUT&#x27;</span>); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>当然，也支持Blade模板引擎：</p>
-<pre><code>&#123;method——field(&#39;PUT&#39;)&#125;  
+<pre><code>{method——field(&#39;PUT&#39;)}  
 </code></pre>
 <hr>
 
@@ -427,6 +450,23 @@
     
 
     <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>K11
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://keleven.me/2016/07/17/1db12a3d2de1/" title="laravel 学习指南 第五章 第一节">http://keleven.me/2016/07/17/1db12a3d2de1/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
 
         
 
@@ -475,16 +515,16 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">253k</span>
+    <span title="站点总字数">97k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">3:50</span>
+    <span title="站点阅读时长">5:53</span>
   </span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
@@ -497,7 +537,7 @@
     <span class="toggle-line"></span>
   </div>
   <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
+  <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
   </div>
@@ -505,30 +545,8 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.1/dist/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js","integrity":"sha256-K7oJiQlDulzl24ZUFOywuYme1JqBBvQzK6m8qHjt9Gk="}}</script>
-  <script src="/js/third-party/tags/mermaid.js"></script>
-
-
-
-
-
-  
-
-
-
-
 <script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"keleven","count":true,"i18n":{"disqus":"disqus"}}</script>
-<script src="/js/third-party/comments/disqus.js"></script>
+<script src="/js/third-party/comments/disqus.js" defer></script>
 
 </body>
 </html>
